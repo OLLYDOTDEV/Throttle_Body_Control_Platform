@@ -1,4 +1,5 @@
-#include "C:\Users\%USERNAME%\Documents\GitHub\Throttle_Body_Control_Platform\CODE\R&D\Serial Studio\Send_Serial_Data.h"
+#include <arduino.h>
+#include <Send_Serial_Data.h>
 
 void setup() {
   // put your setup code here, to run once:
