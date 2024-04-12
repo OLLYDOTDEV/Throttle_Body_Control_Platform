@@ -21,7 +21,7 @@ void Send_Serial_Frame(Args... args)
 // Call when serial studio communication mode: Parse via JSON project
 // Usage: setup() to take raw JSON and format it.
 char* Format_Raw_JSON(const char *RAW_JSON_LOCAL) {
-    StaticJsonDocument<1024> doc;
+    JsonDocument doc;
     deserializeJson(doc, RAW_JSON_LOCAL);
 
     // Remove unnecessary members
