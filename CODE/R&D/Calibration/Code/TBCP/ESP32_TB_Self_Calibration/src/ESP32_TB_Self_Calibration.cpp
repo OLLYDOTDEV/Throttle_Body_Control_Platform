@@ -10,7 +10,7 @@
   5. Motor Direction: Enumerates the directions of the motor.
   6. Feedback Calibration: Calibrates the feedback signals from the throttle body.
   7. Find Control Range: Searches for the control range of the throttle body.
-  
+
   The code initializes Serial communication, sets pin modes, configures LEDC PWM, and performs calibration during the setup. In the loop function, the main control loop is intended to be implemented to adjust PWM based on feedback signals.
 
   This code is intended to be used with an ESP32 board to control a motorized throttle body for automotive applications.
@@ -41,17 +41,16 @@ Bit resolution | Min Frequency [Hz] | Max Frequency [Hz]
 
 */
 
-
 #include <Arduino.h>
 #include <driver/ledc.h>
 
 // Define PWM parameters
 const int PWM_Channel = 0;
-const int PWM_Frequency = 500;        // 500 Hz
-const int PWM_Resolution = 12;        // resolution
-const int PWM_Dutycycle_Percent = 0;  // 0% duty cycle
+const int PWM_Frequency = 500;       // 500 Hz
+const int PWM_Resolution = 12;       // resolution
+const int PWM_Dutycycle_Percent = 0; // 0% duty cycle
 
-const int PWM_Clock_Speed = 80 * 1000000;  // Corrected the calculation from 10^6 to 1000000
+const int PWM_Clock_Speed = 80 * 1000000; // Corrected the calculation from 10^6 to 1000000
 int Bit_Depth = 0;
 
 // Define pins for H bridge control
@@ -64,7 +63,7 @@ const int Feedback_Pin_Main = 35;
 const int Feedback_Pin_Inverse = 34;
 
 // Define calibration duration in milliseconds
-const unsigned long calibrationDuration = 2000;  // 10 seconds
+const unsigned long calibrationDuration = 2000; // 10 seconds
 
 // Variables to store minimum and maximum feedback values
 float Min_Feedback_Value_Main = 3.3;
@@ -74,7 +73,8 @@ float Min_Feedback_Value_Inverse = 3.3;
 float Max_Feedback_Value_Inverse = 0.0;
 
 // Define motor directions
-enum Direction {
+enum Direction
+{
   FORWARD,
   REVERSE
 };
@@ -83,21 +83,22 @@ enum Direction {
 float Feedback_Value_Inverse = 0.0;
 float Feedback_Value_Main = 0.0;
 
-// Define frequency Parameters 
+// Define frequency Parameters
 float Theoretical_Max_Frequency;
 int Frequency_Step_Size = 5000;
 int Min_Frequnecy = 1000;
 
 bool Successful = 0;
 
-void setup() {
+void setup()
+{
   // Initialize Serial communication
   Serial.begin(115200);
   while (!Serial)
     ;
 
   // Calculate max Frequency for a given resolution bit depth
-  Bit_Depth = pow(2, PWM_Resolution) - 1;  // Used as a refernce elsewere
+  Bit_Depth = pow(2, PWM_Resolution) - 1; // Used as a refernce elsewere
   Theoretical_Max_Frequency = PWM_Clock_Speed / Bit_Depth;
 
   // Print PWM parameters and calculated max frequency
@@ -122,39 +123,45 @@ void setup() {
   // Configure LEDC PWM
   ledcSetup(PWM_Channel, PWM_Frequency, PWM_Resolution);
   ledcAttachPin(H_BRIDGE_ENA, PWM_Channel);
-  ledcWrite(PWM_Channel, 0);  // Ensure output is off
+  ledcWrite(PWM_Channel, 0); // Ensure output is off
 
-  delay(2000);  // Startup delay
+  delay(2000); // Startup delay
 
   // Run calibration functions
   Feedback_Calibration();
   Find_Control_Range();
 }
 
-void loop() {
+void loop()
+{
   // Your main control loop can go here
   // Example: adjust PWM based on feedback signals
 }
 
 // Function to set motor direction
-void Motor_Direction(Direction dir) {
+void Motor_Direction(Direction dir)
+{
   // Set the motor direction based on the input parameter
-  if (dir == FORWARD) {
+  if (dir == FORWARD)
+  {
     digitalWrite(H_BRIDGE_IN1, HIGH);
     digitalWrite(H_BRIDGE_IN2, LOW);
-  } else if (dir == REVERSE) {
+  }
+  else if (dir == REVERSE)
+  {
     digitalWrite(H_BRIDGE_IN1, LOW);
     digitalWrite(H_BRIDGE_IN2, HIGH);
   }
 }
 
-void Feedback_Calibration() {
+void Feedback_Calibration()
+{
   // Calibrate feedback signals
   // Designed for use in the setup() callback
 
   Serial.println("Starting Calibration...");
 
-  Motor_Direction(FORWARD);  // Ensure the motor is set to open the TB
+  Motor_Direction(FORWARD); // Ensure the motor is set to open the TB
 
   // For the first half, keep PWM signal off
   delay(calibrationDuration / 2);
@@ -164,30 +171,35 @@ void Feedback_Calibration() {
   ledcWrite(PWM_Channel, Bit_Depth);
 
   unsigned long startTime = millis();
-  while (millis() - startTime < calibrationDuration / 2) {
+  while (millis() - startTime < calibrationDuration / 2)
+  {
 
     // Read feedback signals from throttle body
     Feedback_Value_Main = analogRead(Feedback_Pin_Main) * 2.0 * (3.3 / 4095.0);
     Feedback_Value_Inverse = analogRead(Feedback_Pin_Inverse) * 2.0 * (3.3 / 4095.0);
 
     // Update min and max values
-    if (Feedback_Value_Main < Min_Feedback_Value_Main) {
+    if (Feedback_Value_Main < Min_Feedback_Value_Main)
+    {
       Min_Feedback_Value_Main = Feedback_Value_Main;
     }
-    if (Feedback_Value_Main > Max_Feedback_Value_Main) {
+    if (Feedback_Value_Main > Max_Feedback_Value_Main)
+    {
       Max_Feedback_Value_Main = Feedback_Value_Main;
     }
-    if (Feedback_Value_Inverse < Min_Feedback_Value_Inverse) {
+    if (Feedback_Value_Inverse < Min_Feedback_Value_Inverse)
+    {
       Min_Feedback_Value_Inverse = Feedback_Value_Inverse;
     }
-    if (Feedback_Value_Inverse > Max_Feedback_Value_Inverse) {
+    if (Feedback_Value_Inverse > Max_Feedback_Value_Inverse)
+    {
       Max_Feedback_Value_Inverse = Feedback_Value_Inverse;
     }
 
-    delay(1);  // Adjust delay as needed for sampling rate
+    delay(1); // Adjust delay as needed for sampling rate
   }
   ledcWrite(PWM_Channel, 0);
-  delay(250);  // Allow time to close
+  delay(250); // Allow time to close
 
   // Output calibration results
   Serial.println("Feedback Results:");
@@ -204,7 +216,8 @@ void Feedback_Calibration() {
 
   Serial.println("Feedback Calibration complete.");
 }
-void Find_Control_Range() {
+void Find_Control_Range()
+{
 
   // Serial Data titles comented out due to exporting data via excel
 
@@ -213,30 +226,32 @@ void Find_Control_Range() {
 
   // Iterate over frequencies with a step size of 100Hz
 
-  for (int freq = Min_Frequnecy; freq <= Theoretical_Max_Frequency; freq += Frequency_Step_Size) {
-    ledcSetup(PWM_Channel, freq, PWM_Resolution);  // Set PWM frequency
+  for (int freq = Min_Frequnecy; freq <= Theoretical_Max_Frequency; freq += Frequency_Step_Size)
+  {
+    ledcSetup(PWM_Channel, freq, PWM_Resolution); // Set PWM frequency
 
     // Start with 0% duty cycle
     ledcWrite(PWM_Channel, 0);
-    unsigned long startTime = millis();  // Store the start time
+    unsigned long startTime = millis(); // Store the start time
     Successful = 0;
     delay(250);
     // Iterate over duty cycles
-    for (int duty = 0; duty <= 100; duty++) {
+    for (int duty = 0; duty <= 100; duty++)
+    {
 
-      ledcWrite(PWM_Channel, map(duty, 0, 100, 0, Bit_Depth));  // Set PWM duty cycle
-      unsigned long startTime = millis();                       // Store the start time
+      ledcWrite(PWM_Channel, map(duty, 0, 100, 0, Bit_Depth)); // Set PWM duty cycle
+      unsigned long startTime = millis();                      // Store the start time
 
-      while (millis() - startTime < 250) {
+      while (millis() - startTime < 250)
+      {
 
-        //Read feedback signals from throttle body
+        // Read feedback signals from throttle body
         Feedback_Value_Main = analogRead(Feedback_Pin_Main) * 2.0 * (3.3 / 4095.0);
 
         Serial.print("Feedback_Value_Main:");
         Serial.print(Feedback_Value_Main);
 
         Feedback_Value_Inverse = analogRead(Feedback_Pin_Inverse) * 2.0 * (3.3 / 4095.0);
-
 
         Serial.print(",Feedback_Pin_Inverse:");
         Serial.print(",");
@@ -249,14 +264,8 @@ void Find_Control_Range() {
         Serial.print(",");
         Serial.print(duty);
 
-
-
-
-
-
-
-
-        if (Feedback_Value_Main >= Feedback_Value_Inverse) {
+        if (Feedback_Value_Main >= Feedback_Value_Inverse)
+        {
           Successful = 1;
           ledcWrite(PWM_Channel, 0);
         }
@@ -264,8 +273,6 @@ void Find_Control_Range() {
         Serial.print(",Successful:");
         Serial.print(Successful);
         Serial.println();
-
-
 
         Send_Serial_Data(millis(), Feedback_Value_Main, Feedback_Value_Inverse, freq, duty, Successful);
       }
@@ -275,18 +282,46 @@ void Find_Control_Range() {
   Serial.println("Control Point Search Complete.");
 }
 
+void Find_Responce_Rate(){
+unsigned long responseTime;
+  for (int freq = Min_Frequnecy; freq <= Theoretical_Max_Frequency; freq += Frequency_Step_Size)
+  {
+    ledcSetup(PWM_Channel, freq, PWM_Resolution); // Set PWM frequency
 
-// Function to send data to serial Studio
-template<typename... Args>
-void Send_Serial_Data(Args... args) {
-  // Send frame start delimiter
+    ledcWrite(PWM_Channel, 100);
+    unsigned long startTime = millis();
 
-  Serial.print("/*");
+    // Wait for the feedback value to reach the target percentage
+    while (true)
+    {
+      // Read feedback signal from throttle body
+      Feedback_Value_Main = analogRead(Feedback_Pin_Main) * 2.0 * (3.3 / 4095.0);
 
-  // Convert each argument to string and send it over serial
-  int Temp[] = { 0, (Serial.print(args), Serial.print(","), 0)... };
-
-
-  // Send frame end delimiter
-  Serial.println("*/");
+      // Check if feedback value is at or above the target percentage
+      if (Feedback_Value_Main >= (Max_Feedback_Value_Main * 0.95))
+      { // Feedback value reached the target percentage
+        unsigned long endTime = millis();
+        responseTime = endTime - startTime;
+        Serial.println(responseTime);
+        ledcWrite(PWM_Channel, 0);
+        break;
+      }
+    }
+  }
 }
+
+
+  // Function to send data to serial Studio
+  template <typename... Args>
+  void Send_Serial_Data(Args... args)
+  {
+    // Send frame start delimiter
+
+    Serial.print("/*");
+
+    // Convert each argument to string and send it over serial
+    int Temp[] = {0, (Serial.print(args), Serial.print(","), 0)...};
+
+    // Send frame end delimiter
+    Serial.println("*/");
+  }

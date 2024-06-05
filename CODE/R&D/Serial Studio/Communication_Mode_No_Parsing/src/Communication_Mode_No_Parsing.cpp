@@ -1,7 +1,4 @@
-// "value": "", 
-// replace with 
-// "value": "%s",
-
+// Example code on how send data to Serial Studio by sending formated JSON packet
 
 #include <Arduino.h>
 #include <Serial_Studio_Send_Frame.h>
@@ -21,10 +18,6 @@ delay(2000);
 
 void loop()
 {
-
-
-
-//Send_Serial_JSON("Format: %s, %d", "Hello", 42);
 
 
 Send_Serial_JSON(Formated_JSON,"1","2","3");
