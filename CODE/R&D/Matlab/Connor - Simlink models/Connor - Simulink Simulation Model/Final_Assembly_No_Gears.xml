@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<SimscapeMultibodyImportXML version="2.0" xmlns="urn:mathworks:SimscapeMultibody:import" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Created by="" on="01/30/23||13:54:57" using="Simscape Multibody Link Version 7.4" from="SolidWorks 29.3.0"/>
+<ModelUnits mass="kilogram" length="millimeter"/>
+<DataUnits mass="kilogram" length="meter"/>
+<RootAssembly name="Final_Assembly_No_Gears" uid="Final_Assembly_No_Gears" version="815">
+<AssemblyFile name="Final_Assembly_No_Gears.SLDASM" type="SolidWorks Assembly"/>
+<InstanceTree>
+<Instance name="Casing-1" uid="Casing-1" grounded="true" entityUid="Casing*:*Default">
+<Transform>
+<Rotation>1 0 0 0 0.99955337705259717 -0.02988388232390635 0 0.02988388232390635 0.99955337705259717</Rotation>
+<Translation>-0.036448218498309468 -0.0097967018588718206 0.0096608350742927139</Translation>
+</Transform>
+<VisualProperties>
+<Ambient r="0.52941176470588236" g="0.5490196078431373" b="0.5490196078431373" a="1"/>
+<Diffuse r="0.52941176470588236" g="0.5490196078431373" b="0.5490196078431373" a="1"/>
+<Specular r="0.37058823529411761" g="0.3843137254901961" b="0.3843137254901961" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Instance>
+<Instance name="Motor_Gear_and_Shaft_actual-1" uid="Motor_Gear_and_Shaft_actual-1" entityUid="Motor_Gear_and_Shaft_actual*:*Default">
+<Transform>
+<Rotation>-1.0761884104073352e-16 1 4.1686754947536992e-15 0.99646620277058306 -2.4290803793261112e-16 0.083994682783944938 0.083994682783944938 4.1629836512547935e-15 -0.99646620277058306</Rotation>
+<Translation>0.018221450893758949 0.045825778635569879 0.073319290194679379</Translation>
+</Transform>
+<VisualProperties>
+<Ambient r="0.77647058823529413" g="0.75686274509803919" b="0.73725490196078436" a="1"/>
+<Diffuse r="0.77647058823529413" g="0.75686274509803919" b="0.73725490196078436" a="1"/>
+<Specular r="0.38823529411764707" g="0.3784313725490196" b="0.36862745098039218" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Instance>
+<Instance name="Motor_Casing_New-5" uid="Motor_Casing_New-5" entityUid="Motor_Casing_New*:*Default">
+<Transform>
+<Rotation>1 0 -4.6822498699382282e-15 -1.8965164462800599e-16 0.99955337705259695 -0.029883882323906152 4.6786719447615309e-15 0.029883882323906152 0.99955337705259695</Rotation>
+<Translation>0.0064086265753357076 0.045825778635569178 0.073319290194680142</Translation>
+</Transform>
+<VisualProperties>
+<Ambient r="0.6470588235294118" g="0.61960784313725492" b="0.58823529411764708" a="1"/>
+<Diffuse r="0.6470588235294118" g="0.61960784313725492" b="0.58823529411764708" a="1"/>
+<Specular r="0.45294117647058824" g="0.43372549019607842" b="0.41176470588235292" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Instance>
+<Instance name="White_Idler_Gear_Assembly-2" uid="White_Idler_Gear_Assembly-2" entityUid="White_Idler_Gear_Assembly" rigid="true">
+<Transform>
+<Rotation>4.6070059255179282e-16 1 -3.2297598820508817e-16 -0.6857624482249759 5.5100130552812684e-16 0.72782543553003631 0.72782543553003631 -1.1382480503355224e-16 0.6857624482249759</Rotation>
+<Translation>0.0057790967421882224 0.055937109593773703 -0.00093689850892953981</Translation>
+</Transform>
+<VisualProperties>
+<Ambient r="1" g="1" b="1" a="1"/>
+<Diffuse r="1" g="1" b="1" a="1"/>
+<Specular r="0.5" g="0.5" b="0.5" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+<Instance name="White_Idler_Gear_Small-3" uid="White_Idler_Gear_Small-3" entityUid="White_Idler_Gear_Small*:*Default">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>0.051193975463015268 0.0034423541515711678 0.016337028262479389</Translation>
+</Transform>
+</Instance>
+<Instance name="White_Idler_Gear-3" uid="White_Idler_Gear-3" grounded="true" entityUid="White_Idler_Gear*:*Default">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>0.051193975463015268 0.012442354151571168 0.016337028262479389</Translation>
+</Transform>
+</Instance>
+</Instance>
+<Instance name="Spring_Gear-2" uid="Spring_Gear-2" entityUid="Spring_Gear*:*Default">
+<Transform>
+<Rotation>7.0194962501301282e-16 1 -1.6207229168795391e-15 0.96594802087342158 -2.5870716295599512e-16 0.25873619957539762 0.25873619957539762 -1.7471538722132312e-15 -0.96594802087342158</Rotation>
+<Translation>0.010971450893759383 0.043057616047330702 0.015325696259625491</Translation>
+</Transform>
+<VisualProperties>
+<Ambient r="1" g="0" b="0" a="1"/>
+<Diffuse r="1" g="0" b="0" a="1"/>
+<Specular r="0.5" g="0" b="0" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Instance>
+<Instance name="Valve-1" uid="Valve-1" entityUid="Valve*:*Default">
+<Transform>
+<Rotation>-1 1.7920490866148011e-16 -1.6560816963383185e-15 0 0.99634930411765699 0.085370159799903603 1.6653345973980304e-15 0.085370159799903603 -0.99634930411765699</Rotation>
+<Translation>-0.052058549106240692 0.041812179417183633 0.015218983559875728</Translation>
+</Transform>
+</Instance>
+<Instance name="COver-1" visible="false" uid="COver-1" entityUid="COver*:*Default">
+<Transform>
+<Rotation>4.6092801351665575e-15 0 1 0.029883882323906097 0.99955337705259673 -1.8747102556420957e-16 -0.99955337705259673 0.029883882323906097 4.605734799950764e-15</Rotation>
+<Translation>0.0084086265753358647 0.034444810295281778 0.039290309480147265</Translation>
+</Transform>
+</Instance>
+<Instance name="Bad_Base-1" uid="Bad_Base-1" grounded="true" entityUid="Bad_Base*:*Default">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>-0.036165424025881521 -0.00030188562135452512 -0.23755691700801856</Translation>
+</Transform>
+</Instance>
+<Instance name="Bad_Pedal-1" uid="Bad_Pedal-1" entityUid="Bad_Pedal*:*Default">
+<Transform>
+<Rotation>1 0 0 0 0.99812563331583048 0.061198203551024337 0 -0.061198203551024337 0.99812563331583048</Rotation>
+<Translation>-0.036165424025881507 0.017521315549413635 -0.25617899082525963</Translation>
+</Transform>
+</Instance>
+</InstanceTree>
+<Constraints>
+<Coincident name="Coincident20">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>Casing-1</Uid>
+</InstancePath>
+<Position>0.042856845073645219 0.062615362029707522 0.052427698263271212</Position>
+<Axis>1 0 4.6803952870151169e-15</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>Motor_Casing_New-5</Uid>
+</InstancePath>
+<Position>0 0 0</Position>
+<Axis>-1 0 0</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Concentric name="Concentric9">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>Casing-1</Uid>
+</InstancePath>
+<Position>0.032614204386525826 0.0739873043581704 0.075999603989891362</Position>
+<Axis>1 0 4.6803952870151193e-15</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>Motor_Casing_New-5</Uid>
+</InstancePath>
+<Position>0.0014999999999999996 0.016487304358170363 0.014031795858016616</Position>
+<Axis>-1 0 0</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Concentric name="Concentric10">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>Casing-1</Uid>
+</InstancePath>
+<Position>0.034856845073645268 0.067730724059415007 0.042887588394667615</Position>
+<Axis>1 0 4.6803952870151193e-15</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>Motor_Casing_New-5</Uid>
+</InstancePath>
+<Position>0.0015000000000000013 0.010230724059414963 -0.019080219737207131</Position>
+<Axis>-1 0 0</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Coincident name="Coincident25">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>Casing-1</Uid>
+</InstancePath>
+<Position>0.04485684507364518 0.057500000000000044 0.061967808131874795</Position>
+<Axis>1 0 4.6074255521944028e-15</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>COver-1</Uid>
+</InstancePath>
+<Position>0 0 0</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Concentric name="Concentric24">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>Casing-1</Uid>
+</InstancePath>
+<Position>0.048856845073645544 0.075657818298735441 -0.018539686098715428</Position>
+<Axis>-1 0 -4.6074255521944028e-15</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>COver-1</Uid>
+</InstancePath>
+<Position>0.046833819158334442 0.030550621692673918 0.0040000000000000018</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Concentric name="Concentric25">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>Casing-1</Uid>
+</InstancePath>
+<Position>0.048856845073645558 0.028680227897076922 -0.01999089251201517</Position>
+<Axis>-1 0 -4.6074255521944028e-15</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>COver-1</Uid>
+</InstancePath>
+<Position>0.04828502557163418 -0.016426968708984566 0.0040000000000000018</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Concentric name="Concentric26">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>Casing-1</Uid>
+</InstancePath>
+<Position>-0.06066033060793137 0.05300000000000004 0.0040828389117144592</Position>
+<Axis>1 0 -1.6653345369377356e-15</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>Valve-1</Uid>
+</InstancePath>
+<Position>0.028924691676136594 0.0012499999999999942 0</Position>
+<Axis>-1 0 0</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Distance name="Distance6">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>Casing-1</Uid>
+</InstancePath>
+<Position>-0.057160330607931242 0.053000000000000033 0.004082838911714454</Position>
+<Axis>1 0 -1.6653345369377352e-15</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>Valve-1</Uid>
+</InstancePath>
+<Position>0.041500000000000009 0.001250000000000008 0</Position>
+<Axis>1 0 0</Axis>
+</ConstraintGeometry>
+</Distance>
+<Concentric name="Concentric27">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>Casing-1</Uid>
+</InstancePath>
+<Position>0.060419669392068845 0.043630000000000037 0.036578367355107</Position>
+<Axis>-1 0 1.6653345369377354e-15</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>White_Idler_Gear_Assembly-2</Uid>
+<Uid>White_Idler_Gear_Small-3</Uid>
+</InstancePath>
+<Position>0 0 0</Position>
+<Axis>0 1 0</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Distance name="Distance3">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>Casing-1</Uid>
+</InstancePath>
+<Position>0.045419669392068845 0.043630000000000037 0.036578367355107028</Position>
+<Axis>1 0 -1.6653345369377354e-15</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>White_Idler_Gear_Assembly-2</Uid>
+<Uid>White_Idler_Gear_Small-3</Uid>
+</InstancePath>
+<Position>-0.002940305957451702 0 -0.0016728923669225501</Position>
+<Axis>0 -1 0</Axis>
+</ConstraintGeometry>
+</Distance>
+<Concentric name="Concentric28">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>Motor_Gear_and_Shaft_actual-1</Uid>
+</InstancePath>
+<Position>0 -0.076060000000000003 0</Position>
+<Axis>0 1 0</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>Motor_Casing_New-5</Uid>
+</InstancePath>
+<Position>-0.061500000000000006 0 0</Position>
+<Axis>1 0 0</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Distance name="Distance4">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>Motor_Gear_and_Shaft_actual-1</Uid>
+</InstancePath>
+<Position>-0.001070273139447471 0 -0.0019851255387598743</Position>
+<Axis>0 -1 0</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>White_Idler_Gear_Assembly-2</Uid>
+<Uid>White_Idler_Gear-3</Uid>
+</InstancePath>
+<Position>0.010206245505141077 0 -0.0047945544767239376</Position>
+<Axis>0 -1 0</Axis>
+</ConstraintGeometry>
+</Distance>
+<Concentric name="Concentric29">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>Spring_Gear-2</Uid>
+</InstancePath>
+<Position>0 0.0073921356237309516 0</Position>
+<Axis>0 -1 0</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>Valve-1</Uid>
+</InstancePath>
+<Position>0.028924691676136594 0.0012499999999999942 0</Position>
+<Axis>-1 0 0</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Distance name="Distance5">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>Spring_Gear-2</Uid>
+</InstancePath>
+<Position>0 0.0062500000000000003 0</Position>
+<Axis>0 1 0</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>White_Idler_Gear_Assembly-2</Uid>
+<Uid>White_Idler_Gear-3</Uid>
+</InstancePath>
+<Position>0.010206245505141077 0.0050000000000000044 -0.0047945544767239376</Position>
+<Axis>0 1 0</Axis>
+</ConstraintGeometry>
+</Distance>
+<Concentric name="Concentric31">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>Bad_Base-1</Uid>
+</InstancePath>
+<Position>-0.05099999999999999 0.016999999999999998 -0.11375000000000002</Position>
+<Axis>1 0 0</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>Bad_Pedal-1</Uid>
+</InstancePath>
+<Position>-0.047500000000000001 0.0050000000000000044 -0.095000000000000029</Position>
+<Axis>1 0 0</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Coincident name="Coincident26">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>Bad_Base-1</Uid>
+</InstancePath>
+<Position>-0.0074999999999999997 0.026000000000000002 0</Position>
+<Axis>-1 0 0</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>Bad_Pedal-1</Uid>
+</InstancePath>
+<Position>-0.0075000000000000067 0 0</Position>
+<Axis>1 0 0</Axis>
+</ConstraintGeometry>
+</Coincident>
+</Constraints>
+</RootAssembly>
+<Assemblies>
+<Assembly name="White_Idler_Gear_Assembly" uid="White_Idler_Gear_Assembly" version="257">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<AssemblyFile name="White_Idler_Gear_Assembly.SLDASM" type="SolidWorks Assembly"/>
+</Assembly>
+</Assemblies>
+<Parts>
+<Part name="Bad_Base" uid="Bad_Base*:*Default" version="195">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="Bad_Base.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>0.2608481953934903</Mass>
+<CenterOfMass>0 0.0052528305421513169 -0.0025502657781704091</CenterOfMass>
+<Inertia>0.0014051295389342297 0.0016296122399031162 0.0002303827565311485 7.3336659132766529e-06 0 0</Inertia>
+</MassProperties>
+<GeometryFile name="Bad_Base_Default_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Diffuse r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Specular r="0.396078431372549" g="0.40980392156862744" b="0.46666666666666667" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+<Part name="Bad_Pedal" uid="Bad_Pedal*:*Default" version="184">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="Bad_Pedal.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>0.20372041833618701</Mass>
+<CenterOfMass>0 0.0056794687477684687 0.0038006224827595307</CenterOfMass>
+<Inertia>0.00062233017115194932 0.00076801900936869451 0.00015038158881107555 1.3890753547523654e-07 0 0</Inertia>
+</MassProperties>
+<GeometryFile name="Bad_Pedal_Default_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Diffuse r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Specular r="0.396078431372549" g="0.40980392156862744" b="0.46666666666666667" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+<Part name="COver" uid="COver*:*Default" version="284">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="COver.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>0.040541906080000807</Mass>
+<CenterOfMass>-0.012167393948777395 -0.0043874499019869676 0.01323141470479398</CenterOfMass>
+<Inertia>2.7474674499784823e-05 5.0572959614063189e-05 7.046163030850106e-05 -1.1221120997577544e-06 -1.0106201509492414e-06 -9.8842638774279334e-06</Inertia>
+</MassProperties>
+<GeometryFile name="COver_Default_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Diffuse r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Specular r="0.396078431372549" g="0.40980392156862744" b="0.46666666666666667" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+<Part name="Casing" uid="Casing*:*Default" version="2312">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="Casing.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>0.18903019932554477</Mass>
+<CenterOfMass>-0.0039435416397822984 0.05225102956795865 0.016832781060414328</CenterOfMass>
+<Inertia>0.00025095646590348098 0.00035908179871324038 0.00024444853509952044 -7.3171470153740199e-06 -3.277110590956883e-05 2.2838678147789359e-06</Inertia>
+</MassProperties>
+<GeometryFile name="Casing_Default_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Diffuse r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Specular r="0.396078431372549" g="0.40980392156862744" b="0.46666666666666667" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+<Part name="Motor_Casing_New" uid="Motor_Casing_New*:*Default" version="134">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="Motor_Casing_New.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>0.062527510003793904</Mass>
+<CenterOfMass>-0.026157822029733459 4.3898483471940993e-06 -4.3792950118986591e-06</CenterOfMass>
+<Inertia>1.0855154966152331e-05 2.4487441748288646e-05 2.4502477057153851e-05 -1.9014779236827154e-09 7.368072379056079e-09 -7.385828145245402e-09</Inertia>
+</MassProperties>
+<GeometryFile name="Motor_Casing_New_Default_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Diffuse r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Specular r="0.396078431372549" g="0.40980392156862744" b="0.46666666666666667" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+<Part name="Motor_Gear_and_Shaft_actual" uid="Motor_Gear_and_Shaft_actual*:*Default" version="123">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="Motor_Gear_and_Shaft_actual.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>0.0026164781225805527</Mass>
+<CenterOfMass>0 -0.030643616271602264 0</CenterOfMass>
+<Inertia>1.7051189437171063e-06 1.5248436698044665e-08 1.7051189437171063e-06 0 0 0</Inertia>
+</MassProperties>
+<GeometryFile name="Motor_Gear_and_Shaft_actual_Default_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Diffuse r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Specular r="0.396078431372549" g="0.40980392156862744" b="0.46666666666666667" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+<Part name="Spring_Gear" uid="Spring_Gear*:*Default" version="158">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="Spring_Gear.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>0.027160456829677649</Mass>
+<CenterOfMass>2.2532554744380532e-05 -0.0062076298949765608 -0.00097213051078784852</CenterOfMass>
+<Inertia>4.7979923272375837e-06 6.0603525767561585e-06 4.4690759244505881e-06 2.4285224070058286e-07 2.081094397232916e-08 -5.1760067683363186e-09</Inertia>
+</MassProperties>
+<GeometryFile name="Spring_Gear_Default_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Diffuse r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Specular r="0.396078431372549" g="0.40980392156862744" b="0.46666666666666667" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+<Part name="Valve" uid="Valve*:*Default" version="344">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="Valve.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>0.014357997605598694</Mass>
+<CenterOfMass>-0.0032647790278347234 0.0017003738386739315 -3.0755342502203389e-08</CenterOfMass>
+<Inertia>1.5230238156024216e-06 8.633166545581244e-06 7.2622589495066451e-06 -9.9532929964176371e-14 4.1497165962486414e-11 -2.1112213143259333e-08</Inertia>
+</MassProperties>
+<GeometryFile name="Valve_Default_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.50196078431372548" g="0.50196078431372548" b="0.50196078431372548" a="1"/>
+<Diffuse r="0.50196078431372548" g="0.50196078431372548" b="0.50196078431372548" a="1"/>
+<Specular r="0.25098039215686274" g="0.25098039215686274" b="0.25098039215686274" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+<Part name="White_Idler_Gear" uid="White_Idler_Gear*:*Default" version="115">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="White_Idler_Gear.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>0.0064752960642387725</Mass>
+<CenterOfMass>0 0.0025000000000000031 0</CenterOfMass>
+<Inertia>1.0607041057804193e-06 2.1039238685005991e-06 1.0607041057804206e-06 0 0 0</Inertia>
+</MassProperties>
+<GeometryFile name="White_Idler_Gear_Default_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Diffuse r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Specular r="0.396078431372549" g="0.40980392156862744" b="0.46666666666666667" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+<Part name="White_Idler_Gear_Small" uid="White_Idler_Gear_Small*:*Default" version="108">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="White_Idler_Gear_Small.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>0.0012693846600178968</Mass>
+<CenterOfMass>0 0.0049999999999999992 0</CenterOfMass>
+<Inertia>3.0179331484546956e-08 3.9202251968795687e-08 3.0179331484547009e-08 0 0 0</Inertia>
+</MassProperties>
+<GeometryFile name="White_Idler_Gear_Small_Default_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Diffuse r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Specular r="0.396078431372549" g="0.40980392156862744" b="0.46666666666666667" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+</Parts>
+</SimscapeMultibodyImportXML>
