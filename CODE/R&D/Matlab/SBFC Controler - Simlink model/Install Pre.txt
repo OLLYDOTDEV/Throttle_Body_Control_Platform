@@ -1,0 +1,7 @@
+MATLAB 2024a
+Simulink
+Simscape
+Simscape Electrical
+Simscape Driveline
+Powertrain Blockset
+Vehicle Dynamics Blockset
