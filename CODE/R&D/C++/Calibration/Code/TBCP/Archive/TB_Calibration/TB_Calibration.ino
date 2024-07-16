@@ -2,7 +2,9 @@
 
 int E1 = 10;  // PWM pin
 int M1 = 11;  // Motor driver pin
-int M2 nn= 12;  // Motor driver pin
+int M2 = 12;  // Motor driver pin
+
+
 
 
 int E2 = 5;  // PWM pin
