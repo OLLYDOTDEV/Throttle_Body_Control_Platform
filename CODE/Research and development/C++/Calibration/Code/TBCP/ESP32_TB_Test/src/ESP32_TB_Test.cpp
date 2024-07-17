@@ -5,9 +5,9 @@
 
 // Define PWM parameters
 const int PWM_Channel = 0;
-const int PWM_Frequency = 19000;     // 19569Hz is the MAX at 12Bit resolution
+const int PWM_Frequency = 10000;     // 19569Hz is the MAX at 12Bit resolution
 const int PWM_Resolution = 12;       // resolution
-const int PWM_Dutycycle_Percent = 0; // 0% duty cycle
+const int PWM_Dutycycle_Percent = 100; // 0% duty cycle
 
 const int PWM_Clock_Speed = 80 * 1000000; // Corrected the calculation from 10^6 to 1000000
 int Bit_Depth = 0;
@@ -20,6 +20,8 @@ int H_BRIDGE_PWM = 2;
 // Defines pins for feedback
 
 int TB_FB = 35;
+
+
 
 void setup()
 {
@@ -40,16 +42,19 @@ void setup()
     ledcAttachPin(H_BRIDGE_PWM, PWM_Channel);
     ledcWrite(PWM_Channel, 0); // Ensure output is off
 
+  Bit_Depth = pow(2, PWM_Resolution) - 1; // Used later to map duty cycle to 0 to 100%
+
     delay(1000); // Startup delay
 }
 
 void loop()
 {
-    Serial.println("Value")
-    ledcWrite(PWM_Channel, 0); // output is off
+   Serial.println("Value Low");
+     ledcWrite(PWM_Channel, 0); // output is off
 
     delay(10000);
-    ledcWrite(PWM_Channel, 100); // output is off
-
-    delay(10000);
+        ledcWrite(PWM_Channel, map(PWM_Dutycycle_Percent, 0, 100, 0, Bit_Depth));// output is off
+    
+   Serial.println("Value High");
+    delay(5000);
 }

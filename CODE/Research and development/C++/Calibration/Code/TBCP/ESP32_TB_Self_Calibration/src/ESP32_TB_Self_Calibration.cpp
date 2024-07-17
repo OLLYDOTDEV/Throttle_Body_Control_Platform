@@ -94,8 +94,7 @@ void setup()
 {
   // Initialize Serial communication
   Serial.begin(115200);
-  while (!Serial)
-    ;
+  while (!Serial) ;
 
   // Calculate max Frequency for a given resolution bit depth
   Bit_Depth = pow(2, PWM_Resolution) - 1; // Used as a refernce elsewere
