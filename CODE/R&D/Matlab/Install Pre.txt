@@ -5,3 +5,7 @@ Simscape Electrical
 Simscape Driveline
 Powertrain Blockset
 Vehicle Dynamics Blockset
+Simulink Support Package for Arduino Hardware
+MATLAB Support Package for Arduino Hardware
+
+System Composer
