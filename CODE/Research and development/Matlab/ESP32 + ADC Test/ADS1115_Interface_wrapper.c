@@ -18,7 +18,9 @@
 #include <math.h>
 #ifndef MATLAB_MEX_FILE
 #define ARDUINO 100
-#include "libraries/Adafruit_ADS1X15.cpp"
+
+#include "Adafruit_ADS1X15.cpp"
+
 Adafruit_ADS1115 ads;  /* Use this for the 16-bit version */
 #endif
 /* %%%-SFUNWIZ_wrapper_includes_Changes_END --- EDIT HERE TO _BEGIN */

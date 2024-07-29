@@ -8,13 +8,16 @@
  *
  * Code generated for Simulink model 'ADS1115_Single_Ended_Read'.
  *
- * Model version                  : 1.8
+ * Model version                  : 1.9
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Tue Jul 23 14:06:56 2024
+ * C/C++ source code generated on : Mon Jul 29 23:01:31 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
- * Code generation objectives: Unspecified
+ * Code generation objectives:
+ *    1. Traceability
+ *    2. Debugging
+ *    3. Execution efficiency
  * Validation result: Not run
  */
 
@@ -91,7 +94,7 @@ int app_main(int argc, char **argv)
   ADS1115_Single_Ended_Read_initialize();
 
   /* Call RTOS Initialization function */
-  mw_RTOSInit(0.05, 0);
+  mw_RTOSInit(0.005, 0);
 
   /* Wait for stop semaphore */
   mw_osSemaphoreWaitEver(&stopSem);

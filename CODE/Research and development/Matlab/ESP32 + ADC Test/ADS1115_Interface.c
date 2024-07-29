@@ -26,7 +26,7 @@
  * | See matlabroot/simulink/src/sfuntmpl_doc.c for a more detailed template |
  *  -------------------------------------------------------------------------
  *
- * Created: Tue Jul 23 14:06:12 2024
+ * Created: Mon Jul 29 22:54:54 2024
  */
 
 #define S_FUNCTION_LEVEL               2
@@ -113,13 +113,13 @@
 #define OUT_3_BIAS                     0
 #define OUT_3_SLOPE                    0.125
 #define NPARAMS                        0
-#define SAMPLE_TIME_0                  0.05
+#define SAMPLE_TIME_0                  0.005
 #define NUM_DISC_STATES                1
 #define DISC_STATES_IC                 [0]
 #define NUM_CONT_STATES                0
 #define CONT_STATES_IC                 [0]
 #define SFUNWIZ_GENERATE_TLC           1
-#define SOURCEFILES                    "__SFB__"
+#define SOURCEFILES                    "__SFB__INC_PATH "C:\Users\%USERNAME%\Documents\GitHub\Throttle_Body_Control_Platform\CODE\Research and development\Matlab\ESP32 + ADC Test\libraries\Adafruit_ADS1X15"__SFB__INC_PATH "C:\Users\%USERNAME%\Documents\GitHub\Throttle_Body_Control_Platform\CODE\Research and development\Matlab\ESP32 + ADC Test\libraries\Adafruit_BusIO"__SFB__INC_PATH "C:\Users\%USERNAME%\Documents\GitHub\Throttle_Body_Control_Platform\CODE\Research and development\Matlab\ESP32 + ADC Test\libraries\Wire"__SFB__"
 #define PANELINDEX                     N/A
 #define USE_SIMSTRUCT                  0
 #define SHOW_COMPILE_STEPS             0
