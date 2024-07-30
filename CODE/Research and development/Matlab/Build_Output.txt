@@ -1,0 +1,261 @@
+
+### Starting build procedure for: ADS1115_Single_Ended_Read
+### Generating code and artifacts to 'Model specific' folder structure
+### Generating code into build folder: C:\Users\obell\Documents\GitHub\Throttle_Body_Control_Platform\CODE\Research and development\Matlab\ESP32 + ADC Test\ADS1115_Single_Ended_Read_ert_rtw
+### Invoking Target Language Compiler on ADS1115_Single_Ended_Read.rtw
+### Using System Target File: C:\Program Files\MATLAB\R2024a\rtw\c\ert\ert.tlc
+### Loading TLC function libraries
+.......
+### Initial pass through model to cache user defined code
+.
+### Caching model source code
+...........................
+### Writing header file ADS1115_Single_Ended_Read_types.h
+### Writing header file ADS1115_Single_Ended_Read.h
+### Writing header file rtwtypes.h
+.
+### Writing source file ADS1115_Single_Ended_Read.c
+### Writing header file ADS1115_Single_Ended_Read_private.h
+### Writing header file rtmodel.h
+### Writing source file ert_main.c
+### TLC code generation complete (took 1.943s).
+### Saving binary information cache.
+### Using toolchain: ESP32
+### Creating 'C:\Users\obell\Documents\GitHub\Throttle_Body_Control_Platform\CODE\Research and development\Matlab\ESP32 + ADC Test\ADS1115_Single_Ended_Read_ert_rtw\ADS1115_Single_Ended_Read.mk' ...
+### Building 'ADS1115_Single_Ended_Read': "C:\PROGRA~1\MATLAB\R2024a\bin\win64\gmake"  -f wrapper.mk all
+ARDUINO_ROOT = C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI
+ARDUINO_TARGET_ROOT = C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/supportpackages/arduinotarget
+ARDUINO_IDE_VERSION = 10819
+ARDUINO_AVR_ROOT = C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/arduino
+AVR_LIB_VERSION = 1.8.3
+AVR_GCC_LIB_VERSION = 7.3.0-atmel3.6.1-arduino7
+ARDUINO_SAM_ROOT = C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/arduino
+SAM_LIB_VERSION = 1.6.12
+ARDUINO_SAMD_ROOT = C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/arduino
+SAMD_CMSIS_VERSION = 4.5.0
+SAMD_CMSIS_ATMEL_VERSION = 1.2.0
+SAMD_LIB_VERSION = 1.8.9
+ARDUINO_MBED_ROOT = C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/arduino
+MBED_CMSIS_VERSION = 4.5.0
+MBED_CMSIS_ATMEL_VERSION = 1.2.0
+MBED_LIB_VERSION = 1.3.2
+ARDUINO_CODEGEN_FOLDER = C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/ADS1115_Single_Ended_Read_ert_rtw
+ARDUINO_ESP32_ROOT = C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32
+ESP32_LIB_VERSION = 2.0.11
+ESP32_GCC_VERSION = esp-2021r2-patch5-8.4.0
+ESP32_FLASHTOOL_VERSION = 4.5.1
+ARDUINO_F_CPU = 240000000L
+ESP_BOARD_NAME = ESP32_DEV
+ESP_FLASH_MODE = dio
+ESP_FLASH_FREQUENCY = 80m
+ESP_FLASH_SIZE = 4MB
+ESP_VARIANT_NAME = esp32
+ESP_PARTITION_SCHEME = default
+ESP_DEFINES = 
+ESP_EXTRA_FLAGS = 
+ESP_EXTRA_LIBS =
+
+C:\Users\obell\Documents\GitHub\Throttle_Body_Control_Platform\CODE\Research and development\Matlab\ESP32 + ADC Test\ADS1115_Single_Ended_Read_ert_rtw>cd .
+
+C:\Users\obell\Documents\GitHub\Throttle_Body_Control_Platform\CODE\Research and development\Matlab\ESP32 + ADC Test\ADS1115_Single_Ended_Read_ert_rtw>if "all" == "" ("C:\PROGRA~1\MATLAB\R2024a\bin\win64\gmake"  -f wrapper.mk all )  else ("C:\PROGRA~1\MATLAB\R2024a\bin\win64\gmake"  -f wrapper.mk all )
+"### Generating static library."
+"C:/Program Files/MATLAB/R2024a/bin/win64/gmake" -j5 -C "C:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~1/STATIC~1" SHELL="%SystemRoot%/system32/cmd.exe" -f esp32core.mk all
+gmake[1]: Entering directory `C:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~1/STATIC~1'
+"### Successfully generated libcore.a library."
+gmake[1]: Leaving directory `C:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~1/STATIC~1'
+"C:/Program Files/MATLAB/R2024a/bin/win64/gmake" -j5 SHELL="%SystemRoot%/system32/cmd.exe" -f "ADS1115_Single_Ended_Read.mk" all
+gmake[1]: Entering directory `C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/ADS1115_Single_Ended_Read_ert_rtw'
+"C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/tools/xtensa-esp32-elf-gcc/esp-2021r2-patch5-8.4.0/bin/xtensa-esp32-elf-gcc" -mlongcalls -Wno-frame-address -ffunction-sections -fdata-sections -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wno-unused-parameter -Wno-sign-compare -ggdb -freorder-blocks -Wwrite-strings -fstack-protector -fstrict-volatile-bitfields -Wno-error=unused-but-set-variable -fno-jump-tables -fno-tree-switch-conversion -std=gnu99 -Wno-old-style-declaration -MMD -c -w -DF_CPU=240000000L -DARDUINO=10819 -DARDUINO_ESP32_DEV -DARDUINO_ARCH_ESP32 "-DARDUINO_BOARD=\"ESP32_DEV\"" "-DARDUINO_VARIANT=\"esp32\"" -DARDUINO_PARTITION_default -DESP32 -DCORE_DEBUG_LEVEL=0 -DARDUINO_RUNNING_CORE=1 -DARDUINO_EVENT_RUNNING_CORE=1 -DARDUINO_USB_CDC_ON_BOOT=0 @"C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/ADS1115_Single_Ended_Read_ert_rtw/esp32sdkincludes.txt" -O0 -g -DHAVE_CONFIG_H "-DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\"" -DUNITY_INCLUDE_CONFIG_H -DWITH_POSIX -D_GNU_SOURCE "-DIDF_VER=\"v4.4.5\"" -DESP_PLATFORM -D_POSIX_READER_WRITER_LOCKS -D_RUNONTARGETHARDWARE_BUILD_ -DMW_DONOTSTART_SCHEDULER -D_ROTH_ESP32_ -D__MW_TARGET_USE_HARDWARE_RESOURCES_H__ -D_MW_ARDUINO_LOOP_=1 -DMW_ARDUINO_STEP_SIZE=5000 -DMW_ARDUINO_MICROS -DARDUINO_NUM_SERIAL_PORTS=3 -DARDUINO_SERIAL_RECEIVE_BUFFER_SIZE=256 -D_RTT_BAUDRATE_SERIAL0_=9600 -D_RTT_BAUDRATE_SERIAL1_=9600 -D_RTT_BAUDRATE_SERIAL2_=9600 -D_RTT_CONFIG_SERIAL0_=SERIAL_8N1 -D_RTT_CONFIG_SERIAL1_=SERIAL_8N1 -D_RTT_CONFIG_SERIAL2_=SERIAL_8N1 -D_RTT_TX_PIN_SERIAL0_=1 -D_RTT_RX_PIN_SERIAL0_=3 -D_RTT_TX_PIN_SERIAL1_=33 -D_RTT_RX_PIN_SERIAL1_=32 -D_RTT_TX_PIN_SERIAL2_=17 -D_RTT_RX_PIN_SERIAL2_=16 -D_RTT_ANALOG_REF_=0 -DMW_NUM_PINS=26 -D_ONBOARD_EEPROM_SIZE_=0 -DCLASSIC_INTERFACE=0 -DALLOCATIONFCN=0 -DTERMFCN=1 -DONESTEPFCN=1 -DMAT_FILE=0 -DMULTI_INSTANCE_CODE=0 -DINTEGER_CODE=0 -DMT=0  -DTID01EQ=0 -DXCP_CUSTOM_PLATFORM -DEXIT_FAILURE=1 -DEXTMODE_DISABLEPRINTF -DEXTMODE_DISABLETESTING -DEXTMODE_DISABLE_ARGS_PROCESSING=1 -DINCLUDE_xTaskGetCurrentTaskHandle=1 -DOS_STKSIZE=8192 -DINCLUDE_vTaskDelete -DINCLUDE_vTaskDelay=1 -DUSE_FREERTOS -DSTACK_SIZE=64 -DRT -DMODEL=ADS1115_Single_Ended_Read -DNUMST=1 -DNCSTATES=0 -DHAVESTDIO -DMODEL_HAS_DYNAMICALLY_LOADED_SFCNS=0 -IC:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1 -IC:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/ADS1115_Single_Ended_Read_ert_rtw -IC:/PROGRA~1/MATLAB/R2024a/extern/include -IC:/PROGRA~1/MATLAB/R2024a/simulink/include -IC:/PROGRA~1/MATLAB/R2024a/rtw/c/src -IC:/PROGRA~1/MATLAB/R2024a/rtw/c/src/ext_mode/common -IC:/PROGRA~1/MATLAB/R2024a/rtw/c/ert -I"C:/Users/%USERNAME%/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15" -I"C:/Users/%USERNAME%/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_BusIO" -I"C:/Users/%USERNAME%/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Wire" -IC:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32 -IC:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/variants/esp32 -IC:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/tools/esptool_py -IC:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/tools/mkspiffs -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~2/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~2/SCHEDU~1/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~1/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/shared/freertos/include -IC:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/include -o "ADS1115_Single_Ended_Read.o" "C:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/ADS1115_Single_Ended_Read_ert_rtw/ADS1115_Single_Ended_Read.c"
+"C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/tools/xtensa-esp32-elf-gcc/esp-2021r2-patch5-8.4.0/bin/xtensa-esp32-elf-gcc" -mlongcalls -Wno-frame-address -ffunction-sections -fdata-sections -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wno-unused-parameter -Wno-sign-compare -ggdb -freorder-blocks -Wwrite-strings -fstack-protector -fstrict-volatile-bitfields -Wno-error=unused-but-set-variable -fno-jump-tables -fno-tree-switch-conversion -std=gnu99 -Wno-old-style-declaration -MMD -c -w -DF_CPU=240000000L -DARDUINO=10819 -DARDUINO_ESP32_DEV -DARDUINO_ARCH_ESP32 "-DARDUINO_BOARD=\"ESP32_DEV\"" "-DARDUINO_VARIANT=\"esp32\"" -DARDUINO_PARTITION_default -DESP32 -DCORE_DEBUG_LEVEL=0 -DARDUINO_RUNNING_CORE=1 -DARDUINO_EVENT_RUNNING_CORE=1 -DARDUINO_USB_CDC_ON_BOOT=0 @"C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/ADS1115_Single_Ended_Read_ert_rtw/esp32sdkincludes.txt" -O0 -g -DHAVE_CONFIG_H "-DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\"" -DUNITY_INCLUDE_CONFIG_H -DWITH_POSIX -D_GNU_SOURCE "-DIDF_VER=\"v4.4.5\"" -DESP_PLATFORM -D_POSIX_READER_WRITER_LOCKS -D_RUNONTARGETHARDWARE_BUILD_ -DMW_DONOTSTART_SCHEDULER -D_ROTH_ESP32_ -D__MW_TARGET_USE_HARDWARE_RESOURCES_H__ -D_MW_ARDUINO_LOOP_=1 -DMW_ARDUINO_STEP_SIZE=5000 -DMW_ARDUINO_MICROS -DARDUINO_NUM_SERIAL_PORTS=3 -DARDUINO_SERIAL_RECEIVE_BUFFER_SIZE=256 -D_RTT_BAUDRATE_SERIAL0_=9600 -D_RTT_BAUDRATE_SERIAL1_=9600 -D_RTT_BAUDRATE_SERIAL2_=9600 -D_RTT_CONFIG_SERIAL0_=SERIAL_8N1 -D_RTT_CONFIG_SERIAL1_=SERIAL_8N1 -D_RTT_CONFIG_SERIAL2_=SERIAL_8N1 -D_RTT_TX_PIN_SERIAL0_=1 -D_RTT_RX_PIN_SERIAL0_=3 -D_RTT_TX_PIN_SERIAL1_=33 -D_RTT_RX_PIN_SERIAL1_=32 -D_RTT_TX_PIN_SERIAL2_=17 -D_RTT_RX_PIN_SERIAL2_=16 -D_RTT_ANALOG_REF_=0 -DMW_NUM_PINS=26 -D_ONBOARD_EEPROM_SIZE_=0 -DCLASSIC_INTERFACE=0 -DALLOCATIONFCN=0 -DTERMFCN=1 -DONESTEPFCN=1 -DMAT_FILE=0 -DMULTI_INSTANCE_CODE=0 -DINTEGER_CODE=0 -DMT=0  -DTID01EQ=0 -DXCP_CUSTOM_PLATFORM -DEXIT_FAILURE=1 -DEXTMODE_DISABLEPRINTF -DEXTMODE_DISABLETESTING -DEXTMODE_DISABLE_ARGS_PROCESSING=1 -DINCLUDE_xTaskGetCurrentTaskHandle=1 -DOS_STKSIZE=8192 -DINCLUDE_vTaskDelete -DINCLUDE_vTaskDelay=1 -DUSE_FREERTOS -DSTACK_SIZE=64 -DRT -DMODEL=ADS1115_Single_Ended_Read -DNUMST=1 -DNCSTATES=0 -DHAVESTDIO -DMODEL_HAS_DYNAMICALLY_LOADED_SFCNS=0 -IC:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1 -IC:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/ADS1115_Single_Ended_Read_ert_rtw -IC:/PROGRA~1/MATLAB/R2024a/extern/include -IC:/PROGRA~1/MATLAB/R2024a/simulink/include -IC:/PROGRA~1/MATLAB/R2024a/rtw/c/src -IC:/PROGRA~1/MATLAB/R2024a/rtw/c/src/ext_mode/common -IC:/PROGRA~1/MATLAB/R2024a/rtw/c/ert -I"C:/Users/%USERNAME%/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15" -I"C:/Users/%USERNAME%/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_BusIO" -I"C:/Users/%USERNAME%/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Wire" -IC:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32 -IC:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/variants/esp32 -IC:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/tools/esptool_py -IC:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/tools/mkspiffs -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~2/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~2/SCHEDU~1/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~1/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/shared/freertos/include -IC:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/include -o "ADS1115_Interface_wrapper.o" "C:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/ADS1115_Interface_wrapper.c"
+"C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/tools/xtensa-esp32-elf-gcc/esp-2021r2-patch5-8.4.0/bin/xtensa-esp32-elf-g++" -mlongcalls -Wno-frame-address -ffunction-sections -fdata-sections -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wno-unused-parameter -Wno-sign-compare -ggdb -freorder-blocks -Wwrite-strings -fstack-protector -fstrict-volatile-bitfields -Wno-error=unused-but-set-variable -fno-jump-tables -fno-tree-switch-conversion -std=gnu++11 -fexceptions -fno-rtti -MMD -c -w -DF_CPU=240000000L -DARDUINO=10819 -DARDUINO_ESP32_DEV -DARDUINO_ARCH_ESP32 "-DARDUINO_BOARD=\"ESP32_DEV\"" "-DARDUINO_VARIANT=\"esp32\"" -DARDUINO_PARTITION_default -DESP32 -DCORE_DEBUG_LEVEL=0 -DARDUINO_RUNNING_CORE=1 -DARDUINO_EVENT_RUNNING_CORE=1 -DARDUINO_USB_CDC_ON_BOOT=0 @"C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/ADS1115_Single_Ended_Read_ert_rtw/esp32sdkincludes.txt" -O0 -g -DHAVE_CONFIG_H "-DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\"" -DUNITY_INCLUDE_CONFIG_H -DWITH_POSIX -D_GNU_SOURCE "-DIDF_VER=\"v4.4.5\"" -DESP_PLATFORM -D_POSIX_READER_WRITER_LOCKS -D_RUNONTARGETHARDWARE_BUILD_ -DMW_DONOTSTART_SCHEDULER -D_ROTH_ESP32_ -D__MW_TARGET_USE_HARDWARE_RESOURCES_H__ -D_MW_ARDUINO_LOOP_=1 -DMW_ARDUINO_STEP_SIZE=5000 -DMW_ARDUINO_MICROS -DARDUINO_NUM_SERIAL_PORTS=3 -DARDUINO_SERIAL_RECEIVE_BUFFER_SIZE=256 -D_RTT_BAUDRATE_SERIAL0_=9600 -D_RTT_BAUDRATE_SERIAL1_=9600 -D_RTT_BAUDRATE_SERIAL2_=9600 -D_RTT_CONFIG_SERIAL0_=SERIAL_8N1 -D_RTT_CONFIG_SERIAL1_=SERIAL_8N1 -D_RTT_CONFIG_SERIAL2_=SERIAL_8N1 -D_RTT_TX_PIN_SERIAL0_=1 -D_RTT_RX_PIN_SERIAL0_=3 -D_RTT_TX_PIN_SERIAL1_=33 -D_RTT_RX_PIN_SERIAL1_=32 -D_RTT_TX_PIN_SERIAL2_=17 -D_RTT_RX_PIN_SERIAL2_=16 -D_RTT_ANALOG_REF_=0 -DMW_NUM_PINS=26 -D_ONBOARD_EEPROM_SIZE_=0 -DCLASSIC_INTERFACE=0 -DALLOCATIONFCN=0 -DTERMFCN=1 -DONESTEPFCN=1 -DMAT_FILE=0 -DMULTI_INSTANCE_CODE=0 -DINTEGER_CODE=0 -DMT=0  -DTID01EQ=0 -DXCP_CUSTOM_PLATFORM -DEXIT_FAILURE=1 -DEXTMODE_DISABLEPRINTF -DEXTMODE_DISABLETESTING -DEXTMODE_DISABLE_ARGS_PROCESSING=1 -DINCLUDE_xTaskGetCurrentTaskHandle=1 -DOS_STKSIZE=8192 -DINCLUDE_vTaskDelete -DINCLUDE_vTaskDelay=1 -DUSE_FREERTOS -DSTACK_SIZE=64 -DRT -DMODEL=ADS1115_Single_Ended_Read -DNUMST=1 -DNCSTATES=0 -DHAVESTDIO -DMODEL_HAS_DYNAMICALLY_LOADED_SFCNS=0 -IC:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1 -IC:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/ADS1115_Single_Ended_Read_ert_rtw -IC:/PROGRA~1/MATLAB/R2024a/extern/include -IC:/PROGRA~1/MATLAB/R2024a/simulink/include -IC:/PROGRA~1/MATLAB/R2024a/rtw/c/src -IC:/PROGRA~1/MATLAB/R2024a/rtw/c/src/ext_mode/common -IC:/PROGRA~1/MATLAB/R2024a/rtw/c/ert -I"C:/Users/%USERNAME%/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15" -I"C:/Users/%USERNAME%/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_BusIO" -I"C:/Users/%USERNAME%/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Wire" -IC:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32 -IC:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/variants/esp32 -IC:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/tools/esptool_py -IC:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/tools/mkspiffs -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~2/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~2/SCHEDU~1/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~1/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/shared/freertos/include -IC:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/include -o "MW_ArduinoHWInit.o" "C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/supportpackages/arduinotarget/src/MW_ArduinoHWInit.cpp"
+"C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/tools/xtensa-esp32-elf-gcc/esp-2021r2-patch5-8.4.0/bin/xtensa-esp32-elf-g++" -mlongcalls -Wno-frame-address -ffunction-sections -fdata-sections -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wno-unused-parameter -Wno-sign-compare -ggdb -freorder-blocks -Wwrite-strings -fstack-protector -fstrict-volatile-bitfields -Wno-error=unused-but-set-variable -fno-jump-tables -fno-tree-switch-conversion -std=gnu++11 -fexceptions -fno-rtti -MMD -c -w -DF_CPU=240000000L -DARDUINO=10819 -DARDUINO_ESP32_DEV -DARDUINO_ARCH_ESP32 "-DARDUINO_BOARD=\"ESP32_DEV\"" "-DARDUINO_VARIANT=\"esp32\"" -DARDUINO_PARTITION_default -DESP32 -DCORE_DEBUG_LEVEL=0 -DARDUINO_RUNNING_CORE=1 -DARDUINO_EVENT_RUNNING_CORE=1 -DARDUINO_USB_CDC_ON_BOOT=0 @"C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/ADS1115_Single_Ended_Read_ert_rtw/esp32sdkincludes.txt" -O0 -g -DHAVE_CONFIG_H "-DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\"" -DUNITY_INCLUDE_CONFIG_H -DWITH_POSIX -D_GNU_SOURCE "-DIDF_VER=\"v4.4.5\"" -DESP_PLATFORM -D_POSIX_READER_WRITER_LOCKS -D_RUNONTARGETHARDWARE_BUILD_ -DMW_DONOTSTART_SCHEDULER -D_ROTH_ESP32_ -D__MW_TARGET_USE_HARDWARE_RESOURCES_H__ -D_MW_ARDUINO_LOOP_=1 -DMW_ARDUINO_STEP_SIZE=5000 -DMW_ARDUINO_MICROS -DARDUINO_NUM_SERIAL_PORTS=3 -DARDUINO_SERIAL_RECEIVE_BUFFER_SIZE=256 -D_RTT_BAUDRATE_SERIAL0_=9600 -D_RTT_BAUDRATE_SERIAL1_=9600 -D_RTT_BAUDRATE_SERIAL2_=9600 -D_RTT_CONFIG_SERIAL0_=SERIAL_8N1 -D_RTT_CONFIG_SERIAL1_=SERIAL_8N1 -D_RTT_CONFIG_SERIAL2_=SERIAL_8N1 -D_RTT_TX_PIN_SERIAL0_=1 -D_RTT_RX_PIN_SERIAL0_=3 -D_RTT_TX_PIN_SERIAL1_=33 -D_RTT_RX_PIN_SERIAL1_=32 -D_RTT_TX_PIN_SERIAL2_=17 -D_RTT_RX_PIN_SERIAL2_=16 -D_RTT_ANALOG_REF_=0 -DMW_NUM_PINS=26 -D_ONBOARD_EEPROM_SIZE_=0 -DCLASSIC_INTERFACE=0 -DALLOCATIONFCN=0 -DTERMFCN=1 -DONESTEPFCN=1 -DMAT_FILE=0 -DMULTI_INSTANCE_CODE=0 -DINTEGER_CODE=0 -DMT=0  -DTID01EQ=0 -DXCP_CUSTOM_PLATFORM -DEXIT_FAILURE=1 -DEXTMODE_DISABLEPRINTF -DEXTMODE_DISABLETESTING -DEXTMODE_DISABLE_ARGS_PROCESSING=1 -DINCLUDE_xTaskGetCurrentTaskHandle=1 -DOS_STKSIZE=8192 -DINCLUDE_vTaskDelete -DINCLUDE_vTaskDelay=1 -DUSE_FREERTOS -DSTACK_SIZE=64 -DRT -DMODEL=ADS1115_Single_Ended_Read -DNUMST=1 -DNCSTATES=0 -DHAVESTDIO -DMODEL_HAS_DYNAMICALLY_LOADED_SFCNS=0 -IC:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1 -IC:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/ADS1115_Single_Ended_Read_ert_rtw -IC:/PROGRA~1/MATLAB/R2024a/extern/include -IC:/PROGRA~1/MATLAB/R2024a/simulink/include -IC:/PROGRA~1/MATLAB/R2024a/rtw/c/src -IC:/PROGRA~1/MATLAB/R2024a/rtw/c/src/ext_mode/common -IC:/PROGRA~1/MATLAB/R2024a/rtw/c/ert -I"C:/Users/%USERNAME%/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15" -I"C:/Users/%USERNAME%/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_BusIO" -I"C:/Users/%USERNAME%/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Wire" -IC:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32 -IC:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/variants/esp32 -IC:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/tools/esptool_py -IC:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/tools/mkspiffs -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~2/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~2/SCHEDU~1/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~1/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/shared/freertos/include -IC:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/include -o "io_wrappers.o" "C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/supportpackages/arduinobase/src/io_wrappers.cpp"
+"C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/tools/xtensa-esp32-elf-gcc/esp-2021r2-patch5-8.4.0/bin/xtensa-esp32-elf-g++" -mlongcalls -Wno-frame-address -ffunction-sections -fdata-sections -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wno-unused-parameter -Wno-sign-compare -ggdb -freorder-blocks -Wwrite-strings -fstack-protector -fstrict-volatile-bitfields -Wno-error=unused-but-set-variable -fno-jump-tables -fno-tree-switch-conversion -std=gnu++11 -fexceptions -fno-rtti -MMD -c -w -DF_CPU=240000000L -DARDUINO=10819 -DARDUINO_ESP32_DEV -DARDUINO_ARCH_ESP32 "-DARDUINO_BOARD=\"ESP32_DEV\"" "-DARDUINO_VARIANT=\"esp32\"" -DARDUINO_PARTITION_default -DESP32 -DCORE_DEBUG_LEVEL=0 -DARDUINO_RUNNING_CORE=1 -DARDUINO_EVENT_RUNNING_CORE=1 -DARDUINO_USB_CDC_ON_BOOT=0 @"C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/ADS1115_Single_Ended_Read_ert_rtw/esp32sdkincludes.txt" -O0 -g -DHAVE_CONFIG_H "-DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\"" -DUNITY_INCLUDE_CONFIG_H -DWITH_POSIX -D_GNU_SOURCE "-DIDF_VER=\"v4.4.5\"" -DESP_PLATFORM -D_POSIX_READER_WRITER_LOCKS -D_RUNONTARGETHARDWARE_BUILD_ -DMW_DONOTSTART_SCHEDULER -D_ROTH_ESP32_ -D__MW_TARGET_USE_HARDWARE_RESOURCES_H__ -D_MW_ARDUINO_LOOP_=1 -DMW_ARDUINO_STEP_SIZE=5000 -DMW_ARDUINO_MICROS -DARDUINO_NUM_SERIAL_PORTS=3 -DARDUINO_SERIAL_RECEIVE_BUFFER_SIZE=256 -D_RTT_BAUDRATE_SERIAL0_=9600 -D_RTT_BAUDRATE_SERIAL1_=9600 -D_RTT_BAUDRATE_SERIAL2_=9600 -D_RTT_CONFIG_SERIAL0_=SERIAL_8N1 -D_RTT_CONFIG_SERIAL1_=SERIAL_8N1 -D_RTT_CONFIG_SERIAL2_=SERIAL_8N1 -D_RTT_TX_PIN_SERIAL0_=1 -D_RTT_RX_PIN_SERIAL0_=3 -D_RTT_TX_PIN_SERIAL1_=33 -D_RTT_RX_PIN_SERIAL1_=32 -D_RTT_TX_PIN_SERIAL2_=17 -D_RTT_RX_PIN_SERIAL2_=16 -D_RTT_ANALOG_REF_=0 -DMW_NUM_PINS=26 -D_ONBOARD_EEPROM_SIZE_=0 -DCLASSIC_INTERFACE=0 -DALLOCATIONFCN=0 -DTERMFCN=1 -DONESTEPFCN=1 -DMAT_FILE=0 -DMULTI_INSTANCE_CODE=0 -DINTEGER_CODE=0 -DMT=0  -DTID01EQ=0 -DXCP_CUSTOM_PLATFORM -DEXIT_FAILURE=1 -DEXTMODE_DISABLEPRINTF -DEXTMODE_DISABLETESTING -DEXTMODE_DISABLE_ARGS_PROCESSING=1 -DINCLUDE_xTaskGetCurrentTaskHandle=1 -DOS_STKSIZE=8192 -DINCLUDE_vTaskDelete -DINCLUDE_vTaskDelay=1 -DUSE_FREERTOS -DSTACK_SIZE=64 -DRT -DMODEL=ADS1115_Single_Ended_Read -DNUMST=1 -DNCSTATES=0 -DHAVESTDIO -DMODEL_HAS_DYNAMICALLY_LOADED_SFCNS=0 -IC:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1 -IC:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/ADS1115_Single_Ended_Read_ert_rtw -IC:/PROGRA~1/MATLAB/R2024a/extern/include -IC:/PROGRA~1/MATLAB/R2024a/simulink/include -IC:/PROGRA~1/MATLAB/R2024a/rtw/c/src -IC:/PROGRA~1/MATLAB/R2024a/rtw/c/src/ext_mode/common -IC:/PROGRA~1/MATLAB/R2024a/rtw/c/ert -I"C:/Users/%USERNAME%/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15" -I"C:/Users/%USERNAME%/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_BusIO" -I"C:/Users/%USERNAME%/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Wire" -IC:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32 -IC:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/variants/esp32 -IC:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/tools/esptool_py -IC:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/tools/mkspiffs -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~2/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~2/SCHEDU~1/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~1/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/shared/freertos/include -IC:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/include -o "IPAddress.o" "C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32/IPAddress.cpp"
+"C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/tools/xtensa-esp32-elf-gcc/esp-2021r2-patch5-8.4.0/bin/xtensa-esp32-elf-g++" -mlongcalls -Wno-frame-address -ffunction-sections -fdata-sections -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wno-unused-parameter -Wno-sign-compare -ggdb -freorder-blocks -Wwrite-strings -fstack-protector -fstrict-volatile-bitfields -Wno-error=unused-but-set-variable -fno-jump-tables -fno-tree-switch-conversion -std=gnu++11 -fexceptions -fno-rtti -MMD -c -w -DF_CPU=240000000L -DARDUINO=10819 -DARDUINO_ESP32_DEV -DARDUINO_ARCH_ESP32 "-DARDUINO_BOARD=\"ESP32_DEV\"" "-DARDUINO_VARIANT=\"esp32\"" -DARDUINO_PARTITION_default -DESP32 -DCORE_DEBUG_LEVEL=0 -DARDUINO_RUNNING_CORE=1 -DARDUINO_EVENT_RUNNING_CORE=1 -DARDUINO_USB_CDC_ON_BOOT=0 @"C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/ADS1115_Single_Ended_Read_ert_rtw/esp32sdkincludes.txt" -O0 -g -DHAVE_CONFIG_H "-DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\"" -DUNITY_INCLUDE_CONFIG_H -DWITH_POSIX -D_GNU_SOURCE "-DIDF_VER=\"v4.4.5\"" -DESP_PLATFORM -D_POSIX_READER_WRITER_LOCKS -D_RUNONTARGETHARDWARE_BUILD_ -DMW_DONOTSTART_SCHEDULER -D_ROTH_ESP32_ -D__MW_TARGET_USE_HARDWARE_RESOURCES_H__ -D_MW_ARDUINO_LOOP_=1 -DMW_ARDUINO_STEP_SIZE=5000 -DMW_ARDUINO_MICROS -DARDUINO_NUM_SERIAL_PORTS=3 -DARDUINO_SERIAL_RECEIVE_BUFFER_SIZE=256 -D_RTT_BAUDRATE_SERIAL0_=9600 -D_RTT_BAUDRATE_SERIAL1_=9600 -D_RTT_BAUDRATE_SERIAL2_=9600 -D_RTT_CONFIG_SERIAL0_=SERIAL_8N1 -D_RTT_CONFIG_SERIAL1_=SERIAL_8N1 -D_RTT_CONFIG_SERIAL2_=SERIAL_8N1 -D_RTT_TX_PIN_SERIAL0_=1 -D_RTT_RX_PIN_SERIAL0_=3 -D_RTT_TX_PIN_SERIAL1_=33 -D_RTT_RX_PIN_SERIAL1_=32 -D_RTT_TX_PIN_SERIAL2_=17 -D_RTT_RX_PIN_SERIAL2_=16 -D_RTT_ANALOG_REF_=0 -DMW_NUM_PINS=26 -D_ONBOARD_EEPROM_SIZE_=0 -DCLASSIC_INTERFACE=0 -DALLOCATIONFCN=0 -DTERMFCN=1 -DONESTEPFCN=1 -DMAT_FILE=0 -DMULTI_INSTANCE_CODE=0 -DINTEGER_CODE=0 -DMT=0  -DTID01EQ=0 -DXCP_CUSTOM_PLATFORM -DEXIT_FAILURE=1 -DEXTMODE_DISABLEPRINTF -DEXTMODE_DISABLETESTING -DEXTMODE_DISABLE_ARGS_PROCESSING=1 -DINCLUDE_xTaskGetCurrentTaskHandle=1 -DOS_STKSIZE=8192 -DINCLUDE_vTaskDelete -DINCLUDE_vTaskDelay=1 -DUSE_FREERTOS -DSTACK_SIZE=64 -DRT -DMODEL=ADS1115_Single_Ended_Read -DNUMST=1 -DNCSTATES=0 -DHAVESTDIO -DMODEL_HAS_DYNAMICALLY_LOADED_SFCNS=0 -IC:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1 -IC:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/ADS1115_Single_Ended_Read_ert_rtw -IC:/PROGRA~1/MATLAB/R2024a/extern/include -IC:/PROGRA~1/MATLAB/R2024a/simulink/include -IC:/PROGRA~1/MATLAB/R2024a/rtw/c/src -IC:/PROGRA~1/MATLAB/R2024a/rtw/c/src/ext_mode/common -IC:/PROGRA~1/MATLAB/R2024a/rtw/c/ert -I"C:/Users/%USERNAME%/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15" -I"C:/Users/%USERNAME%/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_BusIO" -I"C:/Users/%USERNAME%/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Wire" -IC:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32 -IC:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/variants/esp32 -IC:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/tools/esptool_py -IC:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/tools/mkspiffs -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~2/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~2/SCHEDU~1/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~1/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/shared/freertos/include -IC:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/include -o "Print.o" "C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32/Print.cpp"
+In file included from C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32/Print.h:27,
+                 from C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32/Stream.h:26,
+                 from C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Wire/Wire.h:28,
+                 from C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_BusIO/Adafruit_I2CDevice.h:5,
+                 from C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.h:19,
+                 from C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp:31,
+                 from C:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/ADS1115_Interface_wrapper.c:22:
+C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32/Printable.h:25:1: error: unknown type name 'class'
+ class Print;
+ ^~~~~
+C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32/Printable.h:33:1: error: unknown type name 'class'
+ class Printable
+ ^~~~~
+C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32/Printable.h:34:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+In file included from C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32/Stream.h:26,
+                 from C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Wire/Wire.h:28,
+                 from C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_BusIO/Adafruit_I2CDevice.h:5,
+                 from C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.h:19,
+                 from C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp:31,
+                 from C:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/ADS1115_Interface_wrapper.c:22:
+C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32/Print.h:34:1: error: unknown type name 'class'
+ class Print
+ ^~~~~
+C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32/Print.h:35:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+In file included from C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Wire/Wire.h:28,
+                 from C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_BusIO/Adafruit_I2CDevice.h:5,
+                 from C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.h:19,
+                 from C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp:31,
+                 from C:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/ADS1115_Interface_wrapper.c:22:
+C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32/Stream.h:38:1: error: unknown type name 'class'
+ class Stream: public Print
+ ^~~~~
+C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32/Stream.h:38:13: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
+ class Stream: public Print
+             ^
+In file included from C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_BusIO/Adafruit_I2CDevice.h:5,
+                 from C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.h:19,
+                 from C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp:31,
+                 from C:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/ADS1115_Interface_wrapper.c:22:
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Wire/Wire.h:36:1: error: unknown type name 'class'
+ class TwoWire: public Stream
+ ^~~~~
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Wire/Wire.h:36:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
+ class TwoWire: public Stream
+              ^
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Wire/Wire.h:90:8: error: unknown type name 'TwoWire'
+ extern TwoWire Wire;
+        ^~~~~~~
+In file included from C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.h:19,
+                 from C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp:31,
+                 from C:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/ADS1115_Interface_wrapper.c:22:
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_BusIO/Adafruit_I2CDevice.h:8:1: error: unknown type name 'class'
+ class Adafruit_I2CDevice {
+ ^~~~~
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_BusIO/Adafruit_I2CDevice.h:8:26: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ class Adafruit_I2CDevice {
+                          ^
+In file included from C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp:31,
+                 from C:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/ADS1115_Interface_wrapper.c:22:
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.h:64:1: error: unknown type name 'constexpr'; did you mean 'constrain'?
+ constexpr uint16_t MUX_BY_CHANNEL[] = {
+ ^~~~~~~~~
+ constrain
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.h:64:20: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'MUX_BY_CHANNEL'
+ constexpr uint16_t MUX_BY_CHANNEL[] = {
+                    ^~~~~~~~~~~~~~
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.h:148:1: error: unknown type name 'class'
+ class Adafruit_ADS1X15 {
+ ^~~~~
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.h:148:24: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ class Adafruit_ADS1X15 {
+                        ^
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.h:186:1: error: unknown type name 'class'
+ class Adafruit_ADS1015 : public Adafruit_ADS1X15 {
+ ^~~~~
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.h:186:24: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
+ class Adafruit_ADS1015 : public Adafruit_ADS1X15 {
+                        ^
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.h:196:1: error: unknown type name 'class'
+ class Adafruit_ADS1115 : public Adafruit_ADS1X15 {
+ ^~~~~
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.h:196:24: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
+ class Adafruit_ADS1115 : public Adafruit_ADS1X15 {
+                        ^
+In file included from C:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/ADS1115_Interface_wrapper.c:22:
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp:38:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
+ Adafruit_ADS1015::Adafruit_ADS1015() {
+                 ^
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp:49:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
+ Adafruit_ADS1115::Adafruit_ADS1115() {
+                 ^
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp:65:22: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
+ bool Adafruit_ADS1X15::begin(uint8_t i2c_addr, TwoWire *wire) {
+                      ^
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp:77:22: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
+ void Adafruit_ADS1X15::setGain(adsGain_t gain) { m_gain = gain; }
+                      ^
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp:86:27: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
+ adsGain_t Adafruit_ADS1X15::getGain() { return m_gain; }
+                           ^
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp:95:22: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
+ void Adafruit_ADS1X15::setDataRate(uint16_t rate) { m_dataRate = rate; }
+                      ^
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp:104:26: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
+ uint16_t Adafruit_ADS1X15::getDataRate() { return m_dataRate; }
+                          ^
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp:115:25: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
+ int16_t Adafruit_ADS1X15::readADC_SingleEnded(uint8_t channel) {
+                         ^
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp:140:25: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
+ int16_t Adafruit_ADS1X15::readADC_Differential_0_1() {
+                         ^
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp:160:25: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
+ int16_t Adafruit_ADS1X15::readADC_Differential_0_3() {
+                         ^
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp:180:25: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
+ int16_t Adafruit_ADS1X15::readADC_Differential_1_3() {
+                         ^
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp:201:25: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
+ int16_t Adafruit_ADS1X15::readADC_Differential_2_3() {
+                         ^
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp:224:22: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
+ void Adafruit_ADS1X15::startComparator_SingleEnded(uint8_t channel,
+                      ^
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp:261:25: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
+ int16_t Adafruit_ADS1X15::getLastConversionResults() {
+                         ^
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp:286:23: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
+ float Adafruit_ADS1X15::computeVolts(int16_t counts) {
+                       ^
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp:328:22: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
+ void Adafruit_ADS1X15::startADCReading(uint16_t mux, bool continuous) {
+                      ^
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp:370:22: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
+ bool Adafruit_ADS1X15::conversionComplete() {
+                      ^
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp:382:22: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
+ void Adafruit_ADS1X15::writeRegister(uint8_t reg, uint16_t value) {
+                      ^
+C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp:398:26: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
+ uint16_t Adafruit_ADS1X15::readRegister(uint8_t reg) {
+                          ^
+C:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/ADS1115_Interface_wrapper.c:24:1: error: unknown type name 'Adafruit_ADS1115'; did you mean 'Adafruit_I2CDevice_h'?
+ Adafruit_ADS1115 ads;  /* Use this for the 16-bit version */
+ ^~~~~~~~~~~~~~~~
+ Adafruit_I2CDevice_h
+C:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/ADS1115_Interface_wrapper.c: In function 'ADS1115_Interface_Outputs_wrapper':
+C:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/ADS1115_Interface_wrapper.c:62:18: error: request for member 'readADC_SingleEnded' in something not a structure or union
+       A0[0] = ads.readADC_SingleEnded(0);
+                  ^
+C:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/ADS1115_Interface_wrapper.c:63:18: error: request for member 'readADC_SingleEnded' in something not a structure or union
+       A1[0] = ads.readADC_SingleEnded(1);
+                  ^
+C:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/ADS1115_Interface_wrapper.c:64:18: error: request for member 'readADC_SingleEnded' in something not a structure or union
+       A2[0] = ads.readADC_SingleEnded(2);
+                  ^
+C:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/ADS1115_Interface_wrapper.c:65:18: error: request for member 'readADC_SingleEnded' in something not a structure or union
+       A3[0] = ads.readADC_SingleEnded(3);
+                  ^
+C:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/ADS1115_Interface_wrapper.c: In function 'ADS1115_Interface_Update_wrapper':
+C:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/ADS1115_Interface_wrapper.c:84:8: error: request for member 'begin' in something not a structure or union
+     ads.begin();
+        ^
+gmake[1]: *** [ADS1115_Interface_wrapper.o] Error 1
+gmake[1]: *** Waiting for unfinished jobs....
+gmake[1]: Leaving directory `C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 + ADC Test/ADS1115_Single_Ended_Read_ert_rtw'
+gmake: *** [all] Error 2
+
+C:\Users\obell\Documents\GitHub\Throttle_Body_Control_Platform\CODE\Research and development\Matlab\ESP32 + ADC Test\ADS1115_Single_Ended_Read_ert_rtw>echo The make command returned an error of 2
+The make command returned an error of 2
+
+C:\Users\obell\Documents\GitHub\Throttle_Body_Control_Platform\CODE\Research and development\Matlab\ESP32 + ADC Test\ADS1115_Single_Ended_Read_ert_rtw>exit /B 1
+### Build procedure for ADS1115_Single_Ended_Read aborted due to an error.
+Build Summary
+Top model targets built:
+
+Model                      Action  Rebuild Reason                                    
+=====================================================================================
+ADS1115_Single_Ended_Read  Failed  Code generation information file does not exist.  
+
+0 of 1 models built (0 models already up to date)
+Build duration: 0h 0m 7.682s
+Error(s) encountered while building "ADS1115_Single_Ended_Read"
+Component:Simulink | Category:Block diagram error
