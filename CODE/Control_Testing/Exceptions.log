@@ -1,0 +1,757 @@
+
+
+28-Jul-2024 13:25:34 Error using Simulink.findVars
+Failed to compile model '<a href="matlab:open_system ('CONTROL_TESTING')">CONTROL_TESTING</a>'. Cached results might be incomplete.
+Error in simulink.sim.Variables/keys
+Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+Error in simulink.ui.control.VariableTuner/updateGUI
+Error in simulink.internal.SLComponent/updateGUIWrapper
+Error in simulink.internal.SLComponent/modelSelectionChanged
+Error in simulink.internal.SLComponent/initSimulation
+Error in simulink.internal.SLComponent/set.Simulation
+Error in CONTROL_TESTING_APP/createComponents (line 53)
+            app.VariableTuner.Simulation = app.Simulation;
+Error in CONTROL_TESTING_APP (line 80)
+            createComponents(app)
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+Caused by:
+    Error using Simulink.findVars
+    Error due to multiple causes.
+    
+    Error in simulink.sim.Variables/keys
+    
+    Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+    
+    Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+    
+    Error in simulink.ui.control.VariableTuner/updateGUI
+    
+    Error in simulink.internal.SLComponent/updateGUIWrapper
+    
+    Error in simulink.internal.SLComponent/modelSelectionChanged
+    
+    Error in simulink.internal.SLComponent/initSimulation
+    
+    Error in simulink.internal.SLComponent/set.Simulation
+    
+    Error in CONTROL_TESTING_APP/createComponents (line 53)
+                app.VariableTuner.Simulation = app.Simulation;
+    
+    Error in CONTROL_TESTING_APP (line 80)
+                createComponents(app)
+    
+    Error in run (line 112)
+    evalin('caller', strcat(scriptStem, ';'));
+        Error using Simulink.findVars
+        Invalid setting in '<a href="matlab:open_and_hilite_hyperlink ('CONTROL_TESTING/Old_Value','error')">CONTROL_TESTING/Old_Value</a>' for parameter 'Value'.
+        
+        Error in simulink.sim.Variables/keys
+        
+        Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+        
+        Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+        
+        Error in simulink.ui.control.VariableTuner/updateGUI
+        
+        Error in simulink.internal.SLComponent/updateGUIWrapper
+        
+        Error in simulink.internal.SLComponent/modelSelectionChanged
+        
+        Error in simulink.internal.SLComponent/initSimulation
+        
+        Error in simulink.internal.SLComponent/set.Simulation
+        
+        Error in CONTROL_TESTING_APP/createComponents (line 53)
+                    app.VariableTuner.Simulation = app.Simulation;
+        
+        Error in CONTROL_TESTING_APP (line 80)
+                    createComponents(app)
+        
+        Error in run (line 112)
+        evalin('caller', strcat(scriptStem, ';'));
+            Error using Simulink.findVars
+            Error evaluating parameter <a href="matlab:Simulink.internal.OpenBlockParamsDialog(['CONTROL_TESTING/Old_Value'],'Value');">'Value'</a> in '<a href="matlab:open_and_hilite_hyperlink ('CONTROL_TESTING/Old_Value','error')">CONTROL_TESTING/Old_Value</a>'
+            
+            Error in simulink.sim.Variables/keys
+            
+            Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+            
+            Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+            
+            Error in simulink.ui.control.VariableTuner/updateGUI
+            
+            Error in simulink.internal.SLComponent/updateGUIWrapper
+            
+            Error in simulink.internal.SLComponent/modelSelectionChanged
+            
+            Error in simulink.internal.SLComponent/initSimulation
+            
+            Error in simulink.internal.SLComponent/set.Simulation
+            
+            Error in CONTROL_TESTING_APP/createComponents (line 53)
+                        app.VariableTuner.Simulation = app.Simulation;
+            
+            Error in CONTROL_TESTING_APP (line 80)
+                        createComponents(app)
+            
+            Error in run (line 112)
+            evalin('caller', strcat(scriptStem, ';'));
+                Error using Simulink.findVars
+                Unrecognized function or variable 'C'.
+                
+                Error in simulink.sim.Variables/keys
+                
+                Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+                
+                Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+                
+                Error in simulink.ui.control.VariableTuner/updateGUI
+                
+                Error in simulink.internal.SLComponent/updateGUIWrapper
+                
+                Error in simulink.internal.SLComponent/modelSelectionChanged
+                
+                Error in simulink.internal.SLComponent/initSimulation
+                
+                Error in simulink.internal.SLComponent/set.Simulation
+                
+                Error in CONTROL_TESTING_APP/createComponents (line 53)
+                            app.VariableTuner.Simulation = app.Simulation;
+                
+                Error in CONTROL_TESTING_APP (line 80)
+                            createComponents(app)
+                
+                Error in run (line 112)
+                evalin('caller', strcat(scriptStem, ';'));
+                    Error using Simulink.findVars
+                    Variable 'C' does not exist.
+                    
+                    Error in simulink.sim.Variables/keys
+                    
+                    Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+                    
+                    Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+                    
+                    Error in simulink.ui.control.VariableTuner/updateGUI
+                    
+                    Error in simulink.internal.SLComponent/updateGUIWrapper
+                    
+                    Error in simulink.internal.SLComponent/modelSelectionChanged
+                    
+                    Error in simulink.internal.SLComponent/initSimulation
+                    
+                    Error in simulink.internal.SLComponent/set.Simulation
+                    
+                    Error in CONTROL_TESTING_APP/createComponents (line 53)
+                                app.VariableTuner.Simulation = app.Simulation;
+                    
+                    Error in CONTROL_TESTING_APP (line 80)
+                                createComponents(app)
+                    
+                    Error in run (line 112)
+                    evalin('caller', strcat(scriptStem, ';'));
+                    Suggested Actions:
+                        • Load a file into base workspace. - <a href="matlab:slprivate('robustVarRefHotlink_cb', 'loadFile', 'CONTROL_TESTING', 'C')">Fix</a>
+                        • Create a new variable. - <a href="matlab:slprivate('robustVarRefHotlink_cb', 'createEntry', 'C', 'CONTROL_TESTING', '', 'normal', 'Value', 'CONTROL_TESTING/Old_Value', ' ')">Fix</a>
+        Error using Simulink.findVars
+        Invalid setting in '<a href="matlab:open_and_hilite_hyperlink ('CONTROL_TESTING/Subsystem/FB_New_Max','error')">CONTROL_TESTING/Subsystem/FB_New_Max</a>' for parameter 'Value'.
+        
+        Error in simulink.sim.Variables/keys
+        
+        Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+        
+        Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+        
+        Error in simulink.ui.control.VariableTuner/updateGUI
+        
+        Error in simulink.internal.SLComponent/updateGUIWrapper
+        
+        Error in simulink.internal.SLComponent/modelSelectionChanged
+        
+        Error in simulink.internal.SLComponent/initSimulation
+        
+        Error in simulink.internal.SLComponent/set.Simulation
+        
+        Error in CONTROL_TESTING_APP/createComponents (line 53)
+                    app.VariableTuner.Simulation = app.Simulation;
+        
+        Error in CONTROL_TESTING_APP (line 80)
+                    createComponents(app)
+        
+        Error in run (line 112)
+        evalin('caller', strcat(scriptStem, ';'));
+            Error using Simulink.findVars
+            Error evaluating parameter <a href="matlab:Simulink.internal.OpenBlockParamsDialog(['CONTROL_TESTING/Subsystem/FB_New_Max'],'Value');">'Value'</a> in '<a href="matlab:open_and_hilite_hyperlink ('CONTROL_TESTING/Subsystem/FB_New_Max','error')">CONTROL_TESTING/Subsystem/FB_New_Max</a>'
+            
+            Error in simulink.sim.Variables/keys
+            
+            Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+            
+            Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+            
+            Error in simulink.ui.control.VariableTuner/updateGUI
+            
+            Error in simulink.internal.SLComponent/updateGUIWrapper
+            
+            Error in simulink.internal.SLComponent/modelSelectionChanged
+            
+            Error in simulink.internal.SLComponent/initSimulation
+            
+            Error in simulink.internal.SLComponent/set.Simulation
+            
+            Error in CONTROL_TESTING_APP/createComponents (line 53)
+                        app.VariableTuner.Simulation = app.Simulation;
+            
+            Error in CONTROL_TESTING_APP (line 80)
+                        createComponents(app)
+            
+            Error in run (line 112)
+            evalin('caller', strcat(scriptStem, ';'));
+                Error using Simulink.findVars
+                Unrecognized function or variable 'FP_New_Max_Percent'.
+                
+                Error in simulink.sim.Variables/keys
+                
+                Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+                
+                Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+                
+                Error in simulink.ui.control.VariableTuner/updateGUI
+                
+                Error in simulink.internal.SLComponent/updateGUIWrapper
+                
+                Error in simulink.internal.SLComponent/modelSelectionChanged
+                
+                Error in simulink.internal.SLComponent/initSimulation
+                
+                Error in simulink.internal.SLComponent/set.Simulation
+                
+                Error in CONTROL_TESTING_APP/createComponents (line 53)
+                            app.VariableTuner.Simulation = app.Simulation;
+                
+                Error in CONTROL_TESTING_APP (line 80)
+                            createComponents(app)
+                
+                Error in run (line 112)
+                evalin('caller', strcat(scriptStem, ';'));
+                    Error using Simulink.findVars
+                    Variable 'FP_New_Max_Percent' has been deleted from base workspace.
+                    
+                    Error in simulink.sim.Variables/keys
+                    
+                    Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+                    
+                    Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+                    
+                    Error in simulink.ui.control.VariableTuner/updateGUI
+                    
+                    Error in simulink.internal.SLComponent/updateGUIWrapper
+                    
+                    Error in simulink.internal.SLComponent/modelSelectionChanged
+                    
+                    Error in simulink.internal.SLComponent/initSimulation
+                    
+                    Error in simulink.internal.SLComponent/set.Simulation
+                    
+                    Error in CONTROL_TESTING_APP/createComponents (line 53)
+                                app.VariableTuner.Simulation = app.Simulation;
+                    
+                    Error in CONTROL_TESTING_APP (line 80)
+                                createComponents(app)
+                    
+                    Error in run (line 112)
+                    evalin('caller', strcat(scriptStem, ';'));
+                    Suggested Actions:
+                        • Load a file into base workspace. - <a href="matlab:slprivate('robustVarRefHotlink_cb', 'loadFile', 'CONTROL_TESTING', 'FP_New_Max_Percent')">Fix</a>
+                        • Create a new variable. - <a href="matlab:slprivate('robustVarRefHotlink_cb', 'createEntry', 'FP_New_Max_Percent', 'CONTROL_TESTING', 'base workspace', 'normal', 'Value', 'CONTROL_TESTING/Subsystem/FB_New_Max', ' ')">Fix</a>
+        Error using Simulink.findVars
+        Invalid setting in '<a href="matlab:open_and_hilite_hyperlink ('CONTROL_TESTING/Subsystem1/TB_New_Max','error')">CONTROL_TESTING/Subsystem1/TB_New_Max</a>' for parameter 'Value'.
+        
+        Error in simulink.sim.Variables/keys
+        
+        Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+        
+        Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+        
+        Error in simulink.ui.control.VariableTuner/updateGUI
+        
+        Error in simulink.internal.SLComponent/updateGUIWrapper
+        
+        Error in simulink.internal.SLComponent/modelSelectionChanged
+        
+        Error in simulink.internal.SLComponent/initSimulation
+        
+        Error in simulink.internal.SLComponent/set.Simulation
+        
+        Error in CONTROL_TESTING_APP/createComponents (line 53)
+                    app.VariableTuner.Simulation = app.Simulation;
+        
+        Error in CONTROL_TESTING_APP (line 80)
+                    createComponents(app)
+        
+        Error in run (line 112)
+        evalin('caller', strcat(scriptStem, ';'));
+            Error using Simulink.findVars
+            Error evaluating parameter <a href="matlab:Simulink.internal.OpenBlockParamsDialog(['CONTROL_TESTING/Subsystem1/TB_New_Max'],'Value');">'Value'</a> in '<a href="matlab:open_and_hilite_hyperlink ('CONTROL_TESTING/Subsystem1/TB_New_Max','error')">CONTROL_TESTING/Subsystem1/TB_New_Max</a>'
+            
+            Error in simulink.sim.Variables/keys
+            
+            Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+            
+            Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+            
+            Error in simulink.ui.control.VariableTuner/updateGUI
+            
+            Error in simulink.internal.SLComponent/updateGUIWrapper
+            
+            Error in simulink.internal.SLComponent/modelSelectionChanged
+            
+            Error in simulink.internal.SLComponent/initSimulation
+            
+            Error in simulink.internal.SLComponent/set.Simulation
+            
+            Error in CONTROL_TESTING_APP/createComponents (line 53)
+                        app.VariableTuner.Simulation = app.Simulation;
+            
+            Error in CONTROL_TESTING_APP (line 80)
+                        createComponents(app)
+            
+            Error in run (line 112)
+            evalin('caller', strcat(scriptStem, ';'));
+                Error using Simulink.findVars
+                Unrecognized function or variable 'TB_New_Max_Percent'.
+                
+                Error in simulink.sim.Variables/keys
+                
+                Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+                
+                Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+                
+                Error in simulink.ui.control.VariableTuner/updateGUI
+                
+                Error in simulink.internal.SLComponent/updateGUIWrapper
+                
+                Error in simulink.internal.SLComponent/modelSelectionChanged
+                
+                Error in simulink.internal.SLComponent/initSimulation
+                
+                Error in simulink.internal.SLComponent/set.Simulation
+                
+                Error in CONTROL_TESTING_APP/createComponents (line 53)
+                            app.VariableTuner.Simulation = app.Simulation;
+                
+                Error in CONTROL_TESTING_APP (line 80)
+                            createComponents(app)
+                
+                Error in run (line 112)
+                evalin('caller', strcat(scriptStem, ';'));
+                    Error using Simulink.findVars
+                    Variable 'TB_New_Max_Percent' has been deleted from base workspace.
+                    
+                    Error in simulink.sim.Variables/keys
+                    
+                    Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+                    
+                    Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+                    
+                    Error in simulink.ui.control.VariableTuner/updateGUI
+                    
+                    Error in simulink.internal.SLComponent/updateGUIWrapper
+                    
+                    Error in simulink.internal.SLComponent/modelSelectionChanged
+                    
+                    Error in simulink.internal.SLComponent/initSimulation
+                    
+                    Error in simulink.internal.SLComponent/set.Simulation
+                    
+                    Error in CONTROL_TESTING_APP/createComponents (line 53)
+                                app.VariableTuner.Simulation = app.Simulation;
+                    
+                    Error in CONTROL_TESTING_APP (line 80)
+                                createComponents(app)
+                    
+                    Error in run (line 112)
+                    evalin('caller', strcat(scriptStem, ';'));
+                    Suggested Actions:
+                        • Load a file into base workspace. - <a href="matlab:slprivate('robustVarRefHotlink_cb', 'loadFile', 'CONTROL_TESTING', 'TB_New_Max_Percent')">Fix</a>
+                        • Create a new variable. - <a href="matlab:slprivate('robustVarRefHotlink_cb', 'createEntry', 'TB_New_Max_Percent', 'CONTROL_TESTING', 'base workspace', 'normal', 'Value', 'CONTROL_TESTING/Subsystem1/TB_New_Max', ' ')">Fix</a>
+
+28-Jul-2024 13:26:04 Error using Simulink.findVars
+Failed to compile model '<a href="matlab:open_system ('CONTROL_TESTING')">CONTROL_TESTING</a>'. Cached results might be incomplete.
+Error in simulink.sim.Variables/keys
+Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+Error in simulink.ui.control.VariableTuner/updateGUI
+Error in simulink.internal.SLComponent/updateGUIWrapper
+Error in simulink.internal.SLComponent/modelSelectionChanged
+Error in simulink.internal.SLComponent/initSimulation
+Error in simulink.internal.SLComponent/set.Simulation
+Error in CONTROL_TESTING_APP/createComponents (line 53)
+            app.VariableTuner.Simulation = app.Simulation;
+Error in CONTROL_TESTING_APP (line 80)
+            createComponents(app)
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+Caused by:
+    Error using Simulink.findVars
+    Error due to multiple causes.
+    
+    Error in simulink.sim.Variables/keys
+    
+    Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+    
+    Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+    
+    Error in simulink.ui.control.VariableTuner/updateGUI
+    
+    Error in simulink.internal.SLComponent/updateGUIWrapper
+    
+    Error in simulink.internal.SLComponent/modelSelectionChanged
+    
+    Error in simulink.internal.SLComponent/initSimulation
+    
+    Error in simulink.internal.SLComponent/set.Simulation
+    
+    Error in CONTROL_TESTING_APP/createComponents (line 53)
+                app.VariableTuner.Simulation = app.Simulation;
+    
+    Error in CONTROL_TESTING_APP (line 80)
+                createComponents(app)
+    
+    Error in run (line 112)
+    evalin('caller', strcat(scriptStem, ';'));
+        Error using Simulink.findVars
+        Invalid setting in '<a href="matlab:open_and_hilite_hyperlink ('CONTROL_TESTING/Old_Value','error')">CONTROL_TESTING/Old_Value</a>' for parameter 'Value'.
+        
+        Error in simulink.sim.Variables/keys
+        
+        Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+        
+        Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+        
+        Error in simulink.ui.control.VariableTuner/updateGUI
+        
+        Error in simulink.internal.SLComponent/updateGUIWrapper
+        
+        Error in simulink.internal.SLComponent/modelSelectionChanged
+        
+        Error in simulink.internal.SLComponent/initSimulation
+        
+        Error in simulink.internal.SLComponent/set.Simulation
+        
+        Error in CONTROL_TESTING_APP/createComponents (line 53)
+                    app.VariableTuner.Simulation = app.Simulation;
+        
+        Error in CONTROL_TESTING_APP (line 80)
+                    createComponents(app)
+        
+        Error in run (line 112)
+        evalin('caller', strcat(scriptStem, ';'));
+            Error using Simulink.findVars
+            Error evaluating parameter <a href="matlab:Simulink.internal.OpenBlockParamsDialog(['CONTROL_TESTING/Old_Value'],'Value');">'Value'</a> in '<a href="matlab:open_and_hilite_hyperlink ('CONTROL_TESTING/Old_Value','error')">CONTROL_TESTING/Old_Value</a>'
+            
+            Error in simulink.sim.Variables/keys
+            
+            Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+            
+            Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+            
+            Error in simulink.ui.control.VariableTuner/updateGUI
+            
+            Error in simulink.internal.SLComponent/updateGUIWrapper
+            
+            Error in simulink.internal.SLComponent/modelSelectionChanged
+            
+            Error in simulink.internal.SLComponent/initSimulation
+            
+            Error in simulink.internal.SLComponent/set.Simulation
+            
+            Error in CONTROL_TESTING_APP/createComponents (line 53)
+                        app.VariableTuner.Simulation = app.Simulation;
+            
+            Error in CONTROL_TESTING_APP (line 80)
+                        createComponents(app)
+            
+            Error in run (line 112)
+            evalin('caller', strcat(scriptStem, ';'));
+                Error using Simulink.findVars
+                Unrecognized function or variable 'C'.
+                
+                Error in simulink.sim.Variables/keys
+                
+                Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+                
+                Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+                
+                Error in simulink.ui.control.VariableTuner/updateGUI
+                
+                Error in simulink.internal.SLComponent/updateGUIWrapper
+                
+                Error in simulink.internal.SLComponent/modelSelectionChanged
+                
+                Error in simulink.internal.SLComponent/initSimulation
+                
+                Error in simulink.internal.SLComponent/set.Simulation
+                
+                Error in CONTROL_TESTING_APP/createComponents (line 53)
+                            app.VariableTuner.Simulation = app.Simulation;
+                
+                Error in CONTROL_TESTING_APP (line 80)
+                            createComponents(app)
+                
+                Error in run (line 112)
+                evalin('caller', strcat(scriptStem, ';'));
+                    Error using Simulink.findVars
+                    Variable 'C' does not exist.
+                    
+                    Error in simulink.sim.Variables/keys
+                    
+                    Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+                    
+                    Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+                    
+                    Error in simulink.ui.control.VariableTuner/updateGUI
+                    
+                    Error in simulink.internal.SLComponent/updateGUIWrapper
+                    
+                    Error in simulink.internal.SLComponent/modelSelectionChanged
+                    
+                    Error in simulink.internal.SLComponent/initSimulation
+                    
+                    Error in simulink.internal.SLComponent/set.Simulation
+                    
+                    Error in CONTROL_TESTING_APP/createComponents (line 53)
+                                app.VariableTuner.Simulation = app.Simulation;
+                    
+                    Error in CONTROL_TESTING_APP (line 80)
+                                createComponents(app)
+                    
+                    Error in run (line 112)
+                    evalin('caller', strcat(scriptStem, ';'));
+                    Suggested Actions:
+                        • Load a file into base workspace. - <a href="matlab:slprivate('robustVarRefHotlink_cb', 'loadFile', 'CONTROL_TESTING', 'C')">Fix</a>
+                        • Create a new variable. - <a href="matlab:slprivate('robustVarRefHotlink_cb', 'createEntry', 'C', 'CONTROL_TESTING', '', 'normal', 'Value', 'CONTROL_TESTING/Old_Value', ' ')">Fix</a>
+        Error using Simulink.findVars
+        Invalid setting in '<a href="matlab:open_and_hilite_hyperlink ('CONTROL_TESTING/Subsystem/FB_New_Max','error')">CONTROL_TESTING/Subsystem/FB_New_Max</a>' for parameter 'Value'.
+        
+        Error in simulink.sim.Variables/keys
+        
+        Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+        
+        Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+        
+        Error in simulink.ui.control.VariableTuner/updateGUI
+        
+        Error in simulink.internal.SLComponent/updateGUIWrapper
+        
+        Error in simulink.internal.SLComponent/modelSelectionChanged
+        
+        Error in simulink.internal.SLComponent/initSimulation
+        
+        Error in simulink.internal.SLComponent/set.Simulation
+        
+        Error in CONTROL_TESTING_APP/createComponents (line 53)
+                    app.VariableTuner.Simulation = app.Simulation;
+        
+        Error in CONTROL_TESTING_APP (line 80)
+                    createComponents(app)
+        
+        Error in run (line 112)
+        evalin('caller', strcat(scriptStem, ';'));
+            Error using Simulink.findVars
+            Error evaluating parameter <a href="matlab:Simulink.internal.OpenBlockParamsDialog(['CONTROL_TESTING/Subsystem/FB_New_Max'],'Value');">'Value'</a> in '<a href="matlab:open_and_hilite_hyperlink ('CONTROL_TESTING/Subsystem/FB_New_Max','error')">CONTROL_TESTING/Subsystem/FB_New_Max</a>'
+            
+            Error in simulink.sim.Variables/keys
+            
+            Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+            
+            Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+            
+            Error in simulink.ui.control.VariableTuner/updateGUI
+            
+            Error in simulink.internal.SLComponent/updateGUIWrapper
+            
+            Error in simulink.internal.SLComponent/modelSelectionChanged
+            
+            Error in simulink.internal.SLComponent/initSimulation
+            
+            Error in simulink.internal.SLComponent/set.Simulation
+            
+            Error in CONTROL_TESTING_APP/createComponents (line 53)
+                        app.VariableTuner.Simulation = app.Simulation;
+            
+            Error in CONTROL_TESTING_APP (line 80)
+                        createComponents(app)
+            
+            Error in run (line 112)
+            evalin('caller', strcat(scriptStem, ';'));
+                Error using Simulink.findVars
+                Unrecognized function or variable 'FP_New_Max_Percent'.
+                
+                Error in simulink.sim.Variables/keys
+                
+                Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+                
+                Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+                
+                Error in simulink.ui.control.VariableTuner/updateGUI
+                
+                Error in simulink.internal.SLComponent/updateGUIWrapper
+                
+                Error in simulink.internal.SLComponent/modelSelectionChanged
+                
+                Error in simulink.internal.SLComponent/initSimulation
+                
+                Error in simulink.internal.SLComponent/set.Simulation
+                
+                Error in CONTROL_TESTING_APP/createComponents (line 53)
+                            app.VariableTuner.Simulation = app.Simulation;
+                
+                Error in CONTROL_TESTING_APP (line 80)
+                            createComponents(app)
+                
+                Error in run (line 112)
+                evalin('caller', strcat(scriptStem, ';'));
+                    Error using Simulink.findVars
+                    Variable 'FP_New_Max_Percent' has been deleted from base workspace.
+                    
+                    Error in simulink.sim.Variables/keys
+                    
+                    Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+                    
+                    Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+                    
+                    Error in simulink.ui.control.VariableTuner/updateGUI
+                    
+                    Error in simulink.internal.SLComponent/updateGUIWrapper
+                    
+                    Error in simulink.internal.SLComponent/modelSelectionChanged
+                    
+                    Error in simulink.internal.SLComponent/initSimulation
+                    
+                    Error in simulink.internal.SLComponent/set.Simulation
+                    
+                    Error in CONTROL_TESTING_APP/createComponents (line 53)
+                                app.VariableTuner.Simulation = app.Simulation;
+                    
+                    Error in CONTROL_TESTING_APP (line 80)
+                                createComponents(app)
+                    
+                    Error in run (line 112)
+                    evalin('caller', strcat(scriptStem, ';'));
+                    Suggested Actions:
+                        • Load a file into base workspace. - <a href="matlab:slprivate('robustVarRefHotlink_cb', 'loadFile', 'CONTROL_TESTING', 'FP_New_Max_Percent')">Fix</a>
+                        • Create a new variable. - <a href="matlab:slprivate('robustVarRefHotlink_cb', 'createEntry', 'FP_New_Max_Percent', 'CONTROL_TESTING', 'base workspace', 'normal', 'Value', 'CONTROL_TESTING/Subsystem/FB_New_Max', ' ')">Fix</a>
+        Error using Simulink.findVars
+        Invalid setting in '<a href="matlab:open_and_hilite_hyperlink ('CONTROL_TESTING/Subsystem1/TB_New_Max','error')">CONTROL_TESTING/Subsystem1/TB_New_Max</a>' for parameter 'Value'.
+        
+        Error in simulink.sim.Variables/keys
+        
+        Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+        
+        Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+        
+        Error in simulink.ui.control.VariableTuner/updateGUI
+        
+        Error in simulink.internal.SLComponent/updateGUIWrapper
+        
+        Error in simulink.internal.SLComponent/modelSelectionChanged
+        
+        Error in simulink.internal.SLComponent/initSimulation
+        
+        Error in simulink.internal.SLComponent/set.Simulation
+        
+        Error in CONTROL_TESTING_APP/createComponents (line 53)
+                    app.VariableTuner.Simulation = app.Simulation;
+        
+        Error in CONTROL_TESTING_APP (line 80)
+                    createComponents(app)
+        
+        Error in run (line 112)
+        evalin('caller', strcat(scriptStem, ';'));
+            Error using Simulink.findVars
+            Error evaluating parameter <a href="matlab:Simulink.internal.OpenBlockParamsDialog(['CONTROL_TESTING/Subsystem1/TB_New_Max'],'Value');">'Value'</a> in '<a href="matlab:open_and_hilite_hyperlink ('CONTROL_TESTING/Subsystem1/TB_New_Max','error')">CONTROL_TESTING/Subsystem1/TB_New_Max</a>'
+            
+            Error in simulink.sim.Variables/keys
+            
+            Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+            
+            Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+            
+            Error in simulink.ui.control.VariableTuner/updateGUI
+            
+            Error in simulink.internal.SLComponent/updateGUIWrapper
+            
+            Error in simulink.internal.SLComponent/modelSelectionChanged
+            
+            Error in simulink.internal.SLComponent/initSimulation
+            
+            Error in simulink.internal.SLComponent/set.Simulation
+            
+            Error in CONTROL_TESTING_APP/createComponents (line 53)
+                        app.VariableTuner.Simulation = app.Simulation;
+            
+            Error in CONTROL_TESTING_APP (line 80)
+                        createComponents(app)
+            
+            Error in run (line 112)
+            evalin('caller', strcat(scriptStem, ';'));
+                Error using Simulink.findVars
+                Unrecognized function or variable 'TB_New_Max_Percent'.
+                
+                Error in simulink.sim.Variables/keys
+                
+                Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+                
+                Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+                
+                Error in simulink.ui.control.VariableTuner/updateGUI
+                
+                Error in simulink.internal.SLComponent/updateGUIWrapper
+                
+                Error in simulink.internal.SLComponent/modelSelectionChanged
+                
+                Error in simulink.internal.SLComponent/initSimulation
+                
+                Error in simulink.internal.SLComponent/set.Simulation
+                
+                Error in CONTROL_TESTING_APP/createComponents (line 53)
+                            app.VariableTuner.Simulation = app.Simulation;
+                
+                Error in CONTROL_TESTING_APP (line 80)
+                            createComponents(app)
+                
+                Error in run (line 112)
+                evalin('caller', strcat(scriptStem, ';'));
+                    Error using Simulink.findVars
+                    Variable 'TB_New_Max_Percent' has been deleted from base workspace.
+                    
+                    Error in simulink.sim.Variables/keys
+                    
+                    Error in simulink.ui.control.VariableTuner/getTunableVariablesForSimulation
+                    
+                    Error in simulink.ui.control.VariableTuner/populateVisibleTunableVariables
+                    
+                    Error in simulink.ui.control.VariableTuner/updateGUI
+                    
+                    Error in simulink.internal.SLComponent/updateGUIWrapper
+                    
+                    Error in simulink.internal.SLComponent/modelSelectionChanged
+                    
+                    Error in simulink.internal.SLComponent/initSimulation
+                    
+                    Error in simulink.internal.SLComponent/set.Simulation
+                    
+                    Error in CONTROL_TESTING_APP/createComponents (line 53)
+                                app.VariableTuner.Simulation = app.Simulation;
+                    
+                    Error in CONTROL_TESTING_APP (line 80)
+                                createComponents(app)
+                    
+                    Error in run (line 112)
+                    evalin('caller', strcat(scriptStem, ';'));
+                    Suggested Actions:
+                        • Load a file into base workspace. - <a href="matlab:slprivate('robustVarRefHotlink_cb', 'loadFile', 'CONTROL_TESTING', 'TB_New_Max_Percent')">Fix</a>
+                        • Create a new variable. - <a href="matlab:slprivate('robustVarRefHotlink_cb', 'createEntry', 'TB_New_Max_Percent', 'CONTROL_TESTING', 'base workspace', 'normal', 'Value', 'CONTROL_TESTING/Subsystem1/TB_New_Max', ' ')">Fix</a>
