@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--/851650/273402/2.50/2/2/Capacitor/-->
-<!DOCTYPE curve SYSTEM "eagle.dtd">
-<eagle version="7.7.0">
+<!DOCTYPE eagle SYSTEM "eagle.dtd">
+<eagle version="9.6.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
+<setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -65,8 +65,8 @@
 </description>
 <smd name="1" x="-0.9" y="0" dx="1.45" dy="1.15" layer="1" rot="R90"/>
 <smd name="2" x="0.9" y="0" dx="1.45" dy="1.15" layer="1" rot="R90"/>
-<text x="0" y="0" align="center" size="1.27" layer="25" rot="R0" >&gt;NAME</text>
-<text x="0" y="0" align="center" size="1.27" layer="27" rot="R0" >&gt;VALUE</text>
+<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
 <wire x1="-1" y1="0.625" x2="1" y2="0.625" width="0.2" layer="51"/>
 <wire x1="1" y1="0.625" x2="1" y2="-0.625" width="0.2" layer="51"/>
 <wire x1="1" y1="-0.625" x2="-1" y2="-0.625" width="0.2" layer="51"/>
@@ -84,10 +84,10 @@
 <wire x1="7.112" y1="2.54" x2="7.112" y2="-2.54" width="0.254" layer="94"/>
 <wire x1="5.08" y1="0" x2="5.588" y2="0" width="0.254" layer="94"/>
 <wire x1="7.112" y1="0" x2="7.62" y2="0" width="0.254" layer="94"/>
-<text x="8.89" y="6.35" align="center-left" size="1.778" layer="95">&gt;NAME</text>
-<text x="8.89" y="3.81" align="center-left" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="1" x="0" y="0" visible="pad" length="middle" direction="io" rot="R0"/>
-<pin name="2" x="12.7" y="0" visible="pad" length="middle" direction="io" rot="R180"/>
+<text x="8.89" y="6.35" size="1.778" layer="95" align="center-left">&gt;NAME</text>
+<text x="8.89" y="3.81" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
+<pin name="1" x="0" y="0" visible="pad" length="middle"/>
+<pin name="2" x="12.7" y="0" visible="pad" length="middle" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -105,12 +105,12 @@ Source: &lt;a href="https://content.kemet.com/datasheets/KEM_C1002_X7R_SMD.pdf"&
 </connects>
 <technologies>
 <technology name="">
-<attribute name="element14_Part_Number" value="" constant="no"/>
-<attribute name="element14_Price-Stock" value="" constant="no"/>
-<attribute name="Manufacturer_Name" value="KEMET" constant="no"/>
-<attribute name="Manufacturer_Part_Number" value="C0805C224J1RACTU" constant="no"/>
-<attribute name="Description" value="SMD Comm X7R, Ceramic, 0.22 uF, 5%, 100 VDC, 250 VDC, 125C, -55C, X7R, SMD, MLCC, Temperature Stable, Class II, 2.5 % , 2.2727 GOhms, 21 mg, 0805, 2mm, 1.25mm, 1.25mm, 0.75mm, 0.5mm, 2500, 78  Weeks, 80" constant="no"/>
-<attribute name="Height" value="1.1mm" constant="no"/>
+<attribute name="DESCRIPTION" value="SMD Comm X7R, Ceramic, 0.22 uF, 5%, 100 VDC, 250 VDC, 125C, -55C, X7R, SMD, MLCC, Temperature Stable, Class II, 2.5 % , 2.2727 GOhms, 21 mg, 0805, 2mm, 1.25mm, 1.25mm, 0.75mm, 0.5mm, 2500, 78  Weeks, 80" constant="no"/>
+<attribute name="ELEMENT14_PART_NUMBER" value="" constant="no"/>
+<attribute name="ELEMENT14_PRICE-STOCK" value="" constant="no"/>
+<attribute name="HEIGHT" value="1.1mm" constant="no"/>
+<attribute name="MANUFACTURER_NAME" value="KEMET" constant="no"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="C0805C224J1RACTU" constant="no"/>
 </technology>
 </technologies>
 </device>
