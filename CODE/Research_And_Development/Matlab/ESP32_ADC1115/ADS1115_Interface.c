@@ -26,7 +26,7 @@
  * | See matlabroot/simulink/src/sfuntmpl_doc.c for a more detailed template |
  *  -------------------------------------------------------------------------
  *
- * Created: Thu Aug 01 13:40:07 2024
+ * Created: Thu Aug 01 13:46:22 2024
  */
 
 #define S_FUNCTION_LEVEL               2
@@ -119,7 +119,7 @@
 #define NUM_CONT_STATES                0
 #define CONT_STATES_IC                 [0]
 #define SFUNWIZ_GENERATE_TLC           1
-#define SOURCEFILES                    "__SFB__INC_PATH C:\Users\obell\Documents\GitHub\Throttle_Body_Control_Platform\CODE\Research and development\Matlab\ESP32 and ADC Test\libraries\Adafruit_BusIO__SFB__INC_PATH C:\Users\obell\Documents\GitHub\Throttle_Body_Control_Platform\CODE\Research and development\Matlab\ESP32 and ADC Test\libraries\Wire__SFB__INC_PATH C:\Users\obell\Documents\GitHub\Throttle_Body_Control_Platform\CODE\Research and development\Matlab\ESP32 and ADC Test\libraries\Adafruit_ADS1X15__SFB__"
+#define SOURCEFILES                    "__SFB__INC_PATH C:\Users\obell\Documents\GitHub\Throttle_Body_Control_Platform\CODE\Research_And_Development\Matlab\ESP32_ADC1115\libraries\Adafruit_BusIO__SFB__INC_PATH C:\Users\obell\Documents\GitHub\Throttle_Body_Control_Platform\CODE\Research_And_Development\Matlab\ESP32_ADC1115\libraries\Wire__SFB__INC_PATH C:\Users\obell\Documents\GitHub\Throttle_Body_Control_Platform\CODE\Research_And_Development\Matlab\ESP32_ADC1115\libraries\Adafruit_ADS1X15__SFB__"
 #define PANELINDEX                     N/A
 #define USE_SIMSTRUCT                  0
 #define SHOW_COMPILE_STEPS             0

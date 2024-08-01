@@ -133,7 +133,7 @@ MW_ArduinoHWInit.o: \
  C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32/io_pin_remap.h \
  C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32/Arduino.h \
  C:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~1/include/io_wrappers.h \
- C:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/ADS1115_Single_Ended_Read_ert_rtw/rtwtypes.h \
+ C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research_And_Development/Matlab/ESP32_ADC1115/ADS1115_Single_Ended_Read_ert_rtw/rtwtypes.h \
  C:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~2/SCHEDU~1/include/arduinoAVRScheduler.h \
  C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/tools/sdk/esp32/include/wpa_supplicant/esp_supplicant/include/esp_wpa2.h \
  C:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~2/include/MW_ArduinoHWInit.h

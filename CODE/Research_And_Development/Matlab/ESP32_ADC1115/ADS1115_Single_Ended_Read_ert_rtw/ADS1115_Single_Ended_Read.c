@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'ADS1115_Single_Ended_Read'.
  *
- * Model version                  : 1.11
+ * Model version                  : 1.12
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Thu Aug  1 13:40:46 2024
+ * C/C++ source code generated on : Thu Aug  1 13:48:03 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex

@@ -1,9 +1,9 @@
 ADS1115_Interface_wrapper.o: \
- C:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/ADS1115_Interface_wrapper.c \
- C:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32_~1/ADS1115_Single_Ended_Read_ert_rtw/rtwtypes.h \
- C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research\ and\ development/Matlab/ESP32\ +\ ADC\ Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp \
- C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research\ and\ development/Matlab/ESP32\ +\ ADC\ Test/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.h \
- C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research\ and\ development/Matlab/ESP32\ +\ ADC\ Test/libraries/Adafruit_BusIO/Adafruit_I2CDevice.h \
+ C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research_And_Development/Matlab/ESP32_ADC1115/ADS1115_Interface_wrapper.c \
+ C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research_And_Development/Matlab/ESP32_ADC1115/ADS1115_Single_Ended_Read_ert_rtw/rtwtypes.h \
+ C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research_And_Development/Matlab/ESP32_ADC1115/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp \
+ C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research_And_Development/Matlab/ESP32_ADC1115/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.h \
+ C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research_And_Development/Matlab/ESP32_ADC1115/libraries/Adafruit_BusIO/Adafruit_I2CDevice.h \
  C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32/Arduino.h \
  C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32/esp_arduino_version.h \
  C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/tools/sdk/esp32/include/freertos/include/freertos/FreeRTOS.h \
@@ -112,7 +112,7 @@ ADS1115_Interface_wrapper.o: \
  C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32/binary.h \
  C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32/io_pin_remap.h \
  C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32/Arduino.h \
- C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research\ and\ development/Matlab/ESP32\ +\ ADC\ Test/libraries/Wire/Wire.h \
+ C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research_And_Development/Matlab/ESP32_ADC1115/libraries/Wire/Wire.h \
  C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32/Stream.h \
  C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32/Print.h \
  C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32/hardware/esp32/2.0.11/cores/esp32/WString.h \

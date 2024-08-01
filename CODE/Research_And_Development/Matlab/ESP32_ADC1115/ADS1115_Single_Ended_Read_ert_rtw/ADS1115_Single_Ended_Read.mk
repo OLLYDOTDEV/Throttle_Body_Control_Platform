@@ -2,7 +2,7 @@
 ## Makefile generated for component 'ADS1115_Single_Ended_Read'. 
 ## 
 ## Makefile     : ADS1115_Single_Ended_Read.mk
-## Generated on : Thu Aug 01 13:40:52 2024
+## Generated on : Thu Aug 01 13:48:09 2024
 ## Final product: $(RELATIVE_PATH_TO_ANCHOR)/ADS1115_Single_Ended_Read.elf
 ## Product type : executable
 ## 
@@ -21,7 +21,7 @@ MAKEFILE                  = ADS1115_Single_Ended_Read.mk
 MATLAB_ROOT               = C:/PROGRA~1/MATLAB/R2024a
 MATLAB_BIN                = C:/PROGRA~1/MATLAB/R2024a/bin
 MATLAB_ARCH_BIN           = $(MATLAB_BIN)/win64
-START_DIR                 = C:/Users/obell/DOCUME~1/GitHub/THROTT~1/CODE/RESEAR~1/Matlab/ESP32A~1
+START_DIR                 = C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research_And_Development/Matlab/ESP32_ADC1115
 SOLVER                    = 
 SOLVER_OBJ                = 
 CLASSIC_INTERFACE         = 0
@@ -234,7 +234,7 @@ BUILD_TYPE = "Top-Level Standalone Executable"
 ## INCLUDE PATHS
 ###########################################################################
 
-INCLUDES_BUILDINFO = -I$(START_DIR) -I$(START_DIR)/ADS1115_Single_Ended_Read_ert_rtw -I$(MATLAB_ROOT)/extern/include -I$(MATLAB_ROOT)/simulink/include -I$(MATLAB_ROOT)/rtw/c/src -I$(MATLAB_ROOT)/rtw/c/src/ext_mode/common -I$(MATLAB_ROOT)/rtw/c/ert -IC:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 and ADC Test/libraries/Adafruit_BusIO -IC:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 and ADC Test/libraries/Wire -IC:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research and development/Matlab/ESP32 and ADC Test/libraries/Adafruit_ADS1X15 -I$(ARDUINO_ESP32_ROOT)/hardware/esp32/$(ESP32_LIB_VERSION)/cores/esp32 -I$(ARDUINO_ESP32_ROOT)/hardware/esp32/$(ESP32_LIB_VERSION)/variants/esp32 -I$(ARDUINO_ESP32_ROOT)/tools/esptool_py -I$(ARDUINO_ESP32_ROOT)/tools/mkspiffs -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~2/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~2/SCHEDU~1/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~1/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/shared/freertos/include -I$(START_DIR)/include
+INCLUDES_BUILDINFO = -I$(START_DIR) -I$(START_DIR)/ADS1115_Single_Ended_Read_ert_rtw -I$(MATLAB_ROOT)/extern/include -I$(MATLAB_ROOT)/simulink/include -I$(MATLAB_ROOT)/rtw/c/src -I$(MATLAB_ROOT)/rtw/c/src/ext_mode/common -I$(MATLAB_ROOT)/rtw/c/ert -I$(START_DIR)/libraries/Adafruit_BusIO -I$(START_DIR)/libraries/Wire -I$(START_DIR)/libraries/Adafruit_ADS1X15 -I$(ARDUINO_ESP32_ROOT)/hardware/esp32/$(ESP32_LIB_VERSION)/cores/esp32 -I$(ARDUINO_ESP32_ROOT)/hardware/esp32/$(ESP32_LIB_VERSION)/variants/esp32 -I$(ARDUINO_ESP32_ROOT)/tools/esptool_py -I$(ARDUINO_ESP32_ROOT)/tools/mkspiffs -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~2/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~2/SCHEDU~1/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~1/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/shared/freertos/include -I$(START_DIR)/include
 
 INCLUDES = $(INCLUDES_BUILDINFO)
 
