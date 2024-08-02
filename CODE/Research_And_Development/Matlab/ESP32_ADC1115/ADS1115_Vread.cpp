@@ -21,7 +21,7 @@ void setupFunctionADS1115_Vread(int16_T  SetGain,int size_vector__1){
   // Setting these values incorrectly may destroy your ADC!
   //                                                                ADS1015  ADS1115
   //                                                                -------  -------
-     ads.setGain(GAIN_TWOTHIRDS);  // 2/3x gain +/- 6.144V  1 bit = 3mV      0.1875mV (default)
+  // ads.setGain(GAIN_TWOTHIRDS);  // 2/3x gain +/- 6.144V  1 bit = 3mV      0.1875mV (default)
   // ads.setGain(GAIN_ONE);        // 1x gain   +/- 4.096V  1 bit = 2mV      0.125mV
   // ads.setGain(GAIN_TWO);        // 2x gain   +/- 2.048V  1 bit = 1mV      0.0625mV
   // ads.setGain(GAIN_FOUR);       // 4x gain   +/- 1.024V  1 bit = 0.5mV    0.03125mV
@@ -33,10 +33,11 @@ void setupFunctionADS1115_Vread(int16_T  SetGain,int size_vector__1){
 
 
 
-/**
+
   // Untested
   // Set the gain based on the SetGain parameter
-  switch (*SetGain) {
+/**
+  switch (SetGain) {
     case 0:
       ads.setGain(GAIN_TWOTHIRDS);  // 2/3x gain +/- 6.144V  1 bit = 0.1875mV (default)
       break;
@@ -59,12 +60,9 @@ void setupFunctionADS1115_Vread(int16_T  SetGain,int size_vector__1){
       ads.setGain(GAIN_TWOTHIRDS);  // Default gain
       break;
   }
+  **/
 }
-**/
 
-
-
-}
 
 // V0 double [1,1]
 // V1 double [1,1]

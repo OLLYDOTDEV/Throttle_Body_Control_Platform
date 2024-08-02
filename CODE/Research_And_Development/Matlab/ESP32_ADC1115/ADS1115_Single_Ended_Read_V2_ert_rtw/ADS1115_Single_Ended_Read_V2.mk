@@ -2,7 +2,7 @@
 ## Makefile generated for component 'ADS1115_Single_Ended_Read_V2'. 
 ## 
 ## Makefile     : ADS1115_Single_Ended_Read_V2.mk
-## Generated on : Fri Aug 02 19:19:38 2024
+## Generated on : Fri Aug 02 21:22:38 2024
 ## Final product: $(RELATIVE_PATH_TO_ANCHOR)/ADS1115_Single_Ended_Read_V2.elf
 ## Product type : executable
 ## 
