@@ -13,7 +13,13 @@ TB_New_Max_Percent = 255;
 TB_New_Min_Angle = 0;
 TB_New_Max_Angle = 360;
 
-C = 2.5;
+C = 0;
+Kp = 5;
+Ki = 5;
+Kd = 1;
+
+EN_Pin = 1;
+Direction_Pin = 0;
 
 
 
