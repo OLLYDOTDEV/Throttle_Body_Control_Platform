@@ -1,0 +1,1 @@
+var modelInfo = {model:"ADS1115_Single_Ended_Read_V2"};var modelHierarchy=[{model:"ADS1115_Single_Ended_Read_V2",relativePath:"_internal.html",parent:"null"},];var AddCode = true;

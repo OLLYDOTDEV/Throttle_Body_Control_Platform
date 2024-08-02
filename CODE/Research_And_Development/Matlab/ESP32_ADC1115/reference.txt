@@ -1,1 +1,2 @@
 https://www.youtube.com/watch?v=vFup14vi6H4
+https://au.mathworks.com/videos/how-to-build-custom-sensor-blocks-for-arduino-in-simulink-1704432957396.html
