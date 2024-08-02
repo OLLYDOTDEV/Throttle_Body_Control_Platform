@@ -81,4 +81,5 @@ void stepFunctionADS1115_Vread(double * V0,int size_vector_1,double * V1,int siz
     *V0 = ads.computeVolts(adc0);
     *V1 = ads.computeVolts(adc1);
     *V2 = ads.computeVolts(adc2); 
+    *V3 = ads.computeVolts(adc3); 
 }

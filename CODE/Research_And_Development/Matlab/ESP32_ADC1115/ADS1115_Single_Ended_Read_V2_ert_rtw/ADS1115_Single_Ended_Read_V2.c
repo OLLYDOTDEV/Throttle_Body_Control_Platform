@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'ADS1115_Single_Ended_Read_V2'.
  *
- * Model version                  : 1.20
+ * Model version                  : 1.22
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Fri Aug  2 21:26:43 2024
+ * C/C++ source code generated on : Sat Aug  3 09:21:59 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -81,10 +81,10 @@ void ADS1115_Single_Ended_Read_V2_initialize(void)
   ADS1115_Single_Ended_Read_V2_M->Timing.stepSize0 = 0.005;
 
   /* External mode info */
-  ADS1115_Single_Ended_Read_V2_M->Sizes.checksums[0] = (284058724U);
-  ADS1115_Single_Ended_Read_V2_M->Sizes.checksums[1] = (651255625U);
-  ADS1115_Single_Ended_Read_V2_M->Sizes.checksums[2] = (2784937087U);
-  ADS1115_Single_Ended_Read_V2_M->Sizes.checksums[3] = (4045811279U);
+  ADS1115_Single_Ended_Read_V2_M->Sizes.checksums[0] = (858471331U);
+  ADS1115_Single_Ended_Read_V2_M->Sizes.checksums[1] = (1178335604U);
+  ADS1115_Single_Ended_Read_V2_M->Sizes.checksums[2] = (2582662298U);
+  ADS1115_Single_Ended_Read_V2_M->Sizes.checksums[3] = (3532511828U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
@@ -111,7 +111,7 @@ void ADS1115_Single_Ended_Read_V2_initialize(void)
 
   /*         %% Define output properties */
   /*   Check the input size */
-  setupFunctionADS1115_Vread(2, 1.0);
+  setupFunctionADS1115_Vread(1, 1.0);
   ADS1115_Single_Ended_Read_V2_DW.obj.isSetupComplete = true;
 }
 
