@@ -1,4 +1,5 @@
 Added External ADC 
 Smaller Overall size
 
-Better power 
+
+Improved power rails

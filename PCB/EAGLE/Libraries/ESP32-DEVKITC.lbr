@@ -138,7 +138,7 @@
 <pad name="36" x="12.7" y="17.77" drill="1.02" first="yes"/>
 <pad name="37" x="12.7" y="20.31" drill="1.02" first="yes"/>
 <pad name="38" x="12.7" y="22.85" drill="1.02" first="yes"/>
-<text x="0" y="-24.13" size="1.27" layer="21" align="bottom-center">USB
+<text x="0" y="-21.59" size="1.27" layer="21" align="bottom-center">USB
 PORT</text>
 </package>
 </packages>
