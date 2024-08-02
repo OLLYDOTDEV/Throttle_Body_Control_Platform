@@ -1,4 +1,4 @@
-#include "C:\Users\obell\Documents\GitHub\Throttle_Body_Control_Platform\CODE\Research_And_Development\Matlab\ESP32_ADC1115\ADS1115_Vread.h"
+#include "ADS1115_Vread.h"
 #include "arduino.h"
 #include "Wire.h"
 #include "Adafruit_ADS1X15.h"

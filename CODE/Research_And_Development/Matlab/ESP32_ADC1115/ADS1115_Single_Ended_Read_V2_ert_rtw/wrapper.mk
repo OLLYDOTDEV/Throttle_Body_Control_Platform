@@ -232,7 +232,6 @@ export ARDUINO_BASESUPPORTPKG_ROOT
 .PHONY : all
 all : 
 	@echo "### Generating static library."
-	"$(MAKE)" -j5 -C "$(SLMKPATH)" SHELL="$(SHELL)" -f esp32comm.mk all
 	"$(MAKE)" -j5 -C "$(SLMKPATH)" SHELL="$(SHELL)" -f esp32core.mk all
 	"$(MAKE)" -j5 SHELL="$(SHELL)" -f "$(MODELMK)" all
 

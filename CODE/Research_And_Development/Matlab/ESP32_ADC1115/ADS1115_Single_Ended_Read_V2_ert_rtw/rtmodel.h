@@ -10,7 +10,7 @@
  *
  * Model version                  : 1.22
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Sat Aug  3 09:21:59 2024
+ * C/C++ source code generated on : Sat Aug  3 11:00:35 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -24,6 +24,11 @@
 #ifndef rtmodel_h_
 #define rtmodel_h_
 #include "ADS1115_Single_Ended_Read_V2.h"
+
+/* Macros generated for backwards compatibility  */
+#ifndef rtmGetStopRequested
+#define rtmGetStopRequested(rtm)       ((void*) 0)
+#endif
 #endif                                 /* rtmodel_h_ */
 
 /*
