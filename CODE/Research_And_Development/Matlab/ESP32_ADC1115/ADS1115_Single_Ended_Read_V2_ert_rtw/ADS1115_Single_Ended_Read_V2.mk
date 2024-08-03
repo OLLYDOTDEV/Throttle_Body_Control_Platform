@@ -2,7 +2,7 @@
 ## Makefile generated for component 'ADS1115_Single_Ended_Read_V2'. 
 ## 
 ## Makefile     : ADS1115_Single_Ended_Read_V2.mk
-## Generated on : Sat Aug 03 11:00:45 2024
+## Generated on : Sat Aug 03 13:22:03 2024
 ## Final product: $(RELATIVE_PATH_TO_ANCHOR)/ADS1115_Single_Ended_Read_V2.elf
 ## Product type : executable
 ## 
@@ -21,14 +21,14 @@ MAKEFILE                  = ADS1115_Single_Ended_Read_V2.mk
 MATLAB_ROOT               = C:/PROGRA~1/MATLAB/R2024a
 MATLAB_BIN                = C:/PROGRA~1/MATLAB/R2024a/bin
 MATLAB_ARCH_BIN           = $(MATLAB_BIN)/win64
-START_DIR                 = C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research_And_Development/Matlab/ESP32_ADC1115
+START_DIR                 = E:/Banana444/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research_And_Development/Matlab/ESP32_ADC1115
 SOLVER                    = 
 SOLVER_OBJ                = 
 CLASSIC_INTERFACE         = 0
 TGT_FCN_LIB               = ISO_C
 MODEL_HAS_DYNAMICALLY_LOADED_SFCNS = 0
 RELATIVE_PATH_TO_ANCHOR   = ..
-SLIB_PATH                 = C:/Users/obell/DOCUME~1/MATLAB/R2024a/ARDUIN~1/ESP32W~1/Debug
+SLIB_PATH                 = C:/Users/BANANA~1/DOCUME~1/MATLAB/R2024a/ARDUIN~1/ESP32W~1/Debug
 C_STANDARD_OPTS           = 
 CPP_STANDARD_OPTS         = 
 
@@ -234,7 +234,7 @@ BUILD_TYPE = "Top-Level Standalone Executable"
 ## INCLUDE PATHS
 ###########################################################################
 
-INCLUDES_BUILDINFO = -I$(START_DIR) -I$(START_DIR)/libraries/Adafruit_ADS1X15 -I$(START_DIR)/libraries/Adafruit_BusIO -I$(START_DIR)/ADS1115_Single_Ended_Read_V2_ert_rtw -I$(MATLAB_ROOT)/extern/include -I$(MATLAB_ROOT)/simulink/include -I$(MATLAB_ROOT)/rtw/c/src -I$(MATLAB_ROOT)/rtw/c/src/ext_mode/common -I$(MATLAB_ROOT)/rtw/c/ert -I$(ARDUINO_ESP32_ROOT)/hardware/esp32/$(ESP32_LIB_VERSION)/cores/esp32 -I$(ARDUINO_ESP32_ROOT)/hardware/esp32/$(ESP32_LIB_VERSION)/variants/esp32 -I$(ARDUINO_ESP32_ROOT)/tools/esptool_py -I$(ARDUINO_ESP32_ROOT)/tools/mkspiffs -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~2/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~2/SCHEDU~1/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~1/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/shared/freertos/include -I$(START_DIR)/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/aCLI/data/packages/esp32/hardware/esp32/20D662~1.11/LIBRAR~1/Wire/src -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/aCLI/data/packages/esp32/hardware/esp32/20D662~1.11/LIBRAR~1/SPI/src -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/aCLI/user/LIBRAR~1/SERVOE~1/src
+INCLUDES_BUILDINFO = -I$(START_DIR) -IC:/Users/Banana444/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research_And_Development/Matlab/ESP32_ADC1115/libraries/Adafruit_ADS1X15 -IC:/Users/Banana444/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research_And_Development/Matlab/ESP32_ADC1115/libraries/Adafruit_BusIO -IC:/Users/Banana444/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research_And_Development/Matlab/ESP32_ADC1115 -I$(START_DIR)/ADS1115_Single_Ended_Read_V2_ert_rtw -I$(MATLAB_ROOT)/extern/include -I$(MATLAB_ROOT)/simulink/include -I$(MATLAB_ROOT)/rtw/c/src -I$(MATLAB_ROOT)/rtw/c/src/ext_mode/common -I$(MATLAB_ROOT)/rtw/c/ert -I$(ARDUINO_ESP32_ROOT)/hardware/esp32/$(ESP32_LIB_VERSION)/cores/esp32 -I$(ARDUINO_ESP32_ROOT)/hardware/esp32/$(ESP32_LIB_VERSION)/variants/esp32 -I$(ARDUINO_ESP32_ROOT)/tools/esptool_py -I$(ARDUINO_ESP32_ROOT)/tools/mkspiffs -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~2/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~2/SCHEDU~1/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~1/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/shared/freertos/include -I$(START_DIR)/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/aCLI/data/packages/esp32/hardware/esp32/20D662~1.11/LIBRAR~1/Wire/src -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/aCLI/data/packages/esp32/hardware/esp32/20D662~1.11/LIBRAR~1/SPI/src -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/aCLI/user/LIBRAR~1/SERVOE~1/src
 
 INCLUDES = $(INCLUDES_BUILDINFO)
 
@@ -255,7 +255,7 @@ DEFINES = $(DEFINES_) $(DEFINES_BUILD_ARGS) $(DEFINES_CUSTOM) $(DEFINES_OPTS) $(
 ## SOURCE FILES
 ###########################################################################
 
-SRCS = $(START_DIR)/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp $(START_DIR)/libraries/Adafruit_BusIO/Adafruit_I2CDevice.cpp $(START_DIR)/ADS1115_Vread.cpp $(START_DIR)/ADS1115_Single_Ended_Read_V2_ert_rtw/ADS1115_Single_Ended_Read_V2.c $(START_DIR)/ADS1115_Single_Ended_Read_V2_ert_rtw/ADS1115_Single_Ended_Read_V2_data.c C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/supportpackages/arduinotarget/src/MW_ArduinoHWInit.cpp C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/supportpackages/arduinobase/src/io_wrappers.cpp "$(ARDUINO_ESP32_ROOT)/hardware/esp32/$(ESP32_LIB_VERSION)/cores/esp32/IPAddress.cpp" "$(ARDUINO_ESP32_ROOT)/hardware/esp32/$(ESP32_LIB_VERSION)/cores/esp32/Print.cpp" C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/shared/freertos/src/mw_freertos_init.c C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/shared/freertos/src/mw_thread.c C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/shared/freertos/src/mw_timer.c C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/shared/freertos/src/mw_semaphore.c
+SRCS = C:/Users/Banana444/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research_And_Development/Matlab/ESP32_ADC1115/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp C:/Users/Banana444/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research_And_Development/Matlab/ESP32_ADC1115/libraries/Adafruit_BusIO/Adafruit_I2CDevice.cpp C:/Users/Banana444/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research_And_Development/Matlab/ESP32_ADC1115/ADS1115_Vread.cpp $(START_DIR)/ADS1115_Single_Ended_Read_V2_ert_rtw/ADS1115_Single_Ended_Read_V2.c $(START_DIR)/ADS1115_Single_Ended_Read_V2_ert_rtw/ADS1115_Single_Ended_Read_V2_data.c C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/supportpackages/arduinotarget/src/MW_ArduinoHWInit.cpp C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/supportpackages/arduinobase/src/io_wrappers.cpp "$(ARDUINO_ESP32_ROOT)/hardware/esp32/$(ESP32_LIB_VERSION)/cores/esp32/IPAddress.cpp" "$(ARDUINO_ESP32_ROOT)/hardware/esp32/$(ESP32_LIB_VERSION)/cores/esp32/Print.cpp" C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/shared/freertos/src/mw_freertos_init.c C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/shared/freertos/src/mw_thread.c C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/shared/freertos/src/mw_timer.c C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/shared/freertos/src/mw_semaphore.c
 
 MAIN_SRC = $(START_DIR)/ADS1115_Single_Ended_Read_V2_ert_rtw/ert_main.c
 
@@ -541,15 +541,15 @@ $(PRODUCT) : $(OBJS) $(PREBUILT_OBJS) $(LIBS) $(MAIN_OBJ)
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-Adafruit_ADS1X15.o : $(START_DIR)/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp
+Adafruit_ADS1X15.o : C:/Users/Banana444/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research_And_Development/Matlab/ESP32_ADC1115/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-Adafruit_I2CDevice.o : $(START_DIR)/libraries/Adafruit_BusIO/Adafruit_I2CDevice.cpp
+Adafruit_I2CDevice.o : C:/Users/Banana444/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research_And_Development/Matlab/ESP32_ADC1115/libraries/Adafruit_BusIO/Adafruit_I2CDevice.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-ADS1115_Vread.o : $(START_DIR)/ADS1115_Vread.cpp
+ADS1115_Vread.o : C:/Users/Banana444/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research_And_Development/Matlab/ESP32_ADC1115/ADS1115_Vread.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 

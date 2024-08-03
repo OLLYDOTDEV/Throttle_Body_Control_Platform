@@ -3,8 +3,10 @@ Simulink
 Simscape
 Simscape Electrical
 Simscape Driveline
+Simulink Coder
 Powertrain Blockset
 Vehicle Dynamics Blockset
+
 <<<<<<< HEAD:CODE/R&D/Matlab/Install Pre.txt
 Simulink Support Package for Arduino Hardware
 MATLAB Support Package for Arduino Hardware

@@ -1,0 +1,35 @@
+/*
+ * Community and Technical College License -- for use in teaching and
+ * meeting course requirements at community and technical colleges only.
+ * Not for government, commercial, university, or other organizational
+ * use.
+ *
+ * File: ADS1115_Vread_DDAppGeneratedModel_data.c
+ *
+ * Code generated for Simulink model 'ADS1115_Vread_DDAppGeneratedModel'.
+ *
+ * Model version                  : 1.1
+ * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
+ * C/C++ source code generated on : Sat Aug  3 13:17:21 2024
+ *
+ * Target selection: ert.tlc
+ * Embedded hardware selection: ARM Compatible->ARM Cortex
+ * Code generation objectives: Unspecified
+ * Validation result: Not run
+ */
+
+#include "ADS1115_Vread_DDAppGeneratedModel.h"
+
+/* Block parameters (default storage) */
+P_ADS1115_Vread_DDAppGenerate_T ADS1115_Vread_DDAppGeneratedM_P = {
+  /* Expression: -1
+   * Referenced by: '<Root>/ADS1115_Vread_DDAppGeneratedBlock'
+   */
+  -1.0
+};
+
+/*
+ * File trailer for generated code.
+ *
+ * [EOF]
+ */

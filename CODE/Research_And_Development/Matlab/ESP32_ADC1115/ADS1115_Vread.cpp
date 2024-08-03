@@ -1,4 +1,4 @@
-#include "ADS1115_Vread.h"
+#include "E:\Banana444\Documents\GitHub\Throttle_Body_Control_Platform\CODE\Research_And_Development\Matlab\ESP32_ADC1115\ADS1115_Vread.h"
 #include "arduino.h"
 #include "Wire.h"
 #include "Adafruit_ADS1X15.h"
@@ -81,5 +81,5 @@ void stepFunctionADS1115_Vread(double * V0,int size_vector_1,double * V1,int siz
     *V0 = ads.computeVolts(adc0);
     *V1 = ads.computeVolts(adc1);
     *V2 = ads.computeVolts(adc2); 
-    *V3 = ads.computeVolts(adc3); 
+    *V3 = ads.computeVolts(adc3);
 }
