@@ -30,9 +30,7 @@ void setupFunctionLEDC_INTERFACE(int16_T  PWM_CHANNEL,int size_vector__1,int16_T
 void stepFunctionLEDC_INTERFACE(int16_T Duty_Cycle_Percent,int size_vector_a){
  
   ledcWrite(PWM_CHANNEL_G, map(Duty_Cycle_Percent, 0, 100, 0, Bit_Depth)); // output is off
-  delay(5000);                     
-  ledcWrite(PWM_CHANNEL_G, 50);
-  delay(5000);  
+
 
 
 }
