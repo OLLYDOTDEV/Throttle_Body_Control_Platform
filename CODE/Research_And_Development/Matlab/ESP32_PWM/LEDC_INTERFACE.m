@@ -175,11 +175,14 @@ classdef LEDC_INTERFACE < matlab.System ...
                 setenv('Arduino_ML_Codegen_I2C', 'Y');
             end
 
+% Get the current working directory
+currentDir = pwd;
 
+% Corrected paths with fullfile using current working directory
+buildInfo.addIncludePaths(currentDir);;
 
             buildInfo.addIncludePaths('C:\Users\obell\Documents\GitHub\Throttle_Body_Control_Platform\CODE\Research_And_Development\Matlab\ESP32_PWM');
-            addSourceFiles(buildInfo,'LEDC_INTERFACE.cpp','C:\Users\obell\Documents\GitHub\Throttle_Body_Control_Platform\CODE\Research_And_Development\Matlab\ESP32_PWM');
-            
+            addSourceFiles(buildInfo, 'LEDC_INTERFACE.cpp', currentDir);
 
         end
     end
