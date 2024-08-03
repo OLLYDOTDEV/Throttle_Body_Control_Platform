@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'ESP32_PWM'.
  *
- * Model version                  : 1.4
+ * Model version                  : 1.5
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Sat Aug  3 12:55:08 2024
+ * C/C++ source code generated on : Sat Aug  3 16:10:09 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -21,11 +21,6 @@
 #ifndef rtmodel_h_
 #define rtmodel_h_
 #include "ESP32_PWM.h"
-
-/* Macros generated for backwards compatibility  */
-#ifndef rtmGetStopRequested
-#define rtmGetStopRequested(rtm)       ((void*) 0)
-#endif
 #endif                                 /* rtmodel_h_ */
 
 /*

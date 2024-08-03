@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'ESP32_PWM'.
  *
- * Model version                  : 1.4
+ * Model version                  : 1.5
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Sat Aug  3 12:55:08 2024
+ * C/C++ source code generated on : Sat Aug  3 16:10:09 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
