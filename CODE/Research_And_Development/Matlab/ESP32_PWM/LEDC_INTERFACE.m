@@ -179,9 +179,7 @@ classdef LEDC_INTERFACE < matlab.System ...
 currentDir = pwd;
 
 % Corrected paths with fullfile using current working directory
-buildInfo.addIncludePaths(currentDir);;
-
-            buildInfo.addIncludePaths('C:\Users\obell\Documents\GitHub\Throttle_Body_Control_Platform\CODE\Research_And_Development\Matlab\ESP32_PWM');
+            buildInfo.addIncludePaths(currentDir);
             addSourceFiles(buildInfo, 'LEDC_INTERFACE.cpp', currentDir);
 
         end
