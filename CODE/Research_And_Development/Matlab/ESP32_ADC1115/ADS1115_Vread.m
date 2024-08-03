@@ -188,17 +188,19 @@ classdef ADS1115_Vread < matlab.System ...
                 setenv('Arduino_ML_Codegen_I2C', 'Y');
             end
 
-username = getenv('USERNAME');  % Retrieve the username
+% Get the current working directory
+currentDir = pwd;
 
-% Corrected paths with fullfile
-buildInfo.addIncludePaths(fullfile('C:\Users', username, 'Documents\GitHub\Throttle_Body_Control_Platform\CODE\Research_And_Development\Matlab\ESP32_ADC1115\libraries\Adafruit_ADS1X15'));
-buildInfo.addIncludePaths(fullfile('C:\Users', username, 'Documents\GitHub\Throttle_Body_Control_Platform\CODE\Research_And_Development\Matlab\ESP32_ADC1115\libraries\Adafruit_BusIO'));
-buildInfo.addIncludePaths(fullfile('C:\Users', username, 'Documents\GitHub\Throttle_Body_Control_Platform\CODE\Research_And_Development\Matlab\ESP32_ADC1115'));
+% Corrected paths with fullfile using current working directory
+buildInfo.addIncludePaths(fullfile(currentDir, 'libraries', 'Adafruit_ADS1X15'));
+buildInfo.addIncludePaths(fullfile(currentDir, 'libraries', 'Adafruit_BusIO'));
+buildInfo.addIncludePaths(currentDir);
 
-% Adding source files with fullfile
-addSourceFiles(buildInfo, 'Adafruit_ADS1X15.cpp', fullfile('C:\Users', username, 'Documents\GitHub\Throttle_Body_Control_Platform\CODE\Research_And_Development\Matlab\ESP32_ADC1115\libraries\Adafruit_ADS1X15'));
-addSourceFiles(buildInfo, 'Adafruit_I2CDevice.cpp', fullfile('C:\Users', username, 'Documents\GitHub\Throttle_Body_Control_Platform\CODE\Research_And_Development\Matlab\ESP32_ADC1115\libraries\Adafruit_BusIO'));
-addSourceFiles(buildInfo, 'ADS1115_Vread.cpp', fullfile('C:\Users', username, 'Documents\GitHub\Throttle_Body_Control_Platform\CODE\Research_And_Development\Matlab\ESP32_ADC1115'));
+% Adding source files with fullfile using current working directory
+addSourceFiles(buildInfo, 'Adafruit_ADS1X15.cpp', fullfile(currentDir, 'libraries', 'Adafruit_ADS1X15'));
+addSourceFiles(buildInfo, 'Adafruit_I2CDevice.cpp', fullfile(currentDir, 'libraries', 'Adafruit_BusIO'));
+addSourceFiles(buildInfo, 'ADS1115_Vread.cpp', currentDir);
+
         end
     end
 end
