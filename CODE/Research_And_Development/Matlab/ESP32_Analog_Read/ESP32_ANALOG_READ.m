@@ -52,7 +52,7 @@ classdef ESP32_ANALOG_READ < matlab.System ...
 
             if isempty(coder.target)
             else
-                coder.ceval('stepFunctionESP32_ANALOG_READ',coder.ref(V),1);
+                coder.ceval('stepFunctionESP32_ANALOG_READ', (obj.PIN),coder.ref(V),1);
             end
         end
 

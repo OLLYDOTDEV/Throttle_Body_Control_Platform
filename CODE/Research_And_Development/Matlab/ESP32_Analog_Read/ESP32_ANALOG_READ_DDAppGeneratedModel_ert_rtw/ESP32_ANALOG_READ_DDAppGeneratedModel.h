@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'ESP32_ANALOG_READ_DDAppGeneratedModel'.
  *
- * Model version                  : 1.3
+ * Model version                  : 1.4
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Sat Aug  3 17:35:33 2024
+ * C/C++ source code generated on : Mon Aug  5 16:56:49 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -79,12 +79,16 @@
 /* Block signals (default storage) */
 typedef struct {
   real_T ESP23_ANALOG_READ_DDAppGenerate;
+                           /* '<Root>/ESP23_ANALOG_READ_DDAppGeneratedBlock1' */
+  real_T ESP23_ANALOG_READ_DDAppGenera_o;
                             /* '<Root>/ESP23_ANALOG_READ_DDAppGeneratedBlock' */
 } B_ESP32_ANALOG_READ_DDAppGene_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
   ESP32_ANALOG_READ_ESP32_ANALO_T obj;
+                           /* '<Root>/ESP23_ANALOG_READ_DDAppGeneratedBlock1' */
+  ESP32_ANALOG_READ_ESP32_ANALO_T obj_p;
                             /* '<Root>/ESP23_ANALOG_READ_DDAppGeneratedBlock' */
 } DW_ESP32_ANALOG_READ_DDAppGen_T;
 
@@ -92,6 +96,9 @@ typedef struct {
 struct P_ESP32_ANALOG_READ_DDAppGene_T_ {
   real_T ESP23_ANALOG_READ_DDAppGenerate;/* Expression: -1
                                           * Referenced by: '<Root>/ESP23_ANALOG_READ_DDAppGeneratedBlock'
+                                          */
+  real_T ESP23_ANALOG_READ_DDAppGenera_p;/* Expression: -1
+                                          * Referenced by: '<Root>/ESP23_ANALOG_READ_DDAppGeneratedBlock1'
                                           */
 };
 

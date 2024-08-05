@@ -6,7 +6,7 @@
 #include "rtwtypes.h"
 extern "C" {
     #endif
-    void stepFunctionESP32_ANALOG_READ(double * V,int size_vector_1);
+    void stepFunctionESP32_ANALOG_READ(int8_T  PIN, double * V,int size_vector_1);
     void setupFunctionESP32_ANALOG_READ(int8_T  PIN,int size_vector__1);
     #ifdef __cplusplus
 }
