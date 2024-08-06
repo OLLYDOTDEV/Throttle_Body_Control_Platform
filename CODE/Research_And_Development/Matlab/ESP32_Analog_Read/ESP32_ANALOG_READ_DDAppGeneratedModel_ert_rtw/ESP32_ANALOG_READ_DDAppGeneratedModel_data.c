@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'ESP32_ANALOG_READ_DDAppGeneratedModel'.
  *
- * Model version                  : 1.4
+ * Model version                  : 1.7
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Mon Aug  5 16:56:49 2024
+ * C/C++ source code generated on : Tue Aug  6 15:07:06 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -22,6 +22,31 @@
 
 /* Block parameters (default storage) */
 P_ESP32_ANALOG_READ_DDAppGene_T ESP32_ANALOG_READ_DDAppGenera_P = {
+  /* Variable: Desire_Max
+   * Referenced by: '<S1>/Desire Max Value'
+   */
+  255.0,
+
+  /* Variable: Desire_Min
+   * Referenced by: '<S1>/Desire Min Value'
+   */
+  0.0,
+
+  /* Variable: Direction_Pin
+   * Referenced by: '<S2>/Direction_Pin'
+   */
+  0.0,
+
+  /* Variable: EN_Pin
+   * Referenced by: '<S2>/Enable Pin'
+   */
+  1.0,
+
+  /* Variable: Kp
+   * Referenced by: '<S3>/Kp'
+   */
+  7.0,
+
   /* Expression: -1
    * Referenced by: '<Root>/ESP23_ANALOG_READ_DDAppGeneratedBlock'
    */
@@ -30,7 +55,17 @@ P_ESP32_ANALOG_READ_DDAppGene_T ESP32_ANALOG_READ_DDAppGenera_P = {
   /* Expression: -1
    * Referenced by: '<Root>/ESP23_ANALOG_READ_DDAppGeneratedBlock1'
    */
-  -1.0
+  -1.0,
+
+  /* Expression: 3.2
+   * Referenced by: '<S3>/Saturation'
+   */
+  3.2,
+
+  /* Expression: 0
+   * Referenced by: '<S3>/Saturation'
+   */
+  0.0
 };
 
 /*

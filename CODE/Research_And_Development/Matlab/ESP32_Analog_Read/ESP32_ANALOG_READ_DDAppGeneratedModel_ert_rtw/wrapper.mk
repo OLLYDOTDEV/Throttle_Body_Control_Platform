@@ -202,7 +202,7 @@ SHAREDLIB_LDFLAGS += $(SHAREDLIB_LDFLAGS_SKIPFORSIL)
 ###########################################################################
 SLMKPATH=C:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~1/STATIC~1
 MODELMK=ESP32_ANALOG_READ_DDAppGeneratedModel.mk
-SLIB_PATH=C:/Users/obell/DOCUME~1/MATLAB/R2024a/ARDUIN~1/ESP32W~1/FASTER~1
+SLIB_PATH=C:/Users/BANANA~1/DOCUME~1/MATLAB/R2024a/ARDUIN~1/ESP32W~1/FASTER~1
 VARIANT_HEADER_PATH=$(ARDUINO_ESP32_ROOT)/hardware/esp32/2.0.11/variants/esp32
 ARDUINO_SKETCHBOOK_ROOT=C:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/aCLI/user/LIBRAR~1
 ARDUINO_BASESUPPORTPKG_ROOT=C:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~1
@@ -232,7 +232,7 @@ export ARDUINO_BASESUPPORTPKG_ROOT
 .PHONY : all
 all : 
 	@echo "### Generating static library."
-	"$(MAKE)" -j5 -C "$(SLMKPATH)" SHELL="$(SHELL)" -f esp32comm.mk all
-	"$(MAKE)" -j5 -C "$(SLMKPATH)" SHELL="$(SHELL)" -f esp32core.mk all
-	"$(MAKE)" -j5 SHELL="$(SHELL)" -f "$(MODELMK)" all
+	"$(MAKE)" -j7 -C "$(SLMKPATH)" SHELL="$(SHELL)" -f esp32comm.mk all
+	"$(MAKE)" -j7 -C "$(SLMKPATH)" SHELL="$(SHELL)" -f esp32core.mk all
+	"$(MAKE)" -j7 SHELL="$(SHELL)" -f "$(MODELMK)" all
 

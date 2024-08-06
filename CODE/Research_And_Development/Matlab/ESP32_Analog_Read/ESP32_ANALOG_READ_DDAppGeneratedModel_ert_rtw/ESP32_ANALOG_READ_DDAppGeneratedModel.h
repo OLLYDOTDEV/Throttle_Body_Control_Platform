@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'ESP32_ANALOG_READ_DDAppGeneratedModel'.
  *
- * Model version                  : 1.4
+ * Model version                  : 1.7
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Mon Aug  5 16:56:49 2024
+ * C/C++ source code generated on : Tue Aug  6 15:07:06 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -28,6 +28,8 @@
 #include "rtw_continuous.h"
 #include "rtw_solver.h"
 #include "ESP32_ANALOG_READ.h"
+#include "MW_arduino_digitalio.h"
+#include "MW_PWM.h"
 #endif              /* ESP32_ANALOG_READ_DDAppGeneratedModel_COMMON_INCLUDES_ */
 
 #include "ESP32_ANALOG_READ_DDAppGeneratedModel_types.h"
@@ -78,6 +80,19 @@
 
 /* Block signals (default storage) */
 typedef struct {
+  real_T Add;                          /* '<S6>/Add' */
+  real_T Add1;                         /* '<S6>/Add1' */
+  real_T Product;                      /* '<S6>/Product' */
+  real_T Saturation;                   /* '<S3>/Saturation' */
+  real_T Add_e;                        /* '<S1>/Add' */
+  real_T Add1_m;                       /* '<S1>/Add1' */
+  real_T Product_i;                    /* '<S1>/Product' */
+  real_T EnablePin;                    /* '<S2>/Enable Pin' */
+  real_T Direction_Pin;                /* '<S2>/Direction_Pin' */
+  real_T TB_maxVal;                    /* '<Root>/Pedal Calibration1' */
+  real_T TB_minVal;                    /* '<Root>/Pedal Calibration1' */
+  real_T FP_maxVal;                    /* '<Root>/Pedal Calibration' */
+  real_T FP_minVal;                    /* '<Root>/Pedal Calibration' */
   real_T ESP23_ANALOG_READ_DDAppGenerate;
                            /* '<Root>/ESP23_ANALOG_READ_DDAppGeneratedBlock1' */
   real_T ESP23_ANALOG_READ_DDAppGenera_o;
@@ -90,16 +105,44 @@ typedef struct {
                            /* '<Root>/ESP23_ANALOG_READ_DDAppGeneratedBlock1' */
   ESP32_ANALOG_READ_ESP32_ANALO_T obj_p;
                             /* '<Root>/ESP23_ANALOG_READ_DDAppGeneratedBlock' */
+  codertarget_arduinobase_block_T obj_c;/* '<S2>/Digital Output1' */
+  codertarget_arduinobase_block_T obj_m;/* '<S2>/Digital Output' */
+  codertarget_arduinobase_inter_T obj_mw;/* '<S2>/PWM' */
+  real_T TB_maxSet;                    /* '<Root>/Pedal Calibration1' */
+  real_T TB_minSet;                    /* '<Root>/Pedal Calibration1' */
+  real_T maxSet;                       /* '<Root>/Pedal Calibration' */
+  real_T minSet;                       /* '<Root>/Pedal Calibration' */
 } DW_ESP32_ANALOG_READ_DDAppGen_T;
 
 /* Parameters (default storage) */
 struct P_ESP32_ANALOG_READ_DDAppGene_T_ {
+  real_T Desire_Max;                   /* Variable: Desire_Max
+                                        * Referenced by: '<S1>/Desire Max Value'
+                                        */
+  real_T Desire_Min;                   /* Variable: Desire_Min
+                                        * Referenced by: '<S1>/Desire Min Value'
+                                        */
+  real_T Direction_Pin;                /* Variable: Direction_Pin
+                                        * Referenced by: '<S2>/Direction_Pin'
+                                        */
+  real_T EN_Pin;                       /* Variable: EN_Pin
+                                        * Referenced by: '<S2>/Enable Pin'
+                                        */
+  real_T Kp;                           /* Variable: Kp
+                                        * Referenced by: '<S3>/Kp'
+                                        */
   real_T ESP23_ANALOG_READ_DDAppGenerate;/* Expression: -1
                                           * Referenced by: '<Root>/ESP23_ANALOG_READ_DDAppGeneratedBlock'
                                           */
   real_T ESP23_ANALOG_READ_DDAppGenera_p;/* Expression: -1
                                           * Referenced by: '<Root>/ESP23_ANALOG_READ_DDAppGeneratedBlock1'
                                           */
+  real_T Saturation_UpperSat;          /* Expression: 3.2
+                                        * Referenced by: '<S3>/Saturation'
+                                        */
+  real_T Saturation_LowerSat;          /* Expression: 0
+                                        * Referenced by: '<S3>/Saturation'
+                                        */
 };
 
 /* Real-time Model Data Structure */
@@ -174,6 +217,12 @@ extern volatile boolean_T runModel;
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'ESP32_ANALOG_READ_DDAppGeneratedModel'
+ * '<S1>'   : 'ESP32_ANALOG_READ_DDAppGeneratedModel/FP_Input Range Conversion'
+ * '<S2>'   : 'ESP32_ANALOG_READ_DDAppGeneratedModel/H-Bridge Setting'
+ * '<S3>'   : 'ESP32_ANALOG_READ_DDAppGeneratedModel/PID Control'
+ * '<S4>'   : 'ESP32_ANALOG_READ_DDAppGeneratedModel/Pedal Calibration'
+ * '<S5>'   : 'ESP32_ANALOG_READ_DDAppGeneratedModel/Pedal Calibration1'
+ * '<S6>'   : 'ESP32_ANALOG_READ_DDAppGeneratedModel/TB_Feedbakc Range Conversion'
  */
 #endif                            /* ESP32_ANALOG_READ_DDAppGeneratedModel_h_ */
 

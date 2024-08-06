@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'ESP32_ANALOG_READ_DDAppGeneratedModel'.
  *
- * Model version                  : 1.4
+ * Model version                  : 1.7
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Mon Aug  5 16:56:49 2024
+ * C/C++ source code generated on : Tue Aug  6 15:07:06 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
