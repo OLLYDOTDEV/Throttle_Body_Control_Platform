@@ -187,9 +187,11 @@
 <libraries>
 <library name="ESP32-DEVKITC">
 <packages>
-<package name="MODULE_ESP32-DEVKITC">
+<package name="MODULE_ESP32-DEVKITC" urn="urn:adsk.eagle:footprint:45039994/1">
 <text x="-13.97" y="31.115" size="1.27" layer="25">&gt;NAME</text>
 <text x="-13.97" y="-25.4" size="1.27" layer="27" align="top-left">&gt;VALUE</text>
+<text x="0" y="-21.59" size="1.27" layer="21" align="bottom-center">USB
+PORT</text>
 <circle x="-14.57" y="22.97" radius="0.1" width="0.2" layer="21"/>
 <circle x="-14.57" y="22.97" radius="0.1" width="0.2" layer="51"/>
 <wire x1="-13.95" y1="24.1" x2="-13.95" y2="-24.1" width="0.127" layer="51"/>
@@ -267,10 +269,15 @@
 <pad name="36" x="12.7" y="17.77" drill="1.02" first="yes"/>
 <pad name="37" x="12.7" y="20.31" drill="1.02" first="yes"/>
 <pad name="38" x="12.7" y="22.85" drill="1.02" first="yes"/>
-<text x="0" y="-21.59" size="1.27" layer="21" align="bottom-center">USB
-PORT</text>
 </package>
 </packages>
+<packages3d>
+<package3d name="MODULE_ESP32-DEVKITC" urn="urn:adsk.eagle:package:45039996/2" type="model">
+<packageinstances>
+<packageinstance name="MODULE_ESP32-DEVKITC"/>
+</packageinstances>
+</package3d>
+</packages3d>
 <symbols>
 <symbol name="ESP32-DEVKITC">
 <wire x1="-15.24" y1="25.4" x2="15.24" y2="25.4" width="0.254" layer="94"/>
@@ -367,6 +374,9 @@ PORT</text>
 <connect gate="G$1" pin="SENSOR_VP" pad="3"/>
 <connect gate="G$1" pin="TXD0" pad="35"/>
 </connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:45039996/2"/>
+</package3dinstances>
 <technologies>
 <technology name="">
 <attribute name="AVAILABILITY" value="In Stock"/>
@@ -386,11 +396,21 @@ PORT</text>
 </library>
 <library name="TLE9201SG">
 <packages>
-<package name="IC_TLE9201SG">
+<package name="IC_TLE9201SG" urn="urn:adsk.eagle:footprint:45069956/1">
 <wire x1="-3.75" y1="-3.2" x2="3.75" y2="-3.2" width="0.127" layer="51"/>
 <wire x1="3.75" y1="-3.2" x2="3.75" y2="3.2" width="0.127" layer="51"/>
 <wire x1="-3.75" y1="3.2" x2="3.75" y2="3.2" width="0.127" layer="51"/>
 <wire x1="-3.75" y1="-3.2" x2="-3.75" y2="3.2" width="0.127" layer="51"/>
+<wire x1="-3.75" y1="-3.2" x2="-1.22" y2="-3.2" width="0.127" layer="21"/>
+<wire x1="1.22" y1="-3.2" x2="3.75" y2="-3.2" width="0.127" layer="21"/>
+<wire x1="3.75" y1="-3.2" x2="3.75" y2="3.2" width="0.127" layer="21"/>
+<wire x1="-3.75" y1="3.2" x2="-1.22" y2="3.2" width="0.127" layer="21"/>
+<wire x1="1.22" y1="3.2" x2="3.75" y2="3.2" width="0.127" layer="21"/>
+<wire x1="-3.75" y1="-3.2" x2="-3.75" y2="3.2" width="0.127" layer="21"/>
+<wire x1="-5.9" y1="4.15" x2="-5.9" y2="-4.15" width="0.05" layer="39"/>
+<wire x1="-5.9" y1="-4.15" x2="5.9" y2="-4.15" width="0.05" layer="39"/>
+<wire x1="5.9" y1="-4.15" x2="5.9" y2="4.15" width="0.05" layer="39"/>
+<wire x1="5.9" y1="4.15" x2="-5.9" y2="4.15" width="0.05" layer="39"/>
 <polygon width="0.01" layer="29">
 <vertex x="-1" y="4"/>
 <vertex x="1" y="4"/>
@@ -405,12 +425,6 @@ PORT</text>
 <vertex x="-2.3" y="2.65"/>
 <vertex x="-1" y="2.65"/>
 </polygon>
-<rectangle x1="-0.8" y1="-3.8" x2="0.8" y2="-2.85" layer="31"/>
-<rectangle x1="-0.8" y1="2.85" x2="0.8" y2="3.8" layer="31"/>
-<rectangle x1="-2.1" y1="0.2" x2="-0.2" y2="2.45" layer="31"/>
-<rectangle x1="0.2" y1="0.2" x2="2.1" y2="2.45" layer="31"/>
-<rectangle x1="-2.1" y1="-2.45" x2="-0.2" y2="-0.2" layer="31"/>
-<rectangle x1="0.2" y1="-2.45" x2="2.1" y2="-0.2" layer="31"/>
 <polygon width="0.01" layer="1">
 <vertex x="-0.9" y="3.9"/>
 <vertex x="0.9" y="3.9"/>
@@ -425,16 +439,12 @@ PORT</text>
 <vertex x="-2.2" y="2.55"/>
 <vertex x="-0.9" y="2.55"/>
 </polygon>
-<wire x1="-3.75" y1="-3.2" x2="-1.22" y2="-3.2" width="0.127" layer="21"/>
-<wire x1="1.22" y1="-3.2" x2="3.75" y2="-3.2" width="0.127" layer="21"/>
-<wire x1="3.75" y1="-3.2" x2="3.75" y2="3.2" width="0.127" layer="21"/>
-<wire x1="-3.75" y1="3.2" x2="-1.22" y2="3.2" width="0.127" layer="21"/>
-<wire x1="1.22" y1="3.2" x2="3.75" y2="3.2" width="0.127" layer="21"/>
-<wire x1="-3.75" y1="-3.2" x2="-3.75" y2="3.2" width="0.127" layer="21"/>
-<wire x1="-5.9" y1="4.15" x2="-5.9" y2="-4.15" width="0.05" layer="39"/>
-<wire x1="-5.9" y1="-4.15" x2="5.9" y2="-4.15" width="0.05" layer="39"/>
-<wire x1="5.9" y1="-4.15" x2="5.9" y2="4.15" width="0.05" layer="39"/>
-<wire x1="5.9" y1="4.15" x2="-5.9" y2="4.15" width="0.05" layer="39"/>
+<rectangle x1="-0.8" y1="-3.8" x2="0.8" y2="-2.85" layer="31"/>
+<rectangle x1="-0.8" y1="2.85" x2="0.8" y2="3.8" layer="31"/>
+<rectangle x1="-2.1" y1="0.2" x2="-0.2" y2="2.45" layer="31"/>
+<rectangle x1="0.2" y1="0.2" x2="2.1" y2="2.45" layer="31"/>
+<rectangle x1="-2.1" y1="-2.45" x2="-0.2" y2="-0.2" layer="31"/>
+<rectangle x1="0.2" y1="-2.45" x2="2.1" y2="-0.2" layer="31"/>
 <circle x="-6.65" y="2.5" radius="0.1" width="0.2" layer="21"/>
 <circle x="-6.65" y="2.5" radius="0.1" width="0.2" layer="51"/>
 <text x="-5.9" y="4.45" size="1.27" layer="25">&gt;NAME</text>
@@ -454,6 +464,15 @@ PORT</text>
 <smd name="13" x="0" y="0" dx="0.5" dy="0.5" layer="1" stop="no" cream="no"/>
 </package>
 </packages>
+<packages3d>
+<package3d name="IC_TLE9201SG" urn="urn:adsk.eagle:package:45069958/2" type="model">
+<description>12-SOP, 1.00 mm pitch, 10.15 mm span, 6.40 X 7.50 X 2.30 mm body, 4.20 X 5.10 mm thermal pad
+&lt;p&gt;12-pin SOP package with 1.00 mm pitch, 10.15 mm span with body size 6.40 X 7.50 X 2.30 mm and thermal pad size 4.20 X 5.10 mm&lt;/p&gt;</description>
+<packageinstances>
+<packageinstance name="IC_TLE9201SG"/>
+</packageinstances>
+</package3d>
+</packages3d>
 <symbols>
 <symbol name="TLE9201SG">
 <wire x1="-10.16" y1="15.24" x2="10.16" y2="15.24" width="0.254" layer="94"/>
@@ -498,6 +517,9 @@ PORT</text>
 <connect gate="G$1" pin="VS" pad="4"/>
 <connect gate="G$1" pin="VSO" pad="2"/>
 </connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:45069958/2"/>
+</package3dinstances>
 <technologies>
 <technology name="">
 <attribute name="AVAILABILITY" value="In Stock"/>
@@ -520,7 +542,7 @@ PORT</text>
 <description>&lt;PCB header, nominal cross section: 2.5 mm?, color: green, nominal current: 12 A, rated voltage (III/2): 320 V, contact surface: Tin, type of contact: Male connector, Number of potentials: 6, Number of rows: 1, Number of positions per row: 6, number of connections: 6, product range: MSTBA 2,5/..-G, pitch: 5.08 mm, mounting: Wave soldering, pin layout: Linear pinning, solder pin [P]: 3.5 mm, Stecksystem: CLASSIC COMBICON, Locking: without, type of packaging: packed in cardboard&lt;/b&gt;&lt;p&gt;
 &lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
 <packages>
-<package name="1757284">
+<package name="1757284" urn="urn:adsk.eagle:footprint:45039964/1">
 <description>&lt;b&gt;1757284&lt;/b&gt;&lt;br&gt;
 </description>
 <pad name="1" x="0" y="0" drill="1.4" diameter="2.1" shape="square"/>
@@ -535,13 +557,21 @@ PORT</text>
 <wire x1="8.58" y1="2" x2="8.58" y2="-10" width="0.1" layer="21"/>
 <wire x1="8.58" y1="-10" x2="-3.5" y2="-10" width="0.1" layer="21"/>
 <wire x1="-3.5" y1="-10" x2="-3.5" y2="2" width="0.1" layer="21"/>
-<circle x="-4.35" y="0" radius="0.05" width="0.2" layer="25"/>
 <wire x1="-5.25" y1="3" x2="9.58" y2="3" width="0.05" layer="51"/>
 <wire x1="9.58" y1="3" x2="9.58" y2="-11" width="0.05" layer="51"/>
 <wire x1="9.58" y1="-11" x2="-5.25" y2="-11" width="0.05" layer="51"/>
 <wire x1="-5.25" y1="-11" x2="-5.25" y2="3" width="0.05" layer="51"/>
+<circle x="-4.35" y="0" radius="0.05" width="0.2" layer="25"/>
 </package>
 </packages>
+<packages3d>
+<package3d name="1757284" urn="urn:adsk.eagle:package:45039966/2" type="model">
+<description>&lt;b&gt;1757284&lt;/b&gt;&lt;br&gt;</description>
+<packageinstances>
+<packageinstance name="1757284"/>
+</packageinstances>
+</package3d>
+</packages3d>
 <symbols>
 <symbol name="1757284">
 <wire x1="5.08" y1="2.54" x2="15.24" y2="2.54" width="0.254" layer="94"/>
@@ -567,6 +597,9 @@ Source: &lt;a href="http://www.phoenixcontact.com/de/produkte/1757284/pdf"&gt; D
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:45039966/2"/>
+</package3dinstances>
 <technologies>
 <technology name="">
 <attribute name="DESCRIPTION" value="PCB header, nominal cross section: 2.5 mm?, color: green, nominal current: 12 A, rated voltage (III/2): 320 V, contact surface: Tin, type of contact: Male connector, Number of potentials: 6, Number of rows: 1, Number of positions per row: 6, number of connections: 6, product range: MSTBA 2,5/..-G, pitch: 5.08 mm, mounting: Wave soldering, pin layout: Linear pinning, solder pin [P]: 3.5 mm, Stecksystem: CLASSIC COMBICON, Locking: without, type of packaging: packed in cardboard" constant="no"/>
@@ -586,7 +619,7 @@ Source: &lt;a href="http://www.phoenixcontact.com/de/produkte/1757284/pdf"&gt; D
 <description>&lt;PCB header, nominal cross section: 2.5 mm?, color: green, nominal current: 12 A, rated voltage (III/2): 320 V, contact surface: Tin, type of contact: Male connector, Number of potentials: 6, Number of rows: 1, Number of positions per row: 6, number of connections: 6, product range: MSTBA 2,5/..-G, pitch: 5.08 mm, mounting: Wave soldering, pin layout: Linear pinning, solder pin [P]: 3.5 mm, Stecksystem: CLASSIC COMBICON, Locking: without, type of packaging: packed in cardboard&lt;/b&gt;&lt;p&gt;
 &lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
 <packages>
-<package name="1757284">
+<package name="1757284" urn="urn:adsk.eagle:footprint:45039976/1">
 <description>&lt;b&gt;1757284&lt;/b&gt;&lt;br&gt;
 </description>
 <pad name="1" x="0" y="0" drill="1.4" diameter="2.1" shape="square"/>
@@ -605,13 +638,22 @@ Source: &lt;a href="http://www.phoenixcontact.com/de/produkte/1757284/pdf"&gt; D
 <wire x1="28.9" y1="2" x2="28.9" y2="-10" width="0.1" layer="21"/>
 <wire x1="28.9" y1="-10" x2="-3.5" y2="-10" width="0.1" layer="21"/>
 <wire x1="-3.5" y1="-10" x2="-3.5" y2="2" width="0.1" layer="21"/>
-<circle x="-4.35" y="0" radius="0.05" width="0.2" layer="25"/>
 <wire x1="-5.25" y1="3" x2="29.9" y2="3" width="0.05" layer="51"/>
 <wire x1="29.9" y1="3" x2="29.9" y2="-11" width="0.05" layer="51"/>
 <wire x1="29.9" y1="-11" x2="-5.25" y2="-11" width="0.05" layer="51"/>
 <wire x1="-5.25" y1="-11" x2="-5.25" y2="3" width="0.05" layer="51"/>
+<circle x="-4.35" y="0" radius="0.05" width="0.2" layer="25"/>
 </package>
 </packages>
+<packages3d>
+<package3d name="1757284" urn="urn:adsk.eagle:package:45039978/2" type="model">
+<description>&lt;b&gt;1757284&lt;/b&gt;&lt;br&gt;
+</description>
+<packageinstances>
+<packageinstance name="1757284"/>
+</packageinstances>
+</package3d>
+</packages3d>
 <symbols>
 <symbol name="1757284">
 <wire x1="5.08" y1="2.54" x2="15.24" y2="2.54" width="0.254" layer="94"/>
@@ -645,6 +687,9 @@ Source: &lt;a href="http://www.phoenixcontact.com/de/produkte/1757284/pdf"&gt; D
 <connect gate="G$1" pin="5" pad="5"/>
 <connect gate="G$1" pin="6" pad="6"/>
 </connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:45039978/2"/>
+</package3dinstances>
 <technologies>
 <technology name="">
 <attribute name="DESCRIPTION" value="PCB header, nominal cross section: 2.5 mm?, color: green, nominal current: 12 A, rated voltage (III/2): 320 V, contact surface: Tin, type of contact: Male connector, Number of potentials: 6, Number of rows: 1, Number of positions per row: 6, number of connections: 6, product range: MSTBA 2,5/..-G, pitch: 5.08 mm, mounting: Wave soldering, pin layout: Linear pinning, solder pin [P]: 3.5 mm, Stecksystem: CLASSIC COMBICON, Locking: without, type of packaging: packed in cardboard" constant="no"/>
@@ -12613,7 +12658,7 @@ DIN A4, landscape with location and doc. field</description>
 <description>&lt;P-Channel MOSFET, 8.6 A, 40 V, 2-Pin DPAK Diodes Inc DMP4025LK3Q-13&lt;/b&gt;&lt;p&gt;
 &lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
 <packages>
-<package name="DMP4025LK3Q13">
+<package name="DMP4025LK3Q13" urn="urn:adsk.eagle:footprint:45069732/1">
 <description>&lt;b&gt;DMP4025LK3Q-13-3&lt;/b&gt;&lt;br&gt;
 </description>
 <smd name="1" x="-2.286" y="-4.05" dx="2.6" dy="1.06" layer="1" rot="R90"/>
@@ -12638,6 +12683,14 @@ DIN A4, landscape with location and doc. field</description>
 <wire x1="-2.286" y1="-5.79" x2="-2.286" y2="-5.89" width="0.1" layer="21" curve="180"/>
 </package>
 </packages>
+<packages3d>
+<package3d name="DMP4025LK3Q13" urn="urn:adsk.eagle:package:45069734/2" type="model">
+<description>&lt;b&gt;DMP4025LK3Q-13-3&lt;/b&gt;&lt;br&gt;</description>
+<packageinstances>
+<packageinstance name="DMP4025LK3Q13"/>
+</packageinstances>
+</package3d>
+</packages3d>
 <symbols>
 <symbol name="DMP4025LK3Q-13">
 <text x="11.43" y="3.81" size="1.778" layer="95" align="center-left">&gt;NAME</text>
@@ -12687,6 +12740,9 @@ Source: &lt;a href="https://www.diodes.com//assets/Datasheets/DMP4025LK3Q.pdf"&g
 <connect gate="G$1" pin="G" pad="1"/>
 <connect gate="G$1" pin="S" pad="3"/>
 </connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:45069734/2"/>
+</package3dinstances>
 <technologies>
 <technology name="">
 <attribute name="DESCRIPTION" value="P-Channel MOSFET, 8.6 A, 40 V, 2-Pin DPAK Diodes Inc DMP4025LK3Q-13" constant="no"/>
@@ -12706,7 +12762,7 @@ Source: &lt;a href="https://www.diodes.com//assets/Datasheets/DMP4025LK3Q.pdf"&g
 <description>&lt;ON Semiconductor MM5Z10VT1G Zener Diode, 10V 5% 500 mW SMT 2-Pin SOD-523&lt;/b&gt;&lt;p&gt;
 &lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
 <packages>
-<package name="SODFL1608X70N">
+<package name="SODFL1608X70N" urn="urn:adsk.eagle:footprint:45069686/1">
 <description>&lt;b&gt;SOD-523 CASE 502&lt;/b&gt;&lt;br&gt;
 </description>
 <smd name="1" x="-0.75" y="0" dx="0.64" dy="0.42" layer="1"/>
@@ -12727,6 +12783,14 @@ Source: &lt;a href="https://www.diodes.com//assets/Datasheets/DMP4025LK3Q.pdf"&g
 <wire x1="-0.6" y1="0.362" x2="0.6" y2="0.362" width="0.2" layer="21"/>
 </package>
 </packages>
+<packages3d>
+<package3d name="SODFL1608X70N" urn="urn:adsk.eagle:package:45069688/2" type="model">
+<description>&lt;b&gt;SOD-523 CASE 502&lt;/b&gt;&lt;br&gt;</description>
+<packageinstances>
+<packageinstance name="SODFL1608X70N"/>
+</packageinstances>
+</package3d>
+</packages3d>
 <symbols>
 <symbol name="MM5Z10VT1G">
 <text x="2.54" y="3.81" size="1.778" layer="95" align="center-left">&gt;NAME</text>
@@ -12757,6 +12821,9 @@ Source: &lt;a href="http://www.onsemi.com/pub/Collateral/MM5Z2V4T1-D.PDF"&gt; Da
 <connect gate="G$1" pin="A" pad="2"/>
 <connect gate="G$1" pin="K" pad="1"/>
 </connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:45069688/2"/>
+</package3dinstances>
 <technologies>
 <technology name="">
 <attribute name="DESCRIPTION" value="ON Semiconductor MM5Z10VT1G Zener Diode, 10V 5% 500 mW SMT 2-Pin SOD-523" constant="no"/>
@@ -12776,7 +12843,7 @@ Source: &lt;a href="http://www.onsemi.com/pub/Collateral/MM5Z2V4T1-D.PDF"&gt; Da
 <description>&lt;SMD Comm X7R, Ceramic, 0.22 uF, 5%, 100 VDC, 250 VDC, 125C, -55C, X7R, SMD, MLCC, Temperature Stable, Class II, 2.5 % , 2.2727 GOhms, 21 mg, 0805, 2mm, 1.25mm, 1.25mm, 0.75mm, 0.5mm, 2500, 78  Weeks, 80&lt;/b&gt;&lt;p&gt;
 &lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
 <packages>
-<package name="C0805">
+<package name="C0805" urn="urn:adsk.eagle:footprint:45069664/1">
 <description>&lt;b&gt;C0805&lt;/b&gt;&lt;br&gt;
 </description>
 <smd name="1" x="-0.9" y="0" dx="1.45" dy="1.15" layer="1" rot="R90"/>
@@ -12787,13 +12854,21 @@ Source: &lt;a href="http://www.onsemi.com/pub/Collateral/MM5Z2V4T1-D.PDF"&gt; Da
 <wire x1="1" y1="0.625" x2="1" y2="-0.625" width="0.2" layer="51"/>
 <wire x1="1" y1="-0.625" x2="-1" y2="-0.625" width="0.2" layer="51"/>
 <wire x1="-1" y1="-0.625" x2="-1" y2="0.625" width="0.2" layer="51"/>
-<circle x="-1.75" y="0" radius="0.05" width="0.2" layer="25"/>
 <wire x1="-2.275" y1="1.625" x2="2.275" y2="1.625" width="0.05" layer="51"/>
 <wire x1="2.275" y1="1.625" x2="2.275" y2="-1.625" width="0.05" layer="51"/>
 <wire x1="2.275" y1="-1.625" x2="-2.275" y2="-1.625" width="0.05" layer="51"/>
 <wire x1="-2.275" y1="-1.625" x2="-2.275" y2="1.625" width="0.05" layer="51"/>
+<circle x="-1.75" y="0" radius="0.05" width="0.2" layer="25"/>
 </package>
 </packages>
+<packages3d>
+<package3d name="C0805" urn="urn:adsk.eagle:package:45069666/2" type="model">
+<description>&lt;b&gt;C0805&lt;/b&gt;&lt;br&gt;</description>
+<packageinstances>
+<packageinstance name="C0805"/>
+</packageinstances>
+</package3d>
+</packages3d>
 <symbols>
 <symbol name="C0805C224J1RACTU">
 <wire x1="5.588" y1="2.54" x2="5.588" y2="-2.54" width="0.254" layer="94"/>
@@ -12819,6 +12894,9 @@ Source: &lt;a href="https://content.kemet.com/datasheets/KEM_C1002_X7R_SMD.pdf"&
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:45069666/2"/>
+</package3dinstances>
 <technologies>
 <technology name="">
 <attribute name="DESCRIPTION" value="SMD Comm X7R, Ceramic, 0.22 uF, 5%, 100 VDC, 250 VDC, 125C, -55C, X7R, SMD, MLCC, Temperature Stable, Class II, 2.5 % , 2.2727 GOhms, 21 mg, 0805, 2mm, 1.25mm, 1.25mm, 0.75mm, 0.5mm, 2500, 78  Weeks, 80" constant="no"/>
@@ -23241,11 +23319,11 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 </class>
 </classes>
 <parts>
-<part name="U1" library="ESP32-DEVKITC" deviceset="ESP32-DEVKITC" device=""/>
-<part name="U101" library="TLE9201SG" deviceset="TLE9201SG" device=""/>
-<part name="J1" library="Terminal 5.08 Pitch 2S " deviceset="1757284" device="" value="12 Supply"/>
-<part name="J2" library="Terminal 5.08 Pitch 6S 1757284" deviceset="1757284" device="" value="TB Header"/>
-<part name="J3" library="Terminal 5.08 Pitch 6S 1757284" deviceset="1757284" device="" value="FP Header"/>
+<part name="U1" library="ESP32-DEVKITC" deviceset="ESP32-DEVKITC" device="" package3d_urn="urn:adsk.eagle:package:45039996/2"/>
+<part name="U101" library="TLE9201SG" deviceset="TLE9201SG" device="" package3d_urn="urn:adsk.eagle:package:45069958/2"/>
+<part name="J1" library="Terminal 5.08 Pitch 2S " deviceset="1757284" device="" package3d_urn="urn:adsk.eagle:package:45039966/2" value="12 Supply"/>
+<part name="J2" library="Terminal 5.08 Pitch 6S 1757284" deviceset="1757284" device="" package3d_urn="urn:adsk.eagle:package:45039978/2" value="TB Header"/>
+<part name="J3" library="Terminal 5.08 Pitch 6S 1757284" deviceset="1757284" device="" package3d_urn="urn:adsk.eagle:package:45039978/2" value="FP Header"/>
 <part name="R17" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R2012" package3d_urn="urn:adsk.eagle:package:23543/2" value="100k"/>
 <part name="R16" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R2012" package3d_urn="urn:adsk.eagle:package:23543/2" value="5k"/>
 <part name="R12" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R2012" package3d_urn="urn:adsk.eagle:package:23543/2" value="100k"/>
@@ -23253,7 +23331,7 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <part name="R14" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R2012" package3d_urn="urn:adsk.eagle:package:23543/2" value="100k"/>
 <part name="R13" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R2012" package3d_urn="urn:adsk.eagle:package:23543/2" value="5k"/>
 <part name="U2" library="IC_Power-Management" library_urn="urn:adsk.eagle:library:16378392" deviceset="LM7805" device="_SOT223" package3d_urn="urn:adsk.eagle:package:16494942/2" value="7805"/>
-<part name="C1" library="BeagleBone_Blue_R3" library_urn="urn:adsk.eagle:library:5828899" deviceset="CAPACITOR-P" device="TAP5-80" package3d_urn="urn:adsk.eagle:package:5829687/1"/>
+<part name="C1" library="BeagleBone_Blue_R3" library_urn="urn:adsk.eagle:library:5828899" deviceset="CAPACITOR-P" device="TAP5-80" package3d_urn="urn:adsk.eagle:package:5829687/1" override_package3d_urn="urn:adsk.eagle:package:45070000/2" override_package_urn="urn:adsk.eagle:footprint:5829245/1"/>
 <part name="D6" library="Wurth_LEDs_WL-SMCW" library_urn="urn:adsk.eagle:library:19028156" deviceset="WL-SMCW_0805" device="" package3d_urn="urn:adsk.eagle:package:19028167/5" technology="_150080AS75000" value="150080AS75000"/>
 <part name="D2" library="Wurth_LEDs_WL-SMCW" library_urn="urn:adsk.eagle:library:19028156" deviceset="WL-SMCW_0805" device="" package3d_urn="urn:adsk.eagle:package:19028167/5" technology="_150080AS75000" value="150080AS75000"/>
 <part name="D3" library="Wurth_LEDs_WL-SMCW" library_urn="urn:adsk.eagle:library:19028156" deviceset="WL-SMCW_0805" device="" package3d_urn="urn:adsk.eagle:package:19028167/5" technology="_150080AS75000" value="150080AS75000"/>
@@ -23268,7 +23346,7 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <part name="R9" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R2012" package3d_urn="urn:adsk.eagle:package:23543/2" value="5k"/>
 <part name="R8" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R2012" package3d_urn="urn:adsk.eagle:package:23543/2" value="5k"/>
 <part name="R7" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R2012" package3d_urn="urn:adsk.eagle:package:23543/2" value="5k"/>
-<part name="Q1" library="DMP4025LK3Q-13" deviceset="DMP4025LK3Q-13" device=""/>
+<part name="Q1" library="DMP4025LK3Q-13" deviceset="DMP4025LK3Q-13" device="" package3d_urn="urn:adsk.eagle:package:45069734/2"/>
 <part name="R15" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R2012" package3d_urn="urn:adsk.eagle:package:23543/2" value="100K"/>
 <part name="E2" library="52101-101-REV-A_v16" library_urn="urn:adsk.eagle:library:21899384" deviceset="DPADS_PAD" device="-0400-S" package3d_urn="urn:adsk.eagle:package:21899460/1"/>
 <part name="TP40" library="52101-101-REV-A_v16" library_urn="urn:adsk.eagle:library:21899384" deviceset="TESTPOINT_TPS" device="-SMD-10SN" package3d_urn="urn:adsk.eagle:package:15662280/2"/>
@@ -23343,9 +23421,9 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <part name="TP112" library="52101-101-REV-A_v16" library_urn="urn:adsk.eagle:library:21899384" deviceset="TESTPOINT_TPS" device="-SMD-10SN" package3d_urn="urn:adsk.eagle:package:15662280/2"/>
 <part name="D1" library="Wurth_LEDs_WL-SMCW" library_urn="urn:adsk.eagle:library:19028156" deviceset="WL-SMCW_0805" device="" package3d_urn="urn:adsk.eagle:package:19028167/5" technology="_150080AS75000" value="150080AS75000"/>
 <part name="R1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R2012" package3d_urn="urn:adsk.eagle:package:23543/2" value="150"/>
-<part name="Z1" library="MM5Z10VT1G" deviceset="MM5Z10VT1G" device=""/>
-<part name="C3" library="C0805C224J1RACTU" deviceset="C0805C224J1RACTU" device=""/>
-<part name="C2" library="C0805C224J1RACTU" deviceset="C0805C224J1RACTU" device=""/>
+<part name="Z1" library="MM5Z10VT1G" deviceset="MM5Z10VT1G" device="" package3d_urn="urn:adsk.eagle:package:45069688/2"/>
+<part name="C3" library="C0805C224J1RACTU" deviceset="C0805C224J1RACTU" device="" package3d_urn="urn:adsk.eagle:package:45069666/2"/>
+<part name="C2" library="C0805C224J1RACTU" deviceset="C0805C224J1RACTU" device="" package3d_urn="urn:adsk.eagle:package:45069666/2"/>
 <part name="U$1" library="Wintec Logo" deviceset="WINTEC" device=""/>
 <part name="S5" library="500SSP1S1M6QEA" deviceset="500SSP1S1M6QEA" device="" package3d_urn="urn:adsk.eagle:package:45039936/2"/>
 <part name="S4" library="12mm TAC SWITCH" deviceset="MOMENTARY-SWITCH-SPST" device="" package3d_urn="urn:adsk.eagle:package:45039953/2"/>
@@ -24610,6 +24688,11 @@ will not be understood (or retained) with this version.
 Since Version 8.3, EAGLE supports the association of 3D packages
 with devices in libraries, schematics, and board files. Those 3D
 packages will not be understood (or retained) with this version.
+</note>
+<note version="9.4" severity="warning">
+Since Version 9.4, EAGLE supports the overriding of 3D packages
+in schematics and board files. Those overridden 3d packages
+will not be understood (or retained) with this version.
 </note>
 <note version="8.4" severity="warning">
 Since Version 8.4, EAGLE supports properties for SPICE simulation. 
