@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'ESP32_PWM'.
  *
- * Model version                  : 1.5
+ * Model version                  : 1.6
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Sat Aug  3 16:10:09 2024
+ * C/C++ source code generated on : Fri Aug  9 11:08:43 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -19,6 +19,7 @@
  */
 
 #include "ESP32_PWM.h"
+#include <math.h>
 #include "ESP32_PWM_private.h"
 
 /* Block states (default storage) */
@@ -32,16 +33,31 @@ RT_MODEL_ESP32_PWM_T *const ESP32_PWM_M = &ESP32_PWM_M_;
 void ESP32_PWM_step(void)
 {
   /* MATLABSystem: '<Root>/MATLAB System' incorporates:
-   *  Constant: '<Root>/Constant'
+   *  Abs: '<Root>/Abs'
+   *  Sin: '<Root>/Sine Wave'
    */
   if (ESP32_PWM_DW.obj.SampleTime != ESP32_PWM_P.MATLABSystem_SampleTime) {
     ESP32_PWM_DW.obj.SampleTime = ESP32_PWM_P.MATLABSystem_SampleTime;
   }
 
   /*         %% Define output properties */
-  stepFunctionLEDC_INTERFACE(ESP32_PWM_P.Constant_Value, 1.0);
+  stepFunctionLEDC_INTERFACE(fabs(sin(ESP32_PWM_P.SineWave_Freq *
+    ESP32_PWM_M->Timing.t[0] + ESP32_PWM_P.SineWave_Phase) *
+    ESP32_PWM_P.SineWave_Amp + ESP32_PWM_P.SineWave_Bias), 1.0);
 
   /* End of MATLABSystem: '<Root>/MATLAB System' */
+  {                                    /* Sample time: [0.005s, 0.0s] */
+    extmodeErrorCode_T errorCode = EXTMODE_SUCCESS;
+    extmodeSimulationTime_T currentTime = (extmodeSimulationTime_T)
+      ((ESP32_PWM_M->Timing.clockTick1) * 0.005);
+
+    /* Trigger External Mode event */
+    errorCode = extmodeEvent(1,currentTime);
+    if (errorCode != EXTMODE_SUCCESS) {
+      /* Code to handle External Mode event errors
+         may be added here */
+    }
+  }
 
   /* Update absolute time for base rate */
   /* The "clockTick0" counts the number of times the code of this task has
@@ -49,22 +65,48 @@ void ESP32_PWM_step(void)
    * and "Timing.stepSize0". Size of "clockTick0" ensures timer will not
    * overflow during the application lifespan selected.
    */
-  ESP32_PWM_M->Timing.taskTime0 =
+  ESP32_PWM_M->Timing.t[0] =
     ((time_T)(++ESP32_PWM_M->Timing.clockTick0)) * ESP32_PWM_M->Timing.stepSize0;
+
+  {
+    /* Update absolute timer for sample time: [0.005s, 0.0s] */
+    /* The "clockTick1" counts the number of times the code of this task has
+     * been executed. The resolution of this integer timer is 0.005, which is the step size
+     * of the task. Size of "clockTick1" ensures timer will not overflow during the
+     * application lifespan selected.
+     */
+    ESP32_PWM_M->Timing.clockTick1++;
+  }
 }
 
 /* Model initialize function */
 void ESP32_PWM_initialize(void)
 {
   /* Registration code */
+  {
+    /* Setup solver object */
+    rtsiSetSimTimeStepPtr(&ESP32_PWM_M->solverInfo,
+                          &ESP32_PWM_M->Timing.simTimeStep);
+    rtsiSetTPtr(&ESP32_PWM_M->solverInfo, &rtmGetTPtr(ESP32_PWM_M));
+    rtsiSetStepSizePtr(&ESP32_PWM_M->solverInfo, &ESP32_PWM_M->Timing.stepSize0);
+    rtsiSetErrorStatusPtr(&ESP32_PWM_M->solverInfo, (&rtmGetErrorStatus
+      (ESP32_PWM_M)));
+    rtsiSetRTModelPtr(&ESP32_PWM_M->solverInfo, ESP32_PWM_M);
+  }
+
+  rtsiSetSimTimeStep(&ESP32_PWM_M->solverInfo, MAJOR_TIME_STEP);
+  rtsiSetIsMinorTimeStepWithModeChange(&ESP32_PWM_M->solverInfo, false);
+  rtsiSetIsContModeFrozen(&ESP32_PWM_M->solverInfo, false);
+  rtsiSetSolverName(&ESP32_PWM_M->solverInfo,"FixedStepDiscrete");
+  rtmSetTPtr(ESP32_PWM_M, &ESP32_PWM_M->Timing.tArray[0]);
   rtmSetTFinal(ESP32_PWM_M, -1);
   ESP32_PWM_M->Timing.stepSize0 = 0.005;
 
   /* External mode info */
-  ESP32_PWM_M->Sizes.checksums[0] = (911647856U);
-  ESP32_PWM_M->Sizes.checksums[1] = (1780423543U);
-  ESP32_PWM_M->Sizes.checksums[2] = (3593002410U);
-  ESP32_PWM_M->Sizes.checksums[3] = (1884289693U);
+  ESP32_PWM_M->Sizes.checksums[0] = (3817861101U);
+  ESP32_PWM_M->Sizes.checksums[1] = (365683989U);
+  ESP32_PWM_M->Sizes.checksums[2] = (799797628U);
+  ESP32_PWM_M->Sizes.checksums[3] = (2095968539U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;

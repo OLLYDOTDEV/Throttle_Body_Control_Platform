@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'ESP32_PWM'.
  *
- * Model version                  : 1.5
+ * Model version                  : 1.6
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Sat Aug  3 16:10:09 2024
+ * C/C++ source code generated on : Fri Aug  9 11:08:43 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -28,9 +28,24 @@ P_ESP32_PWM_T ESP32_PWM_P = {
   -1.0,
 
   /* Expression: 100
-   * Referenced by: '<Root>/Constant'
+   * Referenced by: '<Root>/Sine Wave'
    */
-  100.0
+  100.0,
+
+  /* Expression: 100
+   * Referenced by: '<Root>/Sine Wave'
+   */
+  100.0,
+
+  /* Expression: 1
+   * Referenced by: '<Root>/Sine Wave'
+   */
+  1.0,
+
+  /* Expression: 0
+   * Referenced by: '<Root>/Sine Wave'
+   */
+  0.0
 };
 
 /*

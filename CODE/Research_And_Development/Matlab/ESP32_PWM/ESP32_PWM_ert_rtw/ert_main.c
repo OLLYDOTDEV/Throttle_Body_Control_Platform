@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'ESP32_PWM'.
  *
- * Model version                  : 1.5
+ * Model version                  : 1.6
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Sat Aug  3 16:10:09 2024
+ * C/C++ source code generated on : Fri Aug  9 11:08:43 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -49,8 +49,6 @@ void *baseRateTask(void *arg)
   runModel = (rtmGetErrorStatus(ESP32_PWM_M) == (NULL));
   while (runModel) {
     mw_osSemaphoreWaitEver(&baserateTaskSem);
-    extmodeSimulationTime_T currentTime = (extmodeSimulationTime_T)
-      ESP32_PWM_M->Timing.taskTime0;
 
     /* Run External Mode background activities */
     errorCode = extmodeBackgroundRun();
@@ -62,9 +60,6 @@ void *baseRateTask(void *arg)
     ESP32_PWM_step();
 
     /* Get model outputs here */
-
-    /* Trigger External Mode event */
-    extmodeEvent(0, currentTime);
     stopRequested = !((rtmGetErrorStatus(ESP32_PWM_M) == (NULL)));
     runModel = !stopRequested && !extmodeSimulationComplete() &&
       !extmodeStopRequested();

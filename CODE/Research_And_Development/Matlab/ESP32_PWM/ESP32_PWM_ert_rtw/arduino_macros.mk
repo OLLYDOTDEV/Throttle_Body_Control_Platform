@@ -30,7 +30,7 @@ MBED_CMSIS_ATMEL_VERSION = 1.2.0
 export MBED_CMSIS_ATMEL_VERSION
 MBED_LIB_VERSION = 1.3.2
 export MBED_LIB_VERSION
-ARDUINO_CODEGEN_FOLDER = C:/Users/obell/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research_And_Development/Matlab/ESP32_PWM/ESP32_PWM_ert_rtw
+ARDUINO_CODEGEN_FOLDER = E:/Banana444/Documents/GitHub/Throttle_Body_Control_Platform/CODE/Research_And_Development/Matlab/ESP32_PWM/ESP32_PWM_ert_rtw
 export ARDUINO_CODEGEN_FOLDER
 ARDUINO_ESP32_ROOT = C:/ProgramData/MATLAB/SupportPackages/R2024a/aCLI/data/packages/esp32
 export ARDUINO_ESP32_ROOT

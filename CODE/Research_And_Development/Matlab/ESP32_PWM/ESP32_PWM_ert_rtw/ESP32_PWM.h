@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'ESP32_PWM'.
  *
- * Model version                  : 1.5
+ * Model version                  : 1.6
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Sat Aug  3 16:10:09 2024
+ * C/C++ source code generated on : Fri Aug  9 11:08:43 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -27,6 +27,7 @@
 #include "sysran_types.h"
 #include "rtw_continuous.h"
 #include "rtw_solver.h"
+#include "ext_mode.h"
 #include "LEDC_INTERFACE.h"
 #endif                                 /* ESP32_PWM_COMMON_INCLUDES_ */
 
@@ -63,7 +64,7 @@
 #endif
 
 #ifndef rtmGetT
-#define rtmGetT(rtm)                   ((rtm)->Timing.taskTime0)
+#define rtmGetT(rtm)                   (rtmGetTPtr((rtm))[0])
 #endif
 
 #ifndef rtmGetTFinal
@@ -71,7 +72,7 @@
 #endif
 
 #ifndef rtmGetTPtr
-#define rtmGetTPtr(rtm)                (&(rtm)->Timing.taskTime0)
+#define rtmGetTPtr(rtm)                ((rtm)->Timing.t)
 #endif
 
 /* Block states (default storage) for system '<Root>' */
@@ -84,8 +85,17 @@ struct P_ESP32_PWM_T_ {
   real_T MATLABSystem_SampleTime;      /* Expression: -1
                                         * Referenced by: '<Root>/MATLAB System'
                                         */
-  real_T Constant_Value;               /* Expression: 100
-                                        * Referenced by: '<Root>/Constant'
+  real_T SineWave_Amp;                 /* Expression: 100
+                                        * Referenced by: '<Root>/Sine Wave'
+                                        */
+  real_T SineWave_Bias;                /* Expression: 100
+                                        * Referenced by: '<Root>/Sine Wave'
+                                        */
+  real_T SineWave_Freq;                /* Expression: 1
+                                        * Referenced by: '<Root>/Sine Wave'
+                                        */
+  real_T SineWave_Phase;               /* Expression: 0
+                                        * Referenced by: '<Root>/Sine Wave'
                                         */
 };
 
@@ -93,6 +103,7 @@ struct P_ESP32_PWM_T_ {
 struct tag_RTM_ESP32_PWM_T {
   const char_T *errorStatus;
   RTWExtModeInfo *extModeInfo;
+  RTWSolverInfo solverInfo;
 
   /*
    * Sizes:
@@ -119,11 +130,14 @@ struct tag_RTM_ESP32_PWM_T {
    * the timing information for the model.
    */
   struct {
-    time_T taskTime0;
     uint32_T clockTick0;
     time_T stepSize0;
+    uint32_T clockTick1;
     time_T tFinal;
+    SimTimeStep simTimeStep;
     boolean_T stopRequestedFlag;
+    time_T *t;
+    time_T tArray[2];
   } Timing;
 };
 
@@ -142,6 +156,12 @@ extern void ESP32_PWM_terminate(void);
 extern RT_MODEL_ESP32_PWM_T *const ESP32_PWM_M;
 extern volatile boolean_T stopRequested;
 extern volatile boolean_T runModel;
+
+/*-
+ * These blocks were eliminated from the model due to optimizations:
+ *
+ * Block '<Root>/Constant' : Unused code path elimination
+ */
 
 /*-
  * The generated code includes comments that allow you to trace directly
