@@ -8,9 +8,9 @@
  *
  * Code generation for model "ESP32_PWM".
  *
- * Model version              : 1.5
+ * Model version              : 1.6
  * Simulink Coder version : 24.1 (R2024a) 19-Nov-2023
- * C source code generated on : Sat Aug  3 16:10:09 2024
+ * C source code generated on : Fri Aug  9 11:08:43 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -44,7 +44,7 @@ typedef real_T extmodeClassicTriggerSignal_T;
 #define XCP_UINT32_MAX                 0xFFFFFFFFU
 
 /** External Mode Base rate event id */
-#define EXTMODE_BASE_RATE_EVENT_ID     0
+#define EXTMODE_BASE_RATE_EVENT_ID     1
 
 /** External Mode Max Event Id */
 #define EXTMODE_MAX_EVENT_ID           0xFF
