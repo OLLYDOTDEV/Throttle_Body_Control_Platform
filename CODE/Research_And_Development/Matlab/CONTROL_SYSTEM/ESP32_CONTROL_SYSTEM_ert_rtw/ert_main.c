@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'ESP32_CONTROL_SYSTEM'.
  *
- * Model version                  : 1.11
+ * Model version                  : 1.20
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Fri Aug  9 12:23:33 2024
+ * C/C++ source code generated on : Mon Aug 19 16:13:12 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -46,11 +46,10 @@ void *threadJoinStatus;
 int terminatingmodel = 0;
 void *baseRateTask(void *arg)
 {
-  runModel = (rtmGetErrorStatus(ESP32_CONTROL_SYSTEM_M) == (NULL));
+  runModel = (rtmGetErrorStatus(ESP32_CONTROL_SYSTEM_M) == (NULL)) &&
+    !rtmGetStopRequested(ESP32_CONTROL_SYSTEM_M);
   while (runModel) {
     mw_osSemaphoreWaitEver(&baserateTaskSem);
-    extmodeSimulationTime_T currentTime = (extmodeSimulationTime_T)
-      ESP32_CONTROL_SYSTEM_M->Timing.taskTime0;
 
     /* Run External Mode background activities */
     errorCode = extmodeBackgroundRun();
@@ -62,10 +61,8 @@ void *baseRateTask(void *arg)
     ESP32_CONTROL_SYSTEM_step();
 
     /* Get model outputs here */
-
-    /* Trigger External Mode event */
-    extmodeEvent(0, currentTime);
-    stopRequested = !((rtmGetErrorStatus(ESP32_CONTROL_SYSTEM_M) == (NULL)));
+    stopRequested = !((rtmGetErrorStatus(ESP32_CONTROL_SYSTEM_M) == (NULL)) &&
+                      !rtmGetStopRequested(ESP32_CONTROL_SYSTEM_M));
     runModel = !stopRequested && !extmodeSimulationComplete() &&
       !extmodeStopRequested();
   }

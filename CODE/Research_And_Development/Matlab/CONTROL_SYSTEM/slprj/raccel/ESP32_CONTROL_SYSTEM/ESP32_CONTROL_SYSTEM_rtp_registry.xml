@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MF0 version="1.1" packageUris="http://schema.mathworks.com/mf0/slsa_mm_rtp_registry/R2023a">
+  <slsa.mm.rtpregistry.RtpLocation type="slsa.mm.rtpregistry.RtpLocation" uuid="b8ddb2f6-3791-4bef-b7db-d695f234eb64">
+    <parameter type="slsa.mm.rtpregistry.Parameter" uuid="a5db788d-91f5-4e90-a3f5-7d97f1a1d410"/>
+    <valueIndices>1</valueIndices>
+    <valueIndices>1</valueIndices>
+  </slsa.mm.rtpregistry.RtpLocation>
+  <slsa.mm.rtpregistry.VariableId type="slsa.mm.rtpregistry.VariableId" uuid="18f52e3b-1232-425a-b510-548283aa3093">
+    <workspaceName>global-workspace</workspaceName>
+    <name>Desire_Min</name>
+    <parameter type="slsa.mm.rtpregistry.Parameter" uuid="a5db788d-91f5-4e90-a3f5-7d97f1a1d410"/>
+  </slsa.mm.rtpregistry.VariableId>
+  <slsa.mm.rtpregistry.ModelMetadata type="slsa.mm.rtpregistry.ModelMetadata" uuid="3091899e-a952-49c3-b581-99e9f0ff3da8">
+    <modelName>ESP32_CONTROL_SYSTEM</modelName>
+  </slsa.mm.rtpregistry.ModelMetadata>
+  <slsa.mm.rtpregistry.RtpLocation type="slsa.mm.rtpregistry.RtpLocation" uuid="30405366-684e-43a5-bf9b-c6091fe5c9b1">
+    <parameter type="slsa.mm.rtpregistry.Parameter" uuid="e2579be9-d5a2-4094-8f4d-e6d253269527"/>
+    <valueIndices>0</valueIndices>
+    <valueIndices>0</valueIndices>
+  </slsa.mm.rtpregistry.RtpLocation>
+  <slsa.mm.rtpregistry.Parameter type="slsa.mm.rtpregistry.Parameter" uuid="624ca9c6-d804-4a6a-8cb0-15e3c97e1d2f">
+    <id type="slsa.mm.rtpregistry.VariableId" uuid="74a9305d-8a3c-48e2-8f08-ae90e909738f"/>
+    <rtpLocation type="slsa.mm.rtpregistry.RtpLocation" uuid="e4204003-8907-4ac7-b74b-0d264479654e"/>
+  </slsa.mm.rtpregistry.Parameter>
+  <slsa.mm.rtpregistry.Parameter type="slsa.mm.rtpregistry.Parameter" uuid="e2579be9-d5a2-4094-8f4d-e6d253269527">
+    <id type="slsa.mm.rtpregistry.VariableId" uuid="a28f76af-66f9-4c05-916e-ce8bd9862205"/>
+    <rtpLocation type="slsa.mm.rtpregistry.RtpLocation" uuid="30405366-684e-43a5-bf9b-c6091fe5c9b1"/>
+  </slsa.mm.rtpregistry.Parameter>
+  <slsa.mm.rtpregistry.VariableId type="slsa.mm.rtpregistry.VariableId" uuid="a28f76af-66f9-4c05-916e-ce8bd9862205">
+    <workspaceName>global-workspace</workspaceName>
+    <name>Desire_Max</name>
+    <parameter type="slsa.mm.rtpregistry.Parameter" uuid="e2579be9-d5a2-4094-8f4d-e6d253269527"/>
+  </slsa.mm.rtpregistry.VariableId>
+  <slsa.mm.rtpregistry.Parameter type="slsa.mm.rtpregistry.Parameter" uuid="a5db788d-91f5-4e90-a3f5-7d97f1a1d410">
+    <id type="slsa.mm.rtpregistry.VariableId" uuid="18f52e3b-1232-425a-b510-548283aa3093"/>
+    <rtpLocation type="slsa.mm.rtpregistry.RtpLocation" uuid="b8ddb2f6-3791-4bef-b7db-d695f234eb64"/>
+  </slsa.mm.rtpregistry.Parameter>
+  <slsa.mm.rtpregistry.Parameter type="slsa.mm.rtpregistry.Parameter" uuid="b7f918fa-cf5a-4525-baa8-96458b86f82e">
+    <id type="slsa.mm.rtpregistry.VariableId" uuid="44528792-39ac-4a2c-8b53-c82e7bf467b5"/>
+    <rtpLocation type="slsa.mm.rtpregistry.RtpLocation" uuid="f2d11e99-020a-488e-8e9d-18dc01e603c9"/>
+  </slsa.mm.rtpregistry.Parameter>
+  <slsa.mm.rtpregistry.VariableId type="slsa.mm.rtpregistry.VariableId" uuid="44528792-39ac-4a2c-8b53-c82e7bf467b5">
+    <workspaceName>global-workspace</workspaceName>
+    <name>EN_Pin</name>
+    <parameter type="slsa.mm.rtpregistry.Parameter" uuid="b7f918fa-cf5a-4525-baa8-96458b86f82e"/>
+  </slsa.mm.rtpregistry.VariableId>
+  <slsa.mm.rtpregistry.RtpLocation type="slsa.mm.rtpregistry.RtpLocation" uuid="f2d11e99-020a-488e-8e9d-18dc01e603c9">
+    <parameter type="slsa.mm.rtpregistry.Parameter" uuid="b7f918fa-cf5a-4525-baa8-96458b86f82e"/>
+    <valueIndices>2</valueIndices>
+    <valueIndices>2</valueIndices>
+  </slsa.mm.rtpregistry.RtpLocation>
+  <slsa.mm.rtpregistry.VariableId type="slsa.mm.rtpregistry.VariableId" uuid="74a9305d-8a3c-48e2-8f08-ae90e909738f">
+    <workspaceName>global-workspace</workspaceName>
+    <name>Kp</name>
+    <parameter type="slsa.mm.rtpregistry.Parameter" uuid="624ca9c6-d804-4a6a-8cb0-15e3c97e1d2f"/>
+  </slsa.mm.rtpregistry.VariableId>
+  <slsa.mm.rtpregistry.RtpLocation type="slsa.mm.rtpregistry.RtpLocation" uuid="e4204003-8907-4ac7-b74b-0d264479654e">
+    <parameter type="slsa.mm.rtpregistry.Parameter" uuid="624ca9c6-d804-4a6a-8cb0-15e3c97e1d2f"/>
+    <valueIndices>3</valueIndices>
+    <valueIndices>3</valueIndices>
+  </slsa.mm.rtpregistry.RtpLocation>
+</MF0>

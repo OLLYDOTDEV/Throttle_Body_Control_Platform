@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'ESP32_CONTROL_SYSTEM'.
  *
- * Model version                  : 1.11
+ * Model version                  : 1.20
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Fri Aug  9 12:23:33 2024
+ * C/C++ source code generated on : Mon Aug 19 16:13:12 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -79,7 +79,7 @@ typedef struct tag_qrLkTWTW64zZK0sqwALTyG codertarget_arduinobase_block_T;
 
 #endif                             /* typedef_codertarget_arduinobase_block_T */
 
-/* Custom Type definition for MATLABSystem: '<S2>/PWM' */
+/* Custom Type definition for MATLABSystem: '<S12>/PWM' */
 #include "MW_SVD.h"
 #ifndef struct_tag_g1WX34VPn8QzVKQriB4HN
 #define struct_tag_g1WX34VPn8QzVKQriB4HN
