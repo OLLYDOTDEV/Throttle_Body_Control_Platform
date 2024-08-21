@@ -10,7 +10,7 @@
  *
  * Model version                  : 1.20
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Mon Aug 19 16:13:12 2024
+ * C/C++ source code generated on : Tue Aug 20 20:09:56 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -23,113 +23,127 @@
 /* Block parameters (default storage) */
 P_ESP32_CONTROL_SYSTEM_T ESP32_CONTROL_SYSTEM_P = {
   /* Variable: Desire_Max
-   * Referenced by: '<S11>/Desire Max Value'
+   * Referenced by: '<S1>/Desire Max Value'
    */
   255.0,
 
   /* Variable: Desire_Min
-   * Referenced by: '<S11>/Desire Min Value'
+   * Referenced by: '<S1>/Desire Min Value'
+   */
+  0.0,
+
+  /* Variable: Direction_Pin
+   * Referenced by: '<S3>/Direction Pin'
    */
   0.0,
 
   /* Variable: EN_Pin
-   * Referenced by: '<S12>/Enable Pin'
+   * Referenced by: '<S3>/Enable Pin'
    */
   1.0,
 
-  /* Variable: J_aet
-   * Referenced by:
-   *   '<S4>/Constant2'
-   *   '<S6>/Constant2'
+  /* Variable: Kd
+   * Referenced by: '<S5>/Kd'
    */
-  0.0035,
+  0.1,
 
-  /* Variable: omga_c
-   * Referenced by: '<S4>/Gain1'
+  /* Variable: Ki
+   * Referenced by: '<S5>/Ki'
    */
   2.0,
 
-  /* Variable: roa
-   * Referenced by:
-   *   '<S4>/Constant2'
-   *   '<S6>/Constant2'
-   */
-  0.24,
-
-  /* Expression: -1
-   * Referenced by: '<S3>/ESP23_ANALOG_READ_DDAppGeneratedBlock1'
-   */
-  -1.0,
-
-  /* Expression: -1
-   * Referenced by: '<S9>/ESP23_ANALOG_READ_DDAppGeneratedBlock'
-   */
-  -1.0,
-
-  /* Expression: [12*pi/180 0 0]'
-   * Referenced by: '<S6>/Integrator1'
-   */
-  { 0.20943951023931953, 0.0, 0.0 },
-
-  /* Expression: [0 1 0;0 0 1;0 0 0]
-   * Referenced by: '<S6>/Gain'
-   */
-  { 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0 },
-
-  /* Expression: 1
-   * Referenced by: '<S7>/Constant'
-   */
-  1.0,
-
-  /* Expression: 0
-   * Referenced by: '<S7>/Constant1'
-   */
-  0.0,
-
-  /* Expression: [Beta1 Beta2 Beta3]'
-   * Referenced by: '<S6>/Gain2'
-   */
-  { 150.0, 7500.0, 125000.0 },
-
-  /* Expression: 0
-   * Referenced by: '<S6>/Constant'
-   */
-  0.0,
-
-  /* Expression: 0
-   * Referenced by: '<S6>/Constant1'
-   */
-  0.0,
-
-  /* Expression: pi/180
-   * Referenced by: '<S1>/Gain1'
-   */
-  0.017453292519943295,
-
-  /* Expression: (omga_c)^2
-   * Referenced by: '<S4>/Gain'
+  /* Variable: Kp
+   * Referenced by: '<S5>/Kp'
    */
   4.0,
 
-  /* Expression: 0.7
-   * Referenced by: '<S5>/Gain1'
+  /* Mask Parameter: SRFlipFlop2_initial_condition
+   * Referenced by: '<S13>/Memory'
    */
-  0.7,
+  false,
 
-  /* Expression: 0.3
-   * Referenced by: '<S5>/Constant'
+  /* Mask Parameter: SRFlipFlop_initial_condition
+   * Referenced by: '<S11>/Memory'
    */
-  0.3,
+  false,
 
-  /* Expression: 180/pi
-   * Referenced by: '<S10>/Gain'
+  /* Mask Parameter: SRFlipFlop1_initial_condition
+   * Referenced by: '<S12>/Memory'
    */
-  57.295779513082323,
+  false,
+
+  /* Expression: -1
+   * Referenced by: '<S2>/ESP23_ANALOG_READ_DDAppGeneratedBlock1'
+   */
+  -1.0,
+
+  /* Expression: -1
+   * Referenced by: '<S3>/MATLAB System'
+   */
+  -1.0,
+
+  /* Computed Parameter: Out1_Y0
+   * Referenced by: '<S4>/Out1'
+   */
+  0.0,
+
+  /* Computed Parameter: PIDOutput_Y0
+   * Referenced by: '<S5>/PID Output'
+   */
+  0.0,
 
   /* Expression: 0
-   * Referenced by: '<S5>/Constant3'
+   * Referenced by: '<S5>/Integrator'
    */
-  0.0
+  0.0,
+
+  /* Expression: 3
+   * Referenced by: '<S5>/Saturation'
+   */
+  3.0,
+
+  /* Expression: 0
+   * Referenced by: '<S5>/Saturation'
+   */
+  0.0,
+
+  /* Expression: -1
+   * Referenced by: '<S10>/ESP23_ANALOG_READ_DDAppGeneratedBlock'
+   */
+  -1.0,
+
+  /* Expression: 0
+   * Referenced by: '<S7>/Constant3'
+   */
+  0.0,
+
+  /* Expression: 0
+   * Referenced by: '<S7>/Constant2'
+   */
+  0.0,
+
+  /* Expression: 0
+   * Referenced by: '<S7>/Constant'
+   */
+  0.0,
+
+  /* Computed Parameter: Logic_table
+   * Referenced by: '<S13>/Logic'
+   */
+  { false, true, false, false, true, true, false, false, true, false, true, true,
+    false, false, false, false },
+
+  /* Computed Parameter: Logic_table_d
+   * Referenced by: '<S11>/Logic'
+   */
+  { false, true, false, false, true, true, false, false, true, false, true, true,
+    false, false, false, false },
+
+  /* Computed Parameter: Logic_table_d2
+   * Referenced by: '<S12>/Logic'
+   */
+  { false, true, false, false, true, true, false, false, true, false, true, true,
+    false, false, false, false }
 };
 
 /*

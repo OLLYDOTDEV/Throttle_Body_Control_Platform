@@ -9,9 +9,9 @@ EN_Pin = 1;
 Direction_Pin = 0;
 
 % PID Setting
-Kp = 3;
+Kp = 4;
 Ki = 2;
-Kd = 1;
+Kd = 0.1d;
 
 %System Setting
 B_aet=0.1503;

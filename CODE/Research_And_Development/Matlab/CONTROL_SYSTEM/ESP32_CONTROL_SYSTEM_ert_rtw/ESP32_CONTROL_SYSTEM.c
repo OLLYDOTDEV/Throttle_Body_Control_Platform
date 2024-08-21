@@ -10,7 +10,7 @@
  *
  * Model version                  : 1.20
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Mon Aug 19 16:13:12 2024
+ * C/C++ source code generated on : Tue Aug 20 20:09:56 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -20,9 +20,10 @@
 
 #include "ESP32_CONTROL_SYSTEM.h"
 #include "ESP32_CONTROL_SYSTEM_types.h"
-#include <math.h>
 #include "ESP32_CONTROL_SYSTEM_private.h"
 #include "rtwtypes.h"
+#include "rt_nonfinite.h"
+#include <math.h>
 
 /* Block signals (default storage) */
 B_ESP32_CONTROL_SYSTEM_T ESP32_CONTROL_SYSTEM_B;
@@ -74,7 +75,7 @@ static void rt_ertODEUpdateContinuousStates(RTWSolverInfo *si )
   real_T *f2 = id->f[2];
   real_T hB[3];
   int_T i;
-  int_T nXc = 3;
+  int_T nXc = 1;
   rtsiSetSimTimeStep(si,MINOR_TIME_STEP);
 
   /* Save the state values at time t in y, we'll use x as ynew. */
@@ -145,7 +146,7 @@ real_T rt_roundd_snf(real_T u)
 
 static void ESP32_CONTRO_SystemCore_release(codertarget_arduinobase_inter_T *obj)
 {
-  /* Start for MATLABSystem: '<S12>/PWM' */
+  /* Start for MATLABSystem: '<S3>/PWM' */
   if ((obj->isInitialized == 1) && obj->isSetupComplete) {
     obj->PWMDriverObj.MW_PWM_HANDLE = MW_PWM_GetHandle(2U);
     MW_PWM_SetDutyCycle(obj->PWMDriverObj.MW_PWM_HANDLE, -0.0);
@@ -153,19 +154,12 @@ static void ESP32_CONTRO_SystemCore_release(codertarget_arduinobase_inter_T *obj
     MW_PWM_Close(obj->PWMDriverObj.MW_PWM_HANDLE);
   }
 
-  /* End of Start for MATLABSystem: '<S12>/PWM' */
+  /* End of Start for MATLABSystem: '<S3>/PWM' */
 }
 
 /* Model step function */
 void ESP32_CONTROL_SYSTEM_step(void)
 {
-  real_T rtb_Sum1[3];
-  real_T Integrator1;
-  real_T Integrator1_0;
-  real_T Integrator1_1;
-  real_T rtb_Product;
-  int32_T i;
-  uint8_T tmp;
   if (rtmIsMajorTimeStep(ESP32_CONTROL_SYSTEM_M)) {
     /* set solver stop time */
     rtsiSetSolverStopTime(&ESP32_CONTROL_SYSTEM_M->solverInfo,
@@ -179,278 +173,442 @@ void ESP32_CONTROL_SYSTEM_step(void)
       (&ESP32_CONTROL_SYSTEM_M->solverInfo);
   }
 
-  /* Integrator: '<S6>/Integrator1' */
-  ESP32_CONTROL_SYSTEM_B.Integrator1[0] =
-    ESP32_CONTROL_SYSTEM_X.Integrator1_CSTATE[0];
-  ESP32_CONTROL_SYSTEM_B.Integrator1[1] =
-    ESP32_CONTROL_SYSTEM_X.Integrator1_CSTATE[1];
-  ESP32_CONTROL_SYSTEM_B.Integrator1[2] =
-    ESP32_CONTROL_SYSTEM_X.Integrator1_CSTATE[2];
-  if (rtmIsMajorTimeStep(ESP32_CONTROL_SYSTEM_M)) {
-  }
+  {
+    real_T lastTime;
+    real_T rtb_Sum;
+    real_T *lastU;
+    int32_T rowIdx;
+    int8_T rtAction;
+    int8_T rtPrevAction;
+    uint8_T tmp;
 
-  /* MATLABSystem: '<S9>/ESP23_ANALOG_READ_DDAppGeneratedBlock' */
-  if (ESP32_CONTROL_SYSTEM_DW.obj.SampleTime !=
-      ESP32_CONTROL_SYSTEM_P.ESP23_ANALOG_READ_DDAppGenera_c) {
-    ESP32_CONTROL_SYSTEM_DW.obj.SampleTime =
-      ESP32_CONTROL_SYSTEM_P.ESP23_ANALOG_READ_DDAppGenera_c;
-  }
+    /* Reset subsysRan breadcrumbs */
+    srClearBC(ESP32_CONTROL_SYSTEM_DW.IfActionSubsystem_SubsysRanBC);
 
-  /* MATLABSystem: '<S9>/ESP23_ANALOG_READ_DDAppGeneratedBlock' */
-  /*         %% Define output properties */
-  ESP32_CONTROL_SYSTEM_B.ESP23_ANALOG_READ_DDAppGenerate = 0.0;
-  stepFunctionESP32_ANALOG_READ(35,
-    &ESP32_CONTROL_SYSTEM_B.ESP23_ANALOG_READ_DDAppGenerate, 1.0);
-  if (rtmIsMajorTimeStep(ESP32_CONTROL_SYSTEM_M)) {
-    /* Sum: '<S7>/Add' incorporates:
-     *  Constant: '<S7>/Constant'
-     *  Constant: '<S7>/Constant1'
-     */
-    ESP32_CONTROL_SYSTEM_B.Add = ESP32_CONTROL_SYSTEM_P.Constant_Value -
-      ESP32_CONTROL_SYSTEM_P.Constant1_Value;
+    /* Reset subsysRan breadcrumbs */
+    srClearBC(ESP32_CONTROL_SYSTEM_DW.PIDControl_SubsysRanBC);
+    if (rtmIsMajorTimeStep(ESP32_CONTROL_SYSTEM_M)) {
+      /* CombinatorialLogic: '<S13>/Logic' incorporates:
+       *  Constant: '<S7>/Constant'
+       *  Constant: '<S7>/Constant2'
+       *  Constant: '<S7>/Constant3'
+       *  Logic: '<S7>/Logical Operator12'
+       *  Logic: '<S7>/Logical Operator13'
+       *  Logic: '<S7>/Logical Operator14'
+       *  Logic: '<S7>/Logical Operator15'
+       *  Logic: '<S7>/Logical Operator3'
+       *  Memory: '<S13>/Memory'
+       */
+      rowIdx = (int32_T)(((((uint32_T)((ESP32_CONTROL_SYSTEM_P.Constant3_Value
+        != 0.0) && ((!(ESP32_CONTROL_SYSTEM_P.Constant2_Value != 0.0)) &&
+                    (!(ESP32_CONTROL_SYSTEM_P.Constant_Value != 0.0)))) << 1) +
+                           (uint32_T)(int8_T)((int8_T)
+        (ESP32_CONTROL_SYSTEM_P.Constant_Value != 0.0) ^ (int8_T)
+        (ESP32_CONTROL_SYSTEM_P.Constant2_Value != 0.0))) << 1) +
+                         ESP32_CONTROL_SYSTEM_DW.Memory_PreviousInput);
+      ESP32_CONTROL_SYSTEM_B.Logic[0U] = ESP32_CONTROL_SYSTEM_P.Logic_table
+        [(uint32_T)rowIdx];
+      ESP32_CONTROL_SYSTEM_B.Logic[1U] = ESP32_CONTROL_SYSTEM_P.Logic_table
+        [(uint32_T)rowIdx + 8U];
 
-    /* MATLAB Function: '<Root>/Throttle Body Callibration1' */
-    if (ESP32_CONTROL_SYSTEM_B.ESP23_ANALOG_READ_DDAppGenerate >
-        ESP32_CONTROL_SYSTEM_DW.TB_maxSet) {
-      ESP32_CONTROL_SYSTEM_DW.TB_maxSet =
-        ESP32_CONTROL_SYSTEM_B.ESP23_ANALOG_READ_DDAppGenerate;
+      /* CombinatorialLogic: '<S11>/Logic' incorporates:
+       *  Constant: '<S7>/Constant'
+       *  Constant: '<S7>/Constant2'
+       *  Constant: '<S7>/Constant3'
+       *  Logic: '<S7>/Logical Operator1'
+       *  Logic: '<S7>/Logical Operator4'
+       *  Logic: '<S7>/Logical Operator5'
+       *  Logic: '<S7>/Logical Operator6'
+       *  Logic: '<S7>/Logical Operator7'
+       *  Memory: '<S11>/Memory'
+       */
+      rowIdx = (int32_T)(((((uint32_T)((ESP32_CONTROL_SYSTEM_P.Constant_Value !=
+        0.0) && ((!(ESP32_CONTROL_SYSTEM_P.Constant3_Value != 0.0)) &&
+                 (!(ESP32_CONTROL_SYSTEM_P.Constant2_Value != 0.0)))) << 1) +
+                           (uint32_T)(int8_T)((int8_T)
+        (ESP32_CONTROL_SYSTEM_P.Constant2_Value != 0.0) ^ (int8_T)
+        (ESP32_CONTROL_SYSTEM_P.Constant3_Value != 0.0))) << 1) +
+                         ESP32_CONTROL_SYSTEM_DW.Memory_PreviousInput_f);
+      ESP32_CONTROL_SYSTEM_B.Logic_b[0U] = ESP32_CONTROL_SYSTEM_P.Logic_table_d
+        [(uint32_T)rowIdx];
+      ESP32_CONTROL_SYSTEM_B.Logic_b[1U] = ESP32_CONTROL_SYSTEM_P.Logic_table_d
+        [(uint32_T)rowIdx + 8U];
+
+      /* CombinatorialLogic: '<S12>/Logic' incorporates:
+       *  Constant: '<S7>/Constant'
+       *  Constant: '<S7>/Constant2'
+       *  Constant: '<S7>/Constant3'
+       *  Logic: '<S7>/Logical Operator10'
+       *  Logic: '<S7>/Logical Operator11'
+       *  Logic: '<S7>/Logical Operator2'
+       *  Logic: '<S7>/Logical Operator8'
+       *  Logic: '<S7>/Logical Operator9'
+       *  Memory: '<S12>/Memory'
+       */
+      rowIdx = (int32_T)(((((uint32_T)((ESP32_CONTROL_SYSTEM_P.Constant2_Value
+        != 0.0) && ((!(ESP32_CONTROL_SYSTEM_P.Constant_Value != 0.0)) &&
+                    (!(ESP32_CONTROL_SYSTEM_P.Constant3_Value != 0.0)))) << 1) +
+                           (uint32_T)(int8_T)((int8_T)
+        (ESP32_CONTROL_SYSTEM_P.Constant_Value != 0.0) ^ (int8_T)
+        (ESP32_CONTROL_SYSTEM_P.Constant3_Value != 0.0))) << 1) +
+                         ESP32_CONTROL_SYSTEM_DW.Memory_PreviousInput_n);
+      ESP32_CONTROL_SYSTEM_B.Logic_l[0U] =
+        ESP32_CONTROL_SYSTEM_P.Logic_table_d2[(uint32_T)rowIdx];
+      ESP32_CONTROL_SYSTEM_B.Logic_l[1U] =
+        ESP32_CONTROL_SYSTEM_P.Logic_table_d2[(uint32_T)rowIdx + 8U];
     }
 
-    if (ESP32_CONTROL_SYSTEM_B.ESP23_ANALOG_READ_DDAppGenerate <
-        ESP32_CONTROL_SYSTEM_DW.TB_minSet) {
-      ESP32_CONTROL_SYSTEM_DW.TB_minSet =
-        ESP32_CONTROL_SYSTEM_B.ESP23_ANALOG_READ_DDAppGenerate;
-    }
-
-    ESP32_CONTROL_SYSTEM_B.TB_maxVal = ESP32_CONTROL_SYSTEM_DW.TB_maxSet;
-    ESP32_CONTROL_SYSTEM_B.TB_minVal = ESP32_CONTROL_SYSTEM_DW.TB_minSet;
-
-    /* End of MATLAB Function: '<Root>/Throttle Body Callibration1' */
-
-    /* Sum: '<S7>/Add1' */
-    ESP32_CONTROL_SYSTEM_B.Add1 = ESP32_CONTROL_SYSTEM_B.TB_maxVal -
-      ESP32_CONTROL_SYSTEM_B.TB_minVal;
-
-    /* Product: '<S7>/Divide' */
-    ESP32_CONTROL_SYSTEM_B.Divide = ESP32_CONTROL_SYSTEM_B.Add /
-      ESP32_CONTROL_SYSTEM_B.Add1;
-  }
-
-  /* Product: '<S7>/Product' */
-  ESP32_CONTROL_SYSTEM_B.Product =
-    ESP32_CONTROL_SYSTEM_B.ESP23_ANALOG_READ_DDAppGenerate *
-    ESP32_CONTROL_SYSTEM_B.Divide;
-
-  /* Sum: '<S6>/Sum2' */
-  rtb_Product = ESP32_CONTROL_SYSTEM_B.Product -
-    ESP32_CONTROL_SYSTEM_B.Integrator1[0];
-
-  /* Gain: '<S6>/Gain' */
-  Integrator1 = ESP32_CONTROL_SYSTEM_B.Integrator1[1];
-  Integrator1_0 = ESP32_CONTROL_SYSTEM_B.Integrator1[0];
-  Integrator1_1 = ESP32_CONTROL_SYSTEM_B.Integrator1[2];
-
-  /* Sum: '<S6>/Sum1' incorporates:
-   *  Gain: '<S6>/Gain'
-   *  Gain: '<S6>/Gain2'
-   */
-  for (i = 0; i < 3; i++) {
-    rtb_Sum1[i] = ((ESP32_CONTROL_SYSTEM_P.Gain_Gain[i + 3] * Integrator1 +
-                    ESP32_CONTROL_SYSTEM_P.Gain_Gain[i] * Integrator1_0) +
-                   ESP32_CONTROL_SYSTEM_P.Gain_Gain[i + 6] * Integrator1_1) +
-      ESP32_CONTROL_SYSTEM_P.Gain2_Gain[i] * rtb_Product;
-  }
-
-  /* End of Sum: '<S6>/Sum1' */
-  if (rtmIsMajorTimeStep(ESP32_CONTROL_SYSTEM_M)) {
-    /* Fcn: '<S4>/Fcn' incorporates:
-     *  Constant: '<S4>/Constant2'
-     */
-    ESP32_CONTROL_SYSTEM_B.Fcn = 1.0 / (ESP32_CONTROL_SYSTEM_P.roa /
-      ESP32_CONTROL_SYSTEM_P.J_aet);
-  }
-
-  /* Fcn: '<S2>/Fcn1' incorporates:
-   *  Clock: '<S2>/Clock'
-   *  Fcn: '<S2>/Fcn2'
-   *  Fcn: '<S2>/Fcn3'
-   */
-  Integrator1 = 2.0 * ESP32_CONTROL_SYSTEM_M->Timing.t[0];
-  rtb_Product = sin(Integrator1);
-
-  /* Fcn: '<S2>/Fcn1' */
-  ESP32_CONTROL_SYSTEM_B.Fcn1 = (10.0 * rtb_Product + 10.0) + 7.0;
-
-  /* Fcn: '<S2>/Fcn2' */
-  ESP32_CONTROL_SYSTEM_B.Fcn2 = cos(Integrator1) * 20.0;
-
-  /* Fcn: '<S2>/Fcn3' */
-  ESP32_CONTROL_SYSTEM_B.Fcn3 = -40.0 * rtb_Product;
-
-  /* Gain: '<S1>/Gain1' */
-  ESP32_CONTROL_SYSTEM_B.Gain1[0] = ESP32_CONTROL_SYSTEM_P.Gain1_Gain *
-    ESP32_CONTROL_SYSTEM_B.Fcn1;
-  ESP32_CONTROL_SYSTEM_B.Gain1[1] = ESP32_CONTROL_SYSTEM_P.Gain1_Gain *
-    ESP32_CONTROL_SYSTEM_B.Fcn2;
-  ESP32_CONTROL_SYSTEM_B.Gain1[2] = ESP32_CONTROL_SYSTEM_P.Gain1_Gain *
-    ESP32_CONTROL_SYSTEM_B.Fcn3;
-
-  /* Sum: '<S4>/Sum3' */
-  ESP32_CONTROL_SYSTEM_B.Sum3 = ESP32_CONTROL_SYSTEM_B.Gain1[0] -
-    ESP32_CONTROL_SYSTEM_B.Integrator1[0];
-
-  /* Gain: '<S4>/Gain' */
-  ESP32_CONTROL_SYSTEM_B.Gain = ESP32_CONTROL_SYSTEM_P.Gain_Gain_d *
-    ESP32_CONTROL_SYSTEM_B.Sum3;
-
-  /* Product: '<S4>/Product' incorporates:
-   *  Gain: '<S4>/Gain1'
-   *  Sum: '<S4>/Sum1'
-   *  Sum: '<S4>/Sum2'
-   *  Sum: '<S4>/Sum4'
-   */
-  ESP32_CONTROL_SYSTEM_B.Product_f = (((2.0 * ESP32_CONTROL_SYSTEM_P.omga_c *
-    (ESP32_CONTROL_SYSTEM_B.Gain1[1] - ESP32_CONTROL_SYSTEM_B.Integrator1[1]) +
-    ESP32_CONTROL_SYSTEM_B.Gain) + ESP32_CONTROL_SYSTEM_B.Gain1[2]) -
-    ESP32_CONTROL_SYSTEM_B.Integrator1[2]) * ESP32_CONTROL_SYSTEM_B.Fcn;
-
-  /* Sum: '<S6>/Sum' incorporates:
-   *  Constant: '<S6>/Constant'
-   *  Constant: '<S6>/Constant1'
-   *  Constant: '<S6>/Constant2'
-   *  Product: '<S6>/Product'
-   */
-  ESP32_CONTROL_SYSTEM_B.Sum[0] = ESP32_CONTROL_SYSTEM_P.Constant_Value_p +
-    rtb_Sum1[0];
-  ESP32_CONTROL_SYSTEM_B.Sum[1] = ESP32_CONTROL_SYSTEM_P.roa /
-    ESP32_CONTROL_SYSTEM_P.J_aet * ESP32_CONTROL_SYSTEM_B.Product_f + rtb_Sum1[1];
-  ESP32_CONTROL_SYSTEM_B.Sum[2] = ESP32_CONTROL_SYSTEM_P.Constant1_Value_g +
-    rtb_Sum1[2];
-  if (rtmIsMajorTimeStep(ESP32_CONTROL_SYSTEM_M)) {
-    /* SignalConversion generated from: '<S2>/Mux' */
-    ESP32_CONTROL_SYSTEM_B.TmpSignalConversionAtTAQSigLogg[0] =
-      ESP32_CONTROL_SYSTEM_B.Fcn1;
-    ESP32_CONTROL_SYSTEM_B.TmpSignalConversionAtTAQSigLogg[1] =
-      ESP32_CONTROL_SYSTEM_B.Fcn2;
-    ESP32_CONTROL_SYSTEM_B.TmpSignalConversionAtTAQSigLogg[2] =
-      ESP32_CONTROL_SYSTEM_B.Fcn3;
-  }
-
-  /* Sum: '<S5>/Sum' incorporates:
-   *  Constant: '<S5>/Constant'
-   *  Gain: '<S5>/Gain1'
-   */
-  ESP32_CONTROL_SYSTEM_B.Sum_j = ESP32_CONTROL_SYSTEM_P.Gain1_Gain_f *
-    ESP32_CONTROL_SYSTEM_B.Product_f + ESP32_CONTROL_SYSTEM_P.Constant_Value_h;
-  if (rtmIsMajorTimeStep(ESP32_CONTROL_SYSTEM_M)) {
-    /* MATLAB Function: '<S5>/Throttle Body Callibration1' */
-    if (ESP32_CONTROL_SYSTEM_B.Sum_j > ESP32_CONTROL_SYSTEM_DW.TB_maxSet_j) {
-      ESP32_CONTROL_SYSTEM_DW.TB_maxSet_j = ESP32_CONTROL_SYSTEM_B.Sum_j;
-    }
-
-    if (ESP32_CONTROL_SYSTEM_B.Sum_j < ESP32_CONTROL_SYSTEM_DW.TB_minSet_n) {
-      ESP32_CONTROL_SYSTEM_DW.TB_minSet_n = ESP32_CONTROL_SYSTEM_B.Sum_j;
-    }
-
-    /* Sum: '<S11>/Add1' incorporates:
-     *  MATLAB Function: '<S5>/Throttle Body Callibration1'
-     */
-    ESP32_CONTROL_SYSTEM_B.Add1_c = ESP32_CONTROL_SYSTEM_DW.TB_maxSet_j -
-      ESP32_CONTROL_SYSTEM_DW.TB_minSet_n;
-
-    /* Sum: '<S11>/Add' incorporates:
-     *  Constant: '<S11>/Desire Max Value'
-     *  Constant: '<S11>/Desire Min Value'
-     */
-    ESP32_CONTROL_SYSTEM_B.Add_f = ESP32_CONTROL_SYSTEM_P.Desire_Max -
-      ESP32_CONTROL_SYSTEM_P.Desire_Min;
-
-    /* Product: '<S11>/Divide' */
-    ESP32_CONTROL_SYSTEM_B.Divide_p = ESP32_CONTROL_SYSTEM_B.Add_f /
-      ESP32_CONTROL_SYSTEM_B.Add1_c;
-  }
-
-  /* Product: '<S11>/Product' */
-  ESP32_CONTROL_SYSTEM_B.Product_j = ESP32_CONTROL_SYSTEM_B.Sum_j *
-    ESP32_CONTROL_SYSTEM_B.Divide_p;
-
-  /* Start for MATLABSystem: '<S12>/PWM' */
-  if (ESP32_CONTROL_SYSTEM_B.Product_j <= 255.0) {
-    rtb_Product = ESP32_CONTROL_SYSTEM_B.Product_j;
-  } else {
-    rtb_Product = 255.0;
-  }
-
-  /* MATLABSystem: '<S12>/PWM' */
-  ESP32_CONTROL_SYSTEM_DW.obj_oq.PWMDriverObj.MW_PWM_HANDLE = MW_PWM_GetHandle
-    (2U);
-
-  /* Start for MATLABSystem: '<S12>/PWM' */
-  if (!(rtb_Product >= 0.0)) {
-    rtb_Product = 0.0;
-  }
-
-  /* MATLABSystem: '<S12>/PWM' */
-  MW_PWM_SetDutyCycle(ESP32_CONTROL_SYSTEM_DW.obj_oq.PWMDriverObj.MW_PWM_HANDLE,
-                      -(rtb_Product * 255.0 / 255.0));
-  if (rtmIsMajorTimeStep(ESP32_CONTROL_SYSTEM_M)) {
-  }
-
-  /* Gain: '<S10>/Gain' */
-  ESP32_CONTROL_SYSTEM_B.Gain_j = ESP32_CONTROL_SYSTEM_P.Gain_Gain_a *
-    ESP32_CONTROL_SYSTEM_B.Sum3;
-  if (rtmIsMajorTimeStep(ESP32_CONTROL_SYSTEM_M)) {
-    /* Constant: '<S5>/Constant3' */
-    ESP32_CONTROL_SYSTEM_B.Constant3 = ESP32_CONTROL_SYSTEM_P.Constant3_Value;
-
-    /* MATLABSystem: '<S12>/Digital Output1' */
-    rtb_Product = rt_roundd_snf(ESP32_CONTROL_SYSTEM_B.Constant3);
-    if (rtb_Product < 256.0) {
-      if (rtb_Product >= 0.0) {
-        tmp = (uint8_T)rtb_Product;
-      } else {
-        tmp = 0U;
-      }
-    } else {
-      tmp = MAX_uint8_T;
-    }
-
-    writeDigitalPin(0, tmp);
-
-    /* End of MATLABSystem: '<S12>/Digital Output1' */
-    /* Constant: '<S12>/Enable Pin' */
-    ESP32_CONTROL_SYSTEM_B.EnablePin = ESP32_CONTROL_SYSTEM_P.EN_Pin;
-
-    /* MATLABSystem: '<S12>/Digital Output' */
-    rtb_Product = rt_roundd_snf(ESP32_CONTROL_SYSTEM_B.EnablePin);
-    if (rtb_Product < 256.0) {
-      if (rtb_Product >= 0.0) {
-        tmp = (uint8_T)rtb_Product;
-      } else {
-        tmp = 0U;
-      }
-    } else {
-      tmp = MAX_uint8_T;
-    }
-
-    writeDigitalPin(4, tmp);
-
-    /* End of MATLABSystem: '<S12>/Digital Output' */
-    /* MATLABSystem: '<S3>/ESP23_ANALOG_READ_DDAppGeneratedBlock1' */
-    if (ESP32_CONTROL_SYSTEM_DW.obj_a.SampleTime !=
+    /* MATLABSystem: '<S2>/ESP23_ANALOG_READ_DDAppGeneratedBlock1' */
+    if (ESP32_CONTROL_SYSTEM_DW.obj_h.SampleTime !=
         ESP32_CONTROL_SYSTEM_P.ESP23_ANALOG_READ_DDAppGenerate) {
-      ESP32_CONTROL_SYSTEM_DW.obj_a.SampleTime =
+      ESP32_CONTROL_SYSTEM_DW.obj_h.SampleTime =
         ESP32_CONTROL_SYSTEM_P.ESP23_ANALOG_READ_DDAppGenerate;
     }
 
-    /* MATLABSystem: '<S3>/ESP23_ANALOG_READ_DDAppGeneratedBlock1' */
+    /* MATLABSystem: '<S2>/ESP23_ANALOG_READ_DDAppGeneratedBlock1' */
     /*         %% Define output properties */
-    ESP32_CONTROL_SYSTEM_B.ESP23_ANALOG_READ_DDAppGenera_g = 0.0;
+    ESP32_CONTROL_SYSTEM_B.ESP23_ANALOG_READ_DDAppGenera_d = 0.0;
     stepFunctionESP32_ANALOG_READ(34,
-      &ESP32_CONTROL_SYSTEM_B.ESP23_ANALOG_READ_DDAppGenera_g, 1.0);
+      &ESP32_CONTROL_SYSTEM_B.ESP23_ANALOG_READ_DDAppGenera_d, 1.0);
+
+    /* MATLABSystem: '<S10>/ESP23_ANALOG_READ_DDAppGeneratedBlock' */
+    if (ESP32_CONTROL_SYSTEM_DW.obj.SampleTime !=
+        ESP32_CONTROL_SYSTEM_P.ESP23_ANALOG_READ_DDAppGenera_p) {
+      ESP32_CONTROL_SYSTEM_DW.obj.SampleTime =
+        ESP32_CONTROL_SYSTEM_P.ESP23_ANALOG_READ_DDAppGenera_p;
+    }
+
+    /* MATLABSystem: '<S10>/ESP23_ANALOG_READ_DDAppGeneratedBlock' */
+    /*         %% Define output properties */
+    ESP32_CONTROL_SYSTEM_B.ESP23_ANALOG_READ_DDAppGenerate = 0.0;
+    stepFunctionESP32_ANALOG_READ(35,
+      &ESP32_CONTROL_SYSTEM_B.ESP23_ANALOG_READ_DDAppGenerate, 1.0);
+    if (rtmIsMajorTimeStep(ESP32_CONTROL_SYSTEM_M)) {
+      /* MATLAB Function: '<Root>/Throttle Body Callibration' */
+      if (ESP32_CONTROL_SYSTEM_B.ESP23_ANALOG_READ_DDAppGenerate >
+          ESP32_CONTROL_SYSTEM_DW.TB_maxSet) {
+        ESP32_CONTROL_SYSTEM_DW.TB_maxSet =
+          ESP32_CONTROL_SYSTEM_B.ESP23_ANALOG_READ_DDAppGenerate;
+      }
+
+      if (ESP32_CONTROL_SYSTEM_B.ESP23_ANALOG_READ_DDAppGenerate <
+          ESP32_CONTROL_SYSTEM_DW.TB_minSet) {
+        ESP32_CONTROL_SYSTEM_DW.TB_minSet =
+          ESP32_CONTROL_SYSTEM_B.ESP23_ANALOG_READ_DDAppGenerate;
+      }
+
+      ESP32_CONTROL_SYSTEM_B.TB_maxVal = ESP32_CONTROL_SYSTEM_DW.TB_maxSet;
+      ESP32_CONTROL_SYSTEM_B.TB_minVal = ESP32_CONTROL_SYSTEM_DW.TB_minSet;
+
+      /* End of MATLAB Function: '<Root>/Throttle Body Callibration' */
+
+      /* Sum: '<S8>/Add' */
+      ESP32_CONTROL_SYSTEM_B.Add = ESP32_CONTROL_SYSTEM_B.TB_maxVal -
+        ESP32_CONTROL_SYSTEM_B.TB_minVal;
+
+      /* MATLAB Function: '<Root>/Pedal Calibration' */
+      if (ESP32_CONTROL_SYSTEM_B.ESP23_ANALOG_READ_DDAppGenera_d >
+          ESP32_CONTROL_SYSTEM_DW.maxSet) {
+        ESP32_CONTROL_SYSTEM_DW.maxSet =
+          ESP32_CONTROL_SYSTEM_B.ESP23_ANALOG_READ_DDAppGenera_d;
+      }
+
+      if (ESP32_CONTROL_SYSTEM_B.ESP23_ANALOG_READ_DDAppGenera_d <
+          ESP32_CONTROL_SYSTEM_DW.minSet) {
+        ESP32_CONTROL_SYSTEM_DW.minSet =
+          ESP32_CONTROL_SYSTEM_B.ESP23_ANALOG_READ_DDAppGenera_d;
+      }
+
+      ESP32_CONTROL_SYSTEM_B.FP_maxVal = ESP32_CONTROL_SYSTEM_DW.maxSet;
+      ESP32_CONTROL_SYSTEM_B.FP_minVal = ESP32_CONTROL_SYSTEM_DW.minSet;
+
+      /* End of MATLAB Function: '<Root>/Pedal Calibration' */
+
+      /* Sum: '<S8>/Add1' */
+      ESP32_CONTROL_SYSTEM_B.Add1 = ESP32_CONTROL_SYSTEM_B.FP_maxVal -
+        ESP32_CONTROL_SYSTEM_B.FP_minVal;
+
+      /* Product: '<S8>/Divide' */
+      ESP32_CONTROL_SYSTEM_B.Divide = ESP32_CONTROL_SYSTEM_B.Add /
+        ESP32_CONTROL_SYSTEM_B.Add1;
+    }
+
+    /* Product: '<S8>/Product' */
+    ESP32_CONTROL_SYSTEM_B.Product =
+      ESP32_CONTROL_SYSTEM_B.ESP23_ANALOG_READ_DDAppGenerate *
+      ESP32_CONTROL_SYSTEM_B.Divide;
+
+    /* Sum: '<Root>/Sum2' */
+    ESP32_CONTROL_SYSTEM_B.Sum2 =
+      ESP32_CONTROL_SYSTEM_B.ESP23_ANALOG_READ_DDAppGenera_d -
+      ESP32_CONTROL_SYSTEM_B.Product;
+
+    /* If: '<Root>/If' */
+    rtPrevAction = ESP32_CONTROL_SYSTEM_DW.If_ActiveSubsystem;
+    if (rtsiIsModeUpdateTimeStep(&ESP32_CONTROL_SYSTEM_M->solverInfo)) {
+      if (ESP32_CONTROL_SYSTEM_B.Logic[0]) {
+        rtAction = 0;
+      } else if (ESP32_CONTROL_SYSTEM_B.Logic_b[0]) {
+        rtAction = 1;
+      } else if (ESP32_CONTROL_SYSTEM_B.Logic_l[0]) {
+        rtAction = 2;
+      } else {
+        rtAction = 3;
+      }
+
+      ESP32_CONTROL_SYSTEM_DW.If_ActiveSubsystem = rtAction;
+    } else {
+      rtAction = ESP32_CONTROL_SYSTEM_DW.If_ActiveSubsystem;
+    }
+
+    if (rtPrevAction != rtAction) {
+      if (ESP32_CONTROL_SYSTEM_M->Timing.t[0] == rtmGetTStart
+          (ESP32_CONTROL_SYSTEM_M)) {
+        (void) memset(&(ESP32_CONTROL_SYSTEM_XDis.Integrator_CSTATE), 1,
+                      1*sizeof(boolean_T));
+      }
+
+      if (rtPrevAction == 1) {
+        (void) memset(&(ESP32_CONTROL_SYSTEM_XDis.Integrator_CSTATE), 1,
+                      1*sizeof(boolean_T));
+      }
+    }
+
+    switch (rtAction) {
+     case 0:
+      /* Outputs for IfAction SubSystem: '<Root>/If Action Subsystem' incorporates:
+       *  ActionPort: '<S4>/Action Port'
+       */
+      /* SignalConversion generated from: '<S4>/In1' */
+      ESP32_CONTROL_SYSTEM_B.In1 = ESP32_CONTROL_SYSTEM_B.Sum2;
+      if (rtsiIsModeUpdateTimeStep(&ESP32_CONTROL_SYSTEM_M->solverInfo)) {
+        srUpdateBC(ESP32_CONTROL_SYSTEM_DW.IfActionSubsystem_SubsysRanBC);
+      }
+
+      /* End of Outputs for SubSystem: '<Root>/If Action Subsystem' */
+      break;
+
+     case 1:
+      if (rtAction != rtPrevAction) {
+        /* Enable for IfAction SubSystem: '<Root>/PID Control' incorporates:
+         *  ActionPort: '<S5>/Action Port'
+         */
+        /* Enable for If: '<Root>/If' */
+        (void) memset(&(ESP32_CONTROL_SYSTEM_XDis.Integrator_CSTATE), 0,
+                      1*sizeof(boolean_T));
+
+        /* End of Enable for SubSystem: '<Root>/PID Control' */
+      }
+
+      /* Outputs for IfAction SubSystem: '<Root>/PID Control' incorporates:
+       *  ActionPort: '<S5>/Action Port'
+       */
+      /* Derivative: '<S5>/Derivative' */
+      rtb_Sum = ESP32_CONTROL_SYSTEM_M->Timing.t[0];
+      if ((ESP32_CONTROL_SYSTEM_DW.TimeStampA >= rtb_Sum) &&
+          (ESP32_CONTROL_SYSTEM_DW.TimeStampB >= rtb_Sum)) {
+        rtb_Sum = 0.0;
+      } else {
+        lastTime = ESP32_CONTROL_SYSTEM_DW.TimeStampA;
+        lastU = &ESP32_CONTROL_SYSTEM_DW.LastUAtTimeA;
+        if (ESP32_CONTROL_SYSTEM_DW.TimeStampA <
+            ESP32_CONTROL_SYSTEM_DW.TimeStampB) {
+          if (ESP32_CONTROL_SYSTEM_DW.TimeStampB < rtb_Sum) {
+            lastTime = ESP32_CONTROL_SYSTEM_DW.TimeStampB;
+            lastU = &ESP32_CONTROL_SYSTEM_DW.LastUAtTimeB;
+          }
+        } else if (ESP32_CONTROL_SYSTEM_DW.TimeStampA >= rtb_Sum) {
+          lastTime = ESP32_CONTROL_SYSTEM_DW.TimeStampB;
+          lastU = &ESP32_CONTROL_SYSTEM_DW.LastUAtTimeB;
+        }
+
+        rtb_Sum = (ESP32_CONTROL_SYSTEM_B.Sum2 - *lastU) / (rtb_Sum - lastTime);
+      }
+
+      /* End of Derivative: '<S5>/Derivative' */
+
+      /* Sum: '<S5>/Sum' incorporates:
+       *  Gain: '<S5>/Kd'
+       *  Gain: '<S5>/Ki'
+       *  Gain: '<S5>/Kp'
+       *  Integrator: '<S5>/Integrator'
+       */
+      ESP32_CONTROL_SYSTEM_B.Saturation = (ESP32_CONTROL_SYSTEM_P.Kp *
+        ESP32_CONTROL_SYSTEM_B.Sum2 + ESP32_CONTROL_SYSTEM_P.Ki *
+        ESP32_CONTROL_SYSTEM_X.Integrator_CSTATE) + ESP32_CONTROL_SYSTEM_P.Kd *
+        rtb_Sum;
+
+      /* Saturate: '<S5>/Saturation' */
+      if (ESP32_CONTROL_SYSTEM_B.Saturation >
+          ESP32_CONTROL_SYSTEM_P.Saturation_UpperSat) {
+        /* Sum: '<S5>/Sum' incorporates:
+         *  Saturate: '<S5>/Saturation'
+         */
+        ESP32_CONTROL_SYSTEM_B.Saturation =
+          ESP32_CONTROL_SYSTEM_P.Saturation_UpperSat;
+      } else if (ESP32_CONTROL_SYSTEM_B.Saturation <
+                 ESP32_CONTROL_SYSTEM_P.Saturation_LowerSat) {
+        /* Sum: '<S5>/Sum' incorporates:
+         *  Saturate: '<S5>/Saturation'
+         */
+        ESP32_CONTROL_SYSTEM_B.Saturation =
+          ESP32_CONTROL_SYSTEM_P.Saturation_LowerSat;
+      }
+
+      /* End of Saturate: '<S5>/Saturation' */
+      if (rtsiIsModeUpdateTimeStep(&ESP32_CONTROL_SYSTEM_M->solverInfo)) {
+        srUpdateBC(ESP32_CONTROL_SYSTEM_DW.PIDControl_SubsysRanBC);
+      }
+
+      /* End of Outputs for SubSystem: '<Root>/PID Control' */
+      break;
+
+     case 2:
+      break;
+    }
+
+    /* End of If: '<Root>/If' */
+    if (rtmIsMajorTimeStep(ESP32_CONTROL_SYSTEM_M)) {
+      /* Sum: '<S1>/Add' incorporates:
+       *  Constant: '<S1>/Desire Max Value'
+       *  Constant: '<S1>/Desire Min Value'
+       */
+      ESP32_CONTROL_SYSTEM_B.Add_e = ESP32_CONTROL_SYSTEM_P.Desire_Max -
+        ESP32_CONTROL_SYSTEM_P.Desire_Min;
+
+      /* Sum: '<S1>/Add1' */
+      ESP32_CONTROL_SYSTEM_B.Add1_m = ESP32_CONTROL_SYSTEM_B.FP_maxVal -
+        ESP32_CONTROL_SYSTEM_B.FP_minVal;
+
+      /* Switch: '<Root>/Switch1' */
+      if (ESP32_CONTROL_SYSTEM_B.Logic_b[0]) {
+        rtb_Sum = ESP32_CONTROL_SYSTEM_B.Saturation;
+      } else {
+        rtb_Sum = ESP32_CONTROL_SYSTEM_B.In1;
+      }
+
+      /* Product: '<S1>/Product' incorporates:
+       *  Product: '<S1>/Divide'
+       *  Switch: '<Root>/Switch1'
+       */
+      ESP32_CONTROL_SYSTEM_B.Product_i = ESP32_CONTROL_SYSTEM_B.Add_e /
+        ESP32_CONTROL_SYSTEM_B.Add1_m * rtb_Sum;
+
+      /* Start for MATLABSystem: '<S3>/PWM' */
+      if (ESP32_CONTROL_SYSTEM_B.Product_i <= 255.0) {
+        rtb_Sum = ESP32_CONTROL_SYSTEM_B.Product_i;
+      } else {
+        rtb_Sum = 255.0;
+      }
+
+      /* MATLABSystem: '<S3>/PWM' */
+      ESP32_CONTROL_SYSTEM_DW.obj_l.PWMDriverObj.MW_PWM_HANDLE =
+        MW_PWM_GetHandle(2U);
+
+      /* Start for MATLABSystem: '<S3>/PWM' */
+      if (!(rtb_Sum >= 0.0)) {
+        rtb_Sum = 0.0;
+      }
+
+      /* MATLABSystem: '<S3>/PWM' */
+      MW_PWM_SetDutyCycle
+        (ESP32_CONTROL_SYSTEM_DW.obj_l.PWMDriverObj.MW_PWM_HANDLE, -(rtb_Sum *
+          255.0 / 255.0));
+
+      /* Constant: '<S3>/Enable Pin' */
+      ESP32_CONTROL_SYSTEM_B.EnablePin = ESP32_CONTROL_SYSTEM_P.EN_Pin;
+
+      /* MATLABSystem: '<S3>/Digital Output' */
+      rtb_Sum = rt_roundd_snf(ESP32_CONTROL_SYSTEM_B.EnablePin);
+      if (rtb_Sum < 256.0) {
+        if (rtb_Sum >= 0.0) {
+          tmp = (uint8_T)rtb_Sum;
+        } else {
+          tmp = 0U;
+        }
+      } else {
+        tmp = MAX_uint8_T;
+      }
+
+      writeDigitalPin(4, tmp);
+
+      /* End of MATLABSystem: '<S3>/Digital Output' */
+      /* Constant: '<S3>/Direction Pin' */
+      ESP32_CONTROL_SYSTEM_B.DirectionPin = ESP32_CONTROL_SYSTEM_P.Direction_Pin;
+
+      /* MATLABSystem: '<S3>/Digital Output1' */
+      rtb_Sum = rt_roundd_snf(ESP32_CONTROL_SYSTEM_B.DirectionPin);
+      if (rtb_Sum < 256.0) {
+        if (rtb_Sum >= 0.0) {
+          tmp = (uint8_T)rtb_Sum;
+        } else {
+          tmp = 0U;
+        }
+      } else {
+        tmp = MAX_uint8_T;
+      }
+
+      writeDigitalPin(0, tmp);
+
+      /* End of MATLABSystem: '<S3>/Digital Output1' */
+      /* MATLABSystem: '<S3>/MATLAB System' */
+      if (ESP32_CONTROL_SYSTEM_DW.obj_o.SampleTime !=
+          ESP32_CONTROL_SYSTEM_P.MATLABSystem_SampleTime) {
+        ESP32_CONTROL_SYSTEM_DW.obj_o.SampleTime =
+          ESP32_CONTROL_SYSTEM_P.MATLABSystem_SampleTime;
+      }
+
+      /*         %% Define output properties */
+      stepFunctionLEDC_INTERFACE(0.0, 1.0);
+
+      /* End of MATLABSystem: '<S3>/MATLAB System' */
+    }
   }
 
   if (rtmIsMajorTimeStep(ESP32_CONTROL_SYSTEM_M)) {
+    real_T *lastU;
+    if (rtmIsMajorTimeStep(ESP32_CONTROL_SYSTEM_M)) {
+      /* Update for Memory: '<S13>/Memory' */
+      ESP32_CONTROL_SYSTEM_DW.Memory_PreviousInput =
+        ESP32_CONTROL_SYSTEM_B.Logic[0];
+
+      /* Update for Memory: '<S11>/Memory' */
+      ESP32_CONTROL_SYSTEM_DW.Memory_PreviousInput_f =
+        ESP32_CONTROL_SYSTEM_B.Logic_b[0];
+
+      /* Update for Memory: '<S12>/Memory' */
+      ESP32_CONTROL_SYSTEM_DW.Memory_PreviousInput_n =
+        ESP32_CONTROL_SYSTEM_B.Logic_l[0];
+    }
+
+    /* Update for If: '<Root>/If' */
+    if (ESP32_CONTROL_SYSTEM_DW.If_ActiveSubsystem == 1) {
+      /* Update for IfAction SubSystem: '<Root>/PID Control' incorporates:
+       *  ActionPort: '<S5>/Action Port'
+       */
+      /* Update for Derivative: '<S5>/Derivative' */
+      if (ESP32_CONTROL_SYSTEM_DW.TimeStampA == (rtInf)) {
+        ESP32_CONTROL_SYSTEM_DW.TimeStampA = ESP32_CONTROL_SYSTEM_M->Timing.t[0];
+        lastU = &ESP32_CONTROL_SYSTEM_DW.LastUAtTimeA;
+      } else if (ESP32_CONTROL_SYSTEM_DW.TimeStampB == (rtInf)) {
+        ESP32_CONTROL_SYSTEM_DW.TimeStampB = ESP32_CONTROL_SYSTEM_M->Timing.t[0];
+        lastU = &ESP32_CONTROL_SYSTEM_DW.LastUAtTimeB;
+      } else if (ESP32_CONTROL_SYSTEM_DW.TimeStampA <
+                 ESP32_CONTROL_SYSTEM_DW.TimeStampB) {
+        ESP32_CONTROL_SYSTEM_DW.TimeStampA = ESP32_CONTROL_SYSTEM_M->Timing.t[0];
+        lastU = &ESP32_CONTROL_SYSTEM_DW.LastUAtTimeA;
+      } else {
+        ESP32_CONTROL_SYSTEM_DW.TimeStampB = ESP32_CONTROL_SYSTEM_M->Timing.t[0];
+        lastU = &ESP32_CONTROL_SYSTEM_DW.LastUAtTimeB;
+      }
+
+      *lastU = ESP32_CONTROL_SYSTEM_B.Sum2;
+
+      /* End of Update for Derivative: '<S5>/Derivative' */
+      /* End of Update for SubSystem: '<Root>/PID Control' */
+    }
+
+    /* End of Update for If: '<Root>/If' */
     if (rtmIsMajorTimeStep(ESP32_CONTROL_SYSTEM_M)) {/* Sample time: [0.05s, 0.0s] */
       extmodeErrorCode_T errorCode = EXTMODE_SUCCESS;
       extmodeSimulationTime_T currentTime = (extmodeSimulationTime_T)
@@ -496,16 +654,30 @@ void ESP32_CONTROL_SYSTEM_derivatives(void)
   XDot_ESP32_CONTROL_SYSTEM_T *_rtXdot;
   _rtXdot = ((XDot_ESP32_CONTROL_SYSTEM_T *) ESP32_CONTROL_SYSTEM_M->derivs);
 
-  /* Derivatives for Integrator: '<S6>/Integrator1' */
-  _rtXdot->Integrator1_CSTATE[0] = ESP32_CONTROL_SYSTEM_B.Sum[0];
-  _rtXdot->Integrator1_CSTATE[1] = ESP32_CONTROL_SYSTEM_B.Sum[1];
-  _rtXdot->Integrator1_CSTATE[2] = ESP32_CONTROL_SYSTEM_B.Sum[2];
+  /* Derivatives for If: '<Root>/If' */
+  ((XDot_ESP32_CONTROL_SYSTEM_T *) ESP32_CONTROL_SYSTEM_M->derivs)
+    ->Integrator_CSTATE = 0.0;
+  if (ESP32_CONTROL_SYSTEM_DW.If_ActiveSubsystem == 1) {
+    /* Derivatives for IfAction SubSystem: '<Root>/PID Control' incorporates:
+     *  ActionPort: '<S5>/Action Port'
+     */
+    /* Derivatives for Integrator: '<S5>/Integrator' */
+    _rtXdot->Integrator_CSTATE = ESP32_CONTROL_SYSTEM_B.Sum2;
+
+    /* End of Derivatives for SubSystem: '<Root>/PID Control' */
+  }
+
+  /* End of Derivatives for If: '<Root>/If' */
 }
 
 /* Model initialize function */
 void ESP32_CONTROL_SYSTEM_initialize(void)
 {
   /* Registration code */
+
+  /* initialize non-finites */
+  rt_InitInfAndNaN(sizeof(real_T));
+
   {
     /* Setup solver object */
     rtsiSetSimTimeStepPtr(&ESP32_CONTROL_SYSTEM_M->solverInfo,
@@ -555,15 +727,15 @@ void ESP32_CONTROL_SYSTEM_initialize(void)
   ESP32_CONTROL_SYSTEM_M->Timing.stepSize0 = 0.05;
 
   /* External mode info */
-  ESP32_CONTROL_SYSTEM_M->Sizes.checksums[0] = (847587789U);
-  ESP32_CONTROL_SYSTEM_M->Sizes.checksums[1] = (3053662484U);
-  ESP32_CONTROL_SYSTEM_M->Sizes.checksums[2] = (2920405325U);
-  ESP32_CONTROL_SYSTEM_M->Sizes.checksums[3] = (2388070784U);
+  ESP32_CONTROL_SYSTEM_M->Sizes.checksums[0] = (3094388579U);
+  ESP32_CONTROL_SYSTEM_M->Sizes.checksums[1] = (638405739U);
+  ESP32_CONTROL_SYSTEM_M->Sizes.checksums[2] = (3578876459U);
+  ESP32_CONTROL_SYSTEM_M->Sizes.checksums[3] = (2890992735U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
     static RTWExtModeInfo rt_ExtModeInfo;
-    static const sysRanDType *systemRan[8];
+    static const sysRanDType *systemRan[11];
     ESP32_CONTROL_SYSTEM_M->extModeInfo = (&rt_ExtModeInfo);
     rteiSetSubSystemActiveVectorAddresses(&rt_ExtModeInfo, systemRan);
     systemRan[0] = &rtAlwaysEnabled;
@@ -572,8 +744,13 @@ void ESP32_CONTROL_SYSTEM_initialize(void)
     systemRan[3] = &rtAlwaysEnabled;
     systemRan[4] = &rtAlwaysEnabled;
     systemRan[5] = &rtAlwaysEnabled;
-    systemRan[6] = &rtAlwaysEnabled;
-    systemRan[7] = &rtAlwaysEnabled;
+    systemRan[6] = (sysRanDType *)
+      &ESP32_CONTROL_SYSTEM_DW.IfActionSubsystem_SubsysRanBC;
+    systemRan[7] = (sysRanDType *)
+      &ESP32_CONTROL_SYSTEM_DW.PIDControl_SubsysRanBC;
+    systemRan[8] = &rtAlwaysEnabled;
+    systemRan[9] = &rtAlwaysEnabled;
+    systemRan[10] = &rtAlwaysEnabled;
     rteiSetModelMappingInfoPtr(ESP32_CONTROL_SYSTEM_M->extModeInfo,
       &ESP32_CONTROL_SYSTEM_M->SpecialInfo.mappingInfo);
     rteiSetChecksumsPtr(ESP32_CONTROL_SYSTEM_M->extModeInfo,
@@ -582,25 +759,72 @@ void ESP32_CONTROL_SYSTEM_initialize(void)
                 (ESP32_CONTROL_SYSTEM_M));
   }
 
-  /* InitializeConditions for Integrator: '<S6>/Integrator1' */
-  ESP32_CONTROL_SYSTEM_X.Integrator1_CSTATE[0] =
-    ESP32_CONTROL_SYSTEM_P.Integrator1_IC[0];
-  ESP32_CONTROL_SYSTEM_X.Integrator1_CSTATE[1] =
-    ESP32_CONTROL_SYSTEM_P.Integrator1_IC[1];
-  ESP32_CONTROL_SYSTEM_X.Integrator1_CSTATE[2] =
-    ESP32_CONTROL_SYSTEM_P.Integrator1_IC[2];
+  /* Start for If: '<Root>/If' */
+  (void) memset(&(ESP32_CONTROL_SYSTEM_XDis.Integrator_CSTATE), 1,
+                1*sizeof(boolean_T));
+  ESP32_CONTROL_SYSTEM_DW.If_ActiveSubsystem = -1;
 
-  /* SystemInitialize for MATLAB Function: '<Root>/Throttle Body Callibration1' */
+  /* InitializeConditions for Memory: '<S13>/Memory' */
+  ESP32_CONTROL_SYSTEM_DW.Memory_PreviousInput =
+    ESP32_CONTROL_SYSTEM_P.SRFlipFlop2_initial_condition;
+
+  /* InitializeConditions for Memory: '<S11>/Memory' */
+  ESP32_CONTROL_SYSTEM_DW.Memory_PreviousInput_f =
+    ESP32_CONTROL_SYSTEM_P.SRFlipFlop_initial_condition;
+
+  /* InitializeConditions for Memory: '<S12>/Memory' */
+  ESP32_CONTROL_SYSTEM_DW.Memory_PreviousInput_n =
+    ESP32_CONTROL_SYSTEM_P.SRFlipFlop1_initial_condition;
+
+  /* SystemInitialize for MATLAB Function: '<Root>/Throttle Body Callibration' */
   ESP32_CONTROL_SYSTEM_DW.TB_minSet = 5.0;
 
-  /* SystemInitialize for MATLAB Function: '<S5>/Throttle Body Callibration1' */
-  ESP32_CONTROL_SYSTEM_DW.TB_minSet_n = 5.0;
+  /* SystemInitialize for MATLAB Function: '<Root>/Pedal Calibration' */
+  ESP32_CONTROL_SYSTEM_DW.maxSet = -1.0;
+  ESP32_CONTROL_SYSTEM_DW.minSet = 5.0;
 
-  /* Start for MATLABSystem: '<S9>/ESP23_ANALOG_READ_DDAppGeneratedBlock' */
+  /* SystemInitialize for IfAction SubSystem: '<Root>/If Action Subsystem' */
+  /* SystemInitialize for SignalConversion generated from: '<S4>/In1' incorporates:
+   *  Outport: '<S4>/Out1'
+   */
+  ESP32_CONTROL_SYSTEM_B.In1 = ESP32_CONTROL_SYSTEM_P.Out1_Y0;
+
+  /* End of SystemInitialize for SubSystem: '<Root>/If Action Subsystem' */
+
+  /* SystemInitialize for IfAction SubSystem: '<Root>/PID Control' */
+  /* InitializeConditions for Derivative: '<S5>/Derivative' */
+  ESP32_CONTROL_SYSTEM_DW.TimeStampA = (rtInf);
+  ESP32_CONTROL_SYSTEM_DW.TimeStampB = (rtInf);
+
+  /* InitializeConditions for Integrator: '<S5>/Integrator' */
+  ESP32_CONTROL_SYSTEM_X.Integrator_CSTATE =
+    ESP32_CONTROL_SYSTEM_P.Integrator_IC;
+
+  /* SystemInitialize for Sum: '<S5>/Sum' incorporates:
+   *  Outport: '<S5>/PID Output'
+   *  Saturate: '<S5>/Saturation'
+   */
+  ESP32_CONTROL_SYSTEM_B.Saturation = ESP32_CONTROL_SYSTEM_P.PIDOutput_Y0;
+
+  /* End of SystemInitialize for SubSystem: '<Root>/PID Control' */
+
+  /* Start for MATLABSystem: '<S2>/ESP23_ANALOG_READ_DDAppGeneratedBlock1' */
+  /*  Constructor */
+  ESP32_CONTROL_SYSTEM_DW.obj_h.matlabCodegenIsDeleted = false;
+  ESP32_CONTROL_SYSTEM_DW.obj_h.SampleTime =
+    ESP32_CONTROL_SYSTEM_P.ESP23_ANALOG_READ_DDAppGenerate;
+  ESP32_CONTROL_SYSTEM_DW.obj_h.isInitialized = 1;
+
+  /*         %% Define output properties */
+  /*   Check the input size */
+  setupFunctionESP32_ANALOG_READ(34, 1.0);
+  ESP32_CONTROL_SYSTEM_DW.obj_h.isSetupComplete = true;
+
+  /* Start for MATLABSystem: '<S10>/ESP23_ANALOG_READ_DDAppGeneratedBlock' */
   /*  Constructor */
   ESP32_CONTROL_SYSTEM_DW.obj.matlabCodegenIsDeleted = false;
   ESP32_CONTROL_SYSTEM_DW.obj.SampleTime =
-    ESP32_CONTROL_SYSTEM_P.ESP23_ANALOG_READ_DDAppGenera_c;
+    ESP32_CONTROL_SYSTEM_P.ESP23_ANALOG_READ_DDAppGenera_p;
   ESP32_CONTROL_SYSTEM_DW.obj.isInitialized = 1;
 
   /*         %% Define output properties */
@@ -608,72 +832,80 @@ void ESP32_CONTROL_SYSTEM_initialize(void)
   setupFunctionESP32_ANALOG_READ(35, 1.0);
   ESP32_CONTROL_SYSTEM_DW.obj.isSetupComplete = true;
 
-  /* Start for MATLABSystem: '<S12>/PWM' */
-  ESP32_CONTROL_SYSTEM_DW.obj_oq.matlabCodegenIsDeleted = false;
-  ESP32_CONTROL_SYSTEM_DW.obj_oq.isInitialized = 1;
-  ESP32_CONTROL_SYSTEM_DW.obj_oq.PWMDriverObj.MW_PWM_HANDLE = MW_PWM_Open(2U,
+  /* Start for MATLABSystem: '<S3>/PWM' */
+  ESP32_CONTROL_SYSTEM_DW.obj_l.matlabCodegenIsDeleted = false;
+  ESP32_CONTROL_SYSTEM_DW.obj_l.isInitialized = 1;
+  ESP32_CONTROL_SYSTEM_DW.obj_l.PWMDriverObj.MW_PWM_HANDLE = MW_PWM_Open(2U,
     19000.0, 255.0);
-  ESP32_CONTROL_SYSTEM_DW.obj_oq.isSetupComplete = true;
+  ESP32_CONTROL_SYSTEM_DW.obj_l.isSetupComplete = true;
 
-  /* Start for MATLABSystem: '<S12>/Digital Output1' */
-  ESP32_CONTROL_SYSTEM_DW.obj_o.matlabCodegenIsDeleted = false;
-  ESP32_CONTROL_SYSTEM_DW.obj_o.isInitialized = 1;
-  digitalIOSetup(0, 1);
-  ESP32_CONTROL_SYSTEM_DW.obj_o.isSetupComplete = true;
-
-  /* Start for MATLABSystem: '<S12>/Digital Output' */
-  ESP32_CONTROL_SYSTEM_DW.obj_h.matlabCodegenIsDeleted = false;
-  ESP32_CONTROL_SYSTEM_DW.obj_h.isInitialized = 1;
+  /* Start for MATLABSystem: '<S3>/Digital Output' */
+  ESP32_CONTROL_SYSTEM_DW.obj_m.matlabCodegenIsDeleted = false;
+  ESP32_CONTROL_SYSTEM_DW.obj_m.isInitialized = 1;
   digitalIOSetup(4, 1);
-  ESP32_CONTROL_SYSTEM_DW.obj_h.isSetupComplete = true;
+  ESP32_CONTROL_SYSTEM_DW.obj_m.isSetupComplete = true;
 
-  /* Start for MATLABSystem: '<S3>/ESP23_ANALOG_READ_DDAppGeneratedBlock1' */
+  /* Start for MATLABSystem: '<S3>/Digital Output1' */
+  ESP32_CONTROL_SYSTEM_DW.obj_c.matlabCodegenIsDeleted = false;
+  ESP32_CONTROL_SYSTEM_DW.obj_c.isInitialized = 1;
+  digitalIOSetup(0, 1);
+  ESP32_CONTROL_SYSTEM_DW.obj_c.isSetupComplete = true;
+
+  /* Start for MATLABSystem: '<S3>/MATLAB System' */
   /*  Constructor */
-  ESP32_CONTROL_SYSTEM_DW.obj_a.matlabCodegenIsDeleted = false;
-  ESP32_CONTROL_SYSTEM_DW.obj_a.SampleTime =
-    ESP32_CONTROL_SYSTEM_P.ESP23_ANALOG_READ_DDAppGenerate;
-  ESP32_CONTROL_SYSTEM_DW.obj_a.isInitialized = 1;
+  ESP32_CONTROL_SYSTEM_DW.obj_o.matlabCodegenIsDeleted = false;
+  ESP32_CONTROL_SYSTEM_DW.obj_o.SampleTime =
+    ESP32_CONTROL_SYSTEM_P.MATLABSystem_SampleTime;
+  ESP32_CONTROL_SYSTEM_DW.obj_o.isInitialized = 1;
 
   /*         %% Define output properties */
   /*   Check the input size */
-  setupFunctionESP32_ANALOG_READ(34, 1.0);
-  ESP32_CONTROL_SYSTEM_DW.obj_a.isSetupComplete = true;
+  /*     validateattributes(varargin{1},{'int16'},{'2d','size',[1,1]},'','Duty_Cycle_Percent'); */
+  setupFunctionLEDC_INTERFACE(0, 1.0, 0, 1.0, 0, 1.0, 0, 1.0, 0LL, 1.0);
+  ESP32_CONTROL_SYSTEM_DW.obj_o.isSetupComplete = true;
 }
 
 /* Model terminate function */
 void ESP32_CONTROL_SYSTEM_terminate(void)
 {
-  /* Terminate for MATLABSystem: '<S9>/ESP23_ANALOG_READ_DDAppGeneratedBlock' */
-  if (!ESP32_CONTROL_SYSTEM_DW.obj.matlabCodegenIsDeleted) {
-    ESP32_CONTROL_SYSTEM_DW.obj.matlabCodegenIsDeleted = true;
-  }
-
-  /* End of Terminate for MATLABSystem: '<S9>/ESP23_ANALOG_READ_DDAppGeneratedBlock' */
-  /* Terminate for MATLABSystem: '<S12>/PWM' */
-  if (!ESP32_CONTROL_SYSTEM_DW.obj_oq.matlabCodegenIsDeleted) {
-    ESP32_CONTROL_SYSTEM_DW.obj_oq.matlabCodegenIsDeleted = true;
-    ESP32_CONTRO_SystemCore_release(&ESP32_CONTROL_SYSTEM_DW.obj_oq);
-  }
-
-  /* End of Terminate for MATLABSystem: '<S12>/PWM' */
-  /* Terminate for MATLABSystem: '<S12>/Digital Output1' */
-  if (!ESP32_CONTROL_SYSTEM_DW.obj_o.matlabCodegenIsDeleted) {
-    ESP32_CONTROL_SYSTEM_DW.obj_o.matlabCodegenIsDeleted = true;
-  }
-
-  /* End of Terminate for MATLABSystem: '<S12>/Digital Output1' */
-  /* Terminate for MATLABSystem: '<S12>/Digital Output' */
+  /* Terminate for MATLABSystem: '<S2>/ESP23_ANALOG_READ_DDAppGeneratedBlock1' */
   if (!ESP32_CONTROL_SYSTEM_DW.obj_h.matlabCodegenIsDeleted) {
     ESP32_CONTROL_SYSTEM_DW.obj_h.matlabCodegenIsDeleted = true;
   }
 
-  /* End of Terminate for MATLABSystem: '<S12>/Digital Output' */
-  /* Terminate for MATLABSystem: '<S3>/ESP23_ANALOG_READ_DDAppGeneratedBlock1' */
-  if (!ESP32_CONTROL_SYSTEM_DW.obj_a.matlabCodegenIsDeleted) {
-    ESP32_CONTROL_SYSTEM_DW.obj_a.matlabCodegenIsDeleted = true;
+  /* End of Terminate for MATLABSystem: '<S2>/ESP23_ANALOG_READ_DDAppGeneratedBlock1' */
+
+  /* Terminate for MATLABSystem: '<S10>/ESP23_ANALOG_READ_DDAppGeneratedBlock' */
+  if (!ESP32_CONTROL_SYSTEM_DW.obj.matlabCodegenIsDeleted) {
+    ESP32_CONTROL_SYSTEM_DW.obj.matlabCodegenIsDeleted = true;
   }
 
-  /* End of Terminate for MATLABSystem: '<S3>/ESP23_ANALOG_READ_DDAppGeneratedBlock1' */
+  /* End of Terminate for MATLABSystem: '<S10>/ESP23_ANALOG_READ_DDAppGeneratedBlock' */
+  /* Terminate for MATLABSystem: '<S3>/PWM' */
+  if (!ESP32_CONTROL_SYSTEM_DW.obj_l.matlabCodegenIsDeleted) {
+    ESP32_CONTROL_SYSTEM_DW.obj_l.matlabCodegenIsDeleted = true;
+    ESP32_CONTRO_SystemCore_release(&ESP32_CONTROL_SYSTEM_DW.obj_l);
+  }
+
+  /* End of Terminate for MATLABSystem: '<S3>/PWM' */
+  /* Terminate for MATLABSystem: '<S3>/Digital Output' */
+  if (!ESP32_CONTROL_SYSTEM_DW.obj_m.matlabCodegenIsDeleted) {
+    ESP32_CONTROL_SYSTEM_DW.obj_m.matlabCodegenIsDeleted = true;
+  }
+
+  /* End of Terminate for MATLABSystem: '<S3>/Digital Output' */
+  /* Terminate for MATLABSystem: '<S3>/Digital Output1' */
+  if (!ESP32_CONTROL_SYSTEM_DW.obj_c.matlabCodegenIsDeleted) {
+    ESP32_CONTROL_SYSTEM_DW.obj_c.matlabCodegenIsDeleted = true;
+  }
+
+  /* End of Terminate for MATLABSystem: '<S3>/Digital Output1' */
+  /* Terminate for MATLABSystem: '<S3>/MATLAB System' */
+  if (!ESP32_CONTROL_SYSTEM_DW.obj_o.matlabCodegenIsDeleted) {
+    ESP32_CONTROL_SYSTEM_DW.obj_o.matlabCodegenIsDeleted = true;
+  }
+
+  /* End of Terminate for MATLABSystem: '<S3>/MATLAB System' */
 }
 
 /*

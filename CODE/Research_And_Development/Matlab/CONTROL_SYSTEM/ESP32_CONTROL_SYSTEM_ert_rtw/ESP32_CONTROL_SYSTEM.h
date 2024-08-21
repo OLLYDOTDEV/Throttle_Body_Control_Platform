@@ -10,7 +10,7 @@
  *
  * Model version                  : 1.20
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Mon Aug 19 16:13:12 2024
+ * C/C++ source code generated on : Tue Aug 20 20:09:56 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -30,11 +30,14 @@
 #include "ext_mode.h"
 #include "ESP32_ANALOG_READ.h"
 #include "MW_arduino_digitalio.h"
+#include "LEDC_INTERFACE.h"
 #include "MW_PWM.h"
 #endif                               /* ESP32_CONTROL_SYSTEM_COMMON_INCLUDES_ */
 
 #include "ESP32_CONTROL_SYSTEM_types.h"
 #include <string.h>
+#include "rt_nonfinite.h"
+#include "rtGetInf.h"
 #include <stddef.h>
 
 /* Macros for accessing real-time model data structure */
@@ -172,109 +175,70 @@
 
 /* Block signals (default storage) */
 typedef struct {
-  real_T Integrator1[3];               /* '<S6>/Integrator1' */
-  real_T Add;                          /* '<S7>/Add' */
-  real_T Add1;                         /* '<S7>/Add1' */
-  real_T Divide;                       /* '<S7>/Divide' */
-  real_T Product;                      /* '<S7>/Product' */
-  real_T Fcn;                          /* '<S4>/Fcn' */
-  real_T Fcn1;                         /* '<S2>/Fcn1' */
-  real_T Fcn2;                         /* '<S2>/Fcn2' */
-  real_T Fcn3;                         /* '<S2>/Fcn3' */
-  real_T Gain1[3];                     /* '<S1>/Gain1' */
-  real_T Sum3;                         /* '<S4>/Sum3' */
-  real_T Gain;                         /* '<S4>/Gain' */
-  real_T Product_f;                    /* '<S4>/Product' */
-  real_T Sum[3];                       /* '<S6>/Sum' */
-  real_T TmpSignalConversionAtTAQSigLogg[3];
-  /* '<S2>/TmpSignal ConversionAtTAQSigLogging_InsertedFor_Mux_at_outport_0Inport1' */
-  real_T Sum_j;                        /* '<S5>/Sum' */
-  real_T Add1_c;                       /* '<S11>/Add1' */
-  real_T Add_f;                        /* '<S11>/Add' */
-  real_T Divide_p;                     /* '<S11>/Divide' */
-  real_T Product_j;                    /* '<S11>/Product' */
-  real_T Gain_j;                       /* '<S10>/Gain' */
-  real_T Constant3;                    /* '<S5>/Constant3' */
-  real_T EnablePin;                    /* '<S12>/Enable Pin' */
+  real_T Add;                          /* '<S8>/Add' */
+  real_T Add1;                         /* '<S8>/Add1' */
+  real_T Divide;                       /* '<S8>/Divide' */
+  real_T Product;                      /* '<S8>/Product' */
+  real_T Sum2;                         /* '<Root>/Sum2' */
+  real_T Add_e;                        /* '<S1>/Add' */
+  real_T Add1_m;                       /* '<S1>/Add1' */
+  real_T Product_i;                    /* '<S1>/Product' */
+  real_T EnablePin;                    /* '<S3>/Enable Pin' */
+  real_T DirectionPin;                 /* '<S3>/Direction Pin' */
   real_T ESP23_ANALOG_READ_DDAppGenerate;
-                              /* '<S9>/ESP23_ANALOG_READ_DDAppGeneratedBlock' */
-  real_T TB_maxVal;                   /* '<Root>/Throttle Body Callibration1' */
-  real_T TB_minVal;                   /* '<Root>/Throttle Body Callibration1' */
-  real_T ESP23_ANALOG_READ_DDAppGenera_g;
-                             /* '<S3>/ESP23_ANALOG_READ_DDAppGeneratedBlock1' */
+                             /* '<S10>/ESP23_ANALOG_READ_DDAppGeneratedBlock' */
+  real_T TB_maxVal;                    /* '<Root>/Throttle Body Callibration' */
+  real_T TB_minVal;                    /* '<Root>/Throttle Body Callibration' */
+  real_T FP_maxVal;                    /* '<Root>/Pedal Calibration' */
+  real_T FP_minVal;                    /* '<Root>/Pedal Calibration' */
+  real_T Saturation;                   /* '<S5>/Saturation' */
+  real_T In1;                          /* '<S4>/In1' */
+  real_T ESP23_ANALOG_READ_DDAppGenera_d;
+                             /* '<S2>/ESP23_ANALOG_READ_DDAppGeneratedBlock1' */
+  boolean_T Logic[2];                  /* '<S13>/Logic' */
+  boolean_T Logic_b[2];                /* '<S11>/Logic' */
+  boolean_T Logic_l[2];                /* '<S12>/Logic' */
 } B_ESP32_CONTROL_SYSTEM_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
   ESP32_ANALOG_READ_ESP32_CONTR_T obj;
-                              /* '<S9>/ESP23_ANALOG_READ_DDAppGeneratedBlock' */
-  ESP32_ANALOG_READ_ESP32_CONTR_T obj_a;
-                             /* '<S3>/ESP23_ANALOG_READ_DDAppGeneratedBlock1' */
-  codertarget_arduinobase_block_T obj_o;/* '<S12>/Digital Output1' */
-  codertarget_arduinobase_block_T obj_h;/* '<S12>/Digital Output' */
-  codertarget_arduinobase_inter_T obj_oq;/* '<S12>/PWM' */
-  real_T TB_maxSet;                   /* '<Root>/Throttle Body Callibration1' */
-  real_T TB_minSet;                   /* '<Root>/Throttle Body Callibration1' */
-  real_T TB_maxSet_j;                  /* '<S5>/Throttle Body Callibration1' */
-  real_T TB_minSet_n;                  /* '<S5>/Throttle Body Callibration1' */
-  struct {
-    void *LoggedData;
-  } Scope_PWORK;                       /* '<S6>/Scope' */
-
-  struct {
-    void *LoggedData;
-  } Scope1_PWORK;                      /* '<S6>/Scope1' */
-
-  struct {
-    void *LoggedData;
-  } Scope2_PWORK;                      /* '<Root>/Scope2' */
-
-  struct {
-    void *LoggedData;
-  } Scope3_PWORK;                      /* '<S2>/Scope3' */
-
-  struct {
-    void *LoggedData;
-  } Scope3_PWORK_c;                    /* '<Root>/Scope3' */
-
-  struct {
-    void *LoggedData;
-  } Scope_PWORK_p;                     /* '<S5>/Scope' */
-
-  struct {
-    void *LoggedData;
-  } SIneInput_PWORK;                   /* '<S5>/SIne Input' */
-
-  struct {
-    void *LoggedData;
-  } Trackingerro_PWORK;                /* '<S4>/Tracking erro' */
-
-  struct {
-    void *LoggedData;
-  } Scope2_PWORK_p;                    /* '<S2>/Scope2' */
-
-  struct {
-    void *LoggedData;
-  } Scope1_PWORK_h;                    /* '<S2>/Scope1' */
-
-  struct {
-    void *LoggedData;
-  } Scope_PWORK_g;                     /* '<S2>/Scope' */
+                             /* '<S10>/ESP23_ANALOG_READ_DDAppGeneratedBlock' */
+  ESP32_ANALOG_READ_ESP32_CONTR_T obj_h;
+                             /* '<S2>/ESP23_ANALOG_READ_DDAppGeneratedBlock1' */
+  LEDC_INTERFACE_ESP32_CONTROL__T obj_o;/* '<S3>/MATLAB System' */
+  codertarget_arduinobase_block_T obj_c;/* '<S3>/Digital Output1' */
+  codertarget_arduinobase_block_T obj_m;/* '<S3>/Digital Output' */
+  codertarget_arduinobase_inter_T obj_l;/* '<S3>/PWM' */
+  real_T TB_maxSet;                    /* '<Root>/Throttle Body Callibration' */
+  real_T TB_minSet;                    /* '<Root>/Throttle Body Callibration' */
+  real_T maxSet;                       /* '<Root>/Pedal Calibration' */
+  real_T minSet;                       /* '<Root>/Pedal Calibration' */
+  real_T TimeStampA;                   /* '<S5>/Derivative' */
+  real_T LastUAtTimeA;                 /* '<S5>/Derivative' */
+  real_T TimeStampB;                   /* '<S5>/Derivative' */
+  real_T LastUAtTimeB;                 /* '<S5>/Derivative' */
+  int8_T If_ActiveSubsystem;           /* '<Root>/If' */
+  int8_T PIDControl_SubsysRanBC;       /* '<Root>/PID Control' */
+  int8_T IfActionSubsystem_SubsysRanBC;/* '<Root>/If Action Subsystem' */
+  boolean_T Memory_PreviousInput;      /* '<S13>/Memory' */
+  boolean_T Memory_PreviousInput_f;    /* '<S11>/Memory' */
+  boolean_T Memory_PreviousInput_n;    /* '<S12>/Memory' */
 } DW_ESP32_CONTROL_SYSTEM_T;
 
 /* Continuous states (default storage) */
 typedef struct {
-  real_T Integrator1_CSTATE[3];        /* '<S6>/Integrator1' */
+  real_T Integrator_CSTATE;            /* '<S5>/Integrator' */
 } X_ESP32_CONTROL_SYSTEM_T;
 
 /* State derivatives (default storage) */
 typedef struct {
-  real_T Integrator1_CSTATE[3];        /* '<S6>/Integrator1' */
+  real_T Integrator_CSTATE;            /* '<S5>/Integrator' */
 } XDot_ESP32_CONTROL_SYSTEM_T;
 
 /* State disabled  */
 typedef struct {
-  boolean_T Integrator1_CSTATE[3];     /* '<S6>/Integrator1' */
+  boolean_T Integrator_CSTATE;         /* '<S5>/Integrator' */
 } XDis_ESP32_CONTROL_SYSTEM_T;
 
 #ifndef ODE3_INTG
@@ -291,71 +255,79 @@ typedef struct {
 /* Parameters (default storage) */
 struct P_ESP32_CONTROL_SYSTEM_T_ {
   real_T Desire_Max;                   /* Variable: Desire_Max
-                                        * Referenced by: '<S11>/Desire Max Value'
+                                        * Referenced by: '<S1>/Desire Max Value'
                                         */
   real_T Desire_Min;                   /* Variable: Desire_Min
-                                        * Referenced by: '<S11>/Desire Min Value'
+                                        * Referenced by: '<S1>/Desire Min Value'
+                                        */
+  real_T Direction_Pin;                /* Variable: Direction_Pin
+                                        * Referenced by: '<S3>/Direction Pin'
                                         */
   real_T EN_Pin;                       /* Variable: EN_Pin
-                                        * Referenced by: '<S12>/Enable Pin'
+                                        * Referenced by: '<S3>/Enable Pin'
                                         */
-  real_T J_aet;                        /* Variable: J_aet
-                                        * Referenced by:
-                                        *   '<S4>/Constant2'
-                                        *   '<S6>/Constant2'
+  real_T Kd;                           /* Variable: Kd
+                                        * Referenced by: '<S5>/Kd'
                                         */
-  real_T omga_c;                       /* Variable: omga_c
-                                        * Referenced by: '<S4>/Gain1'
+  real_T Ki;                           /* Variable: Ki
+                                        * Referenced by: '<S5>/Ki'
                                         */
-  real_T roa;                          /* Variable: roa
-                                        * Referenced by:
-                                        *   '<S4>/Constant2'
-                                        *   '<S6>/Constant2'
+  real_T Kp;                           /* Variable: Kp
+                                        * Referenced by: '<S5>/Kp'
                                         */
+  boolean_T SRFlipFlop2_initial_condition;
+                                /* Mask Parameter: SRFlipFlop2_initial_condition
+                                 * Referenced by: '<S13>/Memory'
+                                 */
+  boolean_T SRFlipFlop_initial_condition;
+                                 /* Mask Parameter: SRFlipFlop_initial_condition
+                                  * Referenced by: '<S11>/Memory'
+                                  */
+  boolean_T SRFlipFlop1_initial_condition;
+                                /* Mask Parameter: SRFlipFlop1_initial_condition
+                                 * Referenced by: '<S12>/Memory'
+                                 */
   real_T ESP23_ANALOG_READ_DDAppGenerate;/* Expression: -1
-                                          * Referenced by: '<S3>/ESP23_ANALOG_READ_DDAppGeneratedBlock1'
+                                          * Referenced by: '<S2>/ESP23_ANALOG_READ_DDAppGeneratedBlock1'
                                           */
-  real_T ESP23_ANALOG_READ_DDAppGenera_c;/* Expression: -1
-                                          * Referenced by: '<S9>/ESP23_ANALOG_READ_DDAppGeneratedBlock'
+  real_T MATLABSystem_SampleTime;      /* Expression: -1
+                                        * Referenced by: '<S3>/MATLAB System'
+                                        */
+  real_T Out1_Y0;                      /* Computed Parameter: Out1_Y0
+                                        * Referenced by: '<S4>/Out1'
+                                        */
+  real_T PIDOutput_Y0;                 /* Computed Parameter: PIDOutput_Y0
+                                        * Referenced by: '<S5>/PID Output'
+                                        */
+  real_T Integrator_IC;                /* Expression: 0
+                                        * Referenced by: '<S5>/Integrator'
+                                        */
+  real_T Saturation_UpperSat;          /* Expression: 3
+                                        * Referenced by: '<S5>/Saturation'
+                                        */
+  real_T Saturation_LowerSat;          /* Expression: 0
+                                        * Referenced by: '<S5>/Saturation'
+                                        */
+  real_T ESP23_ANALOG_READ_DDAppGenera_p;/* Expression: -1
+                                          * Referenced by: '<S10>/ESP23_ANALOG_READ_DDAppGeneratedBlock'
                                           */
-  real_T Integrator1_IC[3];            /* Expression: [12*pi/180 0 0]'
-                                        * Referenced by: '<S6>/Integrator1'
+  real_T Constant3_Value;              /* Expression: 0
+                                        * Referenced by: '<S7>/Constant3'
                                         */
-  real_T Gain_Gain[9];                 /* Expression: [0 1 0;0 0 1;0 0 0]
-                                        * Referenced by: '<S6>/Gain'
+  real_T Constant2_Value;              /* Expression: 0
+                                        * Referenced by: '<S7>/Constant2'
                                         */
-  real_T Constant_Value;               /* Expression: 1
+  real_T Constant_Value;               /* Expression: 0
                                         * Referenced by: '<S7>/Constant'
                                         */
-  real_T Constant1_Value;              /* Expression: 0
-                                        * Referenced by: '<S7>/Constant1'
+  boolean_T Logic_table[16];           /* Computed Parameter: Logic_table
+                                        * Referenced by: '<S13>/Logic'
                                         */
-  real_T Gain2_Gain[3];                /* Expression: [Beta1 Beta2 Beta3]'
-                                        * Referenced by: '<S6>/Gain2'
+  boolean_T Logic_table_d[16];         /* Computed Parameter: Logic_table_d
+                                        * Referenced by: '<S11>/Logic'
                                         */
-  real_T Constant_Value_p;             /* Expression: 0
-                                        * Referenced by: '<S6>/Constant'
-                                        */
-  real_T Constant1_Value_g;            /* Expression: 0
-                                        * Referenced by: '<S6>/Constant1'
-                                        */
-  real_T Gain1_Gain;                   /* Expression: pi/180
-                                        * Referenced by: '<S1>/Gain1'
-                                        */
-  real_T Gain_Gain_d;                  /* Expression: (omga_c)^2
-                                        * Referenced by: '<S4>/Gain'
-                                        */
-  real_T Gain1_Gain_f;                 /* Expression: 0.7
-                                        * Referenced by: '<S5>/Gain1'
-                                        */
-  real_T Constant_Value_h;             /* Expression: 0.3
-                                        * Referenced by: '<S5>/Constant'
-                                        */
-  real_T Gain_Gain_a;                  /* Expression: 180/pi
-                                        * Referenced by: '<S10>/Gain'
-                                        */
-  real_T Constant3_Value;              /* Expression: 0
-                                        * Referenced by: '<S5>/Constant3'
+  boolean_T Logic_table_d2[16];        /* Computed Parameter: Logic_table_d2
+                                        * Referenced by: '<S12>/Logic'
                                         */
 };
 
@@ -372,8 +344,8 @@ struct tag_RTM_ESP32_CONTROL_SYSTEM_T {
   boolean_T zCCacheNeedsReset;
   boolean_T derivCacheNeedsReset;
   boolean_T CTOutputIncnstWithState;
-  real_T odeY[3];
-  real_T odeF[3][3];
+  real_T odeY[1];
+  real_T odeF[3][1];
   ODE3_IntgData intgData;
 
   /*
@@ -456,19 +428,19 @@ extern volatile boolean_T runModel;
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'ESP32_CONTROL_SYSTEM'
- * '<S1>'   : 'ESP32_CONTROL_SYSTEM/Degrees to Radians2'
- * '<S2>'   : 'ESP32_CONTROL_SYSTEM/Desired signals_Sinewave1'
- * '<S3>'   : 'ESP32_CONTROL_SYSTEM/Foot Pedal Signal1'
- * '<S4>'   : 'ESP32_CONTROL_SYSTEM/SFBC_Controller1'
- * '<S5>'   : 'ESP32_CONTROL_SYSTEM/Subsystem4'
- * '<S6>'   : 'ESP32_CONTROL_SYSTEM/Subsystem5'
- * '<S7>'   : 'ESP32_CONTROL_SYSTEM/TB_Feedbakc Range Conversion3'
- * '<S8>'   : 'ESP32_CONTROL_SYSTEM/Throttle Body Callibration1'
- * '<S9>'   : 'ESP32_CONTROL_SYSTEM/Throttle Body Feedback1'
- * '<S10>'  : 'ESP32_CONTROL_SYSTEM/SFBC_Controller1/Radians to Degrees4'
- * '<S11>'  : 'ESP32_CONTROL_SYSTEM/Subsystem4/FP_Input Range Conversion1'
- * '<S12>'  : 'ESP32_CONTROL_SYSTEM/Subsystem4/H-Bridge Setting'
- * '<S13>'  : 'ESP32_CONTROL_SYSTEM/Subsystem4/Throttle Body Callibration1'
+ * '<S1>'   : 'ESP32_CONTROL_SYSTEM/FP_Input Range Conversion'
+ * '<S2>'   : 'ESP32_CONTROL_SYSTEM/Foot Pedal Signal'
+ * '<S3>'   : 'ESP32_CONTROL_SYSTEM/H-Bridge Setting'
+ * '<S4>'   : 'ESP32_CONTROL_SYSTEM/If Action Subsystem'
+ * '<S5>'   : 'ESP32_CONTROL_SYSTEM/PID Control'
+ * '<S6>'   : 'ESP32_CONTROL_SYSTEM/Pedal Calibration'
+ * '<S7>'   : 'ESP32_CONTROL_SYSTEM/Subsystem'
+ * '<S8>'   : 'ESP32_CONTROL_SYSTEM/TB_Feedbakc Range Conversion'
+ * '<S9>'   : 'ESP32_CONTROL_SYSTEM/Throttle Body Callibration'
+ * '<S10>'  : 'ESP32_CONTROL_SYSTEM/Throttle Body Feedback'
+ * '<S11>'  : 'ESP32_CONTROL_SYSTEM/Subsystem/S-R Flip-Flop'
+ * '<S12>'  : 'ESP32_CONTROL_SYSTEM/Subsystem/S-R Flip-Flop1'
+ * '<S13>'  : 'ESP32_CONTROL_SYSTEM/Subsystem/S-R Flip-Flop2'
  */
 #endif                                 /* ESP32_CONTROL_SYSTEM_h_ */
 
