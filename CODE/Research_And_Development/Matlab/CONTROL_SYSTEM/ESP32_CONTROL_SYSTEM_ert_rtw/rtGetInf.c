@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'ESP32_CONTROL_SYSTEM'.
  *
- * Model version                  : 1.20
+ * Model version                  : 1.22
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Tue Aug 20 20:09:56 2024
+ * C/C++ source code generated on : Tue Aug 27 22:03:23 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex

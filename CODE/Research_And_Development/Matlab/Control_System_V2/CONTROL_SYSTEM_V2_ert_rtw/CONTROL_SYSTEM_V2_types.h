@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'CONTROL_SYSTEM_V2'.
  *
- * Model version                  : 1.4
+ * Model version                  : 1.19
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Fri Aug 23 16:14:53 2024
+ * C/C++ source code generated on : Thu Sep 12 15:27:52 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -22,6 +22,26 @@
 #define CONTROL_SYSTEM_V2_types_h_
 #include "rtwtypes.h"
 #include "MW_SVD.h"
+#ifndef struct_tag_bTe6NOu1iARgAyjtPcyXuH
+#define struct_tag_bTe6NOu1iARgAyjtPcyXuH
+
+struct tag_bTe6NOu1iARgAyjtPcyXuH
+{
+  boolean_T matlabCodegenIsDeleted;
+  int32_T isInitialized;
+  boolean_T isSetupComplete;
+  real_T SampleTime;
+};
+
+#endif                                 /* struct_tag_bTe6NOu1iARgAyjtPcyXuH */
+
+#ifndef typedef_ADS1115_Vread_CONTROL_SYSTEM__T
+#define typedef_ADS1115_Vread_CONTROL_SYSTEM__T
+
+typedef struct tag_bTe6NOu1iARgAyjtPcyXuH ADS1115_Vread_CONTROL_SYSTEM__T;
+
+#endif                             /* typedef_ADS1115_Vread_CONTROL_SYSTEM__T */
+
 #ifndef struct_tag_9aqKbsbsI7JI0RwgnVwU0C
 #define struct_tag_9aqKbsbsI7JI0RwgnVwU0C
 
@@ -59,7 +79,7 @@ typedef struct tag_qrLkTWTW64zZK0sqwALTyG codertarget_arduinobase_block_T;
 
 #endif                             /* typedef_codertarget_arduinobase_block_T */
 
-/* Custom Type definition for MATLABSystem: '<S2>/PWM' */
+/* Custom Type definition for MATLABSystem: '<S6>/PWM' */
 #include "MW_SVD.h"
 #ifndef struct_tag_g1WX34VPn8QzVKQriB4HN
 #define struct_tag_g1WX34VPn8QzVKQriB4HN
@@ -98,26 +118,6 @@ typedef struct tag_4eDVzK5FiryyCjvjjvrZGB codertarget_arduinobase_inter_T;
 
 #endif                             /* typedef_codertarget_arduinobase_inter_T */
 
-#ifndef struct_tag_bTe6NOu1iARgAyjtPcyXuH
-#define struct_tag_bTe6NOu1iARgAyjtPcyXuH
-
-struct tag_bTe6NOu1iARgAyjtPcyXuH
-{
-  boolean_T matlabCodegenIsDeleted;
-  int32_T isInitialized;
-  boolean_T isSetupComplete;
-  real_T SampleTime;
-};
-
-#endif                                 /* struct_tag_bTe6NOu1iARgAyjtPcyXuH */
-
-#ifndef typedef_ADS1115_Vread_CONTROL_SYSTEM__T
-#define typedef_ADS1115_Vread_CONTROL_SYSTEM__T
-
-typedef struct tag_bTe6NOu1iARgAyjtPcyXuH ADS1115_Vread_CONTROL_SYSTEM__T;
-
-#endif                             /* typedef_ADS1115_Vread_CONTROL_SYSTEM__T */
-
 #ifndef struct_tag_9aqKbsbsI7JI0RwgnVwU0C
 #define struct_tag_9aqKbsbsI7JI0RwgnVwU0C
 
@@ -155,6 +155,12 @@ struct tag_mPMPiw8t0JZKYO8orfnwRG
 typedef struct tag_mPMPiw8t0JZKYO8orfnwRG codertarget_arduinobase_blo_i_T;
 
 #endif                             /* typedef_codertarget_arduinobase_blo_i_T */
+
+/* Parameters for system: '<S20>/NEGATIVE Edge' */
+typedef struct P_NEGATIVEEdge_CONTROL_SYSTEM_T_ P_NEGATIVEEdge_CONTROL_SYSTEM_T;
+
+/* Parameters for system: '<S20>/POSITIVE Edge' */
+typedef struct P_POSITIVEEdge_CONTROL_SYSTEM_T_ P_POSITIVEEdge_CONTROL_SYSTEM_T;
 
 /* Parameters (default storage) */
 typedef struct P_CONTROL_SYSTEM_V2_T_ P_CONTROL_SYSTEM_V2_T;

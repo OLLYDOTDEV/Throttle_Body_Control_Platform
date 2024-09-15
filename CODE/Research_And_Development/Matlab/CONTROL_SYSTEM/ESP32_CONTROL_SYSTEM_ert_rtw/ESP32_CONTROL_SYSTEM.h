@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'ESP32_CONTROL_SYSTEM'.
  *
- * Model version                  : 1.20
+ * Model version                  : 1.22
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Tue Aug 20 20:09:56 2024
+ * C/C++ source code generated on : Tue Aug 27 22:03:23 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -23,14 +23,10 @@
 #ifndef ESP32_CONTROL_SYSTEM_COMMON_INCLUDES_
 #define ESP32_CONTROL_SYSTEM_COMMON_INCLUDES_
 #include "rtwtypes.h"
-#include "rtw_extmode.h"
-#include "sysran_types.h"
 #include "rtw_continuous.h"
 #include "rtw_solver.h"
-#include "ext_mode.h"
 #include "ESP32_ANALOG_READ.h"
 #include "MW_arduino_digitalio.h"
-#include "LEDC_INTERFACE.h"
 #include "MW_PWM.h"
 #endif                               /* ESP32_CONTROL_SYSTEM_COMMON_INCLUDES_ */
 
@@ -73,10 +69,6 @@
 #define rtmSetDerivCacheNeedsReset(rtm, val) ((rtm)->derivCacheNeedsReset = (val))
 #endif
 
-#ifndef rtmGetFinalTime
-#define rtmGetFinalTime(rtm)           ((rtm)->Timing.tFinal)
-#endif
-
 #ifndef rtmGetIntgData
 #define rtmGetIntgData(rtm)            ((rtm)->intgData)
 #endif
@@ -115,10 +107,6 @@
 
 #ifndef rtmSetPeriodicContStateRanges
 #define rtmSetPeriodicContStateRanges(rtm, val) ((rtm)->periodicContStateRanges = (val))
-#endif
-
-#ifndef rtmGetRTWExtModeInfo
-#define rtmGetRTWExtModeInfo(rtm)      ((rtm)->extModeInfo)
 #endif
 
 #ifndef rtmGetZCCacheNeedsReset
@@ -161,10 +149,6 @@
 #define rtmGetT(rtm)                   (rtmGetTPtr((rtm))[0])
 #endif
 
-#ifndef rtmGetTFinal
-#define rtmGetTFinal(rtm)              ((rtm)->Timing.tFinal)
-#endif
-
 #ifndef rtmGetTPtr
 #define rtmGetTPtr(rtm)                ((rtm)->Timing.t)
 #endif
@@ -175,26 +159,10 @@
 
 /* Block signals (default storage) */
 typedef struct {
-  real_T Add;                          /* '<S8>/Add' */
-  real_T Add1;                         /* '<S8>/Add1' */
   real_T Divide;                       /* '<S8>/Divide' */
-  real_T Product;                      /* '<S8>/Product' */
   real_T Sum2;                         /* '<Root>/Sum2' */
-  real_T Add_e;                        /* '<S1>/Add' */
-  real_T Add1_m;                       /* '<S1>/Add1' */
-  real_T Product_i;                    /* '<S1>/Product' */
-  real_T EnablePin;                    /* '<S3>/Enable Pin' */
-  real_T DirectionPin;                 /* '<S3>/Direction Pin' */
-  real_T ESP23_ANALOG_READ_DDAppGenerate;
-                             /* '<S10>/ESP23_ANALOG_READ_DDAppGeneratedBlock' */
-  real_T TB_maxVal;                    /* '<Root>/Throttle Body Callibration' */
-  real_T TB_minVal;                    /* '<Root>/Throttle Body Callibration' */
-  real_T FP_maxVal;                    /* '<Root>/Pedal Calibration' */
-  real_T FP_minVal;                    /* '<Root>/Pedal Calibration' */
   real_T Saturation;                   /* '<S5>/Saturation' */
   real_T In1;                          /* '<S4>/In1' */
-  real_T ESP23_ANALOG_READ_DDAppGenera_d;
-                             /* '<S2>/ESP23_ANALOG_READ_DDAppGeneratedBlock1' */
   boolean_T Logic[2];                  /* '<S13>/Logic' */
   boolean_T Logic_b[2];                /* '<S11>/Logic' */
   boolean_T Logic_l[2];                /* '<S12>/Logic' */
@@ -203,10 +171,9 @@ typedef struct {
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
   ESP32_ANALOG_READ_ESP32_CONTR_T obj;
-                             /* '<S10>/ESP23_ANALOG_READ_DDAppGeneratedBlock' */
+                              /* '<S9>/ESP23_ANALOG_READ_DDAppGeneratedBlock' */
   ESP32_ANALOG_READ_ESP32_CONTR_T obj_h;
                              /* '<S2>/ESP23_ANALOG_READ_DDAppGeneratedBlock1' */
-  LEDC_INTERFACE_ESP32_CONTROL__T obj_o;/* '<S3>/MATLAB System' */
   codertarget_arduinobase_block_T obj_c;/* '<S3>/Digital Output1' */
   codertarget_arduinobase_block_T obj_m;/* '<S3>/Digital Output' */
   codertarget_arduinobase_inter_T obj_l;/* '<S3>/PWM' */
@@ -219,8 +186,6 @@ typedef struct {
   real_T TimeStampB;                   /* '<S5>/Derivative' */
   real_T LastUAtTimeB;                 /* '<S5>/Derivative' */
   int8_T If_ActiveSubsystem;           /* '<Root>/If' */
-  int8_T PIDControl_SubsysRanBC;       /* '<Root>/PID Control' */
-  int8_T IfActionSubsystem_SubsysRanBC;/* '<Root>/If Action Subsystem' */
   boolean_T Memory_PreviousInput;      /* '<S13>/Memory' */
   boolean_T Memory_PreviousInput_f;    /* '<S11>/Memory' */
   boolean_T Memory_PreviousInput_n;    /* '<S12>/Memory' */
@@ -290,9 +255,6 @@ struct P_ESP32_CONTROL_SYSTEM_T_ {
   real_T ESP23_ANALOG_READ_DDAppGenerate;/* Expression: -1
                                           * Referenced by: '<S2>/ESP23_ANALOG_READ_DDAppGeneratedBlock1'
                                           */
-  real_T MATLABSystem_SampleTime;      /* Expression: -1
-                                        * Referenced by: '<S3>/MATLAB System'
-                                        */
   real_T Out1_Y0;                      /* Computed Parameter: Out1_Y0
                                         * Referenced by: '<S4>/Out1'
                                         */
@@ -309,7 +271,7 @@ struct P_ESP32_CONTROL_SYSTEM_T_ {
                                         * Referenced by: '<S5>/Saturation'
                                         */
   real_T ESP23_ANALOG_READ_DDAppGenera_p;/* Expression: -1
-                                          * Referenced by: '<S10>/ESP23_ANALOG_READ_DDAppGeneratedBlock'
+                                          * Referenced by: '<S9>/ESP23_ANALOG_READ_DDAppGeneratedBlock'
                                           */
   real_T Constant3_Value;              /* Expression: 0
                                         * Referenced by: '<S7>/Constant3'
@@ -334,7 +296,6 @@ struct P_ESP32_CONTROL_SYSTEM_T_ {
 /* Real-time Model Data Structure */
 struct tag_RTM_ESP32_CONTROL_SYSTEM_T {
   const char_T *errorStatus;
-  RTWExtModeInfo *extModeInfo;
   RTWSolverInfo solverInfo;
   X_ESP32_CONTROL_SYSTEM_T *contStates;
   int_T *periodicContStateIndices;
@@ -355,20 +316,10 @@ struct tag_RTM_ESP32_CONTROL_SYSTEM_T {
    * dwork, sample times, etc.
    */
   struct {
-    uint32_T checksums[4];
     int_T numContStates;
     int_T numPeriodicContStates;
     int_T numSampTimes;
   } Sizes;
-
-  /*
-   * SpecialInfo:
-   * The following substructure contains special information
-   * related to other components that are dependent on RTW.
-   */
-  struct {
-    const void *mappingInfo;
-  } SpecialInfo;
 
   /*
    * Timing:
@@ -380,7 +331,6 @@ struct tag_RTM_ESP32_CONTROL_SYSTEM_T {
     time_T stepSize0;
     uint32_T clockTick1;
     time_T tStart;
-    time_T tFinal;
     SimTimeStep simTimeStep;
     boolean_T stopRequestedFlag;
     time_T *t;
@@ -414,6 +364,32 @@ extern volatile boolean_T stopRequested;
 extern volatile boolean_T runModel;
 
 /*-
+ * These blocks were eliminated from the model due to optimizations:
+ *
+ * Block '<Root>/Display1' : Unused code path elimination
+ * Block '<Root>/Display10' : Unused code path elimination
+ * Block '<Root>/Display11' : Unused code path elimination
+ * Block '<Root>/Display12' : Unused code path elimination
+ * Block '<Root>/Display2' : Unused code path elimination
+ * Block '<Root>/Display3' : Unused code path elimination
+ * Block '<Root>/Display4' : Unused code path elimination
+ * Block '<Root>/Display5' : Unused code path elimination
+ * Block '<Root>/Display6' : Unused code path elimination
+ * Block '<Root>/Display7' : Unused code path elimination
+ * Block '<Root>/Display8' : Unused code path elimination
+ * Block '<Root>/Display9' : Unused code path elimination
+ * Block '<S1>/Display2' : Unused code path elimination
+ * Block '<S1>/Display4' : Unused code path elimination
+ * Block '<S3>/Display3' : Unused code path elimination
+ * Block '<S3>/Display4' : Unused code path elimination
+ * Block '<S7>/Display' : Unused code path elimination
+ * Block '<S7>/Display1' : Unused code path elimination
+ * Block '<S7>/Display2' : Unused code path elimination
+ * Block '<S8>/Display2' : Unused code path elimination
+ * Block '<S8>/Display4' : Unused code path elimination
+ */
+
+/*-
  * The generated code includes comments that allow you to trace directly
  * back to the appropriate location in the model.  The basic format
  * is <system>/block_name, where system is the system number (uniquely
@@ -429,15 +405,15 @@ extern volatile boolean_T runModel;
  *
  * '<Root>' : 'ESP32_CONTROL_SYSTEM'
  * '<S1>'   : 'ESP32_CONTROL_SYSTEM/FP_Input Range Conversion'
- * '<S2>'   : 'ESP32_CONTROL_SYSTEM/Foot Pedal Signal'
+ * '<S2>'   : 'ESP32_CONTROL_SYSTEM/Foot Pedal'
  * '<S3>'   : 'ESP32_CONTROL_SYSTEM/H-Bridge Setting'
  * '<S4>'   : 'ESP32_CONTROL_SYSTEM/If Action Subsystem'
  * '<S5>'   : 'ESP32_CONTROL_SYSTEM/PID Control'
  * '<S6>'   : 'ESP32_CONTROL_SYSTEM/Pedal Calibration'
  * '<S7>'   : 'ESP32_CONTROL_SYSTEM/Subsystem'
  * '<S8>'   : 'ESP32_CONTROL_SYSTEM/TB_Feedbakc Range Conversion'
- * '<S9>'   : 'ESP32_CONTROL_SYSTEM/Throttle Body Callibration'
- * '<S10>'  : 'ESP32_CONTROL_SYSTEM/Throttle Body Feedback'
+ * '<S9>'   : 'ESP32_CONTROL_SYSTEM/Throttle Body '
+ * '<S10>'  : 'ESP32_CONTROL_SYSTEM/Throttle Body Callibration'
  * '<S11>'  : 'ESP32_CONTROL_SYSTEM/Subsystem/S-R Flip-Flop'
  * '<S12>'  : 'ESP32_CONTROL_SYSTEM/Subsystem/S-R Flip-Flop1'
  * '<S13>'  : 'ESP32_CONTROL_SYSTEM/Subsystem/S-R Flip-Flop2'

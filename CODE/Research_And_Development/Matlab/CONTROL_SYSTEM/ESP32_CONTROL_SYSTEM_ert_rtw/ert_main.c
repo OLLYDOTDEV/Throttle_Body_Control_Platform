@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'ESP32_CONTROL_SYSTEM'.
  *
- * Model version                  : 1.20
+ * Model version                  : 1.22
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Tue Aug 20 20:09:56 2024
+ * C/C++ source code generated on : Tue Aug 27 22:03:23 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -25,7 +25,6 @@
 #include "rtwtypes.h"
 #include "limits.h"
 #include "rt_nonfinite.h"
-#include "ext_mode.h"
 #include "MW_ArduinoHWInit.h"
 #include "mw_freertos.h"
 #define UNUSED(x)                      x = x
@@ -38,7 +37,6 @@ void *baseRateTask(void *arg);
 void *subrateTask(void *arg);
 volatile boolean_T stopRequested = false;
 volatile boolean_T runModel = true;
-extmodeErrorCode_T errorCode;
 SemaphoreHandle_t stopSem;
 SemaphoreHandle_t baserateTaskSem;
 mw_thread_t schedulerThread;
@@ -51,21 +49,12 @@ void *baseRateTask(void *arg)
     !rtmGetStopRequested(ESP32_CONTROL_SYSTEM_M);
   while (runModel) {
     mw_osSemaphoreWaitEver(&baserateTaskSem);
-
-    /* Run External Mode background activities */
-    errorCode = extmodeBackgroundRun();
-    if (errorCode != EXTMODE_SUCCESS) {
-      /* Code to handle External Mode background task errors
-         may be added here */
-    }
-
     ESP32_CONTROL_SYSTEM_step();
 
     /* Get model outputs here */
     stopRequested = !((rtmGetErrorStatus(ESP32_CONTROL_SYSTEM_M) == (NULL)) &&
                       !rtmGetStopRequested(ESP32_CONTROL_SYSTEM_M));
-    runModel = !stopRequested && !extmodeSimulationComplete() &&
-      !extmodeStopRequested();
+    runModel = !stopRequested;
   }
 
   runModel = 0;
@@ -91,7 +80,6 @@ void *terminateTask(void *arg)
 
   /* Terminate model */
   ESP32_CONTROL_SYSTEM_terminate();
-  extmodeReset();
   mw_osSemaphoreRelease(&stopSem);
   return NULL;
 }
@@ -102,30 +90,8 @@ int app_main(int argc, char **argv)
   MW_Arduino_Init();
   rtmSetErrorStatus(ESP32_CONTROL_SYSTEM_M, 0);
 
-  /* Parse External Mode command line arguments */
-  errorCode = extmodeParseArgs(argc, (const char_T **)argv);
-  if (errorCode != EXTMODE_SUCCESS) {
-    return (errorCode);
-  }
-
   /* Initialize model */
   ESP32_CONTROL_SYSTEM_initialize();
-
-  /* External Mode initialization */
-  errorCode = extmodeInit(ESP32_CONTROL_SYSTEM_M->extModeInfo, &rtmGetTFinal
-    (ESP32_CONTROL_SYSTEM_M));
-  if (errorCode != EXTMODE_SUCCESS) {
-    /* Code to handle External Mode initialization errors
-       may be added here */
-  }
-
-  if (errorCode == EXTMODE_SUCCESS) {
-    /* Wait until a Start or Stop Request has been received from the Host */
-    extmodeWaitForHostRequest(EXTMODE_WAIT_FOREVER);
-    if (extmodeStopRequested()) {
-      rtmSetStopRequested(ESP32_CONTROL_SYSTEM_M, true);
-    }
-  }
 
   /* Call RTOS Initialization function */
   mw_RTOSInit(0.05, 0);

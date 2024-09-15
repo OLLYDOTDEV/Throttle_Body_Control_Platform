@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'CONTROL_SYSTEM_V2'.
  *
- * Model version                  : 1.4
+ * Model version                  : 1.19
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Fri Aug 23 16:14:53 2024
+ * C/C++ source code generated on : Thu Sep 12 15:27:52 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -21,7 +21,8 @@
 #ifndef CONTROL_SYSTEM_V2_private_h_
 #define CONTROL_SYSTEM_V2_private_h_
 #include "rtwtypes.h"
-#include "multiword_types.h"
+#include "zero_crossing_types.h"
+#include "CONTROL_SYSTEM_V2.h"
 #include "CONTROL_SYSTEM_V2_types.h"
 #include "rtw_continuous.h"
 #include "rtw_solver.h"
@@ -33,10 +34,6 @@
 
 #ifndef rtmIsMinorTimeStep
 #define rtmIsMinorTimeStep(rtm)        (((rtm)->Timing.simTimeStep) == MINOR_TIME_STEP)
-#endif
-
-#ifndef rtmSetTFinal
-#define rtmSetTFinal(rtm, val)         ((rtm)->Timing.tFinal = (val))
 #endif
 
 #ifndef rtmSetTPtr
@@ -92,6 +89,20 @@ preprocessor word size checks.
 #endif
 
 extern real_T rt_roundd_snf(real_T u);
+extern void CONTROL_SYSTE_NEGATIVEEdge_Init(boolean_T *rty_OUT,
+  P_NEGATIVEEdge_CONTROL_SYSTEM_T *localP);
+extern void CONTROL_SY_NEGATIVEEdge_Disable(DW_NEGATIVEEdge_CONTROL_SYSTE_T
+  *localDW);
+extern void CONTROL_SYSTEM_V2_NEGATIVEEdge(RT_MODEL_CONTROL_SYSTEM_V2_T * const
+  CONTROL_SYSTEM_V2_M, real_T rtu_Enable, boolean_T rtu_IN, boolean_T
+  rtu_INprevious, boolean_T *rty_OUT, DW_NEGATIVEEdge_CONTROL_SYSTE_T *localDW);
+extern void CONTROL_SYSTE_POSITIVEEdge_Init(boolean_T *rty_OUT,
+  P_POSITIVEEdge_CONTROL_SYSTEM_T *localP);
+extern void CONTROL_SY_POSITIVEEdge_Disable(DW_POSITIVEEdge_CONTROL_SYSTE_T
+  *localDW);
+extern void CONTROL_SYSTEM_V2_POSITIVEEdge(RT_MODEL_CONTROL_SYSTEM_V2_T * const
+  CONTROL_SYSTEM_V2_M, real_T rtu_Enable, boolean_T rtu_IN, boolean_T
+  rtu_INprevious, boolean_T *rty_OUT, DW_POSITIVEEdge_CONTROL_SYSTE_T *localDW);
 
 /* private model entry point functions */
 extern void CONTROL_SYSTEM_V2_derivatives(void);

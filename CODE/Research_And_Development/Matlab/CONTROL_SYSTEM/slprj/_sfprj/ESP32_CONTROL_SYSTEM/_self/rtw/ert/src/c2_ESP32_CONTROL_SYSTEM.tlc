@@ -7,25 +7,11 @@
 %endfunction
 %function ChartDataMap(block, system) void
   %createrecord ChartDataElements {\
-    NumChartData   6 \
+    NumChartData   2 \
     ChartDataDefaults {\
       RecordType   "ChartData"\
       Dimensions   []\
       IsTestPoint  0\
-    }\
-    ChartData {\
-      Name         "sfEvent"\
-      Description  "ActiveChartEvent"\
-      SFName       ""\
-      Path         ""\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "doneDoubleBufferReInit"\
-      Description  "DoubleBufferInitCheck"\
-      SFName       ""\
-      Path         ""\
-      SrcLocation  ""\
     }\
     ChartData {\
       Name         "maxSet"\
@@ -35,22 +21,8 @@
       SrcLocation  "ESP32_CONTROL_SYSTEM:48:77-83"\
     }\
     ChartData {\
-      Name         "maxSet_not_empty"\
-      Description  "EmlPersistentSentinel"\
-      SFName       ""\
-      Path         ""\
-      SrcLocation  "ESP32_CONTROL_SYSTEM:48:77-83"\
-    }\
-    ChartData {\
       Name         "minSet"\
       Description  "EmlPersistent"\
-      SFName       ""\
-      Path         ""\
-      SrcLocation  "ESP32_CONTROL_SYSTEM:48:84-90"\
-    }\
-    ChartData {\
-      Name         "minSet_not_empty"\
-      Description  "EmlPersistentSentinel"\
       SFName       ""\
       Path         ""\
       SrcLocation  "ESP32_CONTROL_SYSTEM:48:84-90"\

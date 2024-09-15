@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'CONTROL_SYSTEM_V2'.
  *
- * Model version                  : 1.4
+ * Model version                  : 1.19
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Fri Aug 23 16:14:53 2024
+ * C/C++ source code generated on : Thu Sep 12 15:27:52 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -23,19 +23,17 @@
 #ifndef CONTROL_SYSTEM_V2_COMMON_INCLUDES_
 #define CONTROL_SYSTEM_V2_COMMON_INCLUDES_
 #include "rtwtypes.h"
-#include "rtw_extmode.h"
-#include "sysran_types.h"
 #include "rtw_continuous.h"
 #include "rtw_solver.h"
-#include "ext_mode.h"
+#include "ADS1115_Vread.h"
 #include "MW_arduino_digitalio.h"
 #include "MW_PWM.h"
-#include "ADS1115_Vread.h"
 #endif                                 /* CONTROL_SYSTEM_V2_COMMON_INCLUDES_ */
 
 #include "CONTROL_SYSTEM_V2_types.h"
 #include <string.h>
 #include <stddef.h>
+#include "zero_crossing_types.h"
 
 /* Macros for accessing real-time model data structure */
 #ifndef rtmGetContStateDisabled
@@ -70,10 +68,6 @@
 #define rtmSetDerivCacheNeedsReset(rtm, val) ((rtm)->derivCacheNeedsReset = (val))
 #endif
 
-#ifndef rtmGetFinalTime
-#define rtmGetFinalTime(rtm)           ((rtm)->Timing.tFinal)
-#endif
-
 #ifndef rtmGetIntgData
 #define rtmGetIntgData(rtm)            ((rtm)->intgData)
 #endif
@@ -90,14 +84,6 @@
 #define rtmSetOdeF(rtm, val)           ((rtm)->odeF = (val))
 #endif
 
-#ifndef rtmGetOdeY
-#define rtmGetOdeY(rtm)                ((rtm)->odeY)
-#endif
-
-#ifndef rtmSetOdeY
-#define rtmSetOdeY(rtm, val)           ((rtm)->odeY = (val))
-#endif
-
 #ifndef rtmGetPeriodicContStateIndices
 #define rtmGetPeriodicContStateIndices(rtm) ((rtm)->periodicContStateIndices)
 #endif
@@ -112,10 +98,6 @@
 
 #ifndef rtmSetPeriodicContStateRanges
 #define rtmSetPeriodicContStateRanges(rtm, val) ((rtm)->periodicContStateRanges = (val))
-#endif
-
-#ifndef rtmGetRTWExtModeInfo
-#define rtmGetRTWExtModeInfo(rtm)      ((rtm)->extModeInfo)
 #endif
 
 #ifndef rtmGetZCCacheNeedsReset
@@ -158,10 +140,6 @@
 #define rtmGetT(rtm)                   (rtmGetTPtr((rtm))[0])
 #endif
 
-#ifndef rtmGetTFinal
-#define rtmGetTFinal(rtm)              ((rtm)->Timing.tFinal)
-#endif
-
 #ifndef rtmGetTPtr
 #define rtmGetTPtr(rtm)                ((rtm)->Timing.t)
 #endif
@@ -170,198 +148,354 @@
 #define rtmGetTStart(rtm)              ((rtm)->Timing.tStart)
 #endif
 
+/* Block states (default storage) for system '<S20>/NEGATIVE Edge' */
+typedef struct {
+  boolean_T NEGATIVEEdge_MODE;         /* '<S20>/NEGATIVE Edge' */
+} DW_NEGATIVEEdge_CONTROL_SYSTE_T;
+
+/* Block states (default storage) for system '<S20>/POSITIVE Edge' */
+typedef struct {
+  boolean_T POSITIVEEdge_MODE;         /* '<S20>/POSITIVE Edge' */
+} DW_POSITIVEEdge_CONTROL_SYSTE_T;
+
 /* Block signals (default storage) */
 typedef struct {
-  real_T Add2;                         /* '<S9>/Add2' */
-  real_T Add3;                         /* '<S9>/Add3' */
-  real_T Divide1;                      /* '<S9>/Divide1' */
-  real_T Sum;                          /* '<S9>/Sum' */
-  real_T Sum2;                         /* '<Root>/Sum2' */
-  real_T Add2_c;                       /* '<S1>/Add2' */
-  real_T Add3_e;                       /* '<S1>/Add3' */
-  real_T Divide1_b;                    /* '<S1>/Divide1' */
-  real_T Sum_c;                        /* '<S1>/Sum' */
-  real_T EnablePin;                    /* '<S2>/Enable Pin' */
-  real_T DirectionPin;                 /* '<S2>/Direction Pin' */
-  real_T Switch;                       /* '<S7>/Switch' */
-  real_T TB_maxVal;                    /* '<Root>/Throttle Body Callibration' */
+  real_T Divide1;                      /* '<S12>/Divide1' */
+  real_T Divide1_p;                    /* '<S4>/Divide1' */
+  real_T PulseGenerator;               /* '<S2>/Pulse Generator' */
+  real_T PulseGenerator_f;             /* '<S3>/Pulse Generator' */
   real_T TB_minVal;                    /* '<Root>/Throttle Body Callibration' */
-  real_T FP_maxVal;                    /* '<Root>/Pedal Calibration' */
-  real_T FP_minVal;                    /* '<Root>/Pedal Calibration' */
-  real_T MATLABSystem_o1;              /* '<Root>/MATLAB System' */
-  real_T MATLABSystem_o2;              /* '<Root>/MATLAB System' */
-  real_T MATLABSystem_o3;              /* '<Root>/MATLAB System' */
-  real_T MATLABSystem_o4;              /* '<Root>/MATLAB System' */
-  real_T Sum1;                         /* '<S4>/Sum1' */
-  real_T FilterCoefficient;            /* '<S49>/Filter Coefficient' */
-  real_T Switch2;                      /* '<S12>/Switch2' */
-  real_T IntegralGain;                 /* '<S43>/Integral Gain' */
-  real_T In1;                          /* '<S3>/In1' */
-  boolean_T Memory;                    /* '<S65>/Memory' */
-  boolean_T Logic[2];                  /* '<S65>/Logic' */
-  boolean_T Memory_h;                  /* '<S63>/Memory' */
-  boolean_T Logic_k[2];                /* '<S63>/Logic' */
-  boolean_T Memory_n;                  /* '<S64>/Memory' */
-  boolean_T Logic_n[2];                /* '<S64>/Logic' */
-  boolean_T DigitalInput2;             /* '<S6>/Digital Input2' */
-  boolean_T DigitalInput1;             /* '<S6>/Digital Input1' */
-  boolean_T DigitalInput;              /* '<S6>/Digital Input' */
+  real_T Sum1;                         /* '<S10>/Sum1' */
+  real_T FilterCoefficient;            /* '<S76>/Filter Coefficient' */
+  real_T Switch2;                      /* '<S39>/Switch2' */
+  real_T IntegralGain;                 /* '<S70>/Integral Gain' */
+  real_T In1;                          /* '<S8>/In1' */
+  real_T MultiportSwitch[2];           /* '<S28>/Multiport Switch' */
+  real_T ICic;                         /* '<S33>/IC=ic' */
+  real_T Switch;                       /* '<S33>/Switch' */
+  real_T MultiportSwitch_k[2];         /* '<S20>/Multiport Switch' */
+  real_T ICic_h;                       /* '<S25>/IC=ic' */
+  real_T Switch_i;                     /* '<S25>/Switch' */
+  real_T FP_minVal;                    /* '<Root>/Foot Pedal Calibration' */
+  boolean_T Memory;                    /* '<S34>/Memory' */
+  boolean_T Logic[2];                  /* '<S34>/Logic' */
+  boolean_T Memory_h;                  /* '<S36>/Memory' */
+  boolean_T Logic_h[2];                /* '<S36>/Logic' */
+  boolean_T Memory_c;                  /* '<S37>/Memory' */
+  boolean_T Logic_d[2];                /* '<S37>/Logic' */
+  boolean_T Memory_hc;                 /* '<S35>/Memory' */
+  boolean_T Logic_k[2];                /* '<S35>/Logic' */
+  boolean_T RelationalOperator1;       /* '<S15>/Relational Operator1' */
+  boolean_T Memory_i;                  /* '<S28>/Memory' */
+  boolean_T LogicalOperator2_h;        /* '<S17>/Logical Operator2' */
+  boolean_T RelationalOperator1_j;     /* '<S31>/Relational Operator1' */
+  boolean_T RelationalOperator1_m;     /* '<S30>/Relational Operator1' */
+  boolean_T Memory_n;                  /* '<S20>/Memory' */
+  boolean_T LogicalOperator2_m;        /* '<S16>/Logical Operator2' */
+  boolean_T RelationalOperator1_f;     /* '<S23>/Relational Operator1' */
+  boolean_T RelationalOperator1_h;     /* '<S22>/Relational Operator1' */
 } B_CONTROL_SYSTEM_V2_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  ADS1115_Vread_CONTROL_SYSTEM__T obj; /* '<Root>/MATLAB System' */
-  codertarget_arduinobase_blo_i_T obj_d;/* '<S6>/Digital Input2' */
-  codertarget_arduinobase_blo_i_T obj_m;/* '<S6>/Digital Input1' */
-  codertarget_arduinobase_blo_i_T obj_do;/* '<S6>/Digital Input' */
-  codertarget_arduinobase_block_T obj_j;/* '<S2>/Digital Output1' */
-  codertarget_arduinobase_block_T obj_a;/* '<S2>/Digital Output' */
-  codertarget_arduinobase_inter_T obj_n;/* '<S2>/PWM' */
+  ADS1115_Vread_CONTROL_SYSTEM__T obj; /* '<S1>/MATLAB System' */
+  codertarget_arduinobase_blo_i_T obj_m;/* '<S7>/Digital Input3' */
+  codertarget_arduinobase_blo_i_T obj_d;/* '<S7>/Digital Input2' */
+  codertarget_arduinobase_blo_i_T obj_e;/* '<S7>/Digital Input1' */
+  codertarget_arduinobase_blo_i_T obj_dc;/* '<S7>/Digital Input' */
+  codertarget_arduinobase_block_T obj_c;/* '<S6>/Digital Output1' */
+  codertarget_arduinobase_block_T obj_n;/* '<S6>/Digital Output' */
+  codertarget_arduinobase_block_T obj_g;/* '<S3>/Digital Output4' */
+  codertarget_arduinobase_block_T obj_k;/* '<S2>/Digital Output3' */
+  codertarget_arduinobase_block_T obj_cu;/* '<S2>/Digital Output2' */
+  codertarget_arduinobase_block_T obj_i;/* '<S2>/Digital Output1' */
+  codertarget_arduinobase_block_T obj_b;/* '<S2>/Digital Output' */
+  codertarget_arduinobase_inter_T obj_mm;/* '<S6>/PWM' */
   real_T TB_maxSet;                    /* '<Root>/Throttle Body Callibration' */
   real_T TB_minSet;                    /* '<Root>/Throttle Body Callibration' */
-  real_T Previous_Val;                 /* '<S7>/MATLAB Function' */
-  real_T maxSet;                       /* '<Root>/Pedal Calibration' */
-  real_T minSet;                       /* '<Root>/Pedal Calibration' */
-  struct {
-    void *LoggedData[2];
-  } Scope_PWORK;                       /* '<Root>/Scope' */
-
-  boolean_T DelayInput1_DSTATE;        /* '<S66>/Delay Input1' */
-  int8_T If_ActiveSubsystem;           /* '<Root>/If' */
-  int8_T PIDControl_SubsysRanBC;       /* '<Root>/PID Control' */
-  int8_T IfActionSubsystem_SubsysRanBC;/* '<Root>/If Action Subsystem' */
-  boolean_T Memory_PreviousInput;      /* '<S65>/Memory' */
-  boolean_T Memory_PreviousInput_p;    /* '<S63>/Memory' */
-  boolean_T Memory_PreviousInput_e;    /* '<S64>/Memory' */
-  boolean_T Previous_Val_not_empty;    /* '<S7>/MATLAB Function' */
+  real_T ICic_PreviousInput;           /* '<S33>/IC=ic' */
+  real_T ICic_PreviousInput_i;         /* '<S25>/IC=ic' */
+  real_T maxSet;                       /* '<Root>/Foot Pedal Calibration' */
+  real_T minSet;                       /* '<Root>/Foot Pedal Calibration' */
+  int32_T clockTickCounter;            /* '<S2>/Pulse Generator' */
+  int32_T clockTickCounter_j;          /* '<S3>/Pulse Generator' */
+  int8_T IfCondition_ActiveSubsystem;  /* '<Root>/If Condition' */
+  boolean_T Memory_PreviousInput;      /* '<S34>/Memory' */
+  boolean_T Memory_PreviousInput_j;    /* '<S36>/Memory' */
+  boolean_T Memory_PreviousInput_b;    /* '<S37>/Memory' */
+  boolean_T Memory_PreviousInput_d;    /* '<S35>/Memory' */
+  boolean_T Memory_PreviousInput_p;    /* '<S28>/Memory' */
+  boolean_T Memory_PreviousInput_ds;   /* '<S20>/Memory' */
+  boolean_T ONDelay_MODE;              /* '<S15>/ON Delay' */
+  boolean_T OFFDelay_MODE;             /* '<S15>/OFF Delay' */
+  DW_POSITIVEEdge_CONTROL_SYSTE_T POSITIVEEdge_n;/* '<S28>/POSITIVE Edge' */
+  DW_NEGATIVEEdge_CONTROL_SYSTE_T NEGATIVEEdge_c;/* '<S28>/NEGATIVE Edge' */
+  DW_POSITIVEEdge_CONTROL_SYSTE_T POSITIVEEdge;/* '<S20>/POSITIVE Edge' */
+  DW_NEGATIVEEdge_CONTROL_SYSTE_T NEGATIVEEdge;/* '<S20>/NEGATIVE Edge' */
 } DW_CONTROL_SYSTEM_V2_T;
 
 /* Continuous states (default storage) */
 typedef struct {
-  real_T Integrator_CSTATE;            /* '<S46>/Integrator' */
-  real_T Filter_CSTATE;                /* '<S41>/Filter' */
+  real_T Integrator_CSTATE;            /* '<S73>/Integrator' */
+  real_T Filter_CSTATE;                /* '<S68>/Filter' */
 } X_CONTROL_SYSTEM_V2_T;
 
 /* State derivatives (default storage) */
 typedef struct {
-  real_T Integrator_CSTATE;            /* '<S46>/Integrator' */
-  real_T Filter_CSTATE;                /* '<S41>/Filter' */
+  real_T Integrator_CSTATE;            /* '<S73>/Integrator' */
+  real_T Filter_CSTATE;                /* '<S68>/Filter' */
 } XDot_CONTROL_SYSTEM_V2_T;
 
 /* State disabled  */
 typedef struct {
-  boolean_T Integrator_CSTATE;         /* '<S46>/Integrator' */
-  boolean_T Filter_CSTATE;             /* '<S41>/Filter' */
+  boolean_T Integrator_CSTATE;         /* '<S73>/Integrator' */
+  boolean_T Filter_CSTATE;             /* '<S68>/Filter' */
 } XDis_CONTROL_SYSTEM_V2_T;
 
-#ifndef ODE3_INTG
-#define ODE3_INTG
-
-/* ODE3 Integration Data */
+/* Zero-crossing (trigger) state */
 typedef struct {
-  real_T *y;                           /* output */
-  real_T *f[3];                        /* derivatives */
-} ODE3_IntgData;
+  ZCSigState TriggeredSubsystem_Trig_ZCE;/* '<S29>/Triggered Subsystem' */
+  ZCSigState TriggeredSubsystem_Trig_ZCE_i;/* '<S21>/Triggered Subsystem' */
+} PrevZCX_CONTROL_SYSTEM_V2_T;
+
+#ifndef ODE1_INTG
+#define ODE1_INTG
+
+/* ODE1 Integration Data */
+typedef struct {
+  real_T *f[1];                        /* derivatives */
+} ODE1_IntgData;
 
 #endif
+
+/* Parameters for system: '<S20>/NEGATIVE Edge' */
+struct P_NEGATIVEEdge_CONTROL_SYSTEM_T_ {
+  boolean_T OUT_Y0;                    /* Computed Parameter: OUT_Y0
+                                        * Referenced by: '<S22>/OUT'
+                                        */
+};
+
+/* Parameters for system: '<S20>/POSITIVE Edge' */
+struct P_POSITIVEEdge_CONTROL_SYSTEM_T_ {
+  boolean_T OUT_Y0;                    /* Computed Parameter: OUT_Y0
+                                        * Referenced by: '<S23>/OUT'
+                                        */
+};
 
 /* Parameters (default storage) */
 struct P_CONTROL_SYSTEM_V2_T_ {
   real_T Desire_Max;                   /* Variable: Desire_Max
-                                        * Referenced by: '<S1>/Desire Max Value'
+                                        * Referenced by: '<S4>/Desire Max Value'
                                         */
   real_T Desire_Min;                   /* Variable: Desire_Min
-                                        * Referenced by: '<S1>/Desire Min Value'
+                                        * Referenced by: '<S4>/Desire Min Value'
                                         */
   real_T Direction_Pin;                /* Variable: Direction_Pin
-                                        * Referenced by: '<S2>/Direction Pin'
+                                        * Referenced by: '<S6>/Direction Pin'
                                         */
   real_T EN_Pin;                       /* Variable: EN_Pin
-                                        * Referenced by: '<S2>/Enable Pin'
+                                        * Referenced by: '<S6>/Enable Pin'
                                         */
-  real_T PIDController1_D;             /* Mask Parameter: PIDController1_D
-                                        * Referenced by: '<S39>/Derivative Gain'
+  real_T Kd;                           /* Variable: Kd
+                                        * Referenced by: '<S66>/Derivative Gain'
                                         */
-  real_T PIDController1_I;             /* Mask Parameter: PIDController1_I
-                                        * Referenced by: '<S43>/Integral Gain'
+  real_T Ki;                           /* Variable: Ki
+                                        * Referenced by: '<S70>/Integral Gain'
                                         */
-  real_T PIDController1_InitialCondition;
-                              /* Mask Parameter: PIDController1_InitialCondition
-                               * Referenced by: '<S41>/Filter'
+  real_T Kn;                           /* Variable: Kn
+                                        * Referenced by: '<S76>/Filter Coefficient'
+                                        */
+  real_T Kp;                           /* Variable: Kp
+                                        * Referenced by: '<S78>/Proportional Gain'
+                                        */
+  real_T OnDelay_DelayType;            /* Mask Parameter: OnDelay_DelayType
+                                        * Referenced by: '<S15>/Constant2'
+                                        */
+  real_T PIDController2_InitialCondition;
+                              /* Mask Parameter: PIDController2_InitialCondition
+                               * Referenced by: '<S68>/Filter'
                                */
-  real_T PIDController1_InitialConditi_a;
-                              /* Mask Parameter: PIDController1_InitialConditi_a
-                               * Referenced by: '<S46>/Integrator'
+  real_T PIDController2_InitialConditi_a;
+                              /* Mask Parameter: PIDController2_InitialConditi_a
+                               * Referenced by: '<S73>/Integrator'
                                */
-  real_T PIDController1_N;             /* Mask Parameter: PIDController1_N
-                                        * Referenced by: '<S49>/Filter Coefficient'
+  real_T OnDelay_delay;                /* Mask Parameter: OnDelay_delay
+                                        * Referenced by: '<S15>/Constant1'
                                         */
-  real_T PIDController1_P;             /* Mask Parameter: PIDController1_P
-                                        * Referenced by: '<S51>/Proportional Gain'
+  real_T SampleandHold_ic;             /* Mask Parameter: SampleandHold_ic
+                                        * Referenced by: '<S25>/IC=ic'
                                         */
-  boolean_T SRFlipFlop2_initial_condition;
-                                /* Mask Parameter: SRFlipFlop2_initial_condition
-                                 * Referenced by: '<S65>/Memory'
+  real_T SampleandHold_ic_k;           /* Mask Parameter: SampleandHold_ic_k
+                                        * Referenced by: '<S33>/IC=ic'
+                                        */
+  real_T EdgeDetector_model;           /* Mask Parameter: EdgeDetector_model
+                                        * Referenced by: '<S20>/Constant1'
+                                        */
+  real_T EdgeDetector_model_g;         /* Mask Parameter: EdgeDetector_model_g
+                                        * Referenced by: '<S28>/Constant1'
+                                        */
+  boolean_T OnDelay_ic;                /* Mask Parameter: OnDelay_ic
+                                        * Referenced by:
+                                        *   '<S20>/Memory'
+                                        *   '<S28>/Memory'
+                                        */
+  boolean_T SRFlipFlop3_initial_condition;
+                                /* Mask Parameter: SRFlipFlop3_initial_condition
+                                 * Referenced by: '<S34>/Memory'
                                  */
-  boolean_T SRFlipFlop_initial_condition;
-                                 /* Mask Parameter: SRFlipFlop_initial_condition
-                                  * Referenced by: '<S63>/Memory'
-                                  */
-  boolean_T SRFlipFlop1_initial_condition;
-                                /* Mask Parameter: SRFlipFlop1_initial_condition
-                                 * Referenced by: '<S64>/Memory'
+  boolean_T SRFlipFlop5_initial_condition;
+                                /* Mask Parameter: SRFlipFlop5_initial_condition
+                                 * Referenced by: '<S36>/Memory'
                                  */
-  boolean_T DetectIncrease1_vinit;     /* Mask Parameter: DetectIncrease1_vinit
-                                        * Referenced by: '<S66>/Delay Input1'
+  boolean_T SRFlipFlop6_initial_condition;
+                                /* Mask Parameter: SRFlipFlop6_initial_condition
+                                 * Referenced by: '<S37>/Memory'
+                                 */
+  boolean_T SRFlipFlop4_initial_condition;
+                                /* Mask Parameter: SRFlipFlop4_initial_condition
+                                 * Referenced by: '<S35>/Memory'
+                                 */
+  real_T MATLABSystem_SampleTime;      /* Expression: -1
+                                        * Referenced by: '<S1>/MATLAB System'
                                         */
-  real_T Out1_Y0;                      /* Computed Parameter: Out1_Y0
-                                        * Referenced by: '<S3>/Out1'
+  real_T Out1_Y0;                      /* Expression: -1e6
+                                        * Referenced by: '<S24>/Out1'
+                                        */
+  real_T posedge_Value[2];             /* Expression: [1 0]
+                                        * Referenced by: '<S20>/pos. edge'
+                                        */
+  real_T negedge_Value[2];             /* Expression: [0 1]
+                                        * Referenced by: '<S20>/neg. edge'
+                                        */
+  real_T eitheredge_Value[2];          /* Expression: [1 1]
+                                        * Referenced by: '<S20>/either edge'
+                                        */
+  real_T Out1_Y0_l;                    /* Expression: -1e6
+                                        * Referenced by: '<S32>/Out1'
+                                        */
+  real_T posedge_Value_d[2];           /* Expression: [1 0]
+                                        * Referenced by: '<S28>/pos. edge'
+                                        */
+  real_T negedge_Value_f[2];           /* Expression: [0 1]
+                                        * Referenced by: '<S28>/neg. edge'
+                                        */
+  real_T eitheredge_Value_b[2];        /* Expression: [1 1]
+                                        * Referenced by: '<S28>/either edge'
+                                        */
+  real_T Out1_Y0_i;                    /* Computed Parameter: Out1_Y0_i
+                                        * Referenced by: '<S8>/Out1'
                                         */
   real_T PIDOutput_Y0;                 /* Computed Parameter: PIDOutput_Y0
-                                        * Referenced by: '<S4>/PID Output'
+                                        * Referenced by: '<S10>/PID Output'
                                         */
   real_T Constant_Value;               /* Expression: 0.01
-                                        * Referenced by: '<S4>/Constant'
-                                        */
-  real_T MATLABSystem_SampleTime;      /* Expression: -1
-                                        * Referenced by: '<Root>/MATLAB System'
+                                        * Referenced by: '<S10>/Constant'
                                         */
   real_T DigitalInput_SampleTime;      /* Expression: -1
-                                        * Referenced by: '<S6>/Digital Input'
+                                        * Referenced by: '<S7>/Digital Input'
                                         */
   real_T DigitalInput1_SampleTime;     /* Expression: -1
-                                        * Referenced by: '<S6>/Digital Input1'
+                                        * Referenced by: '<S7>/Digital Input1'
                                         */
   real_T DigitalInput2_SampleTime;     /* Expression: -1
-                                        * Referenced by: '<S6>/Digital Input2'
+                                        * Referenced by: '<S7>/Digital Input2'
                                         */
-  real_T Constant_Value_l;             /* Expression: 0
-                                        * Referenced by: '<S7>/Constant'
+  real_T DigitalInput3_SampleTime;     /* Expression: -1
+                                        * Referenced by: '<S7>/Digital Input3'
                                         */
-  real_T Constant1_Value;              /* Expression: 1
-                                        * Referenced by: '<S7>/Constant1'
+  real_T Constant_Value_j;             /* Expression: 1
+                                        * Referenced by: '<S15>/Constant'
                                         */
-  real_T Constant2_Value;              /* Expression: 0.02
-                                        * Referenced by: '<S7>/Constant2'
+  real_T Constant_Value_jl;            /* Expression: 0
+                                        * Referenced by: '<S6>/Constant'
+                                        */
+  real_T PulseGenerator_Amp;           /* Expression: 1
+                                        * Referenced by: '<S2>/Pulse Generator'
+                                        */
+  real_T PulseGenerator_Period;     /* Computed Parameter: PulseGenerator_Period
+                                     * Referenced by: '<S2>/Pulse Generator'
+                                     */
+  real_T PulseGenerator_Duty;         /* Computed Parameter: PulseGenerator_Duty
+                                       * Referenced by: '<S2>/Pulse Generator'
+                                       */
+  real_T PulseGenerator_PhaseDelay;    /* Expression: 0
+                                        * Referenced by: '<S2>/Pulse Generator'
+                                        */
+  real_T Constant_Value_i;             /* Expression: 0
+                                        * Referenced by: '<S2>/Constant'
+                                        */
+  real_T Constant_Value_d;             /* Expression: 1
+                                        * Referenced by: '<S3>/Constant'
+                                        */
+  real_T Constant1_Value;              /* Expression: 0
+                                        * Referenced by: '<S3>/Constant1'
+                                        */
+  real_T Switch_Threshold;             /* Expression: 0
+                                        * Referenced by: '<S3>/Switch'
+                                        */
+  real_T Constant2_Value;              /* Expression: 1
+                                        * Referenced by: '<S3>/Constant2'
+                                        */
+  real_T Constant3_Value;              /* Expression: 0
+                                        * Referenced by: '<S3>/Constant3'
+                                        */
+  real_T Switch2_Threshold;            /* Expression: 0
+                                        * Referenced by: '<S3>/Switch2'
+                                        */
+  real_T PulseGenerator_Amp_b;         /* Expression: 1
+                                        * Referenced by: '<S3>/Pulse Generator'
+                                        */
+  real_T PulseGenerator_Period_l; /* Computed Parameter: PulseGenerator_Period_l
+                                   * Referenced by: '<S3>/Pulse Generator'
+                                   */
+  real_T PulseGenerator_Duty_e;     /* Computed Parameter: PulseGenerator_Duty_e
+                                     * Referenced by: '<S3>/Pulse Generator'
+                                     */
+  real_T PulseGenerator_PhaseDelay_k;  /* Expression: 0
+                                        * Referenced by: '<S3>/Pulse Generator'
+                                        */
+  real_T Constant4_Value;              /* Expression: 0
+                                        * Referenced by: '<S3>/Constant4'
+                                        */
+  boolean_T OUT_Y0;                    /* Computed Parameter: OUT_Y0
+                                        * Referenced by: '<S16>/OUT'
+                                        */
+  boolean_T OUT_Y0_k;                  /* Computed Parameter: OUT_Y0_k
+                                        * Referenced by: '<S17>/OUT'
                                         */
   boolean_T Logic_table[16];           /* Computed Parameter: Logic_table
-                                        * Referenced by: '<S65>/Logic'
-                                        */
-  boolean_T Logic_table_p[16];         /* Computed Parameter: Logic_table_p
-                                        * Referenced by: '<S63>/Logic'
+                                        * Referenced by: '<S34>/Logic'
                                         */
   boolean_T Logic_table_k[16];         /* Computed Parameter: Logic_table_k
-                                        * Referenced by: '<S64>/Logic'
+                                        * Referenced by: '<S36>/Logic'
+                                        */
+  boolean_T Logic_table_p[16];         /* Computed Parameter: Logic_table_p
+                                        * Referenced by: '<S37>/Logic'
+                                        */
+  boolean_T Logic_table_g[16];         /* Computed Parameter: Logic_table_g
+                                        * Referenced by: '<S35>/Logic'
                                         */
   uint8_T Gain_Gain;                   /* Computed Parameter: Gain_Gain
-                                        * Referenced by: '<S2>/Gain'
+                                        * Referenced by: '<S6>/Gain'
                                         */
+  uint8_T Multiply2_Gain;              /* Computed Parameter: Multiply2_Gain
+                                        * Referenced by: '<S9>/Multiply2'
+                                        */
+  uint8_T Multiply1_Gain;              /* Computed Parameter: Multiply1_Gain
+                                        * Referenced by: '<S9>/Multiply1'
+                                        */
+  uint8_T Multiply_Gain;               /* Computed Parameter: Multiply_Gain
+                                        * Referenced by: '<S9>/Multiply'
+                                        */
+  P_POSITIVEEdge_CONTROL_SYSTEM_T POSITIVEEdge_n;/* '<S28>/POSITIVE Edge' */
+  P_NEGATIVEEdge_CONTROL_SYSTEM_T NEGATIVEEdge_c;/* '<S28>/NEGATIVE Edge' */
+  P_POSITIVEEdge_CONTROL_SYSTEM_T POSITIVEEdge;/* '<S20>/POSITIVE Edge' */
+  P_NEGATIVEEdge_CONTROL_SYSTEM_T NEGATIVEEdge;/* '<S20>/NEGATIVE Edge' */
 };
 
 /* Real-time Model Data Structure */
 struct tag_RTM_CONTROL_SYSTEM_V2_T {
   const char_T *errorStatus;
-  RTWExtModeInfo *extModeInfo;
   RTWSolverInfo solverInfo;
   X_CONTROL_SYSTEM_V2_T *contStates;
   int_T *periodicContStateIndices;
@@ -371,9 +505,8 @@ struct tag_RTM_CONTROL_SYSTEM_V2_T {
   boolean_T zCCacheNeedsReset;
   boolean_T derivCacheNeedsReset;
   boolean_T CTOutputIncnstWithState;
-  real_T odeY[2];
-  real_T odeF[3][2];
-  ODE3_IntgData intgData;
+  real_T odeF[1][2];
+  ODE1_IntgData intgData;
 
   /*
    * Sizes:
@@ -382,20 +515,10 @@ struct tag_RTM_CONTROL_SYSTEM_V2_T {
    * dwork, sample times, etc.
    */
   struct {
-    uint32_T checksums[4];
     int_T numContStates;
     int_T numPeriodicContStates;
     int_T numSampTimes;
   } Sizes;
-
-  /*
-   * SpecialInfo:
-   * The following substructure contains special information
-   * related to other components that are dependent on RTW.
-   */
-  struct {
-    const void *mappingInfo;
-  } SpecialInfo;
 
   /*
    * Timing:
@@ -407,7 +530,6 @@ struct tag_RTM_CONTROL_SYSTEM_V2_T {
     time_T stepSize0;
     uint32_T clockTick1;
     time_T tStart;
-    time_T tFinal;
     SimTimeStep simTimeStep;
     boolean_T stopRequestedFlag;
     time_T *t;
@@ -430,6 +552,9 @@ extern XDis_CONTROL_SYSTEM_V2_T CONTROL_SYSTEM_V2_XDis;
 /* Block states (default storage) */
 extern DW_CONTROL_SYSTEM_V2_T CONTROL_SYSTEM_V2_DW;
 
+/* Zero-crossing (trigger) state */
+extern PrevZCX_CONTROL_SYSTEM_V2_T CONTROL_SYSTEM_V2_PrevZCX;
+
 /* Model entry point functions */
 extern void CONTROL_SYSTEM_V2_initialize(void);
 extern void CONTROL_SYSTEM_V2_step(void);
@@ -443,8 +568,46 @@ extern volatile boolean_T runModel;
 /*-
  * These blocks were eliminated from the model due to optimizations:
  *
- * Block '<S12>/Data Type Duplicate' : Unused code path elimination
- * Block '<S12>/Data Type Propagation' : Unused code path elimination
+ * Block '<Root>/Display3' : Unused code path elimination
+ * Block '<Root>/Error Reading' : Unused code path elimination
+ * Block '<S4>/Display1' : Unused code path elimination
+ * Block '<S4>/Display3' : Unused code path elimination
+ * Block '<Root>/Foot Pedal Maximum Reading' : Unused code path elimination
+ * Block '<Root>/Foot Pedal Minimum Reading' : Unused code path elimination
+ * Block '<Root>/Foot Pedal Reading' : Unused code path elimination
+ * Block '<Root>/Foot Pedal Signal VS Throttle Body Position' : Unused code path elimination
+ * Block '<S6>/Display3' : Unused code path elimination
+ * Block '<S6>/Display4' : Unused code path elimination
+ * Block '<S21>/Constant' : Unused code path elimination
+ * Block '<S21>/Relational Operator' : Unused code path elimination
+ * Block '<S21>/Sum' : Unused code path elimination
+ * Block '<S29>/Constant' : Unused code path elimination
+ * Block '<S29>/Relational Operator' : Unused code path elimination
+ * Block '<S29>/Sum' : Unused code path elimination
+ * Block '<S7>/Display' : Unused code path elimination
+ * Block '<S7>/Display1' : Unused code path elimination
+ * Block '<S7>/Display2' : Unused code path elimination
+ * Block '<S7>/Display3' : Unused code path elimination
+ * Block '<Root>/NaN' : Unused code path elimination
+ * Block '<S39>/Data Type Duplicate' : Unused code path elimination
+ * Block '<S39>/Data Type Propagation' : Unused code path elimination
+ * Block '<Root>/PID Output Reading' : Unused code path elimination
+ * Block '<S11>/Abs' : Unused code path elimination
+ * Block '<S11>/Divide' : Unused code path elimination
+ * Block '<S11>/Gain' : Unused code path elimination
+ * Block '<Root>/TB Maximum Reading' : Unused code path elimination
+ * Block '<Root>/TB Minimum Reading' : Unused code path elimination
+ * Block '<Root>/TB New Range Reading' : Unused code path elimination
+ * Block '<S12>/Display1' : Unused code path elimination
+ * Block '<S12>/Display3' : Unused code path elimination
+ * Block '<Root>/Throttle Body Feeback Reading' : Unused code path elimination
+ * Block '<Root>/Throttle Body Feeback Reading (Unused)' : Unused code path elimination
+ * Block '<Root>/Scope1' : Unused code path elimination
+ * Block '<S15>/Data Type Conversion1' : Eliminate redundant data type conversion
+ * Block '<S20>/Data Type Conversion2' : Eliminate redundant data type conversion
+ * Block '<S25>/Data Type Conversion' : Eliminate redundant data type conversion
+ * Block '<S28>/Data Type Conversion2' : Eliminate redundant data type conversion
+ * Block '<S33>/Data Type Conversion' : Eliminate redundant data type conversion
  */
 
 /*-
@@ -462,73 +625,95 @@ extern volatile boolean_T runModel;
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'CONTROL_SYSTEM_V2'
- * '<S1>'   : 'CONTROL_SYSTEM_V2/FP_Input Range Conversion'
- * '<S2>'   : 'CONTROL_SYSTEM_V2/H-Bridge Setting'
- * '<S3>'   : 'CONTROL_SYSTEM_V2/If Action Subsystem'
- * '<S4>'   : 'CONTROL_SYSTEM_V2/PID Control'
- * '<S5>'   : 'CONTROL_SYSTEM_V2/Pedal Calibration'
- * '<S6>'   : 'CONTROL_SYSTEM_V2/Subsystem'
- * '<S7>'   : 'CONTROL_SYSTEM_V2/Subsystem1'
- * '<S8>'   : 'CONTROL_SYSTEM_V2/Subsystem2'
- * '<S9>'   : 'CONTROL_SYSTEM_V2/TB_Feedbakc Range Conversion'
- * '<S10>'  : 'CONTROL_SYSTEM_V2/Throttle Body Callibration'
- * '<S11>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1'
- * '<S12>'  : 'CONTROL_SYSTEM_V2/PID Control/Saturation Dynamic'
- * '<S13>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Anti-windup'
- * '<S14>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/D Gain'
- * '<S15>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/External Derivative'
- * '<S16>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Filter'
- * '<S17>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Filter ICs'
- * '<S18>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/I Gain'
- * '<S19>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Ideal P Gain'
- * '<S20>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Ideal P Gain Fdbk'
- * '<S21>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Integrator'
- * '<S22>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Integrator ICs'
- * '<S23>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/N Copy'
- * '<S24>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/N Gain'
- * '<S25>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/P Copy'
- * '<S26>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Parallel P Gain'
- * '<S27>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Reset Signal'
- * '<S28>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Saturation'
- * '<S29>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Saturation Fdbk'
- * '<S30>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Sum'
- * '<S31>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Sum Fdbk'
- * '<S32>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Tracking Mode'
- * '<S33>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Tracking Mode Sum'
- * '<S34>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Tsamp - Integral'
- * '<S35>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Tsamp - Ngain'
- * '<S36>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/postSat Signal'
- * '<S37>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/preSat Signal'
- * '<S38>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Anti-windup/Passthrough'
- * '<S39>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/D Gain/Internal Parameters'
- * '<S40>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/External Derivative/Error'
- * '<S41>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Filter/Cont. Filter'
- * '<S42>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Filter ICs/Internal IC - Filter'
- * '<S43>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/I Gain/Internal Parameters'
- * '<S44>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Ideal P Gain/Passthrough'
- * '<S45>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Ideal P Gain Fdbk/Disabled'
- * '<S46>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Integrator/Continuous'
- * '<S47>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Integrator ICs/Internal IC'
- * '<S48>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/N Copy/Disabled'
- * '<S49>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/N Gain/Internal Parameters'
- * '<S50>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/P Copy/Disabled'
- * '<S51>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Parallel P Gain/Internal Parameters'
- * '<S52>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Reset Signal/Disabled'
- * '<S53>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Saturation/Passthrough'
- * '<S54>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Saturation Fdbk/Disabled'
- * '<S55>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Sum/Sum_PID'
- * '<S56>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Sum Fdbk/Disabled'
- * '<S57>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Tracking Mode/Disabled'
- * '<S58>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Tracking Mode Sum/Passthrough'
- * '<S59>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Tsamp - Integral/TsSignalSpecification'
- * '<S60>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/Tsamp - Ngain/Passthrough'
- * '<S61>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/postSat Signal/Forward_Path'
- * '<S62>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller1/preSat Signal/Forward_Path'
- * '<S63>'  : 'CONTROL_SYSTEM_V2/Subsystem/S-R Flip-Flop'
- * '<S64>'  : 'CONTROL_SYSTEM_V2/Subsystem/S-R Flip-Flop1'
- * '<S65>'  : 'CONTROL_SYSTEM_V2/Subsystem/S-R Flip-Flop2'
- * '<S66>'  : 'CONTROL_SYSTEM_V2/Subsystem1/Detect Increase1'
- * '<S67>'  : 'CONTROL_SYSTEM_V2/Subsystem1/MATLAB Function'
+ * '<S1>'   : 'CONTROL_SYSTEM_V2/Analog Signal'
+ * '<S2>'   : 'CONTROL_SYSTEM_V2/Button Control'
+ * '<S3>'   : 'CONTROL_SYSTEM_V2/Error Indication'
+ * '<S4>'   : 'CONTROL_SYSTEM_V2/FP_Input Range Conversion'
+ * '<S5>'   : 'CONTROL_SYSTEM_V2/Foot Pedal Calibration'
+ * '<S6>'   : 'CONTROL_SYSTEM_V2/H-Bridge Setting'
+ * '<S7>'   : 'CONTROL_SYSTEM_V2/Latching'
+ * '<S8>'   : 'CONTROL_SYSTEM_V2/No Control'
+ * '<S9>'   : 'CONTROL_SYSTEM_V2/Operation Selector'
+ * '<S10>'  : 'CONTROL_SYSTEM_V2/PID Control'
+ * '<S11>'  : 'CONTROL_SYSTEM_V2/Subsystem'
+ * '<S12>'  : 'CONTROL_SYSTEM_V2/TB_Feedbakc Range Conversion'
+ * '<S13>'  : 'CONTROL_SYSTEM_V2/Throttle Body Callibration'
+ * '<S14>'  : 'CONTROL_SYSTEM_V2/H-Bridge Setting/On Delay'
+ * '<S15>'  : 'CONTROL_SYSTEM_V2/H-Bridge Setting/On Delay/Model'
+ * '<S16>'  : 'CONTROL_SYSTEM_V2/H-Bridge Setting/On Delay/Model/OFF Delay'
+ * '<S17>'  : 'CONTROL_SYSTEM_V2/H-Bridge Setting/On Delay/Model/ON Delay'
+ * '<S18>'  : 'CONTROL_SYSTEM_V2/H-Bridge Setting/On Delay/Model/OFF Delay/Edge Detector'
+ * '<S19>'  : 'CONTROL_SYSTEM_V2/H-Bridge Setting/On Delay/Model/OFF Delay/Sample and Hold'
+ * '<S20>'  : 'CONTROL_SYSTEM_V2/H-Bridge Setting/On Delay/Model/OFF Delay/Edge Detector/Model'
+ * '<S21>'  : 'CONTROL_SYSTEM_V2/H-Bridge Setting/On Delay/Model/OFF Delay/Edge Detector/Model/Internal dirac generator'
+ * '<S22>'  : 'CONTROL_SYSTEM_V2/H-Bridge Setting/On Delay/Model/OFF Delay/Edge Detector/Model/NEGATIVE Edge'
+ * '<S23>'  : 'CONTROL_SYSTEM_V2/H-Bridge Setting/On Delay/Model/OFF Delay/Edge Detector/Model/POSITIVE Edge'
+ * '<S24>'  : 'CONTROL_SYSTEM_V2/H-Bridge Setting/On Delay/Model/OFF Delay/Edge Detector/Model/Internal dirac generator/Triggered Subsystem'
+ * '<S25>'  : 'CONTROL_SYSTEM_V2/H-Bridge Setting/On Delay/Model/OFF Delay/Sample and Hold/Model'
+ * '<S26>'  : 'CONTROL_SYSTEM_V2/H-Bridge Setting/On Delay/Model/ON Delay/Edge Detector'
+ * '<S27>'  : 'CONTROL_SYSTEM_V2/H-Bridge Setting/On Delay/Model/ON Delay/Sample and Hold'
+ * '<S28>'  : 'CONTROL_SYSTEM_V2/H-Bridge Setting/On Delay/Model/ON Delay/Edge Detector/Model'
+ * '<S29>'  : 'CONTROL_SYSTEM_V2/H-Bridge Setting/On Delay/Model/ON Delay/Edge Detector/Model/Internal dirac generator'
+ * '<S30>'  : 'CONTROL_SYSTEM_V2/H-Bridge Setting/On Delay/Model/ON Delay/Edge Detector/Model/NEGATIVE Edge'
+ * '<S31>'  : 'CONTROL_SYSTEM_V2/H-Bridge Setting/On Delay/Model/ON Delay/Edge Detector/Model/POSITIVE Edge'
+ * '<S32>'  : 'CONTROL_SYSTEM_V2/H-Bridge Setting/On Delay/Model/ON Delay/Edge Detector/Model/Internal dirac generator/Triggered Subsystem'
+ * '<S33>'  : 'CONTROL_SYSTEM_V2/H-Bridge Setting/On Delay/Model/ON Delay/Sample and Hold/Model'
+ * '<S34>'  : 'CONTROL_SYSTEM_V2/Latching/S-R Flip-Flop3'
+ * '<S35>'  : 'CONTROL_SYSTEM_V2/Latching/S-R Flip-Flop4'
+ * '<S36>'  : 'CONTROL_SYSTEM_V2/Latching/S-R Flip-Flop5'
+ * '<S37>'  : 'CONTROL_SYSTEM_V2/Latching/S-R Flip-Flop6'
+ * '<S38>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2'
+ * '<S39>'  : 'CONTROL_SYSTEM_V2/PID Control/Saturation Dynamic'
+ * '<S40>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Anti-windup'
+ * '<S41>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/D Gain'
+ * '<S42>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/External Derivative'
+ * '<S43>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Filter'
+ * '<S44>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Filter ICs'
+ * '<S45>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/I Gain'
+ * '<S46>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Ideal P Gain'
+ * '<S47>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Ideal P Gain Fdbk'
+ * '<S48>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Integrator'
+ * '<S49>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Integrator ICs'
+ * '<S50>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/N Copy'
+ * '<S51>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/N Gain'
+ * '<S52>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/P Copy'
+ * '<S53>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Parallel P Gain'
+ * '<S54>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Reset Signal'
+ * '<S55>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Saturation'
+ * '<S56>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Saturation Fdbk'
+ * '<S57>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Sum'
+ * '<S58>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Sum Fdbk'
+ * '<S59>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Tracking Mode'
+ * '<S60>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Tracking Mode Sum'
+ * '<S61>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Tsamp - Integral'
+ * '<S62>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Tsamp - Ngain'
+ * '<S63>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/postSat Signal'
+ * '<S64>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/preSat Signal'
+ * '<S65>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Anti-windup/Passthrough'
+ * '<S66>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/D Gain/Internal Parameters'
+ * '<S67>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/External Derivative/Error'
+ * '<S68>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Filter/Cont. Filter'
+ * '<S69>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Filter ICs/Internal IC - Filter'
+ * '<S70>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/I Gain/Internal Parameters'
+ * '<S71>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Ideal P Gain/Passthrough'
+ * '<S72>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Ideal P Gain Fdbk/Disabled'
+ * '<S73>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Integrator/Continuous'
+ * '<S74>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Integrator ICs/Internal IC'
+ * '<S75>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/N Copy/Disabled'
+ * '<S76>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/N Gain/Internal Parameters'
+ * '<S77>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/P Copy/Disabled'
+ * '<S78>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Parallel P Gain/Internal Parameters'
+ * '<S79>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Reset Signal/Disabled'
+ * '<S80>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Saturation/Passthrough'
+ * '<S81>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Saturation Fdbk/Disabled'
+ * '<S82>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Sum/Sum_PID'
+ * '<S83>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Sum Fdbk/Disabled'
+ * '<S84>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Tracking Mode/Disabled'
+ * '<S85>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Tracking Mode Sum/Passthrough'
+ * '<S86>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Tsamp - Integral/TsSignalSpecification'
+ * '<S87>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/Tsamp - Ngain/Passthrough'
+ * '<S88>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/postSat Signal/Forward_Path'
+ * '<S89>'  : 'CONTROL_SYSTEM_V2/PID Control/PID Controller2/preSat Signal/Forward_Path'
  */
 #endif                                 /* CONTROL_SYSTEM_V2_h_ */
 

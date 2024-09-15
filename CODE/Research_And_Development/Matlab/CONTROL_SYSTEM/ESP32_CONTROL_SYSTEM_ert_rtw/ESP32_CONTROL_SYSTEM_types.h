@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'ESP32_CONTROL_SYSTEM'.
  *
- * Model version                  : 1.20
+ * Model version                  : 1.22
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Tue Aug 20 20:09:56 2024
+ * C/C++ source code generated on : Tue Aug 27 22:03:23 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -78,26 +78,6 @@ struct tag_qrLkTWTW64zZK0sqwALTyG
 typedef struct tag_qrLkTWTW64zZK0sqwALTyG codertarget_arduinobase_block_T;
 
 #endif                             /* typedef_codertarget_arduinobase_block_T */
-
-#ifndef struct_tag_VKbTQRbeqgVz83bQZdf0gB
-#define struct_tag_VKbTQRbeqgVz83bQZdf0gB
-
-struct tag_VKbTQRbeqgVz83bQZdf0gB
-{
-  boolean_T matlabCodegenIsDeleted;
-  int32_T isInitialized;
-  boolean_T isSetupComplete;
-  real_T SampleTime;
-};
-
-#endif                                 /* struct_tag_VKbTQRbeqgVz83bQZdf0gB */
-
-#ifndef typedef_LEDC_INTERFACE_ESP32_CONTROL__T
-#define typedef_LEDC_INTERFACE_ESP32_CONTROL__T
-
-typedef struct tag_VKbTQRbeqgVz83bQZdf0gB LEDC_INTERFACE_ESP32_CONTROL__T;
-
-#endif                             /* typedef_LEDC_INTERFACE_ESP32_CONTROL__T */
 
 /* Custom Type definition for MATLABSystem: '<S3>/PWM' */
 #include "MW_SVD.h"
