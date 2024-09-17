@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'ESP32_CONTROL_SYSTEM'.
  *
- * Model version                  : 1.20
+ * Model version                  : 1.22
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Tue Aug 20 20:09:56 2024
+ * C/C++ source code generated on : Tue Aug 27 22:03:23 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -35,17 +35,17 @@ P_ESP32_CONTROL_SYSTEM_T ESP32_CONTROL_SYSTEM_P = {
   /* Variable: Direction_Pin
    * Referenced by: '<S3>/Direction Pin'
    */
-  0.0,
+  1.0,
 
   /* Variable: EN_Pin
    * Referenced by: '<S3>/Enable Pin'
    */
-  1.0,
+  0.0,
 
   /* Variable: Kd
    * Referenced by: '<S5>/Kd'
    */
-  0.1,
+  0.42,
 
   /* Variable: Ki
    * Referenced by: '<S5>/Ki'
@@ -55,7 +55,7 @@ P_ESP32_CONTROL_SYSTEM_T ESP32_CONTROL_SYSTEM_P = {
   /* Variable: Kp
    * Referenced by: '<S5>/Kp'
    */
-  4.0,
+  3.0,
 
   /* Mask Parameter: SRFlipFlop2_initial_condition
    * Referenced by: '<S13>/Memory'
@@ -74,11 +74,6 @@ P_ESP32_CONTROL_SYSTEM_T ESP32_CONTROL_SYSTEM_P = {
 
   /* Expression: -1
    * Referenced by: '<S2>/ESP23_ANALOG_READ_DDAppGeneratedBlock1'
-   */
-  -1.0,
-
-  /* Expression: -1
-   * Referenced by: '<S3>/MATLAB System'
    */
   -1.0,
 
@@ -108,7 +103,7 @@ P_ESP32_CONTROL_SYSTEM_T ESP32_CONTROL_SYSTEM_P = {
   0.0,
 
   /* Expression: -1
-   * Referenced by: '<S10>/ESP23_ANALOG_READ_DDAppGeneratedBlock'
+   * Referenced by: '<S9>/ESP23_ANALOG_READ_DDAppGeneratedBlock'
    */
   -1.0,
 
