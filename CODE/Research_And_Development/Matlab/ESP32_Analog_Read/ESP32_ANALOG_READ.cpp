@@ -17,3 +17,4 @@ void stepFunctionESP32_ANALOG_READ(int8_T  PIN,double * V,int size_vector_1){
   
    *V = analogRead(PIN) * (3.3 / 4095.0);
 }
+
