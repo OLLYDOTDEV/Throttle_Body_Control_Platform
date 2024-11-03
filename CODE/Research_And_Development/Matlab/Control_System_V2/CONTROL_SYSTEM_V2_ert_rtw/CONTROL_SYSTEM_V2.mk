@@ -2,7 +2,7 @@
 ## Makefile generated for component 'CONTROL_SYSTEM_V2'. 
 ## 
 ## Makefile     : CONTROL_SYSTEM_V2.mk
-## Generated on : Thu Sep 12 15:28:01 2024
+## Generated on : Mon Sep 23 19:24:43 2024
 ## Final product: $(RELATIVE_PATH_TO_ANCHOR)/CONTROL_SYSTEM_V2.elf
 ## Product type : executable
 ## 
@@ -160,67 +160,44 @@ RUN                 =
 # "Faster Builds" Build Configuration
 #----------------------------------------
 
-ARFLAGS              = cr
-ASFLAGS              = -MMD -MP -MF"$(@:%.o=%.dep)" -MT"$@"  \
-                       -Wall \
-                       -x assembler-with-cpp \
-                       $(ASFLAGS_ADDITIONAL) \
-                       $(DEFINES) \
-                       $(INCLUDES) \
-                       -c \
-                       $(ESP_DEFINES) $(ESP_EXTRA_FLAGS)
-ESPTOOLFLAGS_BIN     = --chip esp32 $(ELF2BIN_OPTIONS) -o $(PRODUCT_BIN)  $(PRODUCT)
-CFLAGS               = -mlongcalls -Wno-frame-address -ffunction-sections -fdata-sections -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wno-unused-parameter -Wno-sign-compare -ggdb -freorder-blocks -Wwrite-strings -fstack-protector -fstrict-volatile-bitfields -Wno-error=unused-but-set-variable -fno-jump-tables -fno-tree-switch-conversion -std=gnu99 -Wno-old-style-declaration -MMD -c -w \
-                       -DF_CPU=$(ARDUINO_F_CPU) -DARDUINO=$(ARDUINO_IDE_VERSION) -DARDUINO_$(ESP_BOARD_NAME)  \
-                       -DARDUINO_ARCH_ESP32 "-DARDUINO_BOARD=\"$(ESP_BOARD_NAME)\"" "-DARDUINO_VARIANT=\"$(ESP_VARIANT_NAME)\"" -DARDUINO_PARTITION_$(ESP_PARTITION_SCHEME) -DESP32 -DCORE_DEBUG_LEVEL=0  \
-                       -DARDUINO_RUNNING_CORE=1 -DARDUINO_EVENT_RUNNING_CORE=1 -DARDUINO_USB_CDC_ON_BOOT=0 @"$(ARDUINO_CODEGEN_FOLDER)/esp32sdkincludes.txt" \
-                       -O0 \
-                       $(ESP_DEFINES) $(ESP_EXTRA_FLAGS)
-CPPFLAGS             = -mlongcalls -Wno-frame-address -ffunction-sections -fdata-sections -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wno-unused-parameter -Wno-sign-compare -ggdb -freorder-blocks -Wwrite-strings -fstack-protector -fstrict-volatile-bitfields -Wno-error=unused-but-set-variable -fno-jump-tables -fno-tree-switch-conversion -std=gnu++11 -fexceptions -fno-rtti -MMD -c -w \
-                       -DF_CPU=$(ARDUINO_F_CPU) -DARDUINO=$(ARDUINO_IDE_VERSION) -DARDUINO_$(ESP_BOARD_NAME)  \
-                       -DARDUINO_ARCH_ESP32 "-DARDUINO_BOARD=\"$(ESP_BOARD_NAME)\"" "-DARDUINO_VARIANT=\"$(ESP_VARIANT_NAME)\"" -DARDUINO_PARTITION_$(ESP_PARTITION_SCHEME) -DESP32 -DCORE_DEBUG_LEVEL=0  \
-                       -DARDUINO_RUNNING_CORE=1 -DARDUINO_EVENT_RUNNING_CORE=1 -DARDUINO_USB_CDC_ON_BOOT=0 @"$(ARDUINO_CODEGEN_FOLDER)/esp32sdkincludes.txt" \
-                       -O0 \
-                       $(ESP_DEFINES) $(ESP_EXTRA_FLAGS)
-CPP_LDFLAGS          = "-Wl,--Map=$(PRODUCT_MAP)"  \
-                       "-L$(ARDUINO_ESP32_SDK)/lib" "-L$(ARDUINO_ESP32_SDK)/ld" "-L$(ARDUINO_ESP32_SDK)/qio_qspi" \
-                       -T esp32.rom.redefined.ld -T memory.ld -T sections.ld -T esp32.rom.ld -T esp32.rom.api.ld -T esp32.rom.libgcc.ld -T esp32.rom.newlib-data.ld  \
-                       -T esp32.rom.syscalls.ld -T esp32.peripherals.ld   \
-                       -mlongcalls -Wno-frame-address -Wl,--cref -Wl,--gc-sections  \
-                       -fno-rtti -fno-lto -Wl,--wrap=esp_log_write -Wl,--wrap=esp_log_writev  \
-                       -Wl,--wrap=log_printf -u ld_include_hli_vectors_bt  \
-                       -u _Z5setupv -u _Z4loopv -u esp_app_desc -u pthread_include_pthread_impl -u pthread_include_pthread_cond_impl  \
-                       -u pthread_include_pthread_local_storage_impl -u pthread_include_pthread_rwlock_impl -u include_esp_phy_override  \
-                       -u ld_include_highint_hdl -u start_app -u start_app_other_cores -u __ubsan_include -Wl,--wrap=longjmp -u __assert_func -u vfs_include_syscalls_impl  \
-                       -Wl,--undefined=uxTopUsedPriority -u app_main -u newlib_include_heap_impl -u newlib_include_syscalls_impl -u newlib_include_pthread_impl  \
-                       -u newlib_include_assert_impl -u __cxa_guard_dummy -DESP32 -DCORE_DEBUG_LEVEL=0 -DARDUINO_RUNNING_CORE=1 -DARDUINO_EVENT_RUNNING_CORE=1 -DARDUINO_USB_CDC_ON_BOOT=0  \
-                       $(ESP_DEFINES) $(ESP_EXTRA_FLAGS)
-CPP_SHAREDLIB_LDFLAGS  =
-DEF                  = --chip esp32 $(BOOTLOADER_IMAGE_OPTIONS) -o $(PRODUCT_BOOTLOADER_BIN)  $(ARDUINO_ESP32_SDK)/bin/bootloader_qio_80m.elf
-DOWNLOAD_FLAGS       =
-EXECUTE_FLAGS        =
-LDFLAGS              = "-Wl,--Map=$(PRODUCT_MAP)"  \
-                       "-L$(ARDUINO_ESP32_SDK)/lib" "-L$(ARDUINO_ESP32_SDK)/ld" "-L$(ARDUINO_ESP32_SDK)/qio_qspi" \
-                       -T esp32.rom.redefined.ld -T memory.ld -T sections.ld -T esp32.rom.ld -T esp32.rom.api.ld -T esp32.rom.libgcc.ld -T esp32.rom.newlib-data.ld  \
-                       -T esp32.rom.syscalls.ld -T esp32.peripherals.ld   \
-                       -mlongcalls -Wno-frame-address -Wl,--cref -Wl,--gc-sections  \
-                       -fno-rtti -fno-lto -Wl,--wrap=esp_log_write -Wl,--wrap=esp_log_writev  \
-                       -Wl,--wrap=log_printf -u ld_include_hli_vectors_bt  \
-                       -u _Z5setupv -u _Z4loopv -u esp_app_desc -u pthread_include_pthread_impl -u pthread_include_pthread_cond_impl  \
-                       -u pthread_include_pthread_local_storage_impl -u pthread_include_pthread_rwlock_impl -u include_esp_phy_override  \
-                       -u ld_include_highint_hdl -u start_app -u start_app_other_cores -u __ubsan_include -Wl,--wrap=longjmp -u __assert_func -u vfs_include_syscalls_impl  \
-                       -Wl,--undefined=uxTopUsedPriority -u app_main -u newlib_include_heap_impl -u newlib_include_syscalls_impl -u newlib_include_pthread_impl  \
-                       -u newlib_include_assert_impl -u __cxa_guard_dummy -DESP32 -DCORE_DEBUG_LEVEL=0 -DARDUINO_RUNNING_CORE=1 -DARDUINO_EVENT_RUNNING_CORE=1 -DARDUINO_USB_CDC_ON_BOOT=0  \
-                       $(ESP_DEFINES) $(ESP_EXTRA_FLAGS)
 MEX_CPPFLAGS         =
 MEX_CPPLDFLAGS       =
 MEX_CFLAGS           =
 MEX_LDFLAGS          =
-MAKE_FLAGS           = -f $(MAKEFILE)
-GENPARTFLAGS_HEX     = -q  $(START_DIR)/$(PRODUCT_NAME)_ert_rtw/partitions.csv $(PRODUCT_PARTITION_BIN)
-SHAREDLIB_LDFLAGS    =
 
 
+
+#---------------------------
+# Model-Specific Options
+#---------------------------
+
+ASFLAGS = -MMD -MP -MF"$(@:%.o=%.dep)" -MT"$@"  -Wall -x assembler-with-cpp $(ASFLAGS_ADDITIONAL) $(DEFINES) $(INCLUDES) -c $(ESP_DEFINES) $(ESP_EXTRA_FLAGS)
+
+CFLAGS = -mlongcalls -Wno-frame-address -ffunction-sections -fdata-sections -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wno-unused-parameter -Wno-sign-compare -ggdb -freorder-blocks -Wwrite-strings -fstack-protector -fstrict-volatile-bitfields -Wno-error=unused-but-set-variable -fno-jump-tables -fno-tree-switch-conversion -std=gnu99 -Wno-old-style-declaration -MMD -c -w -DF_CPU=$(ARDUINO_F_CPU) -DARDUINO=$(ARDUINO_IDE_VERSION) -DARDUINO_$(ESP_BOARD_NAME)  -DARDUINO_ARCH_ESP32 "-DARDUINO_BOARD=\"$(ESP_BOARD_NAME)\"" "-DARDUINO_VARIANT=\"$(ESP_VARIANT_NAME)\"" -DARDUINO_PARTITION_$(ESP_PARTITION_SCHEME) -DESP32 -DCORE_DEBUG_LEVEL=0  -DARDUINO_RUNNING_CORE=1 -DARDUINO_EVENT_RUNNING_CORE=1 -DARDUINO_USB_CDC_ON_BOOT=0 @"$(ARDUINO_CODEGEN_FOLDER)/esp32sdkincludes.txt" -O0 $(ESP_DEFINES) $(ESP_EXTRA_FLAGS) -g
+
+LDFLAGS = "-Wl,--Map=$(PRODUCT_MAP)"  "-L$(ARDUINO_ESP32_SDK)/lib" "-L$(ARDUINO_ESP32_SDK)/ld" "-L$(ARDUINO_ESP32_SDK)/qio_qspi" -T esp32.rom.redefined.ld -T memory.ld -T sections.ld -T esp32.rom.ld -T esp32.rom.api.ld -T esp32.rom.libgcc.ld -T esp32.rom.newlib-data.ld  -T esp32.rom.syscalls.ld -T esp32.peripherals.ld   -mlongcalls -Wno-frame-address -Wl,--cref -Wl,--gc-sections  -fno-rtti -fno-lto -Wl,--wrap=esp_log_write -Wl,--wrap=esp_log_writev  -Wl,--wrap=log_printf -u ld_include_hli_vectors_bt  -u _Z5setupv -u _Z4loopv -u esp_app_desc -u pthread_include_pthread_impl -u pthread_include_pthread_cond_impl  -u pthread_include_pthread_local_storage_impl -u pthread_include_pthread_rwlock_impl -u include_esp_phy_override  -u ld_include_highint_hdl -u start_app -u start_app_other_cores -u __ubsan_include -Wl,--wrap=longjmp -u __assert_func -u vfs_include_syscalls_impl  -Wl,--undefined=uxTopUsedPriority -u app_main -u newlib_include_heap_impl -u newlib_include_syscalls_impl -u newlib_include_pthread_impl  -u newlib_include_assert_impl -u __cxa_guard_dummy -DESP32 -DCORE_DEBUG_LEVEL=0 -DARDUINO_RUNNING_CORE=1 -DARDUINO_EVENT_RUNNING_CORE=1 -DARDUINO_USB_CDC_ON_BOOT=0  $(ESP_DEFINES) $(ESP_EXTRA_FLAGS) -g
+
+SHAREDLIB_LDFLAGS = -g
+
+CPPFLAGS = -mlongcalls -Wno-frame-address -ffunction-sections -fdata-sections -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wno-unused-parameter -Wno-sign-compare -ggdb -freorder-blocks -Wwrite-strings -fstack-protector -fstrict-volatile-bitfields -Wno-error=unused-but-set-variable -fno-jump-tables -fno-tree-switch-conversion -std=gnu++11 -fexceptions -fno-rtti -MMD -c -w -DF_CPU=$(ARDUINO_F_CPU) -DARDUINO=$(ARDUINO_IDE_VERSION) -DARDUINO_$(ESP_BOARD_NAME)  -DARDUINO_ARCH_ESP32 "-DARDUINO_BOARD=\"$(ESP_BOARD_NAME)\"" "-DARDUINO_VARIANT=\"$(ESP_VARIANT_NAME)\"" -DARDUINO_PARTITION_$(ESP_PARTITION_SCHEME) -DESP32 -DCORE_DEBUG_LEVEL=0  -DARDUINO_RUNNING_CORE=1 -DARDUINO_EVENT_RUNNING_CORE=1 -DARDUINO_USB_CDC_ON_BOOT=0 @"$(ARDUINO_CODEGEN_FOLDER)/esp32sdkincludes.txt" -O0 $(ESP_DEFINES) $(ESP_EXTRA_FLAGS) -g
+
+CPP_LDFLAGS = "-Wl,--Map=$(PRODUCT_MAP)"  "-L$(ARDUINO_ESP32_SDK)/lib" "-L$(ARDUINO_ESP32_SDK)/ld" "-L$(ARDUINO_ESP32_SDK)/qio_qspi" -T esp32.rom.redefined.ld -T memory.ld -T sections.ld -T esp32.rom.ld -T esp32.rom.api.ld -T esp32.rom.libgcc.ld -T esp32.rom.newlib-data.ld  -T esp32.rom.syscalls.ld -T esp32.peripherals.ld   -mlongcalls -Wno-frame-address -Wl,--cref -Wl,--gc-sections  -fno-rtti -fno-lto -Wl,--wrap=esp_log_write -Wl,--wrap=esp_log_writev  -Wl,--wrap=log_printf -u ld_include_hli_vectors_bt  -u _Z5setupv -u _Z4loopv -u esp_app_desc -u pthread_include_pthread_impl -u pthread_include_pthread_cond_impl  -u pthread_include_pthread_local_storage_impl -u pthread_include_pthread_rwlock_impl -u include_esp_phy_override  -u ld_include_highint_hdl -u start_app -u start_app_other_cores -u __ubsan_include -Wl,--wrap=longjmp -u __assert_func -u vfs_include_syscalls_impl  -Wl,--undefined=uxTopUsedPriority -u app_main -u newlib_include_heap_impl -u newlib_include_syscalls_impl -u newlib_include_pthread_impl  -u newlib_include_assert_impl -u __cxa_guard_dummy -DESP32 -DCORE_DEBUG_LEVEL=0 -DARDUINO_RUNNING_CORE=1 -DARDUINO_EVENT_RUNNING_CORE=1 -DARDUINO_USB_CDC_ON_BOOT=0  $(ESP_DEFINES) $(ESP_EXTRA_FLAGS) -g
+
+CPP_SHAREDLIB_LDFLAGS = -g
+
+ARFLAGS = cr
+
+ESPTOOLFLAGS_BIN = --chip esp32 $(ELF2BIN_OPTIONS) -o $(PRODUCT_BIN)  $(PRODUCT)
+
+GENPARTFLAGS_HEX = -q  $(START_DIR)/$(PRODUCT_NAME)_ert_rtw/partitions.csv $(PRODUCT_PARTITION_BIN)
+
+DEF = --chip esp32 $(BOOTLOADER_IMAGE_OPTIONS) -o $(PRODUCT_BOOTLOADER_BIN)  $(ARDUINO_ESP32_SDK)/bin/bootloader_qio_80m.elf
+
+DOWNLOAD_FLAGS = 
+
+EXECUTE_FLAGS = 
+
+MAKE_FLAGS = -f $(MAKEFILE)
 
 ###########################################################################
 ## OUTPUT INFO
@@ -234,7 +211,7 @@ BUILD_TYPE = "Top-Level Standalone Executable"
 ## INCLUDE PATHS
 ###########################################################################
 
-INCLUDES_BUILDINFO = -I$(START_DIR) -I$(START_DIR)/libraries/Adafruit_ADS1X15 -I$(START_DIR)/libraries/Adafruit_BusIO -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~1/include -I$(MATLAB_ROOT)/toolbox/target/shared/svd/common/include -I$(START_DIR)/CONTROL_SYSTEM_V2_ert_rtw -I$(MATLAB_ROOT)/extern/include -I$(MATLAB_ROOT)/simulink/include -I$(MATLAB_ROOT)/rtw/c/src -I$(MATLAB_ROOT)/rtw/c/src/ext_mode/common -I$(MATLAB_ROOT)/rtw/c/ert -I$(ARDUINO_ESP32_ROOT)/hardware/esp32/$(ESP32_LIB_VERSION)/cores/esp32 -I$(ARDUINO_ESP32_ROOT)/hardware/esp32/$(ESP32_LIB_VERSION)/variants/esp32 -I$(ARDUINO_ESP32_ROOT)/tools/esptool_py -I$(ARDUINO_ESP32_ROOT)/tools/mkspiffs -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~2/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~2/SCHEDU~1/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/shared/freertos/include -I$(START_DIR)/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/aCLI/data/packages/esp32/hardware/esp32/20D662~1.11/LIBRAR~1/Wire/src -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/aCLI/data/packages/esp32/hardware/esp32/20D662~1.11/LIBRAR~1/SPI/src -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/aCLI/user/LIBRAR~1/SERVOE~1/src
+INCLUDES_BUILDINFO = -I$(START_DIR) -I$(START_DIR)/libraries/Adafruit_ADS1X15 -I$(START_DIR)/libraries/Adafruit_BusIO -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~1/include -I$(MATLAB_ROOT)/toolbox/target/shared/svd/common/include -I$(START_DIR)/CONTROL_SYSTEM_V2_ert_rtw -I$(MATLAB_ROOT)/extern/include -I$(MATLAB_ROOT)/simulink/include -I$(MATLAB_ROOT)/rtw/c/src -I$(MATLAB_ROOT)/rtw/c/src/ext_mode/common -I$(MATLAB_ROOT)/rtw/c/ert -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/include -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/common -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/protocol/src -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/protocol/include -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/transport/include -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/transport/src -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/platform/include -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/platform/default -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/include -I$(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src -I$(MATLAB_ROOT)/toolbox/coder/rtiostream/src -I$(ARDUINO_ESP32_ROOT)/hardware/esp32/$(ESP32_LIB_VERSION)/cores/esp32 -I$(ARDUINO_ESP32_ROOT)/hardware/esp32/$(ESP32_LIB_VERSION)/variants/esp32 -I$(ARDUINO_ESP32_ROOT)/tools/esptool_py -I$(ARDUINO_ESP32_ROOT)/tools/mkspiffs -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~2/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/SUPPOR~1/ARDUIN~2/SCHEDU~1/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/toolbox/target/shared/freertos/include -I$(START_DIR)/include -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/aCLI/data/packages/esp32/hardware/esp32/20D662~1.11/LIBRAR~1/Wire/src -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/aCLI/data/packages/esp32/hardware/esp32/20D662~1.11/LIBRAR~1/SPI/src -IC:/PROGRA~3/MATLAB/SUPPOR~1/R2024a/aCLI/user/LIBRAR~1/SERVOE~1/src
 
 INCLUDES = $(INCLUDES_BUILDINFO)
 
@@ -242,10 +219,10 @@ INCLUDES = $(INCLUDES_BUILDINFO)
 ## DEFINES
 ###########################################################################
 
-DEFINES_ = -D__MW_TARGET_USE_HARDWARE_RESOURCES_H__ -D_MW_ARDUINO_LOOP_=1 -DMW_ARDUINO_STEP_SIZE=10000 -DMW_ARDUINO_MICROS -DARDUINO_NUM_SERIAL_PORTS=3 -DARDUINO_SERIAL_RECEIVE_BUFFER_SIZE=256 -D_RTT_BAUDRATE_SERIAL0_=9600 -D_RTT_BAUDRATE_SERIAL1_=9600 -D_RTT_BAUDRATE_SERIAL2_=9600 -D_RTT_CONFIG_SERIAL0_=SERIAL_8N1 -D_RTT_CONFIG_SERIAL1_=SERIAL_8N1 -D_RTT_CONFIG_SERIAL2_=SERIAL_8N1 -D_RTT_TX_PIN_SERIAL0_=1 -D_RTT_RX_PIN_SERIAL0_=3 -D_RTT_TX_PIN_SERIAL1_=33 -D_RTT_RX_PIN_SERIAL1_=32 -D_RTT_TX_PIN_SERIAL2_=17 -D_RTT_RX_PIN_SERIAL2_=16 -D_RTT_ANALOG_REF_=0 -DMW_NUM_PINS=26 -D_RTT_PWM_BLOCKS_ -D_RTT_PWM_CUSTOM_FREQUENCY_ -DARDUINO_DEFAULT_PWM_FREQUENCY=1000 -D_ONBOARD_EEPROM_SIZE_=0
-DEFINES_BUILD_ARGS = -DCLASSIC_INTERFACE=0 -DALLOCATIONFCN=0 -DTERMFCN=1 -DONESTEPFCN=1 -DMAT_FILE=0 -DMULTI_INSTANCE_CODE=0 -DINTEGER_CODE=0 -DMT=0
+DEFINES_ = -DXCP_ADDRESS_GRANULARITY=XCP_ADDRESS_GRANULARITY_BYTE -DCODERTARGET_XCP_DAQ_PACKED_MODE -DCODERTARGET_XCP_MAX_CONTIGUOUS_SAMPLES=2 -D__MW_TARGET_USE_HARDWARE_RESOURCES_H__ -D_MW_ARDUINO_LOOP_=1 -DMW_ARDUINO_STEP_SIZE=10000 -DMW_ARDUINO_MICROS -DARDUINO_NUM_SERIAL_PORTS=3 -DARDUINO_SERIAL_RECEIVE_BUFFER_SIZE=256 -D_RTT_BAUDRATE_SERIAL0_=9600 -D_RTT_BAUDRATE_SERIAL1_=9600 -D_RTT_BAUDRATE_SERIAL2_=9600 -D_RTT_CONFIG_SERIAL0_=SERIAL_8N1 -D_RTT_CONFIG_SERIAL1_=SERIAL_8N1 -D_RTT_CONFIG_SERIAL2_=SERIAL_8N1 -D_RTT_TX_PIN_SERIAL0_=1 -D_RTT_RX_PIN_SERIAL0_=3 -D_RTT_TX_PIN_SERIAL1_=33 -D_RTT_RX_PIN_SERIAL1_=32 -D_RTT_TX_PIN_SERIAL2_=17 -D_RTT_RX_PIN_SERIAL2_=16 -D_RTT_ANALOG_REF_=0 -DMW_RTIO_SERIAL0 -DMW_NUM_PINS=26 -D_RTT_PWM_BLOCKS_ -D_RTT_PWM_CUSTOM_FREQUENCY_ -DARDUINO_DEFAULT_PWM_FREQUENCY=1000 -D_ONBOARD_EEPROM_SIZE_=0
+DEFINES_BUILD_ARGS = -DCLASSIC_INTERFACE=0 -DALLOCATIONFCN=0 -DTERMFCN=1 -DONESTEPFCN=1 -DMAT_FILE=0 -DMULTI_INSTANCE_CODE=0 -DEXT_MODE=1 -DINTEGER_CODE=0 -DMT=0
 DEFINES_CUSTOM = 
-DEFINES_OPTS = -DTID01EQ=1
+DEFINES_OPTS = -DXCP_DAQ_SUPPORT -DXCP_CALIBRATION_SUPPORT -DXCP_TIMESTAMP_SUPPORT -DXCP_TIMESTAMP_BASED_ON_SIMULATION_TIME -DXCP_SET_MTA_SUPPORT -DEXTMODE_XCP_TRIGGER_SUPPORT -DXCP_MEM_BLOCK_1_SIZE=32 -DXCP_MEM_BLOCK_1_NUMBER=1 -DXCP_MEM_BLOCK_2_SIZE=56 -DXCP_MEM_BLOCK_2_NUMBER=1 -DXCP_MEM_BLOCK_3_SIZE=168 -DXCP_MEM_BLOCK_3_NUMBER=1 -DXCP_MEM_RESERVED_POOLS_TOTAL_SIZE=1237 -DXCP_MEM_RESERVED_POOLS_NUMBER=2 -DXCP_MEM_DAQ_RESERVED_POOL_BLOCKS_NUMBER=3 -DXCP_MEM_DAQ_RESERVED_POOLS_NUMBER=1 -DXCP_MIN_EVENT_NO_RESERVED_POOL=2 -DXCP_MAX_CTO_SIZE=32 -DXCP_MAX_DTO_SIZE=65532 -DXCP_MAX_ODT_ENTRY_SIZE=255 -DEXTMODE_STATIC -DEXTMODE_STATIC_SIZE=65536 -DON_TARGET_WAIT_FOR_START=1 -DTID01EQ=1
 DEFINES_SKIPFORSIL = -DXCP_CUSTOM_PLATFORM -DEXIT_FAILURE=1 -DEXTMODE_DISABLEPRINTF -DEXTMODE_DISABLETESTING -DEXTMODE_DISABLE_ARGS_PROCESSING=1 -DINCLUDE_xTaskGetCurrentTaskHandle=1 -DOS_STKSIZE=8192 -DINCLUDE_vTaskDelete -DINCLUDE_vTaskDelay=1 -DUSE_FREERTOS -DSTACK_SIZE=64 -DRT
 DEFINES_STANDARD = -DMODEL=CONTROL_SYSTEM_V2 -DNUMST=2 -DNCSTATES=2 -DHAVESTDIO -DMODEL_HAS_DYNAMICALLY_LOADED_SFCNS=0
 
@@ -255,7 +232,7 @@ DEFINES = $(DEFINES_) $(DEFINES_BUILD_ARGS) $(DEFINES_CUSTOM) $(DEFINES_OPTS) $(
 ## SOURCE FILES
 ###########################################################################
 
-SRCS = $(START_DIR)/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp $(START_DIR)/libraries/Adafruit_BusIO/Adafruit_I2CDevice.cpp $(START_DIR)/ADS1115_Vread.cpp C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/supportpackages/arduinobase/src/MW_arduino_digitalio.cpp C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/supportpackages/arduinobase/src/MW_PWM.cpp C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/supportpackages/arduinobase/src/MW_PWMDriver.c C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/supportpackages/arduinobase/src/ArduinoPinHandleMap.cpp $(START_DIR)/CONTROL_SYSTEM_V2_ert_rtw/CONTROL_SYSTEM_V2.c $(START_DIR)/CONTROL_SYSTEM_V2_ert_rtw/CONTROL_SYSTEM_V2_data.c C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/supportpackages/arduinotarget/src/MW_ArduinoHWInit.cpp C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/supportpackages/arduinobase/src/io_wrappers.cpp "$(ARDUINO_ESP32_ROOT)/hardware/esp32/$(ESP32_LIB_VERSION)/cores/esp32/IPAddress.cpp" "$(ARDUINO_ESP32_ROOT)/hardware/esp32/$(ESP32_LIB_VERSION)/cores/esp32/Print.cpp" C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/shared/freertos/src/mw_freertos_init.c C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/shared/freertos/src/mw_thread.c C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/shared/freertos/src/mw_timer.c C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/shared/freertos/src/mw_semaphore.c
+SRCS = $(START_DIR)/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp $(START_DIR)/libraries/Adafruit_BusIO/Adafruit_I2CDevice.cpp $(START_DIR)/ADS1115_Vread.cpp C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/supportpackages/arduinobase/src/MW_arduino_digitalio.cpp C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/supportpackages/arduinobase/src/MW_PWM.cpp C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/supportpackages/arduinobase/src/MW_PWMDriver.c C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/supportpackages/arduinobase/src/ArduinoPinHandleMap.cpp $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src/xcp_ext_mode.c $(START_DIR)/CONTROL_SYSTEM_V2_ert_rtw/CONTROL_SYSTEM_V2.c $(START_DIR)/CONTROL_SYSTEM_V2_ert_rtw/CONTROL_SYSTEM_V2_data.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src/xcp_ext_common.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src/xcp_ext_classic_trigger.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/protocol/src/xcp.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/protocol/src/xcp_standard.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/protocol/src/xcp_daq.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/protocol/src/xcp_calibration.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/transport/src/xcp_fifo.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/transport/src/xcp_transport.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/platform/default/xcp_mem_default.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/platform/default/xcp_drv_rtiostream.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/common/xcp_utils.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/transport/src/xcp_frame_serial.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src/xcp_ext_param_default_serial.c C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/supportpackages/arduinotarget/src/MW_ArduinoHWInit.cpp C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/supportpackages/arduinobase/src/io_wrappers.cpp "$(ARDUINO_ESP32_ROOT)/hardware/esp32/$(ESP32_LIB_VERSION)/cores/esp32/IPAddress.cpp" "$(ARDUINO_ESP32_ROOT)/hardware/esp32/$(ESP32_LIB_VERSION)/cores/esp32/Print.cpp" C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/shared/freertos/src/mw_freertos_init.c C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/shared/freertos/src/mw_thread.c C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/shared/freertos/src/mw_timer.c C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/shared/freertos/src/mw_semaphore.c C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/supportpackages/arduinotarget/src/platform_timer.c C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/supportpackages/arduinotarget/src/rtiostream_serial_daemon.cpp
 
 MAIN_SRC = $(START_DIR)/CONTROL_SYSTEM_V2_ert_rtw/ert_main.c
 
@@ -265,7 +242,7 @@ ALL_SRCS = $(SRCS) $(MAIN_SRC)
 ## OBJECTS
 ###########################################################################
 
-OBJS = Adafruit_ADS1X15.o Adafruit_I2CDevice.o ADS1115_Vread.o MW_arduino_digitalio.o MW_PWM.o MW_PWMDriver.o ArduinoPinHandleMap.o CONTROL_SYSTEM_V2.o CONTROL_SYSTEM_V2_data.o MW_ArduinoHWInit.o io_wrappers.o IPAddress.o Print.o mw_freertos_init.o mw_thread.o mw_timer.o mw_semaphore.o
+OBJS = Adafruit_ADS1X15.o Adafruit_I2CDevice.o ADS1115_Vread.o MW_arduino_digitalio.o MW_PWM.o MW_PWMDriver.o ArduinoPinHandleMap.o xcp_ext_mode.o CONTROL_SYSTEM_V2.o CONTROL_SYSTEM_V2_data.o xcp_ext_common.o xcp_ext_classic_trigger.o xcp.o xcp_standard.o xcp_daq.o xcp_calibration.o xcp_fifo.o xcp_transport.o xcp_mem_default.o xcp_drv_rtiostream.o xcp_utils.o xcp_frame_serial.o xcp_ext_param_default_serial.o MW_ArduinoHWInit.o io_wrappers.o IPAddress.o Print.o mw_freertos_init.o mw_thread.o mw_timer.o mw_semaphore.o platform_timer.o rtiostream_serial_daemon.o
 
 MAIN_OBJ = ert_main.o
 
@@ -302,6 +279,24 @@ CFLAGS_BASIC = $(DEFINES) $(INCLUDES)
 
 CFLAGS += $(CFLAGS_SKIPFORSIL) $(CFLAGS_BASIC)
 
+#-----------
+# Linker
+#-----------
+
+LDFLAGS_ = -L"$(SLIB_PATH)"
+LDFLAGS_SKIPFORSIL =  
+
+LDFLAGS += $(LDFLAGS_) $(LDFLAGS_SKIPFORSIL)
+
+#--------------------------
+# Shared Library Linker
+#--------------------------
+
+SHAREDLIB_LDFLAGS_ = -L"$(SLIB_PATH)"
+SHAREDLIB_LDFLAGS_SKIPFORSIL =  
+
+SHAREDLIB_LDFLAGS += $(SHAREDLIB_LDFLAGS_) $(SHAREDLIB_LDFLAGS_SKIPFORSIL)
+
 #-----------------
 # C++ Compiler
 #-----------------
@@ -328,24 +323,6 @@ CPP_SHAREDLIB_LDFLAGS_ = -L"$(SLIB_PATH)"
 CPP_SHAREDLIB_LDFLAGS_SKIPFORSIL =  
 
 CPP_SHAREDLIB_LDFLAGS += $(CPP_SHAREDLIB_LDFLAGS_) $(CPP_SHAREDLIB_LDFLAGS_SKIPFORSIL)
-
-#-----------
-# Linker
-#-----------
-
-LDFLAGS_ = -L"$(SLIB_PATH)"
-LDFLAGS_SKIPFORSIL =  
-
-LDFLAGS += $(LDFLAGS_) $(LDFLAGS_SKIPFORSIL)
-
-#--------------------------
-# Shared Library Linker
-#--------------------------
-
-SHAREDLIB_LDFLAGS_ = -L"$(SLIB_PATH)"
-SHAREDLIB_LDFLAGS_SKIPFORSIL =  
-
-SHAREDLIB_LDFLAGS += $(SHAREDLIB_LDFLAGS_) $(SHAREDLIB_LDFLAGS_SKIPFORSIL)
 
 ###########################################################################
 ## INLINED COMMANDS
@@ -557,6 +534,86 @@ $(PRODUCT) : $(OBJS) $(PREBUILT_OBJS) $(LIBS) $(MAIN_OBJ)
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
+%.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/protocol/src/%.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+
+%.S.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/protocol/src/%.s
+	$(AS) $(ASFLAGS) -o "$@" "$<"
+
+
+%.S.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/protocol/src/%.S
+	$(AS) $(ASFLAGS) -o "$@" "$<"
+
+
+%.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/protocol/src/%.cpp
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+
+
+%.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/transport/src/%.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+
+%.S.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/transport/src/%.s
+	$(AS) $(ASFLAGS) -o "$@" "$<"
+
+
+%.S.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/transport/src/%.S
+	$(AS) $(ASFLAGS) -o "$@" "$<"
+
+
+%.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/transport/src/%.cpp
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+
+
+%.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src/%.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+
+%.S.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src/%.s
+	$(AS) $(ASFLAGS) -o "$@" "$<"
+
+
+%.S.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src/%.S
+	$(AS) $(ASFLAGS) -o "$@" "$<"
+
+
+%.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src/%.cpp
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+
+
+%.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/common/%.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+
+%.S.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/common/%.s
+	$(AS) $(ASFLAGS) -o "$@" "$<"
+
+
+%.S.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/common/%.S
+	$(AS) $(ASFLAGS) -o "$@" "$<"
+
+
+%.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/common/%.cpp
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+
+
+%.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/platform/default/%.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+
+%.S.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/platform/default/%.s
+	$(AS) $(ASFLAGS) -o "$@" "$<"
+
+
+%.S.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/platform/default/%.S
+	$(AS) $(ASFLAGS) -o "$@" "$<"
+
+
+%.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/platform/default/%.cpp
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+
+
 Adafruit_ADS1X15.o : $(START_DIR)/libraries/Adafruit_ADS1X15/Adafruit_ADS1X15.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
@@ -585,6 +642,10 @@ ArduinoPinHandleMap.o : C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/tar
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
+xcp_ext_mode.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src/xcp_ext_mode.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+
 ert_main.o : $(START_DIR)/CONTROL_SYSTEM_V2_ert_rtw/ert_main.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
@@ -594,6 +655,58 @@ CONTROL_SYSTEM_V2.o : $(START_DIR)/CONTROL_SYSTEM_V2_ert_rtw/CONTROL_SYSTEM_V2.c
 
 
 CONTROL_SYSTEM_V2_data.o : $(START_DIR)/CONTROL_SYSTEM_V2_ert_rtw/CONTROL_SYSTEM_V2_data.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+
+xcp_ext_common.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src/xcp_ext_common.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+
+xcp_ext_classic_trigger.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src/xcp_ext_classic_trigger.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+
+xcp.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/protocol/src/xcp.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+
+xcp_standard.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/protocol/src/xcp_standard.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+
+xcp_daq.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/protocol/src/xcp_daq.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+
+xcp_calibration.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/protocol/src/xcp_calibration.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+
+xcp_fifo.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/transport/src/xcp_fifo.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+
+xcp_transport.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/transport/src/xcp_transport.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+
+xcp_mem_default.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/platform/default/xcp_mem_default.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+
+xcp_drv_rtiostream.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/platform/default/xcp_drv_rtiostream.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+
+xcp_utils.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/common/xcp_utils.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+
+xcp_frame_serial.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/transport/src/xcp_frame_serial.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+
+xcp_ext_param_default_serial.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src/xcp_ext_param_default_serial.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
 
@@ -627,6 +740,14 @@ mw_timer.o : C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/shared/
 
 mw_semaphore.o : C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/shared/freertos/src/mw_semaphore.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
+
+
+platform_timer.o : C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/supportpackages/arduinotarget/src/platform_timer.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+
+rtiostream_serial_daemon.o : C:/ProgramData/MATLAB/SupportPackages/R2024a/toolbox/target/supportpackages/arduinotarget/src/rtiostream_serial_daemon.cpp
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
 ###########################################################################

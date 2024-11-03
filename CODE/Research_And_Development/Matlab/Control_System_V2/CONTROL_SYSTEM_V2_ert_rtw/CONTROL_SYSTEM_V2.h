@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'CONTROL_SYSTEM_V2'.
  *
- * Model version                  : 1.19
+ * Model version                  : 1.20
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Thu Sep 12 15:27:52 2024
+ * C/C++ source code generated on : Mon Sep 23 19:23:35 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -23,8 +23,11 @@
 #ifndef CONTROL_SYSTEM_V2_COMMON_INCLUDES_
 #define CONTROL_SYSTEM_V2_COMMON_INCLUDES_
 #include "rtwtypes.h"
+#include "rtw_extmode.h"
+#include "sysran_types.h"
 #include "rtw_continuous.h"
 #include "rtw_solver.h"
+#include "ext_mode.h"
 #include "ADS1115_Vread.h"
 #include "MW_arduino_digitalio.h"
 #include "MW_PWM.h"
@@ -68,6 +71,10 @@
 #define rtmSetDerivCacheNeedsReset(rtm, val) ((rtm)->derivCacheNeedsReset = (val))
 #endif
 
+#ifndef rtmGetFinalTime
+#define rtmGetFinalTime(rtm)           ((rtm)->Timing.tFinal)
+#endif
+
 #ifndef rtmGetIntgData
 #define rtmGetIntgData(rtm)            ((rtm)->intgData)
 #endif
@@ -98,6 +105,10 @@
 
 #ifndef rtmSetPeriodicContStateRanges
 #define rtmSetPeriodicContStateRanges(rtm, val) ((rtm)->periodicContStateRanges = (val))
+#endif
+
+#ifndef rtmGetRTWExtModeInfo
+#define rtmGetRTWExtModeInfo(rtm)      ((rtm)->extModeInfo)
 #endif
 
 #ifndef rtmGetZCCacheNeedsReset
@@ -140,6 +151,10 @@
 #define rtmGetT(rtm)                   (rtmGetTPtr((rtm))[0])
 #endif
 
+#ifndef rtmGetTFinal
+#define rtmGetTFinal(rtm)              ((rtm)->Timing.tFinal)
+#endif
+
 #ifndef rtmGetTPtr
 #define rtmGetTPtr(rtm)                ((rtm)->Timing.t)
 #endif
@@ -150,23 +165,37 @@
 
 /* Block states (default storage) for system '<S20>/NEGATIVE Edge' */
 typedef struct {
+  int8_T NEGATIVEEdge_SubsysRanBC;     /* '<S20>/NEGATIVE Edge' */
   boolean_T NEGATIVEEdge_MODE;         /* '<S20>/NEGATIVE Edge' */
 } DW_NEGATIVEEdge_CONTROL_SYSTE_T;
 
 /* Block states (default storage) for system '<S20>/POSITIVE Edge' */
 typedef struct {
+  int8_T POSITIVEEdge_SubsysRanBC;     /* '<S20>/POSITIVE Edge' */
   boolean_T POSITIVEEdge_MODE;         /* '<S20>/POSITIVE Edge' */
 } DW_POSITIVEEdge_CONTROL_SYSTE_T;
 
 /* Block signals (default storage) */
 typedef struct {
+  real_T Add2;                         /* '<S12>/Add2' */
+  real_T Add3;                         /* '<S12>/Add3' */
   real_T Divide1;                      /* '<S12>/Divide1' */
+  real_T Sum;                          /* '<S12>/Sum' */
+  real_T Error;                        /* '<Root>/Sum2' */
+  real_T Add2_b;                       /* '<S4>/Add2' */
+  real_T Add3_o;                       /* '<S4>/Add3' */
   real_T Divide1_p;                    /* '<S4>/Divide1' */
+  real_T Sum_b;                        /* '<S4>/Sum' */
   real_T PulseGenerator;               /* '<S2>/Pulse Generator' */
+  real_T PercentageError;              /* '<S11>/Gain' */
   real_T PulseGenerator_f;             /* '<S3>/Pulse Generator' */
+  real_T EnablePin;                    /* '<S6>/Enable Pin' */
+  real_T DirectionPin;                 /* '<S6>/Direction Pin' */
+  real_T TB_maxVal;                    /* '<Root>/Throttle Body Callibration' */
   real_T TB_minVal;                    /* '<Root>/Throttle Body Callibration' */
-  real_T Sum1;                         /* '<S10>/Sum1' */
   real_T FilterCoefficient;            /* '<S76>/Filter Coefficient' */
+  real_T Sum_d;                        /* '<S82>/Sum' */
+  real_T Sum1;                         /* '<S10>/Sum1' */
   real_T Switch2;                      /* '<S39>/Switch2' */
   real_T IntegralGain;                 /* '<S70>/Integral Gain' */
   real_T In1;                          /* '<S8>/In1' */
@@ -176,7 +205,12 @@ typedef struct {
   real_T MultiportSwitch_k[2];         /* '<S20>/Multiport Switch' */
   real_T ICic_h;                       /* '<S25>/IC=ic' */
   real_T Switch_i;                     /* '<S25>/Switch' */
+  real_T FP_maxVal;                    /* '<Root>/Foot Pedal Calibration' */
   real_T FP_minVal;                    /* '<Root>/Foot Pedal Calibration' */
+  real_T MATLABSystem_o1;              /* '<S1>/MATLAB System' */
+  real_T MATLABSystem_o2;              /* '<S1>/MATLAB System' */
+  real_T MATLABSystem_o3;              /* '<S1>/MATLAB System' */
+  real_T MATLABSystem_o4;              /* '<S1>/MATLAB System' */
   boolean_T Memory;                    /* '<S34>/Memory' */
   boolean_T Logic[2];                  /* '<S34>/Logic' */
   boolean_T Memory_h;                  /* '<S36>/Memory' */
@@ -217,9 +251,20 @@ typedef struct {
   real_T ICic_PreviousInput_i;         /* '<S25>/IC=ic' */
   real_T maxSet;                       /* '<Root>/Foot Pedal Calibration' */
   real_T minSet;                       /* '<Root>/Foot Pedal Calibration' */
+  struct {
+    void *LoggedData[3];
+  } FootPedalSignalVSThrottleBodyPo;
+                      /* '<Root>/Foot Pedal Signal VS Throttle Body Position' */
+
   int32_T clockTickCounter;            /* '<S2>/Pulse Generator' */
   int32_T clockTickCounter_j;          /* '<S3>/Pulse Generator' */
   int8_T IfCondition_ActiveSubsystem;  /* '<Root>/If Condition' */
+  int8_T PIDControl_SubsysRanBC;       /* '<Root>/PID Control' */
+  int8_T NoControl_SubsysRanBC;        /* '<Root>/No Control' */
+  int8_T ONDelay_SubsysRanBC;          /* '<S15>/ON Delay' */
+  int8_T TriggeredSubsystem_SubsysRanBC;/* '<S29>/Triggered Subsystem' */
+  int8_T OFFDelay_SubsysRanBC;         /* '<S15>/OFF Delay' */
+  int8_T TriggeredSubsystem_SubsysRanB_d;/* '<S21>/Triggered Subsystem' */
   boolean_T Memory_PreviousInput;      /* '<S34>/Memory' */
   boolean_T Memory_PreviousInput_j;    /* '<S36>/Memory' */
   boolean_T Memory_PreviousInput_b;    /* '<S37>/Memory' */
@@ -424,6 +469,9 @@ struct P_CONTROL_SYSTEM_V2_T_ {
   real_T Constant_Value_i;             /* Expression: 0
                                         * Referenced by: '<S2>/Constant'
                                         */
+  real_T Gain_Gain;                    /* Expression: 100
+                                        * Referenced by: '<S11>/Gain'
+                                        */
   real_T Constant_Value_d;             /* Expression: 1
                                         * Referenced by: '<S3>/Constant'
                                         */
@@ -475,14 +523,14 @@ struct P_CONTROL_SYSTEM_V2_T_ {
   boolean_T Logic_table_g[16];         /* Computed Parameter: Logic_table_g
                                         * Referenced by: '<S35>/Logic'
                                         */
-  uint8_T Gain_Gain;                   /* Computed Parameter: Gain_Gain
+  uint8_T Gain_Gain_j;                 /* Computed Parameter: Gain_Gain_j
                                         * Referenced by: '<S6>/Gain'
-                                        */
-  uint8_T Multiply2_Gain;              /* Computed Parameter: Multiply2_Gain
-                                        * Referenced by: '<S9>/Multiply2'
                                         */
   uint8_T Multiply1_Gain;              /* Computed Parameter: Multiply1_Gain
                                         * Referenced by: '<S9>/Multiply1'
+                                        */
+  uint8_T Multiply2_Gain;              /* Computed Parameter: Multiply2_Gain
+                                        * Referenced by: '<S9>/Multiply2'
                                         */
   uint8_T Multiply_Gain;               /* Computed Parameter: Multiply_Gain
                                         * Referenced by: '<S9>/Multiply'
@@ -496,6 +544,7 @@ struct P_CONTROL_SYSTEM_V2_T_ {
 /* Real-time Model Data Structure */
 struct tag_RTM_CONTROL_SYSTEM_V2_T {
   const char_T *errorStatus;
+  RTWExtModeInfo *extModeInfo;
   RTWSolverInfo solverInfo;
   X_CONTROL_SYSTEM_V2_T *contStates;
   int_T *periodicContStateIndices;
@@ -515,10 +564,20 @@ struct tag_RTM_CONTROL_SYSTEM_V2_T {
    * dwork, sample times, etc.
    */
   struct {
+    uint32_T checksums[4];
     int_T numContStates;
     int_T numPeriodicContStates;
     int_T numSampTimes;
   } Sizes;
+
+  /*
+   * SpecialInfo:
+   * The following substructure contains special information
+   * related to other components that are dependent on RTW.
+   */
+  struct {
+    const void *mappingInfo;
+  } SpecialInfo;
 
   /*
    * Timing:
@@ -530,6 +589,7 @@ struct tag_RTM_CONTROL_SYSTEM_V2_T {
     time_T stepSize0;
     uint32_T clockTick1;
     time_T tStart;
+    time_T tFinal;
     SimTimeStep simTimeStep;
     boolean_T stopRequestedFlag;
     time_T *t;
@@ -568,41 +628,14 @@ extern volatile boolean_T runModel;
 /*-
  * These blocks were eliminated from the model due to optimizations:
  *
- * Block '<Root>/Display3' : Unused code path elimination
- * Block '<Root>/Error Reading' : Unused code path elimination
- * Block '<S4>/Display1' : Unused code path elimination
- * Block '<S4>/Display3' : Unused code path elimination
- * Block '<Root>/Foot Pedal Maximum Reading' : Unused code path elimination
- * Block '<Root>/Foot Pedal Minimum Reading' : Unused code path elimination
- * Block '<Root>/Foot Pedal Reading' : Unused code path elimination
- * Block '<Root>/Foot Pedal Signal VS Throttle Body Position' : Unused code path elimination
- * Block '<S6>/Display3' : Unused code path elimination
- * Block '<S6>/Display4' : Unused code path elimination
  * Block '<S21>/Constant' : Unused code path elimination
  * Block '<S21>/Relational Operator' : Unused code path elimination
  * Block '<S21>/Sum' : Unused code path elimination
  * Block '<S29>/Constant' : Unused code path elimination
  * Block '<S29>/Relational Operator' : Unused code path elimination
  * Block '<S29>/Sum' : Unused code path elimination
- * Block '<S7>/Display' : Unused code path elimination
- * Block '<S7>/Display1' : Unused code path elimination
- * Block '<S7>/Display2' : Unused code path elimination
- * Block '<S7>/Display3' : Unused code path elimination
- * Block '<Root>/NaN' : Unused code path elimination
  * Block '<S39>/Data Type Duplicate' : Unused code path elimination
  * Block '<S39>/Data Type Propagation' : Unused code path elimination
- * Block '<Root>/PID Output Reading' : Unused code path elimination
- * Block '<S11>/Abs' : Unused code path elimination
- * Block '<S11>/Divide' : Unused code path elimination
- * Block '<S11>/Gain' : Unused code path elimination
- * Block '<Root>/TB Maximum Reading' : Unused code path elimination
- * Block '<Root>/TB Minimum Reading' : Unused code path elimination
- * Block '<Root>/TB New Range Reading' : Unused code path elimination
- * Block '<S12>/Display1' : Unused code path elimination
- * Block '<S12>/Display3' : Unused code path elimination
- * Block '<Root>/Throttle Body Feeback Reading' : Unused code path elimination
- * Block '<Root>/Throttle Body Feeback Reading (Unused)' : Unused code path elimination
- * Block '<Root>/Scope1' : Unused code path elimination
  * Block '<S15>/Data Type Conversion1' : Eliminate redundant data type conversion
  * Block '<S20>/Data Type Conversion2' : Eliminate redundant data type conversion
  * Block '<S25>/Data Type Conversion' : Eliminate redundant data type conversion

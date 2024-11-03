@@ -1,4 +1,3 @@
-clc, clear
 % Foot Pedal Setting
 Desire_Max = 255;
 Desire_Min = 0;
@@ -25,12 +24,11 @@ Toa_ho=0.3193;
 F_so=0.089;
 
 % Control Setting
-Omega_o=250;
+Omega_o=5;
 Beta1=3*Omega_o;
 Beta2=3*(Omega_o^2);
 Beta3=(Omega_o^3);
-omga_c=100;
-lamda=30;
+omga_c=10;
 
 
 

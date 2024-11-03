@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'CONTROL_SYSTEM_V2'.
  *
- * Model version                  : 1.19
+ * Model version                  : 1.20
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Thu Sep 12 15:27:52 2024
+ * C/C++ source code generated on : Mon Sep 23 19:23:35 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -22,8 +22,8 @@
 #include "rtwtypes.h"
 #include "CONTROL_SYSTEM_V2_types.h"
 #include "CONTROL_SYSTEM_V2_private.h"
-#include "zero_crossing_types.h"
 #include <math.h>
+#include "zero_crossing_types.h"
 
 /* Block signals (default storage) */
 B_CONTROL_SYSTEM_V2_T CONTROL_SYSTEM_V2_B;
@@ -117,6 +117,9 @@ void CONTROL_SYSTEM_V2_NEGATIVEEdge(RT_MODEL_CONTROL_SYSTEM_V2_T * const
   if (localDW->NEGATIVEEdge_MODE) {
     /* RelationalOperator: '<S22>/Relational Operator1' */
     *rty_OUT = ((int32_T)rtu_INprevious > (int32_T)rtu_IN);
+    if (rtsiIsModeUpdateTimeStep(&CONTROL_SYSTEM_V2_M->solverInfo)) {
+      srUpdateBC(localDW->NEGATIVEEdge_SubsysRanBC);
+    }
   }
 
   /* End of Outputs for SubSystem: '<S20>/NEGATIVE Edge' */
@@ -168,6 +171,9 @@ void CONTROL_SYSTEM_V2_POSITIVEEdge(RT_MODEL_CONTROL_SYSTEM_V2_T * const
   if (localDW->POSITIVEEdge_MODE) {
     /* RelationalOperator: '<S23>/Relational Operator1' */
     *rty_OUT = ((int32_T)rtu_INprevious < (int32_T)rtu_IN);
+    if (rtsiIsModeUpdateTimeStep(&CONTROL_SYSTEM_V2_M->solverInfo)) {
+      srUpdateBC(localDW->POSITIVEEdge_SubsysRanBC);
+    }
   }
 
   /* End of Outputs for SubSystem: '<S20>/POSITIVE Edge' */
@@ -207,11 +213,8 @@ static void CONTROL_SYST_SystemCore_release(codertarget_arduinobase_inter_T *obj
 /* Model step function */
 void CONTROL_SYSTEM_V2_step(void)
 {
-  real_T b_varargout_2;
-  real_T b_varargout_3;
-  real_T b_varargout_4;
-  real_T rtb_Error;
-  real_T rtb_FP_maxVal;
+  real_T rtb_Clock;
+  real_T tmp_0;
   int32_T rowIdx;
   int8_T rowIdx_tmp_4;
   int8_T rtAction;
@@ -237,6 +240,30 @@ void CONTROL_SYSTEM_V2_step(void)
   if (rtmIsMinorTimeStep(CONTROL_SYSTEM_V2_M)) {
     CONTROL_SYSTEM_V2_M->Timing.t[0] = rtsiGetT(&CONTROL_SYSTEM_V2_M->solverInfo);
   }
+
+  /* Reset subsysRan breadcrumbs */
+  srClearBC(CONTROL_SYSTEM_V2_DW.TriggeredSubsystem_SubsysRanB_d);
+
+  /* Reset subsysRan breadcrumbs */
+  srClearBC(CONTROL_SYSTEM_V2_DW.NEGATIVEEdge.NEGATIVEEdge_SubsysRanBC);
+
+  /* Reset subsysRan breadcrumbs */
+  srClearBC(CONTROL_SYSTEM_V2_DW.POSITIVEEdge.POSITIVEEdge_SubsysRanBC);
+
+  /* Reset subsysRan breadcrumbs */
+  srClearBC(CONTROL_SYSTEM_V2_DW.OFFDelay_SubsysRanBC);
+
+  /* Reset subsysRan breadcrumbs */
+  srClearBC(CONTROL_SYSTEM_V2_DW.TriggeredSubsystem_SubsysRanBC);
+
+  /* Reset subsysRan breadcrumbs */
+  srClearBC(CONTROL_SYSTEM_V2_DW.ONDelay_SubsysRanBC);
+
+  /* Reset subsysRan breadcrumbs */
+  srClearBC(CONTROL_SYSTEM_V2_DW.NoControl_SubsysRanBC);
+
+  /* Reset subsysRan breadcrumbs */
+  srClearBC(CONTROL_SYSTEM_V2_DW.PIDControl_SubsysRanBC);
 
   /* MATLABSystem: '<S7>/Digital Input' */
   if (CONTROL_SYSTEM_V2_DW.obj_dc.SampleTime !=
@@ -394,60 +421,75 @@ void CONTROL_SYSTEM_V2_step(void)
       CONTROL_SYSTEM_V2_P.MATLABSystem_SampleTime;
   }
 
+  /* MATLABSystem: '<S1>/MATLAB System' */
   /*         %% Define output properties */
-  rtb_Error = 0.0;
-  b_varargout_2 = 0.0;
-  b_varargout_3 = 0.0;
-  b_varargout_4 = 0.0;
-  stepFunctionADS1115_Vread(&rtb_Error, 1.0, &b_varargout_2, 1.0, &b_varargout_3,
-    1.0, &b_varargout_4, 1.0);
+  CONTROL_SYSTEM_V2_B.MATLABSystem_o1 = 0.0;
+
+  /* MATLABSystem: '<S1>/MATLAB System' */
+  CONTROL_SYSTEM_V2_B.MATLABSystem_o2 = 0.0;
+
+  /* MATLABSystem: '<S1>/MATLAB System' */
+  CONTROL_SYSTEM_V2_B.MATLABSystem_o3 = 0.0;
+
+  /* MATLABSystem: '<S1>/MATLAB System' */
+  CONTROL_SYSTEM_V2_B.MATLABSystem_o4 = 0.0;
+  stepFunctionADS1115_Vread(&CONTROL_SYSTEM_V2_B.MATLABSystem_o1, 1.0,
+    &CONTROL_SYSTEM_V2_B.MATLABSystem_o2, 1.0,
+    &CONTROL_SYSTEM_V2_B.MATLABSystem_o3, 1.0,
+    &CONTROL_SYSTEM_V2_B.MATLABSystem_o4, 1.0);
   if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V2_M)) {
-    /* MATLAB Function: '<Root>/Foot Pedal Calibration' incorporates:
-     *  MATLABSystem: '<S1>/MATLAB System'
-     * */
-    if (b_varargout_3 > CONTROL_SYSTEM_V2_DW.maxSet) {
-      CONTROL_SYSTEM_V2_DW.maxSet = b_varargout_3;
+    /* MATLAB Function: '<Root>/Foot Pedal Calibration' */
+    if (CONTROL_SYSTEM_V2_B.MATLABSystem_o3 > CONTROL_SYSTEM_V2_DW.maxSet) {
+      CONTROL_SYSTEM_V2_DW.maxSet = CONTROL_SYSTEM_V2_B.MATLABSystem_o3;
     }
 
-    if (b_varargout_3 < CONTROL_SYSTEM_V2_DW.minSet) {
-      CONTROL_SYSTEM_V2_DW.minSet = b_varargout_3;
+    if (CONTROL_SYSTEM_V2_B.MATLABSystem_o3 < CONTROL_SYSTEM_V2_DW.minSet) {
+      CONTROL_SYSTEM_V2_DW.minSet = CONTROL_SYSTEM_V2_B.MATLABSystem_o3;
     }
 
-    rtb_FP_maxVal = CONTROL_SYSTEM_V2_DW.maxSet;
+    CONTROL_SYSTEM_V2_B.FP_maxVal = CONTROL_SYSTEM_V2_DW.maxSet;
     CONTROL_SYSTEM_V2_B.FP_minVal = CONTROL_SYSTEM_V2_DW.minSet;
 
-    /* MATLAB Function: '<Root>/Throttle Body Callibration' incorporates:
-     *  MATLABSystem: '<S1>/MATLAB System'
-     * */
-    if (b_varargout_2 > CONTROL_SYSTEM_V2_DW.TB_maxSet) {
-      CONTROL_SYSTEM_V2_DW.TB_maxSet = b_varargout_2;
+    /* End of MATLAB Function: '<Root>/Foot Pedal Calibration' */
+
+    /* Sum: '<S12>/Add2' */
+    CONTROL_SYSTEM_V2_B.Add2 = CONTROL_SYSTEM_V2_B.FP_maxVal -
+      CONTROL_SYSTEM_V2_B.FP_minVal;
+
+    /* MATLAB Function: '<Root>/Throttle Body Callibration' */
+    if (CONTROL_SYSTEM_V2_B.MATLABSystem_o2 > CONTROL_SYSTEM_V2_DW.TB_maxSet) {
+      CONTROL_SYSTEM_V2_DW.TB_maxSet = CONTROL_SYSTEM_V2_B.MATLABSystem_o2;
     }
 
-    if (b_varargout_2 < CONTROL_SYSTEM_V2_DW.TB_minSet) {
-      CONTROL_SYSTEM_V2_DW.TB_minSet = b_varargout_2;
+    if (CONTROL_SYSTEM_V2_B.MATLABSystem_o2 < CONTROL_SYSTEM_V2_DW.TB_minSet) {
+      CONTROL_SYSTEM_V2_DW.TB_minSet = CONTROL_SYSTEM_V2_B.MATLABSystem_o2;
     }
 
+    CONTROL_SYSTEM_V2_B.TB_maxVal = CONTROL_SYSTEM_V2_DW.TB_maxSet;
     CONTROL_SYSTEM_V2_B.TB_minVal = CONTROL_SYSTEM_V2_DW.TB_minSet;
 
-    /* Product: '<S12>/Divide1' incorporates:
-     *  MATLAB Function: '<Root>/Foot Pedal Calibration'
-     *  MATLAB Function: '<Root>/Throttle Body Callibration'
-     *  Sum: '<S12>/Add2'
-     *  Sum: '<S12>/Add3'
-     */
-    CONTROL_SYSTEM_V2_B.Divide1 = (CONTROL_SYSTEM_V2_DW.maxSet -
-      CONTROL_SYSTEM_V2_B.FP_minVal) / (CONTROL_SYSTEM_V2_DW.TB_maxSet -
-      CONTROL_SYSTEM_V2_B.TB_minVal);
+    /* End of MATLAB Function: '<Root>/Throttle Body Callibration' */
+
+    /* Sum: '<S12>/Add3' */
+    CONTROL_SYSTEM_V2_B.Add3 = CONTROL_SYSTEM_V2_B.TB_maxVal -
+      CONTROL_SYSTEM_V2_B.TB_minVal;
+
+    /* Product: '<S12>/Divide1' */
+    CONTROL_SYSTEM_V2_B.Divide1 = CONTROL_SYSTEM_V2_B.Add2 /
+      CONTROL_SYSTEM_V2_B.Add3;
   }
 
-  /* Sum: '<Root>/Sum2' incorporates:
-   *  MATLABSystem: '<S1>/MATLAB System'
+  /* Sum: '<S12>/Sum' incorporates:
    *  Product: '<S12>/Product1'
    *  Sum: '<S12>/Subtract'
-   *  Sum: '<S12>/Sum'
-   * */
-  rtb_Error = b_varargout_3 - ((b_varargout_2 - CONTROL_SYSTEM_V2_B.TB_minVal) *
-    CONTROL_SYSTEM_V2_B.Divide1 + CONTROL_SYSTEM_V2_B.FP_minVal);
+   */
+  CONTROL_SYSTEM_V2_B.Sum = (CONTROL_SYSTEM_V2_B.MATLABSystem_o2 -
+    CONTROL_SYSTEM_V2_B.TB_minVal) * CONTROL_SYSTEM_V2_B.Divide1 +
+    CONTROL_SYSTEM_V2_B.FP_minVal;
+
+  /* Sum: '<Root>/Sum2' */
+  CONTROL_SYSTEM_V2_B.Error = CONTROL_SYSTEM_V2_B.MATLABSystem_o3 -
+    CONTROL_SYSTEM_V2_B.Sum;
 
   /* If: '<Root>/If Condition' */
   rtPrevAction = CONTROL_SYSTEM_V2_DW.IfCondition_ActiveSubsystem;
@@ -484,7 +526,10 @@ void CONTROL_SYSTEM_V2_step(void)
      *  ActionPort: '<S8>/Action Port'
      */
     /* SignalConversion generated from: '<S8>/In1' */
-    CONTROL_SYSTEM_V2_B.In1 = rtb_Error;
+    CONTROL_SYSTEM_V2_B.In1 = CONTROL_SYSTEM_V2_B.Error;
+    if (rtsiIsModeUpdateTimeStep(&CONTROL_SYSTEM_V2_M->solverInfo)) {
+      srUpdateBC(CONTROL_SYSTEM_V2_DW.NoControl_SubsysRanBC);
+    }
 
     /* End of Outputs for SubSystem: '<Root>/No Control' */
     break;
@@ -504,52 +549,58 @@ void CONTROL_SYSTEM_V2_step(void)
     /* Outputs for IfAction SubSystem: '<Root>/PID Control' incorporates:
      *  ActionPort: '<S10>/Action Port'
      */
-    if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V2_M)) {
-      /* Sum: '<S10>/Sum1' incorporates:
-       *  Constant: '<S10>/Constant'
-       */
-      CONTROL_SYSTEM_V2_B.Sum1 = CONTROL_SYSTEM_V2_P.Constant_Value +
-        rtb_FP_maxVal;
-    }
-
     /* Gain: '<S76>/Filter Coefficient' incorporates:
      *  Gain: '<S66>/Derivative Gain'
      *  Integrator: '<S68>/Filter'
      *  Sum: '<S68>/SumD'
      */
-    CONTROL_SYSTEM_V2_B.FilterCoefficient = (CONTROL_SYSTEM_V2_P.Kd * rtb_Error
-      - CONTROL_SYSTEM_V2_X.Filter_CSTATE) * CONTROL_SYSTEM_V2_P.Kn;
+    CONTROL_SYSTEM_V2_B.FilterCoefficient = (CONTROL_SYSTEM_V2_P.Kd *
+      CONTROL_SYSTEM_V2_B.Error - CONTROL_SYSTEM_V2_X.Filter_CSTATE) *
+      CONTROL_SYSTEM_V2_P.Kn;
 
     /* Sum: '<S82>/Sum' incorporates:
      *  Gain: '<S78>/Proportional Gain'
      *  Integrator: '<S73>/Integrator'
      */
-    CONTROL_SYSTEM_V2_B.Switch2 = (CONTROL_SYSTEM_V2_P.Kp * rtb_Error +
-      CONTROL_SYSTEM_V2_X.Integrator_CSTATE) +
+    CONTROL_SYSTEM_V2_B.Sum_d = (CONTROL_SYSTEM_V2_P.Kp *
+      CONTROL_SYSTEM_V2_B.Error + CONTROL_SYSTEM_V2_X.Integrator_CSTATE) +
       CONTROL_SYSTEM_V2_B.FilterCoefficient;
+    if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V2_M)) {
+      /* Sum: '<S10>/Sum1' incorporates:
+       *  Constant: '<S10>/Constant'
+       */
+      CONTROL_SYSTEM_V2_B.Sum1 = CONTROL_SYSTEM_V2_P.Constant_Value +
+        CONTROL_SYSTEM_V2_B.FP_maxVal;
+    }
 
     /* Switch: '<S39>/Switch2' incorporates:
      *  RelationalOperator: '<S39>/LowerRelop1'
      *  RelationalOperator: '<S39>/UpperRelop'
      *  Switch: '<S39>/Switch'
      */
-    if (CONTROL_SYSTEM_V2_B.Switch2 > CONTROL_SYSTEM_V2_B.Sum1) {
-      /* Sum: '<S82>/Sum' incorporates:
-       *  Switch: '<S39>/Switch2'
-       */
+    if (CONTROL_SYSTEM_V2_B.Sum_d > CONTROL_SYSTEM_V2_B.Sum1) {
+      /* Switch: '<S39>/Switch2' */
       CONTROL_SYSTEM_V2_B.Switch2 = CONTROL_SYSTEM_V2_B.Sum1;
-    } else if (CONTROL_SYSTEM_V2_B.Switch2 < CONTROL_SYSTEM_V2_B.FP_minVal) {
-      /* Sum: '<S82>/Sum' incorporates:
-       *  Switch: '<S39>/Switch'
+    } else if (CONTROL_SYSTEM_V2_B.Sum_d < CONTROL_SYSTEM_V2_B.FP_minVal) {
+      /* Switch: '<S39>/Switch' incorporates:
        *  Switch: '<S39>/Switch2'
        */
       CONTROL_SYSTEM_V2_B.Switch2 = CONTROL_SYSTEM_V2_B.FP_minVal;
+    } else {
+      /* Switch: '<S39>/Switch2' incorporates:
+       *  Switch: '<S39>/Switch'
+       */
+      CONTROL_SYSTEM_V2_B.Switch2 = CONTROL_SYSTEM_V2_B.Sum_d;
     }
 
     /* End of Switch: '<S39>/Switch2' */
 
     /* Gain: '<S70>/Integral Gain' */
-    CONTROL_SYSTEM_V2_B.IntegralGain = CONTROL_SYSTEM_V2_P.Ki * rtb_Error;
+    CONTROL_SYSTEM_V2_B.IntegralGain = CONTROL_SYSTEM_V2_P.Ki *
+      CONTROL_SYSTEM_V2_B.Error;
+    if (rtsiIsModeUpdateTimeStep(&CONTROL_SYSTEM_V2_M->solverInfo)) {
+      srUpdateBC(CONTROL_SYSTEM_V2_DW.PIDControl_SubsysRanBC);
+    }
 
     /* End of Outputs for SubSystem: '<Root>/PID Control' */
     break;
@@ -586,7 +637,7 @@ void CONTROL_SYSTEM_V2_step(void)
     rowIdx + 8U];
 
   /* Clock: '<S15>/Clock' */
-  rtb_Error = CONTROL_SYSTEM_V2_M->Timing.t[0];
+  rtb_Clock = CONTROL_SYSTEM_V2_M->Timing.t[0];
   if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V2_M)) {
     /* RelationalOperator: '<S15>/Relational Operator1' incorporates:
      *  Constant: '<S15>/Constant'
@@ -696,7 +747,7 @@ void CONTROL_SYSTEM_V2_step(void)
     /* Switch: '<S33>/Switch' */
     if (LogicalOperator1) {
       /* Switch: '<S33>/Switch' */
-      CONTROL_SYSTEM_V2_B.Switch = rtb_Error;
+      CONTROL_SYSTEM_V2_B.Switch = rtb_Clock;
     } else {
       /* Switch: '<S33>/Switch' */
       CONTROL_SYSTEM_V2_B.Switch = CONTROL_SYSTEM_V2_B.ICic;
@@ -709,7 +760,7 @@ void CONTROL_SYSTEM_V2_step(void)
      *  RelationalOperator: '<S17>/Relational Operator'
      *  Sum: '<S17>/Sum'
      */
-    CONTROL_SYSTEM_V2_B.LogicalOperator2_h = ((rtb_Error >=
+    CONTROL_SYSTEM_V2_B.LogicalOperator2_h = ((rtb_Clock >=
       CONTROL_SYSTEM_V2_B.Switch + CONTROL_SYSTEM_V2_P.OnDelay_delay) &&
       CONTROL_SYSTEM_V2_B.Logic_k[0]);
     if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V2_M)) {
@@ -717,10 +768,20 @@ void CONTROL_SYSTEM_V2_step(void)
        *  TriggerPort: '<S32>/Trigger'
        */
       if (rtsiIsModeUpdateTimeStep(&CONTROL_SYSTEM_V2_M->solverInfo)) {
+        if (LogicalOperator1 &&
+            (CONTROL_SYSTEM_V2_PrevZCX.TriggeredSubsystem_Trig_ZCE != POS_ZCSIG))
+        {
+          CONTROL_SYSTEM_V2_DW.TriggeredSubsystem_SubsysRanBC = 4;
+        }
+
         CONTROL_SYSTEM_V2_PrevZCX.TriggeredSubsystem_Trig_ZCE = LogicalOperator1;
       }
 
       /* End of Outputs for SubSystem: '<S29>/Triggered Subsystem' */
+    }
+
+    if (rtsiIsModeUpdateTimeStep(&CONTROL_SYSTEM_V2_M->solverInfo)) {
+      srUpdateBC(CONTROL_SYSTEM_V2_DW.ONDelay_SubsysRanBC);
     }
   }
 
@@ -830,7 +891,7 @@ void CONTROL_SYSTEM_V2_step(void)
     /* Switch: '<S25>/Switch' */
     if (LogicalOperator1) {
       /* Switch: '<S25>/Switch' */
-      CONTROL_SYSTEM_V2_B.Switch_i = rtb_Error;
+      CONTROL_SYSTEM_V2_B.Switch_i = rtb_Clock;
     } else {
       /* Switch: '<S25>/Switch' */
       CONTROL_SYSTEM_V2_B.Switch_i = CONTROL_SYSTEM_V2_B.ICic_h;
@@ -845,7 +906,7 @@ void CONTROL_SYSTEM_V2_step(void)
      *  RelationalOperator: '<S16>/Relational Operator'
      *  Sum: '<S16>/Sum'
      */
-    CONTROL_SYSTEM_V2_B.LogicalOperator2_m = ((!(rtb_Error >=
+    CONTROL_SYSTEM_V2_B.LogicalOperator2_m = ((!(rtb_Clock >=
       CONTROL_SYSTEM_V2_B.Switch_i + CONTROL_SYSTEM_V2_P.OnDelay_delay)) ||
       CONTROL_SYSTEM_V2_B.Logic_k[0]);
     if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V2_M)) {
@@ -853,26 +914,76 @@ void CONTROL_SYSTEM_V2_step(void)
        *  TriggerPort: '<S24>/Trigger'
        */
       if (rtsiIsModeUpdateTimeStep(&CONTROL_SYSTEM_V2_M->solverInfo)) {
+        if (LogicalOperator1 &&
+            (CONTROL_SYSTEM_V2_PrevZCX.TriggeredSubsystem_Trig_ZCE_i !=
+             POS_ZCSIG)) {
+          CONTROL_SYSTEM_V2_DW.TriggeredSubsystem_SubsysRanB_d = 4;
+        }
+
         CONTROL_SYSTEM_V2_PrevZCX.TriggeredSubsystem_Trig_ZCE_i =
           LogicalOperator1;
       }
 
       /* End of Outputs for SubSystem: '<S21>/Triggered Subsystem' */
     }
+
+    if (rtsiIsModeUpdateTimeStep(&CONTROL_SYSTEM_V2_M->solverInfo)) {
+      srUpdateBC(CONTROL_SYSTEM_V2_DW.OFFDelay_SubsysRanBC);
+    }
   }
 
   /* End of Outputs for SubSystem: '<S15>/OFF Delay' */
   if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V2_M)) {
-    /* Product: '<S4>/Divide1' incorporates:
+    /* Sum: '<S4>/Add2' incorporates:
      *  Constant: '<S4>/Desire Max Value'
      *  Constant: '<S4>/Desire Min Value'
-     *  Sum: '<S4>/Add2'
-     *  Sum: '<S4>/Add3'
      */
-    CONTROL_SYSTEM_V2_B.Divide1_p = (CONTROL_SYSTEM_V2_P.Desire_Max -
-      CONTROL_SYSTEM_V2_P.Desire_Min) / (rtb_FP_maxVal -
-      CONTROL_SYSTEM_V2_B.FP_minVal);
+    CONTROL_SYSTEM_V2_B.Add2_b = CONTROL_SYSTEM_V2_P.Desire_Max -
+      CONTROL_SYSTEM_V2_P.Desire_Min;
+
+    /* Sum: '<S4>/Add3' */
+    CONTROL_SYSTEM_V2_B.Add3_o = CONTROL_SYSTEM_V2_B.FP_maxVal -
+      CONTROL_SYSTEM_V2_B.FP_minVal;
+
+    /* Product: '<S4>/Divide1' */
+    CONTROL_SYSTEM_V2_B.Divide1_p = CONTROL_SYSTEM_V2_B.Add2_b /
+      CONTROL_SYSTEM_V2_B.Add3_o;
   }
+
+  /* MultiPortSwitch: '<S9>/Multiport Switch' incorporates:
+   *  Gain: '<S9>/Multiply'
+   *  Gain: '<S9>/Multiply1'
+   *  Gain: '<S9>/Multiply2'
+   *  Sum: '<S9>/Add'
+   */
+  switch ((uint8_T)(((((uint32_T)(CONTROL_SYSTEM_V2_B.Logic_h[0] ? (int32_T)
+    CONTROL_SYSTEM_V2_P.Multiply1_Gain : 0) << 1) + (uint32_T)
+                      (CONTROL_SYSTEM_V2_B.Logic[0] ? (int32_T)
+                       CONTROL_SYSTEM_V2_P.Multiply_Gain : 0)) + ((uint32_T)
+             (CONTROL_SYSTEM_V2_B.Logic_d[0] ? (int32_T)
+              CONTROL_SYSTEM_V2_P.Multiply2_Gain : 0) << 1)) >> 1) >> 6) {
+   case 1:
+    rtb_Clock = CONTROL_SYSTEM_V2_B.In1;
+    break;
+
+   case 2:
+    rtb_Clock = CONTROL_SYSTEM_V2_B.Switch2;
+    break;
+
+   default:
+    rtb_Clock = 0.0;
+    break;
+  }
+
+  /* End of MultiPortSwitch: '<S9>/Multiport Switch' */
+
+  /* Sum: '<S4>/Sum' incorporates:
+   *  Constant: '<S4>/Desire Min Value'
+   *  Product: '<S4>/Product1'
+   *  Sum: '<S4>/Subtract'
+   */
+  CONTROL_SYSTEM_V2_B.Sum_b = (rtb_Clock - CONTROL_SYSTEM_V2_B.FP_minVal) *
+    CONTROL_SYSTEM_V2_B.Divide1_p + CONTROL_SYSTEM_V2_P.Desire_Min;
 
   /* Switch: '<S6>/Switch2' incorporates:
    *  Constant: '<S6>/Constant'
@@ -881,70 +992,36 @@ void CONTROL_SYSTEM_V2_step(void)
    */
   if (CONTROL_SYSTEM_V2_B.LogicalOperator2_h ||
       CONTROL_SYSTEM_V2_B.LogicalOperator2_m) {
-    rtb_FP_maxVal = CONTROL_SYSTEM_V2_P.Constant_Value_jl;
+    rtb_Clock = CONTROL_SYSTEM_V2_P.Constant_Value_jl;
   } else if (CONTROL_SYSTEM_V2_B.Logic_k[0]) {
     /* Switch: '<S6>/Switch1' incorporates:
      *  Gain: '<S6>/Gain'
      */
-    rtb_FP_maxVal = (real_T)(CONTROL_SYSTEM_V2_B.Logic_k[0] ? (int32_T)
-      CONTROL_SYSTEM_V2_P.Gain_Gain : 0) * 0.5;
+    rtb_Clock = (real_T)(CONTROL_SYSTEM_V2_B.Logic_k[0] ? (int32_T)
+                         CONTROL_SYSTEM_V2_P.Gain_Gain_j : 0) * 0.5;
   } else {
-    /* MultiPortSwitch: '<S9>/Multiport Switch' incorporates:
-     *  Gain: '<S9>/Multiply'
-     *  Gain: '<S9>/Multiply1'
-     *  Gain: '<S9>/Multiply2'
-     *  Sum: '<S9>/Add'
-     *  Switch: '<S6>/Switch1'
-     */
-    switch ((uint8_T)(((((uint32_T)(CONTROL_SYSTEM_V2_B.Logic_h[0] ? (int32_T)
-      CONTROL_SYSTEM_V2_P.Multiply1_Gain : 0) << 1) + (uint32_T)
-                        (CONTROL_SYSTEM_V2_B.Logic[0] ? (int32_T)
-                         CONTROL_SYSTEM_V2_P.Multiply_Gain : 0)) + ((uint32_T)
-               (CONTROL_SYSTEM_V2_B.Logic_d[0] ? (int32_T)
-                CONTROL_SYSTEM_V2_P.Multiply2_Gain : 0) << 1)) >> 1) >> 6) {
-     case 1:
-      rtb_FP_maxVal = CONTROL_SYSTEM_V2_B.In1;
-      break;
-
-     case 2:
-      rtb_FP_maxVal = CONTROL_SYSTEM_V2_B.Switch2;
-      break;
-
-     default:
-      rtb_FP_maxVal = 0.0;
-      break;
-    }
-
-    /* End of MultiPortSwitch: '<S9>/Multiport Switch' */
-
-    /* Switch: '<S6>/Switch1' incorporates:
-     *  Constant: '<S4>/Desire Min Value'
-     *  Product: '<S4>/Product1'
-     *  Sum: '<S4>/Subtract'
-     *  Sum: '<S4>/Sum'
-     */
-    rtb_FP_maxVal = (rtb_FP_maxVal - CONTROL_SYSTEM_V2_B.FP_minVal) *
-      CONTROL_SYSTEM_V2_B.Divide1_p + CONTROL_SYSTEM_V2_P.Desire_Min;
+    /* Switch: '<S6>/Switch1' */
+    rtb_Clock = CONTROL_SYSTEM_V2_B.Sum_b;
   }
 
   /* End of Switch: '<S6>/Switch2' */
 
   /* Start for MATLABSystem: '<S6>/PWM' */
-  if (!(rtb_FP_maxVal <= 255.0)) {
-    rtb_FP_maxVal = 255.0;
+  if (!(rtb_Clock <= 255.0)) {
+    rtb_Clock = 255.0;
   }
 
   /* MATLABSystem: '<S6>/PWM' */
   CONTROL_SYSTEM_V2_DW.obj_mm.PWMDriverObj.MW_PWM_HANDLE = MW_PWM_GetHandle(4U);
 
   /* Start for MATLABSystem: '<S6>/PWM' */
-  if (!(rtb_FP_maxVal >= 0.0)) {
-    rtb_FP_maxVal = 0.0;
+  if (!(rtb_Clock >= 0.0)) {
+    rtb_Clock = 0.0;
   }
 
   /* MATLABSystem: '<S6>/PWM' */
   MW_PWM_SetDutyCycle(CONTROL_SYSTEM_V2_DW.obj_mm.PWMDriverObj.MW_PWM_HANDLE,
-                      -(rtb_FP_maxVal * 255.0 / 255.0));
+                      -(rtb_Clock * 255.0 / 255.0));
   if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V2_M)) {
     /* DiscretePulseGenerator: '<S2>/Pulse Generator' */
     CONTROL_SYSTEM_V2_B.PulseGenerator = (CONTROL_SYSTEM_V2_DW.clockTickCounter <
@@ -965,18 +1042,18 @@ void CONTROL_SYSTEM_V2_step(void)
    *  Constant: '<S2>/Constant'
    */
   if (CONTROL_SYSTEM_V2_B.Logic_k[0]) {
-    rtb_FP_maxVal = CONTROL_SYSTEM_V2_B.PulseGenerator;
+    rtb_Clock = CONTROL_SYSTEM_V2_B.PulseGenerator;
   } else {
-    rtb_FP_maxVal = CONTROL_SYSTEM_V2_P.Constant_Value_i;
+    rtb_Clock = CONTROL_SYSTEM_V2_P.Constant_Value_i;
   }
 
   /* MATLABSystem: '<S2>/Digital Output3' incorporates:
    *  Switch: '<S2>/Switch'
    */
-  rtb_FP_maxVal = rt_roundd_snf(rtb_FP_maxVal);
-  if (rtb_FP_maxVal < 256.0) {
-    if (rtb_FP_maxVal >= 0.0) {
-      tmp = (uint8_T)rtb_FP_maxVal;
+  rtb_Clock = rt_roundd_snf(rtb_Clock);
+  if (rtb_Clock < 256.0) {
+    if (rtb_Clock >= 0.0) {
+      tmp = (uint8_T)rtb_Clock;
     } else {
       tmp = 0U;
     }
@@ -987,6 +1064,13 @@ void CONTROL_SYSTEM_V2_step(void)
   writeDigitalPin(33, tmp);
 
   /* End of MATLABSystem: '<S2>/Digital Output3' */
+
+  /* Gain: '<S11>/Gain' incorporates:
+   *  Abs: '<S11>/Abs'
+   *  Product: '<S11>/Divide'
+   */
+  CONTROL_SYSTEM_V2_B.PercentageError = fabs(CONTROL_SYSTEM_V2_B.Error /
+    CONTROL_SYSTEM_V2_B.Sum) * CONTROL_SYSTEM_V2_P.Gain_Gain;
   if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V2_M)) {
     /* DiscretePulseGenerator: '<S3>/Pulse Generator' */
     CONTROL_SYSTEM_V2_B.PulseGenerator_f =
@@ -1007,23 +1091,23 @@ void CONTROL_SYSTEM_V2_step(void)
   /* Switch: '<S3>/Switch' incorporates:
    *  Constant: '<S3>/Constant'
    *  Constant: '<S3>/Constant1'
-   *  MATLABSystem: '<S1>/MATLAB System'
-   * */
-  if (b_varargout_2 > CONTROL_SYSTEM_V2_P.Switch_Threshold) {
-    rtb_FP_maxVal = CONTROL_SYSTEM_V2_P.Constant_Value_d;
+   */
+  if (CONTROL_SYSTEM_V2_B.MATLABSystem_o2 > CONTROL_SYSTEM_V2_P.Switch_Threshold)
+  {
+    rtb_Clock = CONTROL_SYSTEM_V2_P.Constant_Value_d;
   } else {
-    rtb_FP_maxVal = CONTROL_SYSTEM_V2_P.Constant1_Value;
+    rtb_Clock = CONTROL_SYSTEM_V2_P.Constant1_Value;
   }
 
   /* Switch: '<S3>/Switch2' incorporates:
    *  Constant: '<S3>/Constant2'
    *  Constant: '<S3>/Constant3'
-   *  MATLABSystem: '<S1>/MATLAB System'
-   * */
-  if (b_varargout_3 > CONTROL_SYSTEM_V2_P.Switch2_Threshold) {
-    b_varargout_2 = CONTROL_SYSTEM_V2_P.Constant2_Value;
+   */
+  if (CONTROL_SYSTEM_V2_B.MATLABSystem_o3 >
+      CONTROL_SYSTEM_V2_P.Switch2_Threshold) {
+    tmp_0 = CONTROL_SYSTEM_V2_P.Constant2_Value;
   } else {
-    b_varargout_2 = CONTROL_SYSTEM_V2_P.Constant3_Value;
+    tmp_0 = CONTROL_SYSTEM_V2_P.Constant3_Value;
   }
 
   /* Switch: '<S3>/Switch3' incorporates:
@@ -1032,19 +1116,19 @@ void CONTROL_SYSTEM_V2_step(void)
    *  Switch: '<S3>/Switch'
    *  Switch: '<S3>/Switch2'
    */
-  if ((!(rtb_FP_maxVal != 0.0)) || (!(b_varargout_2 != 0.0))) {
-    rtb_FP_maxVal = CONTROL_SYSTEM_V2_B.PulseGenerator_f;
+  if ((!(rtb_Clock != 0.0)) || (!(tmp_0 != 0.0))) {
+    rtb_Clock = CONTROL_SYSTEM_V2_B.PulseGenerator_f;
   } else {
-    rtb_FP_maxVal = CONTROL_SYSTEM_V2_P.Constant4_Value;
+    rtb_Clock = CONTROL_SYSTEM_V2_P.Constant4_Value;
   }
 
   /* MATLABSystem: '<S3>/Digital Output4' incorporates:
    *  Switch: '<S3>/Switch3'
    */
-  rtb_FP_maxVal = rt_roundd_snf(rtb_FP_maxVal);
-  if (rtb_FP_maxVal < 256.0) {
-    if (rtb_FP_maxVal >= 0.0) {
-      tmp = (uint8_T)rtb_FP_maxVal;
+  rtb_Clock = rt_roundd_snf(rtb_Clock);
+  if (rtb_Clock < 256.0) {
+    if (rtb_Clock >= 0.0) {
+      tmp = (uint8_T)rtb_Clock;
     } else {
       tmp = 0U;
     }
@@ -1056,13 +1140,14 @@ void CONTROL_SYSTEM_V2_step(void)
 
   /* End of MATLABSystem: '<S3>/Digital Output4' */
   if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V2_M)) {
-    /* MATLABSystem: '<S6>/Digital Output' incorporates:
-     *  Constant: '<S6>/Enable Pin'
-     */
-    rtb_FP_maxVal = rt_roundd_snf(CONTROL_SYSTEM_V2_P.EN_Pin);
-    if (rtb_FP_maxVal < 256.0) {
-      if (rtb_FP_maxVal >= 0.0) {
-        tmp = (uint8_T)rtb_FP_maxVal;
+    /* Constant: '<S6>/Enable Pin' */
+    CONTROL_SYSTEM_V2_B.EnablePin = CONTROL_SYSTEM_V2_P.EN_Pin;
+
+    /* MATLABSystem: '<S6>/Digital Output' */
+    rtb_Clock = rt_roundd_snf(CONTROL_SYSTEM_V2_B.EnablePin);
+    if (rtb_Clock < 256.0) {
+      if (rtb_Clock >= 0.0) {
+        tmp = (uint8_T)rtb_Clock;
       } else {
         tmp = 0U;
       }
@@ -1073,14 +1158,14 @@ void CONTROL_SYSTEM_V2_step(void)
     writeDigitalPin(0, tmp);
 
     /* End of MATLABSystem: '<S6>/Digital Output' */
+    /* Constant: '<S6>/Direction Pin' */
+    CONTROL_SYSTEM_V2_B.DirectionPin = CONTROL_SYSTEM_V2_P.Direction_Pin;
 
-    /* MATLABSystem: '<S6>/Digital Output1' incorporates:
-     *  Constant: '<S6>/Direction Pin'
-     */
-    rtb_FP_maxVal = rt_roundd_snf(CONTROL_SYSTEM_V2_P.Direction_Pin);
-    if (rtb_FP_maxVal < 256.0) {
-      if (rtb_FP_maxVal >= 0.0) {
-        tmp = (uint8_T)rtb_FP_maxVal;
+    /* MATLABSystem: '<S6>/Digital Output1' */
+    rtb_Clock = rt_roundd_snf(CONTROL_SYSTEM_V2_B.DirectionPin);
+    if (rtb_Clock < 256.0) {
+      if (rtb_Clock >= 0.0) {
+        tmp = (uint8_T)rtb_Clock;
       } else {
         tmp = 0U;
       }
@@ -1140,6 +1225,18 @@ void CONTROL_SYSTEM_V2_step(void)
     }
 
     /* End of Update for SubSystem: '<S15>/OFF Delay' */
+    if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V2_M)) {/* Sample time: [0.01s, 0.0s] */
+      extmodeErrorCode_T errorCode = EXTMODE_SUCCESS;
+      extmodeSimulationTime_T currentTime = (extmodeSimulationTime_T)
+        ((CONTROL_SYSTEM_V2_M->Timing.clockTick1) * 0.01);
+
+      /* Trigger External Mode event */
+      errorCode = extmodeEvent(1,currentTime);
+      if (errorCode != EXTMODE_SUCCESS) {
+        /* Code to handle External Mode event errors
+           may be added here */
+      }
+    }
   }                                    /* end MajorTimeStep */
 
   if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V2_M)) {
@@ -1243,7 +1340,68 @@ void CONTROL_SYSTEM_V2_initialize(void)
                     &CONTROL_SYSTEM_V2_M->intgData);
   rtsiSetSolverName(&CONTROL_SYSTEM_V2_M->solverInfo,"ode1");
   rtmSetTPtr(CONTROL_SYSTEM_V2_M, &CONTROL_SYSTEM_V2_M->Timing.tArray[0]);
+  rtmSetTFinal(CONTROL_SYSTEM_V2_M, -1);
   CONTROL_SYSTEM_V2_M->Timing.stepSize0 = 0.01;
+
+  /* External mode info */
+  CONTROL_SYSTEM_V2_M->Sizes.checksums[0] = (647948192U);
+  CONTROL_SYSTEM_V2_M->Sizes.checksums[1] = (2532431853U);
+  CONTROL_SYSTEM_V2_M->Sizes.checksums[2] = (3506055581U);
+  CONTROL_SYSTEM_V2_M->Sizes.checksums[3] = (1647096762U);
+
+  {
+    static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
+    static RTWExtModeInfo rt_ExtModeInfo;
+    static const sysRanDType *systemRan[35];
+    CONTROL_SYSTEM_V2_M->extModeInfo = (&rt_ExtModeInfo);
+    rteiSetSubSystemActiveVectorAddresses(&rt_ExtModeInfo, systemRan);
+    systemRan[0] = &rtAlwaysEnabled;
+    systemRan[1] = &rtAlwaysEnabled;
+    systemRan[2] = &rtAlwaysEnabled;
+    systemRan[3] = &rtAlwaysEnabled;
+    systemRan[4] = &rtAlwaysEnabled;
+    systemRan[5] = &rtAlwaysEnabled;
+    systemRan[6] = &rtAlwaysEnabled;
+    systemRan[7] = &rtAlwaysEnabled;
+    systemRan[8] = &rtAlwaysEnabled;
+    systemRan[9] = &rtAlwaysEnabled;
+    systemRan[10] = (sysRanDType *)
+      &CONTROL_SYSTEM_V2_DW.TriggeredSubsystem_SubsysRanB_d;
+    systemRan[11] = (sysRanDType *)
+      &CONTROL_SYSTEM_V2_DW.NEGATIVEEdge.NEGATIVEEdge_SubsysRanBC;
+    systemRan[12] = (sysRanDType *)
+      &CONTROL_SYSTEM_V2_DW.POSITIVEEdge.POSITIVEEdge_SubsysRanBC;
+    systemRan[13] = (sysRanDType *)&CONTROL_SYSTEM_V2_DW.OFFDelay_SubsysRanBC;
+    systemRan[14] = (sysRanDType *)&CONTROL_SYSTEM_V2_DW.OFFDelay_SubsysRanBC;
+    systemRan[15] = (sysRanDType *)&CONTROL_SYSTEM_V2_DW.OFFDelay_SubsysRanBC;
+    systemRan[16] = (sysRanDType *)&CONTROL_SYSTEM_V2_DW.OFFDelay_SubsysRanBC;
+    systemRan[17] = (sysRanDType *)
+      &CONTROL_SYSTEM_V2_DW.TriggeredSubsystem_SubsysRanBC;
+    systemRan[18] = (sysRanDType *)
+      &CONTROL_SYSTEM_V2_DW.NEGATIVEEdge_c.NEGATIVEEdge_SubsysRanBC;
+    systemRan[19] = (sysRanDType *)
+      &CONTROL_SYSTEM_V2_DW.POSITIVEEdge_n.POSITIVEEdge_SubsysRanBC;
+    systemRan[20] = (sysRanDType *)&CONTROL_SYSTEM_V2_DW.ONDelay_SubsysRanBC;
+    systemRan[21] = (sysRanDType *)&CONTROL_SYSTEM_V2_DW.ONDelay_SubsysRanBC;
+    systemRan[22] = (sysRanDType *)&CONTROL_SYSTEM_V2_DW.ONDelay_SubsysRanBC;
+    systemRan[23] = (sysRanDType *)&CONTROL_SYSTEM_V2_DW.ONDelay_SubsysRanBC;
+    systemRan[24] = &rtAlwaysEnabled;
+    systemRan[25] = &rtAlwaysEnabled;
+    systemRan[26] = &rtAlwaysEnabled;
+    systemRan[27] = &rtAlwaysEnabled;
+    systemRan[28] = &rtAlwaysEnabled;
+    systemRan[29] = &rtAlwaysEnabled;
+    systemRan[30] = &rtAlwaysEnabled;
+    systemRan[31] = (sysRanDType *)&CONTROL_SYSTEM_V2_DW.NoControl_SubsysRanBC;
+    systemRan[32] = (sysRanDType *)&CONTROL_SYSTEM_V2_DW.PIDControl_SubsysRanBC;
+    systemRan[33] = (sysRanDType *)&CONTROL_SYSTEM_V2_DW.PIDControl_SubsysRanBC;
+    systemRan[34] = &rtAlwaysEnabled;
+    rteiSetModelMappingInfoPtr(CONTROL_SYSTEM_V2_M->extModeInfo,
+      &CONTROL_SYSTEM_V2_M->SpecialInfo.mappingInfo);
+    rteiSetChecksumsPtr(CONTROL_SYSTEM_V2_M->extModeInfo,
+                        CONTROL_SYSTEM_V2_M->Sizes.checksums);
+    rteiSetTPtr(CONTROL_SYSTEM_V2_M->extModeInfo, rtmGetTPtr(CONTROL_SYSTEM_V2_M));
+  }
 
   /* Start for If: '<Root>/If Condition' */
   (void) memset(&(CONTROL_SYSTEM_V2_XDis.Integrator_CSTATE), 1,
@@ -1283,8 +1441,6 @@ void CONTROL_SYSTEM_V2_initialize(void)
   CONTROL_SYSTEM_V2_B.In1 = CONTROL_SYSTEM_V2_P.Out1_Y0_i;
 
   /* End of SystemInitialize for SubSystem: '<Root>/No Control' */
-
-  /* SystemInitialize for IfAction SubSystem: '<Root>/PID Control' */
   /* InitializeConditions for Integrator: '<S73>/Integrator' */
   CONTROL_SYSTEM_V2_X.Integrator_CSTATE =
     CONTROL_SYSTEM_V2_P.PIDController2_InitialConditi_a;
@@ -1293,9 +1449,8 @@ void CONTROL_SYSTEM_V2_initialize(void)
   CONTROL_SYSTEM_V2_X.Filter_CSTATE =
     CONTROL_SYSTEM_V2_P.PIDController2_InitialCondition;
 
-  /* SystemInitialize for Sum: '<S82>/Sum' incorporates:
+  /* SystemInitialize for Switch: '<S39>/Switch2' incorporates:
    *  Outport: '<S10>/PID Output'
-   *  Switch: '<S39>/Switch2'
    */
   CONTROL_SYSTEM_V2_B.Switch2 = CONTROL_SYSTEM_V2_P.PIDOutput_Y0;
 
@@ -1493,7 +1648,6 @@ void CONTROL_SYSTEM_V2_terminate(void)
   }
 
   /* End of Terminate for MATLABSystem: '<S1>/MATLAB System' */
-
   /* Terminate for MATLABSystem: '<S2>/Digital Output2' */
   if (!CONTROL_SYSTEM_V2_DW.obj_cu.matlabCodegenIsDeleted) {
     CONTROL_SYSTEM_V2_DW.obj_cu.matlabCodegenIsDeleted = true;
@@ -1515,28 +1669,24 @@ void CONTROL_SYSTEM_V2_terminate(void)
   }
 
   /* End of Terminate for MATLABSystem: '<S6>/PWM' */
-
   /* Terminate for MATLABSystem: '<S2>/Digital Output3' */
   if (!CONTROL_SYSTEM_V2_DW.obj_k.matlabCodegenIsDeleted) {
     CONTROL_SYSTEM_V2_DW.obj_k.matlabCodegenIsDeleted = true;
   }
 
   /* End of Terminate for MATLABSystem: '<S2>/Digital Output3' */
-
   /* Terminate for MATLABSystem: '<S3>/Digital Output4' */
   if (!CONTROL_SYSTEM_V2_DW.obj_g.matlabCodegenIsDeleted) {
     CONTROL_SYSTEM_V2_DW.obj_g.matlabCodegenIsDeleted = true;
   }
 
   /* End of Terminate for MATLABSystem: '<S3>/Digital Output4' */
-
   /* Terminate for MATLABSystem: '<S6>/Digital Output' */
   if (!CONTROL_SYSTEM_V2_DW.obj_n.matlabCodegenIsDeleted) {
     CONTROL_SYSTEM_V2_DW.obj_n.matlabCodegenIsDeleted = true;
   }
 
   /* End of Terminate for MATLABSystem: '<S6>/Digital Output' */
-
   /* Terminate for MATLABSystem: '<S6>/Digital Output1' */
   if (!CONTROL_SYSTEM_V2_DW.obj_c.matlabCodegenIsDeleted) {
     CONTROL_SYSTEM_V2_DW.obj_c.matlabCodegenIsDeleted = true;
