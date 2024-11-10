@@ -32,23 +32,23 @@ omga_c=10;
 
 
 
-
-range = 200:1000;
-x = linspace(0, 10, length(range));
-
-plot(x, Signal(range));
-hold on;
-plot(x, PID1(range), 'LineWidth', 1);  
-plot(x, Propotional1(range),'LineWidth', 1);     
-hold off;
-
-title('Throttle Body Feedback VS. Foot Pedal Signal')
-ylabel('Signal Value')
-xlabel('Time (Second)')
-legend('Signal', 'PID','Propotional')
-axis padded
-xticks(0:1:10)
-yticks(0:10:100)
+% 
+% range = 200:1000;
+% x = linspace(0, 10, length(range));
+% 
+% plot(x, Signal(range));
+% hold on;
+% plot(x, PID1(range), 'LineWidth', 1);  
+% plot(x, Propotional1(range),'LineWidth', 1);     
+% hold off;
+% 
+% title('Throttle Body Feedback VS. Foot Pedal Signal')
+% ylabel('Signal Value')
+% xlabel('Time (Second)')
+% legend('Signal', 'PID','Propotional')
+% axis padded
+% xticks(0:1:10)
+% yticks(0:10:100)
 
 
 

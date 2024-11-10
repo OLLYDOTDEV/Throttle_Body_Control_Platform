@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'CONTROL_SYSTEM_V3'.
  *
- * Model version                  : 1.5
+ * Model version                  : 1.6
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Thu Oct 24 14:44:44 2024
+ * C/C++ source code generated on : Thu Nov  7 23:08:43 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -22,8 +22,8 @@
 #include "rtwtypes.h"
 #include "CONTROL_SYSTEM_V3_types.h"
 #include "CONTROL_SYSTEM_V3_private.h"
-#include <math.h>
 #include "zero_crossing_types.h"
+#include <math.h>
 
 /* Block signals (default storage) */
 B_CONTROL_SYSTEM_V3_T CONTROL_SYSTEM_V3_B;
@@ -77,7 +77,7 @@ static void rt_ertODEUpdateContinuousStates(RTWSolverInfo *si )
   real_T *f2 = id->f[2];
   real_T hB[3];
   int_T i;
-  int_T nXc = 3;
+  int_T nXc = 5;
   rtsiSetSimTimeStep(si,MINOR_TIME_STEP);
 
   /* Save the state values at time t in y, we'll use x as ynew. */
@@ -130,20 +130,20 @@ static void rt_ertODEUpdateContinuousStates(RTWSolverInfo *si )
 
 /*
  * System initialize for enable system:
- *    '<S38>/NEGATIVE Edge'
- *    '<S46>/NEGATIVE Edge'
+ *    '<S35>/NEGATIVE Edge'
+ *    '<S43>/NEGATIVE Edge'
  */
 void CONTROL_SYSTE_NEGATIVEEdge_Init(boolean_T *rty_OUT,
   P_NEGATIVEEdge_CONTROL_SYSTEM_T *localP)
 {
-  /* SystemInitialize for Outport: '<S40>/OUT' */
+  /* SystemInitialize for Outport: '<S37>/OUT' */
   *rty_OUT = localP->OUT_Y0;
 }
 
 /*
  * Disable for enable system:
- *    '<S38>/NEGATIVE Edge'
- *    '<S46>/NEGATIVE Edge'
+ *    '<S35>/NEGATIVE Edge'
+ *    '<S43>/NEGATIVE Edge'
  */
 void CONTROL_SY_NEGATIVEEdge_Disable(DW_NEGATIVEEdge_CONTROL_SYSTE_T *localDW)
 {
@@ -152,15 +152,15 @@ void CONTROL_SY_NEGATIVEEdge_Disable(DW_NEGATIVEEdge_CONTROL_SYSTE_T *localDW)
 
 /*
  * Output and update for enable system:
- *    '<S38>/NEGATIVE Edge'
- *    '<S46>/NEGATIVE Edge'
+ *    '<S35>/NEGATIVE Edge'
+ *    '<S43>/NEGATIVE Edge'
  */
 void CONTROL_SYSTEM_V3_NEGATIVEEdge(RT_MODEL_CONTROL_SYSTEM_V3_T * const
   CONTROL_SYSTEM_V3_M, real_T rtu_Enable, boolean_T rtu_IN, boolean_T
   rtu_INprevious, boolean_T *rty_OUT, DW_NEGATIVEEdge_CONTROL_SYSTE_T *localDW)
 {
-  /* Outputs for Enabled SubSystem: '<S38>/NEGATIVE Edge' incorporates:
-   *  EnablePort: '<S40>/Enable'
+  /* Outputs for Enabled SubSystem: '<S35>/NEGATIVE Edge' incorporates:
+   *  EnablePort: '<S37>/Enable'
    */
   if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V3_M) && rtsiIsModeUpdateTimeStep
       (&CONTROL_SYSTEM_V3_M->solverInfo)) {
@@ -172,32 +172,29 @@ void CONTROL_SYSTEM_V3_NEGATIVEEdge(RT_MODEL_CONTROL_SYSTEM_V3_T * const
   }
 
   if (localDW->NEGATIVEEdge_MODE) {
-    /* RelationalOperator: '<S40>/Relational Operator1' */
+    /* RelationalOperator: '<S37>/Relational Operator1' */
     *rty_OUT = ((int32_T)rtu_INprevious > (int32_T)rtu_IN);
-    if (rtsiIsModeUpdateTimeStep(&CONTROL_SYSTEM_V3_M->solverInfo)) {
-      srUpdateBC(localDW->NEGATIVEEdge_SubsysRanBC);
-    }
   }
 
-  /* End of Outputs for SubSystem: '<S38>/NEGATIVE Edge' */
+  /* End of Outputs for SubSystem: '<S35>/NEGATIVE Edge' */
 }
 
 /*
  * System initialize for enable system:
- *    '<S38>/POSITIVE Edge'
- *    '<S46>/POSITIVE Edge'
+ *    '<S35>/POSITIVE Edge'
+ *    '<S43>/POSITIVE Edge'
  */
 void CONTROL_SYSTE_POSITIVEEdge_Init(boolean_T *rty_OUT,
   P_POSITIVEEdge_CONTROL_SYSTEM_T *localP)
 {
-  /* SystemInitialize for Outport: '<S41>/OUT' */
+  /* SystemInitialize for Outport: '<S38>/OUT' */
   *rty_OUT = localP->OUT_Y0;
 }
 
 /*
  * Disable for enable system:
- *    '<S38>/POSITIVE Edge'
- *    '<S46>/POSITIVE Edge'
+ *    '<S35>/POSITIVE Edge'
+ *    '<S43>/POSITIVE Edge'
  */
 void CONTROL_SY_POSITIVEEdge_Disable(DW_POSITIVEEdge_CONTROL_SYSTE_T *localDW)
 {
@@ -206,15 +203,15 @@ void CONTROL_SY_POSITIVEEdge_Disable(DW_POSITIVEEdge_CONTROL_SYSTE_T *localDW)
 
 /*
  * Output and update for enable system:
- *    '<S38>/POSITIVE Edge'
- *    '<S46>/POSITIVE Edge'
+ *    '<S35>/POSITIVE Edge'
+ *    '<S43>/POSITIVE Edge'
  */
 void CONTROL_SYSTEM_V3_POSITIVEEdge(RT_MODEL_CONTROL_SYSTEM_V3_T * const
   CONTROL_SYSTEM_V3_M, real_T rtu_Enable, boolean_T rtu_IN, boolean_T
   rtu_INprevious, boolean_T *rty_OUT, DW_POSITIVEEdge_CONTROL_SYSTE_T *localDW)
 {
-  /* Outputs for Enabled SubSystem: '<S38>/POSITIVE Edge' incorporates:
-   *  EnablePort: '<S41>/Enable'
+  /* Outputs for Enabled SubSystem: '<S35>/POSITIVE Edge' incorporates:
+   *  EnablePort: '<S38>/Enable'
    */
   if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V3_M) && rtsiIsModeUpdateTimeStep
       (&CONTROL_SYSTEM_V3_M->solverInfo)) {
@@ -226,14 +223,11 @@ void CONTROL_SYSTEM_V3_POSITIVEEdge(RT_MODEL_CONTROL_SYSTEM_V3_T * const
   }
 
   if (localDW->POSITIVEEdge_MODE) {
-    /* RelationalOperator: '<S41>/Relational Operator1' */
+    /* RelationalOperator: '<S38>/Relational Operator1' */
     *rty_OUT = ((int32_T)rtu_INprevious < (int32_T)rtu_IN);
-    if (rtsiIsModeUpdateTimeStep(&CONTROL_SYSTEM_V3_M->solverInfo)) {
-      srUpdateBC(localDW->POSITIVEEdge_SubsysRanBC);
-    }
   }
 
-  /* End of Outputs for SubSystem: '<S38>/POSITIVE Edge' */
+  /* End of Outputs for SubSystem: '<S35>/POSITIVE Edge' */
 }
 
 real_T rt_roundd_snf(real_T u)
@@ -256,7 +250,7 @@ real_T rt_roundd_snf(real_T u)
 
 static void CONTROL_SYST_SystemCore_release(codertarget_arduinobase_inter_T *obj)
 {
-  /* Start for MATLABSystem: '<S8>/PWM' */
+  /* Start for MATLABSystem: '<S7>/PWM' */
   if ((obj->isInitialized == 1) && obj->isSetupComplete) {
     obj->PWMDriverObj.MW_PWM_HANDLE = MW_PWM_GetHandle(4U);
     MW_PWM_SetDutyCycle(obj->PWMDriverObj.MW_PWM_HANDLE, -0.0);
@@ -264,7 +258,7 @@ static void CONTROL_SYST_SystemCore_release(codertarget_arduinobase_inter_T *obj
     MW_PWM_Close(obj->PWMDriverObj.MW_PWM_HANDLE);
   }
 
-  /* End of Start for MATLABSystem: '<S8>/PWM' */
+  /* End of Start for MATLABSystem: '<S7>/PWM' */
 }
 
 /* Model step function */
@@ -272,8 +266,9 @@ void CONTROL_SYSTEM_V3_step(void)
 {
   real_T Integrator_CSTATE;
   real_T Integrator_CSTATE_0;
-  real_T Integrator_CSTATE_1;
-  real_T rtb_Sum1;
+  real_T rtb_Error;
+  real_T rtb_FP_maxVal;
+  real_T rtb_Sum;
   int32_T rowIdx;
   int8_T rowIdx_tmp_4;
   int8_T rtAction;
@@ -300,34 +295,7 @@ void CONTROL_SYSTEM_V3_step(void)
     CONTROL_SYSTEM_V3_M->Timing.t[0] = rtsiGetT(&CONTROL_SYSTEM_V3_M->solverInfo);
   }
 
-  /* Reset subsysRan breadcrumbs */
-  srClearBC(CONTROL_SYSTEM_V3_DW.TriggeredSubsystem_SubsysRanB_j);
-
-  /* Reset subsysRan breadcrumbs */
-  srClearBC(CONTROL_SYSTEM_V3_DW.NEGATIVEEdge.NEGATIVEEdge_SubsysRanBC);
-
-  /* Reset subsysRan breadcrumbs */
-  srClearBC(CONTROL_SYSTEM_V3_DW.POSITIVEEdge.POSITIVEEdge_SubsysRanBC);
-
-  /* Reset subsysRan breadcrumbs */
-  srClearBC(CONTROL_SYSTEM_V3_DW.OFFDelay_SubsysRanBC);
-
-  /* Reset subsysRan breadcrumbs */
-  srClearBC(CONTROL_SYSTEM_V3_DW.TriggeredSubsystem_SubsysRanBC);
-
-  /* Reset subsysRan breadcrumbs */
-  srClearBC(CONTROL_SYSTEM_V3_DW.ONDelay_SubsysRanBC);
-
-  /* Reset subsysRan breadcrumbs */
-  srClearBC(CONTROL_SYSTEM_V3_DW.Propotional1_SubsysRanBC);
-
-  /* Reset subsysRan breadcrumbs */
-  srClearBC(CONTROL_SYSTEM_V3_DW.PIDControl1_SubsysRanBC);
-
-  /* Reset subsysRan breadcrumbs */
-  srClearBC(CONTROL_SYSTEM_V3_DW.ADRCControl1_SubsysRanBC);
-
-  /* MATLABSystem: '<S9>/Digital Input' */
+  /* MATLABSystem: '<S8>/Digital Input' */
   if (CONTROL_SYSTEM_V3_DW.obj_c.SampleTime !=
       CONTROL_SYSTEM_V3_P.DigitalInput_SampleTime) {
     CONTROL_SYSTEM_V3_DW.obj_c.SampleTime =
@@ -336,79 +304,79 @@ void CONTROL_SYSTEM_V3_step(void)
 
   LogicalOperator1 = readDigitalPin(36);
 
-  /* MATLABSystem: '<S9>/Digital Input3' */
-  if (CONTROL_SYSTEM_V3_DW.obj_n.SampleTime !=
+  /* MATLABSystem: '<S8>/Digital Input3' */
+  if (CONTROL_SYSTEM_V3_DW.obj_f.SampleTime !=
       CONTROL_SYSTEM_V3_P.DigitalInput3_SampleTime) {
-    CONTROL_SYSTEM_V3_DW.obj_n.SampleTime =
+    CONTROL_SYSTEM_V3_DW.obj_f.SampleTime =
       CONTROL_SYSTEM_V3_P.DigitalInput3_SampleTime;
   }
 
   c_value = readDigitalPin(35);
 
-  /* MATLABSystem: '<S9>/Digital Input1' */
-  if (CONTROL_SYSTEM_V3_DW.obj_m.SampleTime !=
+  /* MATLABSystem: '<S8>/Digital Input1' */
+  if (CONTROL_SYSTEM_V3_DW.obj_hd.SampleTime !=
       CONTROL_SYSTEM_V3_P.DigitalInput1_SampleTime) {
-    CONTROL_SYSTEM_V3_DW.obj_m.SampleTime =
+    CONTROL_SYSTEM_V3_DW.obj_hd.SampleTime =
       CONTROL_SYSTEM_V3_P.DigitalInput1_SampleTime;
   }
 
   c_value_0 = readDigitalPin(39);
 
-  /* MATLABSystem: '<S9>/Digital Input2' */
-  if (CONTROL_SYSTEM_V3_DW.obj_l.SampleTime !=
+  /* MATLABSystem: '<S8>/Digital Input2' */
+  if (CONTROL_SYSTEM_V3_DW.obj_h.SampleTime !=
       CONTROL_SYSTEM_V3_P.DigitalInput2_SampleTime) {
-    CONTROL_SYSTEM_V3_DW.obj_l.SampleTime =
+    CONTROL_SYSTEM_V3_DW.obj_h.SampleTime =
       CONTROL_SYSTEM_V3_P.DigitalInput2_SampleTime;
   }
 
   c_value_1 = readDigitalPin(34);
   if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V3_M)) {
-    /* Memory: '<S52>/Memory' */
+    /* Memory: '<S49>/Memory' */
     CONTROL_SYSTEM_V3_B.Memory = CONTROL_SYSTEM_V3_DW.Memory_PreviousInput;
   }
 
-  /* Logic: '<S9>/Logical Operator16' incorporates:
-   *  Logic: '<S9>/Logical Operator38'
-   *  Logic: '<S9>/Logical Operator46'
-   *  MATLABSystem: '<S9>/Digital Input3'
+  /* Logic: '<S8>/Logical Operator16' incorporates:
+   *  Logic: '<S8>/Logical Operator38'
+   *  Logic: '<S8>/Logical Operator46'
+   *  MATLABSystem: '<S8>/Digital Input3'
    * */
   rowIdx_tmp = !c_value;
 
-  /* Logic: '<S9>/Logical Operator17' incorporates:
-   *  Logic: '<S9>/Logical Operator33'
-   *  MATLABSystem: '<S9>/Digital Input2'
+  /* Logic: '<S8>/Logical Operator17' incorporates:
+   *  Logic: '<S8>/Logical Operator33'
+   *  MATLABSystem: '<S8>/Digital Input2'
    * */
   rowIdx_tmp_0 = !c_value_1;
 
-  /* Logic: '<S9>/Logical Operator22' incorporates:
-   *  Logic: '<S9>/Logical Operator41'
-   *  MATLABSystem: '<S9>/Digital Input1'
+  /* Logic: '<S8>/Logical Operator22' incorporates:
+   *  Logic: '<S8>/Logical Operator41'
+   *  MATLABSystem: '<S8>/Digital Input1'
    * */
   rowIdx_tmp_2 = !c_value_0;
 
-  /* Logic: '<S9>/Logical Operator21' incorporates:
-   *  Logic: '<S9>/Logical Operator17'
-   *  Logic: '<S9>/Logical Operator22'
-   *  Logic: '<S9>/Logical Operator29'
+  /* Logic: '<S8>/Logical Operator21' incorporates:
+   *  Logic: '<S8>/Logical Operator17'
+   *  Logic: '<S8>/Logical Operator22'
+   *  Logic: '<S8>/Logical Operator29'
    */
   rowIdx_tmp_3 = (rowIdx_tmp_2 && rowIdx_tmp_0);
 
-  /* Logic: '<S9>/Logical Operator23' incorporates:
-   *  Logic: '<S9>/Logical Operator31'
-   *  MATLABSystem: '<S9>/Digital Input1'
-   *  MATLABSystem: '<S9>/Digital Input2'
+  /* Logic: '<S8>/Logical Operator23' incorporates:
+   *  Logic: '<S8>/Logical Operator31'
+   *  MATLABSystem: '<S8>/Digital Input1'
+   *  MATLABSystem: '<S8>/Digital Input2'
    * */
   rowIdx_tmp_4 = (int8_T)((int8_T)c_value_0 ^ (int8_T)c_value_1);
 
-  /* CombinatorialLogic: '<S52>/Logic' incorporates:
-   *  Logic: '<S9>/Logical Operator16'
-   *  Logic: '<S9>/Logical Operator18'
-   *  Logic: '<S9>/Logical Operator19'
-   *  Logic: '<S9>/Logical Operator20'
-   *  Logic: '<S9>/Logical Operator21'
-   *  Logic: '<S9>/Logical Operator23'
-   *  MATLABSystem: '<S9>/Digital Input'
-   *  MATLABSystem: '<S9>/Digital Input3'
+  /* CombinatorialLogic: '<S49>/Logic' incorporates:
+   *  Logic: '<S8>/Logical Operator16'
+   *  Logic: '<S8>/Logical Operator18'
+   *  Logic: '<S8>/Logical Operator19'
+   *  Logic: '<S8>/Logical Operator20'
+   *  Logic: '<S8>/Logical Operator21'
+   *  Logic: '<S8>/Logical Operator23'
+   *  MATLABSystem: '<S8>/Digital Input'
+   *  MATLABSystem: '<S8>/Digital Input3'
    * */
   rowIdx = (int32_T)(((((uint32_T)(LogicalOperator1 && (rowIdx_tmp &&
     rowIdx_tmp_3)) << 1) + (uint32_T)(int8_T)(rowIdx_tmp_4 ^ (int8_T)c_value)) <<
@@ -418,821 +386,743 @@ void CONTROL_SYSTEM_V3_step(void)
   CONTROL_SYSTEM_V3_B.Logic[1U] = CONTROL_SYSTEM_V3_P.Logic_table[(uint32_T)
     rowIdx + 8U];
 
-  /* MATLABSystem: '<S4>/Digital Output' */
+  /* MATLABSystem: '<S3>/Digital Output' */
   writeDigitalPin(27, (uint8_T)CONTROL_SYSTEM_V3_B.Logic[0]);
   if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V3_M)) {
-    /* Memory: '<S54>/Memory' */
-    CONTROL_SYSTEM_V3_B.Memory_h = CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_b;
+    /* Memory: '<S51>/Memory' */
+    CONTROL_SYSTEM_V3_B.Memory_e = CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_o;
 
-    /* Memory: '<S55>/Memory' */
-    CONTROL_SYSTEM_V3_B.Memory_k = CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_h;
+    /* Memory: '<S52>/Memory' */
+    CONTROL_SYSTEM_V3_B.Memory_o = CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_c;
   }
 
-  /* Logic: '<S9>/Logical Operator32' incorporates:
-   *  Logic: '<S9>/Logical Operator24'
-   *  Logic: '<S9>/Logical Operator40'
-   *  MATLABSystem: '<S9>/Digital Input'
+  /* Logic: '<S8>/Logical Operator32' incorporates:
+   *  Logic: '<S8>/Logical Operator24'
+   *  Logic: '<S8>/Logical Operator40'
+   *  MATLABSystem: '<S8>/Digital Input'
    * */
   rowIdx_tmp_1 = !LogicalOperator1;
 
-  /* CombinatorialLogic: '<S54>/Logic' incorporates:
-   *  Logic: '<S9>/Logical Operator32'
-   *  Logic: '<S9>/Logical Operator34'
-   *  Logic: '<S9>/Logical Operator35'
-   *  Logic: '<S9>/Logical Operator36'
-   *  Logic: '<S9>/Logical Operator37'
-   *  Logic: '<S9>/Logical Operator39'
-   *  MATLABSystem: '<S9>/Digital Input'
-   *  MATLABSystem: '<S9>/Digital Input1'
-   *  MATLABSystem: '<S9>/Digital Input2'
-   *  MATLABSystem: '<S9>/Digital Input3'
+  /* CombinatorialLogic: '<S51>/Logic' incorporates:
+   *  Logic: '<S8>/Logical Operator32'
+   *  Logic: '<S8>/Logical Operator34'
+   *  Logic: '<S8>/Logical Operator35'
+   *  Logic: '<S8>/Logical Operator36'
+   *  Logic: '<S8>/Logical Operator37'
+   *  Logic: '<S8>/Logical Operator39'
+   *  MATLABSystem: '<S8>/Digital Input'
+   *  MATLABSystem: '<S8>/Digital Input1'
+   *  MATLABSystem: '<S8>/Digital Input2'
+   *  MATLABSystem: '<S8>/Digital Input3'
    * */
   rowIdx = (int32_T)(((((uint32_T)(c_value_0 && (rowIdx_tmp_1 && (rowIdx_tmp &&
     rowIdx_tmp_0))) << 1) + (uint32_T)(int8_T)((int8_T)((int8_T)c_value ^
     (int8_T)c_value_1) ^ (int8_T)LogicalOperator1)) << 1) +
-                     CONTROL_SYSTEM_V3_B.Memory_h);
-  CONTROL_SYSTEM_V3_B.Logic_e[0U] = CONTROL_SYSTEM_V3_P.Logic_table_i[(uint32_T)
+                     CONTROL_SYSTEM_V3_B.Memory_e);
+  CONTROL_SYSTEM_V3_B.Logic_e[0U] = CONTROL_SYSTEM_V3_P.Logic_table_p[(uint32_T)
     rowIdx];
-  CONTROL_SYSTEM_V3_B.Logic_e[1U] = CONTROL_SYSTEM_V3_P.Logic_table_i[(uint32_T)
+  CONTROL_SYSTEM_V3_B.Logic_e[1U] = CONTROL_SYSTEM_V3_P.Logic_table_p[(uint32_T)
     rowIdx + 8U];
 
-  /* CombinatorialLogic: '<S55>/Logic' incorporates:
-   *  Logic: '<S9>/Logical Operator42'
-   *  Logic: '<S9>/Logical Operator43'
-   *  Logic: '<S9>/Logical Operator44'
-   *  Logic: '<S9>/Logical Operator45'
-   *  Logic: '<S9>/Logical Operator47'
-   *  MATLABSystem: '<S9>/Digital Input'
-   *  MATLABSystem: '<S9>/Digital Input1'
-   *  MATLABSystem: '<S9>/Digital Input2'
-   *  MATLABSystem: '<S9>/Digital Input3'
+  /* CombinatorialLogic: '<S52>/Logic' incorporates:
+   *  Logic: '<S8>/Logical Operator42'
+   *  Logic: '<S8>/Logical Operator43'
+   *  Logic: '<S8>/Logical Operator44'
+   *  Logic: '<S8>/Logical Operator45'
+   *  Logic: '<S8>/Logical Operator47'
+   *  MATLABSystem: '<S8>/Digital Input'
+   *  MATLABSystem: '<S8>/Digital Input1'
+   *  MATLABSystem: '<S8>/Digital Input2'
+   *  MATLABSystem: '<S8>/Digital Input3'
    * */
   rowIdx = (int32_T)(((((uint32_T)(c_value_1 && (rowIdx_tmp_1 && (rowIdx_tmp &&
     rowIdx_tmp_2))) << 1) + (uint32_T)(int8_T)((int8_T)((int8_T)c_value ^
     (int8_T)c_value_0) ^ (int8_T)LogicalOperator1)) << 1) +
-                     CONTROL_SYSTEM_V3_B.Memory_k);
-  CONTROL_SYSTEM_V3_B.Logic_f[0U] = CONTROL_SYSTEM_V3_P.Logic_table_j[(uint32_T)
+                     CONTROL_SYSTEM_V3_B.Memory_o);
+  CONTROL_SYSTEM_V3_B.Logic_d[0U] = CONTROL_SYSTEM_V3_P.Logic_table_b[(uint32_T)
     rowIdx];
-  CONTROL_SYSTEM_V3_B.Logic_f[1U] = CONTROL_SYSTEM_V3_P.Logic_table_j[(uint32_T)
+  CONTROL_SYSTEM_V3_B.Logic_d[1U] = CONTROL_SYSTEM_V3_P.Logic_table_b[(uint32_T)
     rowIdx + 8U];
 
-  /* MATLABSystem: '<S3>/MATLAB System' */
+  /* MATLABSystem: '<S2>/MATLAB System' */
   if (CONTROL_SYSTEM_V3_DW.obj.SampleTime !=
       CONTROL_SYSTEM_V3_P.MATLABSystem_SampleTime) {
     CONTROL_SYSTEM_V3_DW.obj.SampleTime =
       CONTROL_SYSTEM_V3_P.MATLABSystem_SampleTime;
   }
 
-  /* MATLABSystem: '<S3>/MATLAB System' */
   /*         %% Define output properties */
-  CONTROL_SYSTEM_V3_B.MATLABSystem_o1 = 0.0;
-
-  /* MATLABSystem: '<S3>/MATLAB System' */
-  CONTROL_SYSTEM_V3_B.MATLABSystem_o2 = 0.0;
-
-  /* MATLABSystem: '<S3>/MATLAB System' */
-  CONTROL_SYSTEM_V3_B.MATLABSystem_o3 = 0.0;
-
-  /* MATLABSystem: '<S3>/MATLAB System' */
-  CONTROL_SYSTEM_V3_B.MATLABSystem_o4 = 0.0;
-  stepFunctionADS1115_Vread(&CONTROL_SYSTEM_V3_B.MATLABSystem_o1, 1.0,
-    &CONTROL_SYSTEM_V3_B.MATLABSystem_o2, 1.0,
-    &CONTROL_SYSTEM_V3_B.MATLABSystem_o3, 1.0,
-    &CONTROL_SYSTEM_V3_B.MATLABSystem_o4, 1.0);
-
-  /* FromWorkspace: '<S13>/fromWS_Signal 1' */
-  {
-    real_T t = CONTROL_SYSTEM_V3_M->Timing.t[0];
-    real_T *pTimeValues = (real_T *)
-      CONTROL_SYSTEM_V3_DW.fromWS_Signal1_PWORK.TimePtr;
-    real_T *pDataValues = (real_T *)
-      CONTROL_SYSTEM_V3_DW.fromWS_Signal1_PWORK.DataPtr;
-    if (t < pTimeValues[0]) {
-      CONTROL_SYSTEM_V3_B.Signal1 = 0.0;
-    } else if (t == pTimeValues[10]) {
-      CONTROL_SYSTEM_V3_B.Signal1 = pDataValues[10];
-    } else if (t > pTimeValues[10]) {
-      CONTROL_SYSTEM_V3_B.Signal1 = 0.0;
-    } else {
-      int_T currTimeIndex = CONTROL_SYSTEM_V3_DW.fromWS_Signal1_IWORK.PrevIndex;
-      if (t < pTimeValues[currTimeIndex]) {
-        while (t < pTimeValues[currTimeIndex]) {
-          currTimeIndex--;
-        }
-      } else {
-        while (t >= pTimeValues[currTimeIndex + 1]) {
-          currTimeIndex++;
-        }
-      }
-
-      CONTROL_SYSTEM_V3_B.Signal1 = pDataValues[currTimeIndex];
-      CONTROL_SYSTEM_V3_DW.fromWS_Signal1_IWORK.PrevIndex = currTimeIndex;
-    }
-  }
-
-  /* Switch: '<S1>/Switch3' */
-  if (CONTROL_SYSTEM_V3_B.MATLABSystem_o3 >
-      CONTROL_SYSTEM_V3_P.Switch3_Threshold) {
-    /* Switch: '<S1>/Switch3' incorporates:
-     *  Constant: '<S1>/Constant3'
-     */
-    CONTROL_SYSTEM_V3_B.FootPedalSignal = CONTROL_SYSTEM_V3_P.Constant3_Value_b;
-  } else {
-    /* Switch: '<S1>/Switch3' */
-    CONTROL_SYSTEM_V3_B.FootPedalSignal = CONTROL_SYSTEM_V3_B.Signal1;
-  }
-
-  /* End of Switch: '<S1>/Switch3' */
+  rtb_Sum = 0.0;
+  CONTROL_SYSTEM_V3_B.b_varargout_2 = 0.0;
+  CONTROL_SYSTEM_V3_B.b_varargout_3 = 0.0;
+  rtb_Error = 0.0;
+  stepFunctionADS1115_Vread(&rtb_Sum, 1.0, &CONTROL_SYSTEM_V3_B.b_varargout_2,
+    1.0, &CONTROL_SYSTEM_V3_B.b_varargout_3, 1.0, &rtb_Error, 1.0);
   if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V3_M)) {
-    /* MATLAB Function: '<S1>/Foot Pedal Calibration1' */
-    if (CONTROL_SYSTEM_V3_B.FootPedalSignal > CONTROL_SYSTEM_V3_DW.maxSet) {
-      CONTROL_SYSTEM_V3_DW.maxSet = CONTROL_SYSTEM_V3_B.FootPedalSignal;
+    /* MATLAB Function: '<Root>/Foot Pedal Calibration' incorporates:
+     *  MATLABSystem: '<S2>/MATLAB System'
+     * */
+    if (CONTROL_SYSTEM_V3_B.b_varargout_3 > CONTROL_SYSTEM_V3_DW.maxSet) {
+      CONTROL_SYSTEM_V3_DW.maxSet = CONTROL_SYSTEM_V3_B.b_varargout_3;
     }
 
-    if (CONTROL_SYSTEM_V3_B.FootPedalSignal < CONTROL_SYSTEM_V3_DW.minSet) {
-      CONTROL_SYSTEM_V3_DW.minSet = CONTROL_SYSTEM_V3_B.FootPedalSignal;
+    if (CONTROL_SYSTEM_V3_B.b_varargout_3 < CONTROL_SYSTEM_V3_DW.minSet) {
+      CONTROL_SYSTEM_V3_DW.minSet = CONTROL_SYSTEM_V3_B.b_varargout_3;
     }
 
-    CONTROL_SYSTEM_V3_B.FP_maxVal = CONTROL_SYSTEM_V3_DW.maxSet;
+    rtb_FP_maxVal = CONTROL_SYSTEM_V3_DW.maxSet;
     CONTROL_SYSTEM_V3_B.FP_minVal = CONTROL_SYSTEM_V3_DW.minSet;
 
-    /* End of MATLAB Function: '<S1>/Foot Pedal Calibration1' */
-
-    /* Sum: '<S16>/Add2' */
-    CONTROL_SYSTEM_V3_B.Add2 = CONTROL_SYSTEM_V3_B.FP_maxVal -
-      CONTROL_SYSTEM_V3_B.FP_minVal;
-
-    /* MATLAB Function: '<S1>/Throttle Body Callibration1' */
-    if (CONTROL_SYSTEM_V3_B.MATLABSystem_o2 > CONTROL_SYSTEM_V3_DW.TB_maxSet) {
-      CONTROL_SYSTEM_V3_DW.TB_maxSet = CONTROL_SYSTEM_V3_B.MATLABSystem_o2;
+    /* MATLAB Function: '<Root>/Throttle Body Callibration' incorporates:
+     *  MATLABSystem: '<S2>/MATLAB System'
+     * */
+    if (CONTROL_SYSTEM_V3_B.b_varargout_2 > CONTROL_SYSTEM_V3_DW.TB_maxSet) {
+      CONTROL_SYSTEM_V3_DW.TB_maxSet = CONTROL_SYSTEM_V3_B.b_varargout_2;
     }
 
-    if (CONTROL_SYSTEM_V3_B.MATLABSystem_o2 < CONTROL_SYSTEM_V3_DW.TB_minSet) {
-      CONTROL_SYSTEM_V3_DW.TB_minSet = CONTROL_SYSTEM_V3_B.MATLABSystem_o2;
+    if (CONTROL_SYSTEM_V3_B.b_varargout_2 < CONTROL_SYSTEM_V3_DW.TB_minSet) {
+      CONTROL_SYSTEM_V3_DW.TB_minSet = CONTROL_SYSTEM_V3_B.b_varargout_2;
     }
 
-    CONTROL_SYSTEM_V3_B.TB_maxVal = CONTROL_SYSTEM_V3_DW.TB_maxSet;
     CONTROL_SYSTEM_V3_B.TB_minVal = CONTROL_SYSTEM_V3_DW.TB_minSet;
 
-    /* End of MATLAB Function: '<S1>/Throttle Body Callibration1' */
-
-    /* Sum: '<S16>/Add3' */
-    CONTROL_SYSTEM_V3_B.Add3 = CONTROL_SYSTEM_V3_B.TB_maxVal -
-      CONTROL_SYSTEM_V3_B.TB_minVal;
-
-    /* Product: '<S16>/Divide1' */
-    CONTROL_SYSTEM_V3_B.Divide1 = CONTROL_SYSTEM_V3_B.Add2 /
-      CONTROL_SYSTEM_V3_B.Add3;
+    /* Product: '<S13>/Divide1' incorporates:
+     *  MATLAB Function: '<Root>/Foot Pedal Calibration'
+     *  MATLAB Function: '<Root>/Throttle Body Callibration'
+     *  Sum: '<S13>/Add2'
+     *  Sum: '<S13>/Add3'
+     */
+    CONTROL_SYSTEM_V3_B.Divide1 = (CONTROL_SYSTEM_V3_DW.maxSet -
+      CONTROL_SYSTEM_V3_B.FP_minVal) / (CONTROL_SYSTEM_V3_DW.TB_maxSet -
+      CONTROL_SYSTEM_V3_B.TB_minVal);
   }
 
-  /* Sum: '<S16>/Sum' incorporates:
-   *  Product: '<S16>/Product1'
-   *  Sum: '<S16>/Subtract'
-   */
-  CONTROL_SYSTEM_V3_B.Sum = (CONTROL_SYSTEM_V3_B.MATLABSystem_o2 -
-    CONTROL_SYSTEM_V3_B.TB_minVal) * CONTROL_SYSTEM_V3_B.Divide1 +
-    CONTROL_SYSTEM_V3_B.FP_minVal;
+  /* Sum: '<S13>/Sum' incorporates:
+   *  MATLABSystem: '<S2>/MATLAB System'
+   *  Product: '<S13>/Product1'
+   *  Sum: '<S13>/Subtract'
+   * */
+  rtb_Sum = (CONTROL_SYSTEM_V3_B.b_varargout_2 - CONTROL_SYSTEM_V3_B.TB_minVal) *
+    CONTROL_SYSTEM_V3_B.Divide1 + CONTROL_SYSTEM_V3_B.FP_minVal;
 
-  /* Sum: '<S1>/Sum1' */
-  CONTROL_SYSTEM_V3_B.Error = CONTROL_SYSTEM_V3_B.FootPedalSignal -
-    CONTROL_SYSTEM_V3_B.Sum;
+  /* Sum: '<Root>/Sum2' incorporates:
+   *  MATLABSystem: '<S2>/MATLAB System'
+   * */
+  rtb_Error = CONTROL_SYSTEM_V3_B.b_varargout_3 - rtb_Sum;
 
-  /* If: '<S1>/If Condition1' */
-  rtPrevAction = CONTROL_SYSTEM_V3_DW.IfCondition1_ActiveSubsystem;
+  /* If: '<Root>/If Condition' */
+  rtPrevAction = CONTROL_SYSTEM_V3_DW.IfCondition_ActiveSubsystem;
   rtAction = -1;
   if (rtsiIsModeUpdateTimeStep(&CONTROL_SYSTEM_V3_M->solverInfo)) {
     if (CONTROL_SYSTEM_V3_B.Logic[0]) {
       rtAction = 0;
     } else if (CONTROL_SYSTEM_V3_B.Logic_e[0]) {
       rtAction = 1;
-    } else if (CONTROL_SYSTEM_V3_B.Logic_f[0]) {
+    } else if (CONTROL_SYSTEM_V3_B.Logic_d[0]) {
       rtAction = 2;
     }
 
-    CONTROL_SYSTEM_V3_DW.IfCondition1_ActiveSubsystem = rtAction;
+    CONTROL_SYSTEM_V3_DW.IfCondition_ActiveSubsystem = rtAction;
   } else {
-    rtAction = CONTROL_SYSTEM_V3_DW.IfCondition1_ActiveSubsystem;
+    rtAction = CONTROL_SYSTEM_V3_DW.IfCondition_ActiveSubsystem;
   }
 
   if (rtPrevAction != rtAction) {
     if (CONTROL_SYSTEM_V3_M->Timing.t[0] == rtmGetTStart(CONTROL_SYSTEM_V3_M)) {
+      (void) memset(&(CONTROL_SYSTEM_V3_XDis.Integrator_CSTATE_b), 1,
+                    2*sizeof(boolean_T));
       (void) memset(&(CONTROL_SYSTEM_V3_XDis.Integrator_CSTATE), 1,
                     3*sizeof(boolean_T));
     }
 
-    if (rtPrevAction == 2) {
+    switch (rtPrevAction) {
+     case 0:
+      break;
+
+     case 1:
+      (void) memset(&(CONTROL_SYSTEM_V3_XDis.Integrator_CSTATE_b), 1,
+                    2*sizeof(boolean_T));
+      break;
+
+     case 2:
       (void) memset(&(CONTROL_SYSTEM_V3_XDis.Integrator_CSTATE), 1,
                     3*sizeof(boolean_T));
+      break;
     }
   }
 
   switch (rtAction) {
    case 0:
-    /* Outputs for IfAction SubSystem: '<S1>/Propotional1' incorporates:
-     *  ActionPort: '<S12>/Action Port'
+    /* Outputs for IfAction SubSystem: '<Root>/Propotional' incorporates:
+     *  ActionPort: '<S11>/Action Port'
      */
-    /* SignalConversion generated from: '<S12>/Error' */
-    CONTROL_SYSTEM_V3_B.Error_j = CONTROL_SYSTEM_V3_B.Error;
-    if (rtsiIsModeUpdateTimeStep(&CONTROL_SYSTEM_V3_M->solverInfo)) {
-      srUpdateBC(CONTROL_SYSTEM_V3_DW.Propotional1_SubsysRanBC);
-    }
+    /* SignalConversion generated from: '<S11>/Error' */
+    CONTROL_SYSTEM_V3_B.Error = rtb_Error;
 
-    /* End of Outputs for SubSystem: '<S1>/Propotional1' */
+    /* End of Outputs for SubSystem: '<Root>/Propotional' */
     break;
 
    case 1:
-    /* Outputs for IfAction SubSystem: '<S1>/PID Control1' incorporates:
-     *  ActionPort: '<S11>/Action Port'
-     */
-    if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V3_M)) {
-      /* DiscreteIntegrator: '<S91>/Integrator' */
-      CONTROL_SYSTEM_V3_B.Integrator = CONTROL_SYSTEM_V3_DW.Integrator_DSTATE;
+    if (rtAction != rtPrevAction) {
+      /* Enable for IfAction SubSystem: '<Root>/PID Control' incorporates:
+       *  ActionPort: '<S10>/Action Port'
+       */
+      /* Enable for If: '<Root>/If Condition' */
+      (void) memset(&(CONTROL_SYSTEM_V3_XDis.Integrator_CSTATE_b), 0,
+                    2*sizeof(boolean_T));
 
-      /* DiscreteIntegrator: '<S86>/Filter' */
-      CONTROL_SYSTEM_V3_B.Filter = CONTROL_SYSTEM_V3_DW.Filter_DSTATE;
+      /* End of Enable for SubSystem: '<Root>/PID Control' */
     }
 
-    /* Gain: '<S94>/Filter Coefficient' incorporates:
-     *  Gain: '<S84>/Derivative Gain'
-     *  Sum: '<S86>/SumD'
+    /* Outputs for IfAction SubSystem: '<Root>/PID Control' incorporates:
+     *  ActionPort: '<S10>/Action Port'
      */
-    CONTROL_SYSTEM_V3_B.FilterCoefficient = (CONTROL_SYSTEM_V3_P.Kd *
-      CONTROL_SYSTEM_V3_B.Error - CONTROL_SYSTEM_V3_B.Filter) *
-      CONTROL_SYSTEM_V3_P.Kn;
-
-    /* Sum: '<S100>/Sum' incorporates:
-     *  Gain: '<S96>/Proportional Gain'
-     */
-    CONTROL_SYSTEM_V3_B.Sum_m = (CONTROL_SYSTEM_V3_P.Kp *
-      CONTROL_SYSTEM_V3_B.Error + CONTROL_SYSTEM_V3_B.Integrator) +
-      CONTROL_SYSTEM_V3_B.FilterCoefficient;
     if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V3_M)) {
-      /* Sum: '<S11>/Sum1' incorporates:
-       *  Constant: '<S11>/Constant'
+      /* Sum: '<S10>/Sum1' incorporates:
+       *  Constant: '<S10>/Constant'
        */
       CONTROL_SYSTEM_V3_B.Sum1 = CONTROL_SYSTEM_V3_P.Constant_Value +
-        CONTROL_SYSTEM_V3_B.FP_maxVal;
+        rtb_FP_maxVal;
     }
 
-    /* Switch: '<S57>/Switch2' incorporates:
-     *  RelationalOperator: '<S57>/LowerRelop1'
-     *  RelationalOperator: '<S57>/UpperRelop'
-     *  Switch: '<S57>/Switch'
+    /* Gain: '<S91>/Filter Coefficient' incorporates:
+     *  Gain: '<S81>/Derivative Gain'
+     *  Integrator: '<S83>/Filter'
+     *  Sum: '<S83>/SumD'
      */
-    if (CONTROL_SYSTEM_V3_B.Sum_m > CONTROL_SYSTEM_V3_B.Sum1) {
-      /* Switch: '<S57>/Switch2' */
-      CONTROL_SYSTEM_V3_B.Switch2_e = CONTROL_SYSTEM_V3_B.Sum1;
-    } else if (CONTROL_SYSTEM_V3_B.Sum_m < CONTROL_SYSTEM_V3_B.FP_minVal) {
-      /* Switch: '<S57>/Switch' incorporates:
-       *  Switch: '<S57>/Switch2'
+    CONTROL_SYSTEM_V3_B.FilterCoefficient = (CONTROL_SYSTEM_V3_P.Kd * rtb_Error
+      - CONTROL_SYSTEM_V3_X.Filter_CSTATE) * CONTROL_SYSTEM_V3_P.Kn;
+
+    /* Sum: '<S97>/Sum' incorporates:
+     *  Gain: '<S93>/Proportional Gain'
+     *  Integrator: '<S88>/Integrator'
+     */
+    CONTROL_SYSTEM_V3_B.Switch2_j = (CONTROL_SYSTEM_V3_P.Kp * rtb_Error +
+      CONTROL_SYSTEM_V3_X.Integrator_CSTATE_b) +
+      CONTROL_SYSTEM_V3_B.FilterCoefficient;
+
+    /* Switch: '<S54>/Switch2' incorporates:
+     *  RelationalOperator: '<S54>/LowerRelop1'
+     *  RelationalOperator: '<S54>/UpperRelop'
+     *  Switch: '<S54>/Switch'
+     */
+    if (CONTROL_SYSTEM_V3_B.Switch2_j > CONTROL_SYSTEM_V3_B.Sum1) {
+      /* Sum: '<S97>/Sum' incorporates:
+       *  Switch: '<S54>/Switch2'
        */
-      CONTROL_SYSTEM_V3_B.Switch2_e = CONTROL_SYSTEM_V3_B.FP_minVal;
-    } else {
-      /* Switch: '<S57>/Switch2' incorporates:
-       *  Switch: '<S57>/Switch'
+      CONTROL_SYSTEM_V3_B.Switch2_j = CONTROL_SYSTEM_V3_B.Sum1;
+    } else if (CONTROL_SYSTEM_V3_B.Switch2_j < CONTROL_SYSTEM_V3_B.FP_minVal) {
+      /* Sum: '<S97>/Sum' incorporates:
+       *  Switch: '<S54>/Switch'
+       *  Switch: '<S54>/Switch2'
        */
-      CONTROL_SYSTEM_V3_B.Switch2_e = CONTROL_SYSTEM_V3_B.Sum_m;
+      CONTROL_SYSTEM_V3_B.Switch2_j = CONTROL_SYSTEM_V3_B.FP_minVal;
     }
 
-    /* End of Switch: '<S57>/Switch2' */
+    /* End of Switch: '<S54>/Switch2' */
 
-    /* Gain: '<S88>/Integral Gain' */
-    CONTROL_SYSTEM_V3_B.IntegralGain = CONTROL_SYSTEM_V3_P.Ki *
-      CONTROL_SYSTEM_V3_B.Error;
-    if (rtsiIsModeUpdateTimeStep(&CONTROL_SYSTEM_V3_M->solverInfo)) {
-      srUpdateBC(CONTROL_SYSTEM_V3_DW.PIDControl1_SubsysRanBC);
-    }
+    /* Gain: '<S85>/Integral Gain' */
+    CONTROL_SYSTEM_V3_B.IntegralGain = CONTROL_SYSTEM_V3_P.Ki * rtb_Error;
 
-    /* End of Outputs for SubSystem: '<S1>/PID Control1' */
+    /* End of Outputs for SubSystem: '<Root>/PID Control' */
     break;
 
    case 2:
     if (rtAction != rtPrevAction) {
-      /* Enable for IfAction SubSystem: '<S1>/ADRC Control1' incorporates:
-       *  ActionPort: '<S2>/Action Port'
+      /* Enable for IfAction SubSystem: '<Root>/ADRC Control' incorporates:
+       *  ActionPort: '<S1>/Action Port'
        */
-      /* Enable for If: '<S1>/If Condition1' */
+      /* Enable for If: '<Root>/If Condition' */
       (void) memset(&(CONTROL_SYSTEM_V3_XDis.Integrator_CSTATE), 0,
                     3*sizeof(boolean_T));
 
-      /* End of Enable for SubSystem: '<S1>/ADRC Control1' */
+      /* End of Enable for SubSystem: '<Root>/ADRC Control' */
     }
 
-    /* Outputs for IfAction SubSystem: '<S1>/ADRC Control1' incorporates:
-     *  ActionPort: '<S2>/Action Port'
+    /* Outputs for IfAction SubSystem: '<Root>/ADRC Control' incorporates:
+     *  ActionPort: '<S1>/Action Port'
      */
-    /* Gain: '<S26>/Gain1' incorporates:
-     *  Gain: '<S26>/Gain'
-     *  Gain: '<S26>/Gain2'
-     *  Integrator: '<S28>/Integrator'
-     *  Sum: '<S26>/Sum'
-     *  Sum: '<S26>/Sum1'
-     *  Sum: '<S26>/Sum2'
-     */
-    CONTROL_SYSTEM_V3_B.Switch2 = (((0.0 -
+    /* Gain: '<S23>/Gain1' incorporates:
+     *  Gain: '<S23>/Gain'
+     *  Gain: '<S23>/Gain2'
+     *  Integrator: '<S25>/Integrator'
+     *  MATLABSystem: '<S2>/MATLAB System'
+     *  Sum: '<S23>/Sum'
+     *  Sum: '<S23>/Sum1'
+     *  Sum: '<S23>/Sum2'
+     * */
+    CONTROL_SYSTEM_V3_B.Switch2 = (((CONTROL_SYSTEM_V3_B.b_varargout_3 -
       CONTROL_SYSTEM_V3_X.Integrator_CSTATE[0]) * CONTROL_SYSTEM_V3_P.Gain_Gain
       - CONTROL_SYSTEM_V3_P.Gain2_Gain * CONTROL_SYSTEM_V3_X.Integrator_CSTATE[1])
       - CONTROL_SYSTEM_V3_X.Integrator_CSTATE[2]) *
       CONTROL_SYSTEM_V3_P.Gain1_Gain;
 
-    /* Sum: '<S28>/Subtract' incorporates:
-     *  Constant: '<S27>/Constant2'
-     *  Constant: '<S27>/Constant3'
-     *  Integrator: '<S28>/Integrator'
-     *  Product: '<S28>/Product2'
-     *  Product: '<S28>/Product3'
+    /* Sum: '<S25>/Subtract' incorporates:
+     *  Constant: '<S24>/Constant2'
+     *  Constant: '<S24>/Constant3'
+     *  Integrator: '<S25>/Integrator'
+     *  Product: '<S25>/Product2'
+     *  Product: '<S25>/Product3'
      */
-    rtb_Sum1 = (CONTROL_SYSTEM_V3_B.Sum - ((CONTROL_SYSTEM_V3_P.Constant2_Value
-      [0] * CONTROL_SYSTEM_V3_X.Integrator_CSTATE[0] +
+    rtb_Sum = (rtb_Sum - ((CONTROL_SYSTEM_V3_P.Constant2_Value[0] *
+      CONTROL_SYSTEM_V3_X.Integrator_CSTATE[0] +
       CONTROL_SYSTEM_V3_P.Constant2_Value[1] *
       CONTROL_SYSTEM_V3_X.Integrator_CSTATE[1]) +
-      CONTROL_SYSTEM_V3_P.Constant2_Value[2] *
-      CONTROL_SYSTEM_V3_X.Integrator_CSTATE[2])) -
+                          CONTROL_SYSTEM_V3_P.Constant2_Value[2] *
+                          CONTROL_SYSTEM_V3_X.Integrator_CSTATE[2])) -
       CONTROL_SYSTEM_V3_P.Constant3_Value * CONTROL_SYSTEM_V3_B.Switch2;
 
-    /* Integrator: '<S28>/Integrator' incorporates:
-     *  Constant: '<S27>/Constant'
-     *  Product: '<S28>/Product1'
+    /* Integrator: '<S25>/Integrator' incorporates:
+     *  Constant: '<S24>/Constant'
+     *  Product: '<S25>/Product1'
      */
-    Integrator_CSTATE = CONTROL_SYSTEM_V3_X.Integrator_CSTATE[1];
-    Integrator_CSTATE_0 = CONTROL_SYSTEM_V3_X.Integrator_CSTATE[0];
-    Integrator_CSTATE_1 = CONTROL_SYSTEM_V3_X.Integrator_CSTATE[2];
+    rtb_Error = CONTROL_SYSTEM_V3_X.Integrator_CSTATE[1];
+    Integrator_CSTATE = CONTROL_SYSTEM_V3_X.Integrator_CSTATE[0];
+    Integrator_CSTATE_0 = CONTROL_SYSTEM_V3_X.Integrator_CSTATE[2];
     for (rowIdx = 0; rowIdx < 3; rowIdx++) {
-      /* Sum: '<S28>/Subtract1' incorporates:
-       *  Constant: '<S27>/Constant'
-       *  Constant: '<S27>/Constant1'
-       *  Constant: '<S27>/Constant8'
-       *  Integrator: '<S28>/Integrator'
-       *  Product: '<S28>/Product'
-       *  Product: '<S28>/Product1'
-       *  Product: '<S28>/Product5'
+      /* Sum: '<S25>/Subtract1' incorporates:
+       *  Constant: '<S24>/Constant'
+       *  Constant: '<S24>/Constant1'
+       *  Constant: '<S24>/Constant8'
+       *  Integrator: '<S25>/Integrator'
+       *  Product: '<S25>/Product'
+       *  Product: '<S25>/Product1'
+       *  Product: '<S25>/Product5'
        */
       CONTROL_SYSTEM_V3_B.dxe[rowIdx] =
-        ((CONTROL_SYSTEM_V3_P.Constant_Value_k[rowIdx + 3] * Integrator_CSTATE +
-          CONTROL_SYSTEM_V3_P.Constant_Value_k[rowIdx] * Integrator_CSTATE_0) +
-         CONTROL_SYSTEM_V3_P.Constant_Value_k[rowIdx + 6] * Integrator_CSTATE_1)
-        + (CONTROL_SYSTEM_V3_P.Constant8_Value[rowIdx] * rtb_Sum1 +
+        ((CONTROL_SYSTEM_V3_P.Constant_Value_i[rowIdx + 3] * rtb_Error +
+          CONTROL_SYSTEM_V3_P.Constant_Value_i[rowIdx] * Integrator_CSTATE) +
+         CONTROL_SYSTEM_V3_P.Constant_Value_i[rowIdx + 6] * Integrator_CSTATE_0)
+        + (CONTROL_SYSTEM_V3_P.Constant8_Value[rowIdx] * rtb_Sum +
            CONTROL_SYSTEM_V3_P.Constant1_Value[rowIdx] *
            CONTROL_SYSTEM_V3_B.Switch2);
     }
 
-    /* Sum: '<S2>/Sum1' incorporates:
-     *  Constant: '<S2>/Constant'
-     *  Product: '<S2>/Divide'
-     */
-    rtb_Sum1 = 0.0 / CONTROL_SYSTEM_V3_P.Constant_Value_g;
+    /* Sum: '<S1>/Sum1' incorporates:
+     *  Constant: '<S1>/Constant'
+     *  MATLABSystem: '<S2>/MATLAB System'
+     *  Product: '<S1>/Divide'
+     * */
+    rtb_Sum = CONTROL_SYSTEM_V3_B.b_varargout_3 /
+      CONTROL_SYSTEM_V3_P.Constant_Value_ih + CONTROL_SYSTEM_V3_B.b_varargout_3;
 
-    /* Switch: '<S19>/Switch2' incorporates:
-     *  RelationalOperator: '<S19>/LowerRelop1'
-     *  RelationalOperator: '<S19>/UpperRelop'
-     *  Switch: '<S19>/Switch'
+    /* Switch: '<S16>/Switch2' incorporates:
+     *  RelationalOperator: '<S16>/LowerRelop1'
+     *  RelationalOperator: '<S16>/UpperRelop'
+     *  Switch: '<S16>/Switch'
      */
-    if (CONTROL_SYSTEM_V3_B.Switch2 > rtb_Sum1) {
-      /* Gain: '<S26>/Gain1' incorporates:
-       *  Switch: '<S19>/Switch2'
+    if (CONTROL_SYSTEM_V3_B.Switch2 > rtb_Sum) {
+      /* Gain: '<S23>/Gain1' incorporates:
+       *  Switch: '<S16>/Switch2'
        */
-      CONTROL_SYSTEM_V3_B.Switch2 = rtb_Sum1;
+      CONTROL_SYSTEM_V3_B.Switch2 = rtb_Sum;
     } else if (CONTROL_SYSTEM_V3_B.Switch2 < CONTROL_SYSTEM_V3_B.FP_minVal) {
-      /* Gain: '<S26>/Gain1' incorporates:
-       *  Switch: '<S19>/Switch'
-       *  Switch: '<S19>/Switch2'
+      /* Gain: '<S23>/Gain1' incorporates:
+       *  Switch: '<S16>/Switch'
+       *  Switch: '<S16>/Switch2'
        */
       CONTROL_SYSTEM_V3_B.Switch2 = CONTROL_SYSTEM_V3_B.FP_minVal;
     }
 
-    /* End of Switch: '<S19>/Switch2' */
-    if (rtsiIsModeUpdateTimeStep(&CONTROL_SYSTEM_V3_M->solverInfo)) {
-      srUpdateBC(CONTROL_SYSTEM_V3_DW.ADRCControl1_SubsysRanBC);
-    }
-
-    /* End of Outputs for SubSystem: '<S1>/ADRC Control1' */
+    /* End of Switch: '<S16>/Switch2' */
+    /* End of Outputs for SubSystem: '<Root>/ADRC Control' */
     break;
   }
 
-  /* End of If: '<S1>/If Condition1' */
+  /* End of If: '<Root>/If Condition' */
 
-  /* MATLABSystem: '<S4>/Digital Output2' */
-  writeDigitalPin(25, (uint8_T)CONTROL_SYSTEM_V3_B.Logic_f[0]);
+  /* MATLABSystem: '<S3>/Digital Output2' */
+  writeDigitalPin(25, (uint8_T)CONTROL_SYSTEM_V3_B.Logic_d[0]);
 
-  /* MATLABSystem: '<S4>/Digital Output1' */
+  /* MATLABSystem: '<S3>/Digital Output1' */
   writeDigitalPin(26, (uint8_T)CONTROL_SYSTEM_V3_B.Logic_e[0]);
   if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V3_M)) {
-    /* Memory: '<S53>/Memory' */
-    CONTROL_SYSTEM_V3_B.Memory_n = CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_d;
+    /* Memory: '<S50>/Memory' */
+    CONTROL_SYSTEM_V3_B.Memory_m = CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_m;
   }
 
-  /* CombinatorialLogic: '<S53>/Logic' incorporates:
-   *  Logic: '<S9>/Logical Operator26'
-   *  Logic: '<S9>/Logical Operator27'
-   *  Logic: '<S9>/Logical Operator28'
-   *  MATLABSystem: '<S9>/Digital Input'
-   *  MATLABSystem: '<S9>/Digital Input3'
+  /* CombinatorialLogic: '<S50>/Logic' incorporates:
+   *  Logic: '<S8>/Logical Operator26'
+   *  Logic: '<S8>/Logical Operator27'
+   *  Logic: '<S8>/Logical Operator28'
+   *  MATLABSystem: '<S8>/Digital Input'
+   *  MATLABSystem: '<S8>/Digital Input3'
    * */
   rowIdx = (int32_T)(((((uint32_T)(c_value && (rowIdx_tmp_1 && rowIdx_tmp_3)) <<
                         1) + (uint32_T)(int8_T)(rowIdx_tmp_4 ^ (int8_T)
-    LogicalOperator1)) << 1) + CONTROL_SYSTEM_V3_B.Memory_n);
-  CONTROL_SYSTEM_V3_B.Logic_d[0U] = CONTROL_SYSTEM_V3_P.Logic_table_d[(uint32_T)
+    LogicalOperator1)) << 1) + CONTROL_SYSTEM_V3_B.Memory_m);
+  CONTROL_SYSTEM_V3_B.Logic_l[0U] = CONTROL_SYSTEM_V3_P.Logic_table_bm[(uint32_T)
     rowIdx];
-  CONTROL_SYSTEM_V3_B.Logic_d[1U] = CONTROL_SYSTEM_V3_P.Logic_table_d[(uint32_T)
+  CONTROL_SYSTEM_V3_B.Logic_l[1U] = CONTROL_SYSTEM_V3_P.Logic_table_bm[(uint32_T)
     rowIdx + 8U];
 
-  /* Clock: '<S33>/Clock' */
-  rtb_Sum1 = CONTROL_SYSTEM_V3_M->Timing.t[0];
+  /* Clock: '<S30>/Clock' */
+  rtb_Sum = CONTROL_SYSTEM_V3_M->Timing.t[0];
   if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V3_M)) {
-    /* RelationalOperator: '<S33>/Relational Operator1' incorporates:
-     *  Constant: '<S33>/Constant'
-     *  Constant: '<S33>/Constant2'
+    /* RelationalOperator: '<S30>/Relational Operator1' incorporates:
+     *  Constant: '<S30>/Constant'
+     *  Constant: '<S30>/Constant2'
      */
     CONTROL_SYSTEM_V3_B.RelationalOperator1 =
       (CONTROL_SYSTEM_V3_P.OnDelay_DelayType ==
-       CONTROL_SYSTEM_V3_P.Constant_Value_b);
+       CONTROL_SYSTEM_V3_P.Constant_Value_p);
 
-    /* Outputs for Enabled SubSystem: '<S33>/ON Delay' incorporates:
-     *  EnablePort: '<S35>/Enable'
+    /* Outputs for Enabled SubSystem: '<S30>/ON Delay' incorporates:
+     *  EnablePort: '<S32>/Enable'
      */
     if (rtsiIsModeUpdateTimeStep(&CONTROL_SYSTEM_V3_M->solverInfo)) {
       if (CONTROL_SYSTEM_V3_B.RelationalOperator1) {
         CONTROL_SYSTEM_V3_DW.ONDelay_MODE = true;
       } else if (CONTROL_SYSTEM_V3_DW.ONDelay_MODE) {
-        /* Disable for Enabled SubSystem: '<S46>/POSITIVE Edge' */
-        if (CONTROL_SYSTEM_V3_DW.POSITIVEEdge_b.POSITIVEEdge_MODE) {
-          CONTROL_SY_POSITIVEEdge_Disable(&CONTROL_SYSTEM_V3_DW.POSITIVEEdge_b);
+        /* Disable for Enabled SubSystem: '<S43>/POSITIVE Edge' */
+        if (CONTROL_SYSTEM_V3_DW.POSITIVEEdge_j.POSITIVEEdge_MODE) {
+          CONTROL_SY_POSITIVEEdge_Disable(&CONTROL_SYSTEM_V3_DW.POSITIVEEdge_j);
         }
 
-        /* End of Disable for SubSystem: '<S46>/POSITIVE Edge' */
+        /* End of Disable for SubSystem: '<S43>/POSITIVE Edge' */
 
-        /* Disable for Enabled SubSystem: '<S46>/NEGATIVE Edge' */
-        if (CONTROL_SYSTEM_V3_DW.NEGATIVEEdge_m.NEGATIVEEdge_MODE) {
-          CONTROL_SY_NEGATIVEEdge_Disable(&CONTROL_SYSTEM_V3_DW.NEGATIVEEdge_m);
+        /* Disable for Enabled SubSystem: '<S43>/NEGATIVE Edge' */
+        if (CONTROL_SYSTEM_V3_DW.NEGATIVEEdge_d.NEGATIVEEdge_MODE) {
+          CONTROL_SY_NEGATIVEEdge_Disable(&CONTROL_SYSTEM_V3_DW.NEGATIVEEdge_d);
         }
 
-        /* End of Disable for SubSystem: '<S46>/NEGATIVE Edge' */
+        /* End of Disable for SubSystem: '<S43>/NEGATIVE Edge' */
         CONTROL_SYSTEM_V3_DW.ONDelay_MODE = false;
       }
     }
 
-    /* End of Outputs for SubSystem: '<S33>/ON Delay' */
+    /* End of Outputs for SubSystem: '<S30>/ON Delay' */
   }
 
-  /* Outputs for Enabled SubSystem: '<S33>/ON Delay' incorporates:
-   *  EnablePort: '<S35>/Enable'
+  /* Outputs for Enabled SubSystem: '<S30>/ON Delay' incorporates:
+   *  EnablePort: '<S32>/Enable'
    */
   if (CONTROL_SYSTEM_V3_DW.ONDelay_MODE) {
     if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V3_M)) {
-      /* MultiPortSwitch: '<S46>/Multiport Switch' incorporates:
-       *  Constant: '<S46>/Constant1'
+      /* MultiPortSwitch: '<S43>/Multiport Switch' incorporates:
+       *  Constant: '<S43>/Constant1'
        */
-      switch ((int32_T)CONTROL_SYSTEM_V3_P.EdgeDetector_model_a) {
+      switch ((int32_T)CONTROL_SYSTEM_V3_P.EdgeDetector_model_j) {
        case 1:
-        /* MultiPortSwitch: '<S46>/Multiport Switch' incorporates:
-         *  Constant: '<S46>/pos. edge'
+        /* MultiPortSwitch: '<S43>/Multiport Switch' incorporates:
+         *  Constant: '<S43>/pos. edge'
          */
         CONTROL_SYSTEM_V3_B.MultiportSwitch[0] =
-          CONTROL_SYSTEM_V3_P.posedge_Value_j[0];
+          CONTROL_SYSTEM_V3_P.posedge_Value_p[0];
         CONTROL_SYSTEM_V3_B.MultiportSwitch[1] =
-          CONTROL_SYSTEM_V3_P.posedge_Value_j[1];
+          CONTROL_SYSTEM_V3_P.posedge_Value_p[1];
         break;
 
        case 2:
-        /* MultiPortSwitch: '<S46>/Multiport Switch' incorporates:
-         *  Constant: '<S46>/neg. edge'
+        /* MultiPortSwitch: '<S43>/Multiport Switch' incorporates:
+         *  Constant: '<S43>/neg. edge'
          */
         CONTROL_SYSTEM_V3_B.MultiportSwitch[0] =
-          CONTROL_SYSTEM_V3_P.negedge_Value_i[0];
+          CONTROL_SYSTEM_V3_P.negedge_Value_h[0];
         CONTROL_SYSTEM_V3_B.MultiportSwitch[1] =
-          CONTROL_SYSTEM_V3_P.negedge_Value_i[1];
+          CONTROL_SYSTEM_V3_P.negedge_Value_h[1];
         break;
 
        default:
-        /* MultiPortSwitch: '<S46>/Multiport Switch' incorporates:
-         *  Constant: '<S46>/either edge'
+        /* MultiPortSwitch: '<S43>/Multiport Switch' incorporates:
+         *  Constant: '<S43>/either edge'
          */
         CONTROL_SYSTEM_V3_B.MultiportSwitch[0] =
-          CONTROL_SYSTEM_V3_P.eitheredge_Value_c[0];
+          CONTROL_SYSTEM_V3_P.eitheredge_Value_b[0];
         CONTROL_SYSTEM_V3_B.MultiportSwitch[1] =
-          CONTROL_SYSTEM_V3_P.eitheredge_Value_c[1];
+          CONTROL_SYSTEM_V3_P.eitheredge_Value_b[1];
         break;
       }
 
-      /* End of MultiPortSwitch: '<S46>/Multiport Switch' */
+      /* End of MultiPortSwitch: '<S43>/Multiport Switch' */
 
-      /* Memory: '<S46>/Memory' */
-      CONTROL_SYSTEM_V3_B.Memory_i = CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_n;
+      /* Memory: '<S43>/Memory' */
+      CONTROL_SYSTEM_V3_B.Memory_j = CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_p;
     }
 
-    /* Outputs for Enabled SubSystem: '<S46>/POSITIVE Edge' */
+    /* Outputs for Enabled SubSystem: '<S43>/POSITIVE Edge' */
     CONTROL_SYSTEM_V3_POSITIVEEdge(CONTROL_SYSTEM_V3_M,
-      CONTROL_SYSTEM_V3_B.MultiportSwitch[0], CONTROL_SYSTEM_V3_B.Logic_d[0],
-      CONTROL_SYSTEM_V3_B.Memory_i, &CONTROL_SYSTEM_V3_B.RelationalOperator1_i,
-      &CONTROL_SYSTEM_V3_DW.POSITIVEEdge_b);
+      CONTROL_SYSTEM_V3_B.MultiportSwitch[0], CONTROL_SYSTEM_V3_B.Logic_l[0],
+      CONTROL_SYSTEM_V3_B.Memory_j, &CONTROL_SYSTEM_V3_B.RelationalOperator1_p,
+      &CONTROL_SYSTEM_V3_DW.POSITIVEEdge_j);
 
-    /* End of Outputs for SubSystem: '<S46>/POSITIVE Edge' */
+    /* End of Outputs for SubSystem: '<S43>/POSITIVE Edge' */
 
-    /* Outputs for Enabled SubSystem: '<S46>/NEGATIVE Edge' */
+    /* Outputs for Enabled SubSystem: '<S43>/NEGATIVE Edge' */
     CONTROL_SYSTEM_V3_NEGATIVEEdge(CONTROL_SYSTEM_V3_M,
-      CONTROL_SYSTEM_V3_B.MultiportSwitch[1], CONTROL_SYSTEM_V3_B.Logic_d[0],
-      CONTROL_SYSTEM_V3_B.Memory_i, &CONTROL_SYSTEM_V3_B.RelationalOperator1_g,
-      &CONTROL_SYSTEM_V3_DW.NEGATIVEEdge_m);
+      CONTROL_SYSTEM_V3_B.MultiportSwitch[1], CONTROL_SYSTEM_V3_B.Logic_l[0],
+      CONTROL_SYSTEM_V3_B.Memory_j, &CONTROL_SYSTEM_V3_B.RelationalOperator1_h,
+      &CONTROL_SYSTEM_V3_DW.NEGATIVEEdge_d);
 
-    /* End of Outputs for SubSystem: '<S46>/NEGATIVE Edge' */
+    /* End of Outputs for SubSystem: '<S43>/NEGATIVE Edge' */
 
-    /* Logic: '<S46>/Logical Operator1' */
-    LogicalOperator1 = (CONTROL_SYSTEM_V3_B.RelationalOperator1_i ||
-                        CONTROL_SYSTEM_V3_B.RelationalOperator1_g);
+    /* Logic: '<S43>/Logical Operator1' */
+    LogicalOperator1 = (CONTROL_SYSTEM_V3_B.RelationalOperator1_p ||
+                        CONTROL_SYSTEM_V3_B.RelationalOperator1_h);
     if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V3_M)) {
-      /* Memory: '<S51>/IC=ic' */
+      /* Memory: '<S48>/IC=ic' */
       CONTROL_SYSTEM_V3_B.ICic = CONTROL_SYSTEM_V3_DW.ICic_PreviousInput;
     }
 
-    /* Switch: '<S51>/Switch' */
+    /* Switch: '<S48>/Switch' */
     if (LogicalOperator1) {
-      /* Switch: '<S51>/Switch' */
-      CONTROL_SYSTEM_V3_B.Switch = rtb_Sum1;
+      /* Switch: '<S48>/Switch' */
+      CONTROL_SYSTEM_V3_B.Switch = rtb_Sum;
     } else {
-      /* Switch: '<S51>/Switch' */
+      /* Switch: '<S48>/Switch' */
       CONTROL_SYSTEM_V3_B.Switch = CONTROL_SYSTEM_V3_B.ICic;
     }
 
-    /* End of Switch: '<S51>/Switch' */
+    /* End of Switch: '<S48>/Switch' */
 
-    /* Logic: '<S35>/Logical Operator2' incorporates:
-     *  Constant: '<S33>/Constant1'
-     *  RelationalOperator: '<S35>/Relational Operator'
-     *  Sum: '<S35>/Sum'
+    /* Logic: '<S32>/Logical Operator2' incorporates:
+     *  Constant: '<S30>/Constant1'
+     *  RelationalOperator: '<S32>/Relational Operator'
+     *  Sum: '<S32>/Sum'
      */
-    CONTROL_SYSTEM_V3_B.LogicalOperator2_g = ((rtb_Sum1 >=
+    CONTROL_SYSTEM_V3_B.LogicalOperator2_f = ((rtb_Sum >=
       CONTROL_SYSTEM_V3_B.Switch + CONTROL_SYSTEM_V3_P.OnDelay_delay) &&
-      CONTROL_SYSTEM_V3_B.Logic_d[0]);
+      CONTROL_SYSTEM_V3_B.Logic_l[0]);
     if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V3_M)) {
-      /* Outputs for Triggered SubSystem: '<S47>/Triggered Subsystem' incorporates:
-       *  TriggerPort: '<S50>/Trigger'
+      /* Outputs for Triggered SubSystem: '<S44>/Triggered Subsystem' incorporates:
+       *  TriggerPort: '<S47>/Trigger'
        */
       if (rtsiIsModeUpdateTimeStep(&CONTROL_SYSTEM_V3_M->solverInfo)) {
-        if (LogicalOperator1 &&
-            (CONTROL_SYSTEM_V3_PrevZCX.TriggeredSubsystem_Trig_ZCE != POS_ZCSIG))
-        {
-          CONTROL_SYSTEM_V3_DW.TriggeredSubsystem_SubsysRanBC = 4;
-        }
-
         CONTROL_SYSTEM_V3_PrevZCX.TriggeredSubsystem_Trig_ZCE = LogicalOperator1;
       }
 
-      /* End of Outputs for SubSystem: '<S47>/Triggered Subsystem' */
-    }
-
-    if (rtsiIsModeUpdateTimeStep(&CONTROL_SYSTEM_V3_M->solverInfo)) {
-      srUpdateBC(CONTROL_SYSTEM_V3_DW.ONDelay_SubsysRanBC);
+      /* End of Outputs for SubSystem: '<S44>/Triggered Subsystem' */
     }
   }
 
-  /* End of Outputs for SubSystem: '<S33>/ON Delay' */
+  /* End of Outputs for SubSystem: '<S30>/ON Delay' */
   if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V3_M)) {
-    /* Outputs for Enabled SubSystem: '<S33>/OFF Delay' incorporates:
-     *  EnablePort: '<S34>/Enable'
+    /* Outputs for Enabled SubSystem: '<S30>/OFF Delay' incorporates:
+     *  EnablePort: '<S31>/Enable'
      */
     if (rtsiIsModeUpdateTimeStep(&CONTROL_SYSTEM_V3_M->solverInfo)) {
-      /* Logic: '<S33>/Logical Operator2' */
+      /* Logic: '<S30>/Logical Operator2' */
       if (!CONTROL_SYSTEM_V3_B.RelationalOperator1) {
         CONTROL_SYSTEM_V3_DW.OFFDelay_MODE = true;
       } else if (CONTROL_SYSTEM_V3_DW.OFFDelay_MODE) {
-        /* Disable for Enabled SubSystem: '<S38>/POSITIVE Edge' */
+        /* Disable for Enabled SubSystem: '<S35>/POSITIVE Edge' */
         if (CONTROL_SYSTEM_V3_DW.POSITIVEEdge.POSITIVEEdge_MODE) {
           CONTROL_SY_POSITIVEEdge_Disable(&CONTROL_SYSTEM_V3_DW.POSITIVEEdge);
         }
 
-        /* End of Disable for SubSystem: '<S38>/POSITIVE Edge' */
+        /* End of Disable for SubSystem: '<S35>/POSITIVE Edge' */
 
-        /* Disable for Enabled SubSystem: '<S38>/NEGATIVE Edge' */
+        /* Disable for Enabled SubSystem: '<S35>/NEGATIVE Edge' */
         if (CONTROL_SYSTEM_V3_DW.NEGATIVEEdge.NEGATIVEEdge_MODE) {
           CONTROL_SY_NEGATIVEEdge_Disable(&CONTROL_SYSTEM_V3_DW.NEGATIVEEdge);
         }
 
-        /* End of Disable for SubSystem: '<S38>/NEGATIVE Edge' */
+        /* End of Disable for SubSystem: '<S35>/NEGATIVE Edge' */
         CONTROL_SYSTEM_V3_DW.OFFDelay_MODE = false;
       }
 
-      /* End of Logic: '<S33>/Logical Operator2' */
+      /* End of Logic: '<S30>/Logical Operator2' */
     }
 
-    /* End of Outputs for SubSystem: '<S33>/OFF Delay' */
+    /* End of Outputs for SubSystem: '<S30>/OFF Delay' */
   }
 
-  /* Outputs for Enabled SubSystem: '<S33>/OFF Delay' incorporates:
-   *  EnablePort: '<S34>/Enable'
+  /* Outputs for Enabled SubSystem: '<S30>/OFF Delay' incorporates:
+   *  EnablePort: '<S31>/Enable'
    */
   if (CONTROL_SYSTEM_V3_DW.OFFDelay_MODE) {
     if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V3_M)) {
-      /* MultiPortSwitch: '<S38>/Multiport Switch' incorporates:
-       *  Constant: '<S38>/Constant1'
+      /* MultiPortSwitch: '<S35>/Multiport Switch' incorporates:
+       *  Constant: '<S35>/Constant1'
        */
       switch ((int32_T)CONTROL_SYSTEM_V3_P.EdgeDetector_model) {
        case 1:
-        /* MultiPortSwitch: '<S38>/Multiport Switch' incorporates:
-         *  Constant: '<S38>/pos. edge'
+        /* MultiPortSwitch: '<S35>/Multiport Switch' incorporates:
+         *  Constant: '<S35>/pos. edge'
          */
-        CONTROL_SYSTEM_V3_B.MultiportSwitch_l[0] =
+        CONTROL_SYSTEM_V3_B.MultiportSwitch_h[0] =
           CONTROL_SYSTEM_V3_P.posedge_Value[0];
-        CONTROL_SYSTEM_V3_B.MultiportSwitch_l[1] =
+        CONTROL_SYSTEM_V3_B.MultiportSwitch_h[1] =
           CONTROL_SYSTEM_V3_P.posedge_Value[1];
         break;
 
        case 2:
-        /* MultiPortSwitch: '<S38>/Multiport Switch' incorporates:
-         *  Constant: '<S38>/neg. edge'
+        /* MultiPortSwitch: '<S35>/Multiport Switch' incorporates:
+         *  Constant: '<S35>/neg. edge'
          */
-        CONTROL_SYSTEM_V3_B.MultiportSwitch_l[0] =
+        CONTROL_SYSTEM_V3_B.MultiportSwitch_h[0] =
           CONTROL_SYSTEM_V3_P.negedge_Value[0];
-        CONTROL_SYSTEM_V3_B.MultiportSwitch_l[1] =
+        CONTROL_SYSTEM_V3_B.MultiportSwitch_h[1] =
           CONTROL_SYSTEM_V3_P.negedge_Value[1];
         break;
 
        default:
-        /* MultiPortSwitch: '<S38>/Multiport Switch' incorporates:
-         *  Constant: '<S38>/either edge'
+        /* MultiPortSwitch: '<S35>/Multiport Switch' incorporates:
+         *  Constant: '<S35>/either edge'
          */
-        CONTROL_SYSTEM_V3_B.MultiportSwitch_l[0] =
+        CONTROL_SYSTEM_V3_B.MultiportSwitch_h[0] =
           CONTROL_SYSTEM_V3_P.eitheredge_Value[0];
-        CONTROL_SYSTEM_V3_B.MultiportSwitch_l[1] =
+        CONTROL_SYSTEM_V3_B.MultiportSwitch_h[1] =
           CONTROL_SYSTEM_V3_P.eitheredge_Value[1];
         break;
       }
 
-      /* End of MultiPortSwitch: '<S38>/Multiport Switch' */
+      /* End of MultiPortSwitch: '<S35>/Multiport Switch' */
 
-      /* Memory: '<S38>/Memory' */
-      CONTROL_SYSTEM_V3_B.Memory_no =
-        CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_dj;
+      /* Memory: '<S35>/Memory' */
+      CONTROL_SYSTEM_V3_B.Memory_k = CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_k;
     }
 
-    /* Outputs for Enabled SubSystem: '<S38>/POSITIVE Edge' */
+    /* Outputs for Enabled SubSystem: '<S35>/POSITIVE Edge' */
     CONTROL_SYSTEM_V3_POSITIVEEdge(CONTROL_SYSTEM_V3_M,
-      CONTROL_SYSTEM_V3_B.MultiportSwitch_l[0], CONTROL_SYSTEM_V3_B.Logic_d[0],
-      CONTROL_SYSTEM_V3_B.Memory_no, &CONTROL_SYSTEM_V3_B.RelationalOperator1_e,
+      CONTROL_SYSTEM_V3_B.MultiportSwitch_h[0], CONTROL_SYSTEM_V3_B.Logic_l[0],
+      CONTROL_SYSTEM_V3_B.Memory_k, &CONTROL_SYSTEM_V3_B.RelationalOperator1_i,
       &CONTROL_SYSTEM_V3_DW.POSITIVEEdge);
 
-    /* End of Outputs for SubSystem: '<S38>/POSITIVE Edge' */
+    /* End of Outputs for SubSystem: '<S35>/POSITIVE Edge' */
 
-    /* Outputs for Enabled SubSystem: '<S38>/NEGATIVE Edge' */
+    /* Outputs for Enabled SubSystem: '<S35>/NEGATIVE Edge' */
     CONTROL_SYSTEM_V3_NEGATIVEEdge(CONTROL_SYSTEM_V3_M,
-      CONTROL_SYSTEM_V3_B.MultiportSwitch_l[1], CONTROL_SYSTEM_V3_B.Logic_d[0],
-      CONTROL_SYSTEM_V3_B.Memory_no, &CONTROL_SYSTEM_V3_B.RelationalOperator1_f,
+      CONTROL_SYSTEM_V3_B.MultiportSwitch_h[1], CONTROL_SYSTEM_V3_B.Logic_l[0],
+      CONTROL_SYSTEM_V3_B.Memory_k, &CONTROL_SYSTEM_V3_B.RelationalOperator1_d,
       &CONTROL_SYSTEM_V3_DW.NEGATIVEEdge);
 
-    /* End of Outputs for SubSystem: '<S38>/NEGATIVE Edge' */
+    /* End of Outputs for SubSystem: '<S35>/NEGATIVE Edge' */
 
-    /* Logic: '<S38>/Logical Operator1' */
-    LogicalOperator1 = (CONTROL_SYSTEM_V3_B.RelationalOperator1_e ||
-                        CONTROL_SYSTEM_V3_B.RelationalOperator1_f);
+    /* Logic: '<S35>/Logical Operator1' */
+    LogicalOperator1 = (CONTROL_SYSTEM_V3_B.RelationalOperator1_i ||
+                        CONTROL_SYSTEM_V3_B.RelationalOperator1_d);
     if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V3_M)) {
-      /* Memory: '<S43>/IC=ic' */
-      CONTROL_SYSTEM_V3_B.ICic_i = CONTROL_SYSTEM_V3_DW.ICic_PreviousInput_b;
+      /* Memory: '<S40>/IC=ic' */
+      CONTROL_SYSTEM_V3_B.ICic_e = CONTROL_SYSTEM_V3_DW.ICic_PreviousInput_h;
     }
 
-    /* Switch: '<S43>/Switch' */
+    /* Switch: '<S40>/Switch' */
     if (LogicalOperator1) {
-      /* Switch: '<S43>/Switch' */
-      CONTROL_SYSTEM_V3_B.Switch_i = rtb_Sum1;
+      /* Switch: '<S40>/Switch' */
+      CONTROL_SYSTEM_V3_B.Switch_d = rtb_Sum;
     } else {
-      /* Switch: '<S43>/Switch' */
-      CONTROL_SYSTEM_V3_B.Switch_i = CONTROL_SYSTEM_V3_B.ICic_i;
+      /* Switch: '<S40>/Switch' */
+      CONTROL_SYSTEM_V3_B.Switch_d = CONTROL_SYSTEM_V3_B.ICic_e;
     }
 
-    /* End of Switch: '<S43>/Switch' */
+    /* End of Switch: '<S40>/Switch' */
 
-    /* Logic: '<S34>/Logical Operator2' incorporates:
-     *  Constant: '<S33>/Constant1'
-     *  Logic: '<S34>/Logical Operator'
-     *  Logic: '<S34>/Logical Operator1'
-     *  RelationalOperator: '<S34>/Relational Operator'
-     *  Sum: '<S34>/Sum'
+    /* Logic: '<S31>/Logical Operator2' incorporates:
+     *  Constant: '<S30>/Constant1'
+     *  Logic: '<S31>/Logical Operator'
+     *  Logic: '<S31>/Logical Operator1'
+     *  RelationalOperator: '<S31>/Relational Operator'
+     *  Sum: '<S31>/Sum'
      */
-    CONTROL_SYSTEM_V3_B.LogicalOperator2_c = ((!(rtb_Sum1 >=
-      CONTROL_SYSTEM_V3_B.Switch_i + CONTROL_SYSTEM_V3_P.OnDelay_delay)) ||
-      CONTROL_SYSTEM_V3_B.Logic_d[0]);
+    CONTROL_SYSTEM_V3_B.LogicalOperator2_l = ((!(rtb_Sum >=
+      CONTROL_SYSTEM_V3_B.Switch_d + CONTROL_SYSTEM_V3_P.OnDelay_delay)) ||
+      CONTROL_SYSTEM_V3_B.Logic_l[0]);
     if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V3_M)) {
-      /* Outputs for Triggered SubSystem: '<S39>/Triggered Subsystem' incorporates:
-       *  TriggerPort: '<S42>/Trigger'
+      /* Outputs for Triggered SubSystem: '<S36>/Triggered Subsystem' incorporates:
+       *  TriggerPort: '<S39>/Trigger'
        */
       if (rtsiIsModeUpdateTimeStep(&CONTROL_SYSTEM_V3_M->solverInfo)) {
-        if (LogicalOperator1 &&
-            (CONTROL_SYSTEM_V3_PrevZCX.TriggeredSubsystem_Trig_ZCE_i !=
-             POS_ZCSIG)) {
-          CONTROL_SYSTEM_V3_DW.TriggeredSubsystem_SubsysRanB_j = 4;
-        }
-
-        CONTROL_SYSTEM_V3_PrevZCX.TriggeredSubsystem_Trig_ZCE_i =
+        CONTROL_SYSTEM_V3_PrevZCX.TriggeredSubsystem_Trig_ZCE_f =
           LogicalOperator1;
       }
 
-      /* End of Outputs for SubSystem: '<S39>/Triggered Subsystem' */
-    }
-
-    if (rtsiIsModeUpdateTimeStep(&CONTROL_SYSTEM_V3_M->solverInfo)) {
-      srUpdateBC(CONTROL_SYSTEM_V3_DW.OFFDelay_SubsysRanBC);
+      /* End of Outputs for SubSystem: '<S36>/Triggered Subsystem' */
     }
   }
 
-  /* End of Outputs for SubSystem: '<S33>/OFF Delay' */
+  /* End of Outputs for SubSystem: '<S30>/OFF Delay' */
   if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V3_M)) {
-    /* Sum: '<S6>/Add2' incorporates:
-     *  Constant: '<S6>/Desire Max Value'
-     *  Constant: '<S6>/Desire Min Value'
+    /* Product: '<S5>/Divide1' incorporates:
+     *  Constant: '<S5>/Desire Max Value'
+     *  Constant: '<S5>/Desire Min Value'
+     *  Sum: '<S5>/Add2'
+     *  Sum: '<S5>/Add3'
      */
-    CONTROL_SYSTEM_V3_B.Add2_o = CONTROL_SYSTEM_V3_P.Desire_Max -
-      CONTROL_SYSTEM_V3_P.Desire_Min;
-
-    /* Sum: '<S6>/Add3' */
-    CONTROL_SYSTEM_V3_B.Add3_g = CONTROL_SYSTEM_V3_B.FP_maxVal -
-      CONTROL_SYSTEM_V3_B.FP_minVal;
-
-    /* Product: '<S6>/Divide1' */
-    CONTROL_SYSTEM_V3_B.Divide1_i = CONTROL_SYSTEM_V3_B.Add2_o /
-      CONTROL_SYSTEM_V3_B.Add3_g;
+    CONTROL_SYSTEM_V3_B.Divide1_f = (CONTROL_SYSTEM_V3_P.Desire_Max -
+      CONTROL_SYSTEM_V3_P.Desire_Min) / (rtb_FP_maxVal -
+      CONTROL_SYSTEM_V3_B.FP_minVal);
   }
 
-  /* MultiPortSwitch: '<S10>/Multiport Switch' incorporates:
-   *  Gain: '<S10>/Multiply'
-   *  Gain: '<S10>/Multiply1'
-   *  Gain: '<S10>/Multiply2'
-   *  Sum: '<S10>/Add'
+  /* Switch: '<S7>/Switch2' incorporates:
+   *  Constant: '<S7>/Constant'
+   *  Logic: '<S30>/Logical Operator1'
+   *  Switch: '<S7>/Switch1'
    */
-  switch ((uint8_T)(((((uint32_T)(CONTROL_SYSTEM_V3_B.Logic_e[0] ? (int32_T)
-    CONTROL_SYSTEM_V3_P.Multiply1_Gain : 0) << 1) + (uint32_T)
-                      (CONTROL_SYSTEM_V3_B.Logic[0] ? (int32_T)
-                       CONTROL_SYSTEM_V3_P.Multiply_Gain : 0)) + ((uint32_T)
-             (CONTROL_SYSTEM_V3_B.Logic_f[0] ? (int32_T)
-              CONTROL_SYSTEM_V3_P.Multiply2_Gain : 0) << 1)) >> 1) >> 6) {
-   case 1:
-    /* Switch: '<S5>/Switch' */
-    rtb_Sum1 = CONTROL_SYSTEM_V3_B.Error_j;
-    break;
-
-   case 2:
-    /* Switch: '<S5>/Switch' */
-    rtb_Sum1 = CONTROL_SYSTEM_V3_B.Switch2_e;
-    break;
-
-   default:
-    /* Switch: '<S5>/Switch' */
-    rtb_Sum1 = CONTROL_SYSTEM_V3_B.Switch2;
-    break;
-  }
-
-  /* End of MultiPortSwitch: '<S10>/Multiport Switch' */
-
-  /* Sum: '<S6>/Sum' incorporates:
-   *  Constant: '<S6>/Desire Min Value'
-   *  Product: '<S6>/Product1'
-   *  Sum: '<S6>/Subtract'
-   */
-  CONTROL_SYSTEM_V3_B.Sum_h = (rtb_Sum1 - CONTROL_SYSTEM_V3_B.FP_minVal) *
-    CONTROL_SYSTEM_V3_B.Divide1_i + CONTROL_SYSTEM_V3_P.Desire_Min;
-
-  /* Switch: '<S8>/Switch2' incorporates:
-   *  Constant: '<S8>/Constant'
-   *  Logic: '<S33>/Logical Operator1'
-   *  Switch: '<S8>/Switch1'
-   */
-  if (CONTROL_SYSTEM_V3_B.LogicalOperator2_g ||
-      CONTROL_SYSTEM_V3_B.LogicalOperator2_c) {
-    rtb_Sum1 = CONTROL_SYSTEM_V3_P.Constant_Value_p;
-  } else if (CONTROL_SYSTEM_V3_B.Logic_d[0]) {
-    /* Switch: '<S8>/Switch1' incorporates:
-     *  Gain: '<S8>/Gain'
+  if (CONTROL_SYSTEM_V3_B.LogicalOperator2_f ||
+      CONTROL_SYSTEM_V3_B.LogicalOperator2_l) {
+    rtb_FP_maxVal = CONTROL_SYSTEM_V3_P.Constant_Value_e;
+  } else if (CONTROL_SYSTEM_V3_B.Logic_l[0]) {
+    /* Switch: '<S7>/Switch1' incorporates:
+     *  Gain: '<S7>/Gain'
      */
-    rtb_Sum1 = (real_T)(CONTROL_SYSTEM_V3_B.Logic_d[0] ? (int32_T)
-                        CONTROL_SYSTEM_V3_P.Gain_Gain_f : 0) * 0.5;
+    rtb_FP_maxVal = (real_T)(CONTROL_SYSTEM_V3_B.Logic_l[0] ? (int32_T)
+      CONTROL_SYSTEM_V3_P.Gain_Gain_k : 0) * 0.5;
   } else {
-    /* Switch: '<S8>/Switch1' */
-    rtb_Sum1 = CONTROL_SYSTEM_V3_B.Sum_h;
+    /* MultiPortSwitch: '<S9>/Multiport Switch' incorporates:
+     *  Gain: '<S9>/Multiply'
+     *  Gain: '<S9>/Multiply1'
+     *  Gain: '<S9>/Multiply2'
+     *  Sum: '<S9>/Add'
+     *  Switch: '<S7>/Switch1'
+     */
+    switch ((uint8_T)(((((uint32_T)(CONTROL_SYSTEM_V3_B.Logic_e[0] ? (int32_T)
+      CONTROL_SYSTEM_V3_P.Multiply1_Gain : 0) << 1) + (uint32_T)
+                        (CONTROL_SYSTEM_V3_B.Logic[0] ? (int32_T)
+                         CONTROL_SYSTEM_V3_P.Multiply_Gain : 0)) + ((uint32_T)
+               (CONTROL_SYSTEM_V3_B.Logic_d[0] ? (int32_T)
+                CONTROL_SYSTEM_V3_P.Multiply2_Gain : 0) << 1)) >> 1) >> 6) {
+     case 1:
+      rtb_FP_maxVal = CONTROL_SYSTEM_V3_B.Error;
+      break;
+
+     case 2:
+      rtb_FP_maxVal = CONTROL_SYSTEM_V3_B.Switch2_j;
+      break;
+
+     default:
+      rtb_FP_maxVal = CONTROL_SYSTEM_V3_B.Switch2;
+      break;
+    }
+
+    /* End of MultiPortSwitch: '<S9>/Multiport Switch' */
+
+    /* Switch: '<S7>/Switch1' incorporates:
+     *  Constant: '<S5>/Desire Min Value'
+     *  Product: '<S5>/Product1'
+     *  Sum: '<S5>/Subtract'
+     *  Sum: '<S5>/Sum'
+     */
+    rtb_FP_maxVal = (rtb_FP_maxVal - CONTROL_SYSTEM_V3_B.FP_minVal) *
+      CONTROL_SYSTEM_V3_B.Divide1_f + CONTROL_SYSTEM_V3_P.Desire_Min;
   }
 
-  /* End of Switch: '<S8>/Switch2' */
+  /* End of Switch: '<S7>/Switch2' */
 
-  /* Start for MATLABSystem: '<S8>/PWM' */
-  if (!(rtb_Sum1 <= 255.0)) {
-    rtb_Sum1 = 255.0;
+  /* Start for MATLABSystem: '<S7>/PWM' */
+  if (!(rtb_FP_maxVal <= 255.0)) {
+    rtb_FP_maxVal = 255.0;
   }
 
-  /* MATLABSystem: '<S8>/PWM' */
-  CONTROL_SYSTEM_V3_DW.obj_g.PWMDriverObj.MW_PWM_HANDLE = MW_PWM_GetHandle(4U);
+  /* MATLABSystem: '<S7>/PWM' */
+  CONTROL_SYSTEM_V3_DW.obj_e.PWMDriverObj.MW_PWM_HANDLE = MW_PWM_GetHandle(4U);
 
-  /* Start for MATLABSystem: '<S8>/PWM' */
-  if (!(rtb_Sum1 >= 0.0)) {
-    rtb_Sum1 = 0.0;
+  /* Start for MATLABSystem: '<S7>/PWM' */
+  if (!(rtb_FP_maxVal >= 0.0)) {
+    rtb_FP_maxVal = 0.0;
   }
 
-  /* MATLABSystem: '<S8>/PWM' */
-  MW_PWM_SetDutyCycle(CONTROL_SYSTEM_V3_DW.obj_g.PWMDriverObj.MW_PWM_HANDLE,
-                      -(rtb_Sum1 * 255.0 / 255.0));
+  /* MATLABSystem: '<S7>/PWM' */
+  MW_PWM_SetDutyCycle(CONTROL_SYSTEM_V3_DW.obj_e.PWMDriverObj.MW_PWM_HANDLE,
+                      -(rtb_FP_maxVal * 255.0 / 255.0));
   if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V3_M)) {
-    /* DiscretePulseGenerator: '<S4>/Pulse Generator' */
+    /* DiscretePulseGenerator: '<S3>/Pulse Generator' */
     CONTROL_SYSTEM_V3_B.PulseGenerator = (CONTROL_SYSTEM_V3_DW.clockTickCounter <
       CONTROL_SYSTEM_V3_P.PulseGenerator_Duty) &&
       (CONTROL_SYSTEM_V3_DW.clockTickCounter >= 0) ?
       CONTROL_SYSTEM_V3_P.PulseGenerator_Amp : 0.0;
 
-    /* DiscretePulseGenerator: '<S4>/Pulse Generator' */
+    /* DiscretePulseGenerator: '<S3>/Pulse Generator' */
     if (CONTROL_SYSTEM_V3_DW.clockTickCounter >=
         CONTROL_SYSTEM_V3_P.PulseGenerator_Period - 1.0) {
       CONTROL_SYSTEM_V3_DW.clockTickCounter = 0;
@@ -1241,22 +1131,22 @@ void CONTROL_SYSTEM_V3_step(void)
     }
   }
 
-  /* Switch: '<S4>/Switch' incorporates:
-   *  Constant: '<S4>/Constant'
+  /* Switch: '<S3>/Switch' incorporates:
+   *  Constant: '<S3>/Constant'
    */
-  if (CONTROL_SYSTEM_V3_B.Logic_d[0]) {
-    rtb_Sum1 = CONTROL_SYSTEM_V3_B.PulseGenerator;
+  if (CONTROL_SYSTEM_V3_B.Logic_l[0]) {
+    rtb_FP_maxVal = CONTROL_SYSTEM_V3_B.PulseGenerator;
   } else {
-    rtb_Sum1 = CONTROL_SYSTEM_V3_P.Constant_Value_o;
+    rtb_FP_maxVal = CONTROL_SYSTEM_V3_P.Constant_Value_d;
   }
 
-  /* MATLABSystem: '<S4>/Digital Output3' incorporates:
-   *  Switch: '<S4>/Switch'
+  /* MATLABSystem: '<S3>/Digital Output3' incorporates:
+   *  Switch: '<S3>/Switch'
    */
-  rtb_Sum1 = rt_roundd_snf(rtb_Sum1);
-  if (rtb_Sum1 < 256.0) {
-    if (rtb_Sum1 >= 0.0) {
-      tmp = (uint8_T)rtb_Sum1;
+  rtb_FP_maxVal = rt_roundd_snf(rtb_FP_maxVal);
+  if (rtb_FP_maxVal < 256.0) {
+    if (rtb_FP_maxVal >= 0.0) {
+      tmp = (uint8_T)rtb_FP_maxVal;
     } else {
       tmp = 0U;
     }
@@ -1266,118 +1156,68 @@ void CONTROL_SYSTEM_V3_step(void)
 
   writeDigitalPin(33, tmp);
 
-  /* End of MATLABSystem: '<S4>/Digital Output3' */
-
-  /* Switch: '<S5>/Switch' incorporates:
-   *  Abs: '<S15>/Abs'
-   *  Product: '<S15>/Divide'
-   */
-  rtb_Sum1 = fabs(CONTROL_SYSTEM_V3_B.Error / CONTROL_SYSTEM_V3_B.Sum);
-
-  /* Gain: '<S15>/Gain' */
-  CONTROL_SYSTEM_V3_B.PercentageError = CONTROL_SYSTEM_V3_P.Gain_Gain_i *
-    rtb_Sum1;
+  /* End of MATLABSystem: '<S3>/Digital Output3' */
   if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V3_M)) {
-  }
+    /* DiscretePulseGenerator: '<S4>/Pulse Generator' */
+    CONTROL_SYSTEM_V3_B.PulseGenerator_m =
+      (CONTROL_SYSTEM_V3_DW.clockTickCounter_n <
+       CONTROL_SYSTEM_V3_P.PulseGenerator_Duty_e) &&
+      (CONTROL_SYSTEM_V3_DW.clockTickCounter_n >= 0) ?
+      CONTROL_SYSTEM_V3_P.PulseGenerator_Amp_n : 0.0;
 
-  /* FromWorkspace: '<S14>/From Workspace' */
-  {
-    real_T t = CONTROL_SYSTEM_V3_M->Timing.t[0];
-    real_T *pTimeValues = (real_T *)
-      CONTROL_SYSTEM_V3_DW.FromWorkspace_PWORK.TimePtr;
-    real_T *pDataValues = (real_T *)
-      CONTROL_SYSTEM_V3_DW.FromWorkspace_PWORK.DataPtr;
-    if (t < pTimeValues[0]) {
-      rtb_Sum1 = 0.0;
-    } else if (t == pTimeValues[4]) {
-      rtb_Sum1 = pDataValues[4];
-    } else if (t > pTimeValues[4]) {
-      rtb_Sum1 = 0.0;
+    /* DiscretePulseGenerator: '<S4>/Pulse Generator' */
+    if (CONTROL_SYSTEM_V3_DW.clockTickCounter_n >=
+        CONTROL_SYSTEM_V3_P.PulseGenerator_Period_d - 1.0) {
+      CONTROL_SYSTEM_V3_DW.clockTickCounter_n = 0;
     } else {
-      int_T currTimeIndex = CONTROL_SYSTEM_V3_DW.FromWorkspace_IWORK.PrevIndex;
-      if (t < pTimeValues[currTimeIndex]) {
-        while (t < pTimeValues[currTimeIndex]) {
-          currTimeIndex--;
-        }
-      } else {
-        while (t >= pTimeValues[currTimeIndex + 1]) {
-          currTimeIndex++;
-        }
-      }
-
-      rtb_Sum1 = pDataValues[currTimeIndex];
-      CONTROL_SYSTEM_V3_DW.FromWorkspace_IWORK.PrevIndex = currTimeIndex;
+      CONTROL_SYSTEM_V3_DW.clockTickCounter_n++;
     }
   }
 
-  /* Switch: '<S1>/Switch4' */
-  if (rtb_Sum1 != 0.0) {
-    /* Switch: '<S1>/Switch4' */
-    CONTROL_SYSTEM_V3_B.FootPedalSignal_l = CONTROL_SYSTEM_V3_B.Sum;
-  } else {
-    /* Switch: '<S1>/Switch4' */
-    CONTROL_SYSTEM_V3_B.FootPedalSignal_l = 0.0;
-  }
-
-  /* End of Switch: '<S1>/Switch4' */
-  if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V3_M)) {
-    /* DiscretePulseGenerator: '<S5>/Pulse Generator' */
-    CONTROL_SYSTEM_V3_B.PulseGenerator_p =
-      (CONTROL_SYSTEM_V3_DW.clockTickCounter_k <
-       CONTROL_SYSTEM_V3_P.PulseGenerator_Duty_p) &&
-      (CONTROL_SYSTEM_V3_DW.clockTickCounter_k >= 0) ?
-      CONTROL_SYSTEM_V3_P.PulseGenerator_Amp_i : 0.0;
-
-    /* DiscretePulseGenerator: '<S5>/Pulse Generator' */
-    if (CONTROL_SYSTEM_V3_DW.clockTickCounter_k >=
-        CONTROL_SYSTEM_V3_P.PulseGenerator_Period_m - 1.0) {
-      CONTROL_SYSTEM_V3_DW.clockTickCounter_k = 0;
-    } else {
-      CONTROL_SYSTEM_V3_DW.clockTickCounter_k++;
-    }
-  }
-
-  /* Switch: '<S5>/Switch' incorporates:
-   *  Constant: '<S5>/Constant'
-   *  Constant: '<S5>/Constant1'
-   */
-  if (CONTROL_SYSTEM_V3_B.MATLABSystem_o2 > CONTROL_SYSTEM_V3_P.Switch_Threshold)
+  /* Switch: '<S4>/Switch' incorporates:
+   *  Constant: '<S4>/Constant'
+   *  Constant: '<S4>/Constant1'
+   *  MATLABSystem: '<S2>/MATLAB System'
+   * */
+  if (CONTROL_SYSTEM_V3_B.b_varargout_2 > CONTROL_SYSTEM_V3_P.Switch_Threshold)
   {
-    rtb_Sum1 = CONTROL_SYSTEM_V3_P.Constant_Value_e;
+    rtb_FP_maxVal = CONTROL_SYSTEM_V3_P.Constant_Value_a;
   } else {
-    rtb_Sum1 = CONTROL_SYSTEM_V3_P.Constant1_Value_c;
+    rtb_FP_maxVal = CONTROL_SYSTEM_V3_P.Constant1_Value_o;
   }
 
-  /* Switch: '<S5>/Switch2' incorporates:
-   *  Constant: '<S5>/Constant2'
-   *  Constant: '<S5>/Constant3'
-   */
-  if (CONTROL_SYSTEM_V3_B.MATLABSystem_o3 >
-      CONTROL_SYSTEM_V3_P.Switch2_Threshold) {
-    Integrator_CSTATE = CONTROL_SYSTEM_V3_P.Constant2_Value_g;
+  /* Switch: '<S4>/Switch2' incorporates:
+   *  Constant: '<S4>/Constant2'
+   *  Constant: '<S4>/Constant3'
+   *  MATLABSystem: '<S2>/MATLAB System'
+   * */
+  if (CONTROL_SYSTEM_V3_B.b_varargout_3 > CONTROL_SYSTEM_V3_P.Switch2_Threshold)
+  {
+    CONTROL_SYSTEM_V3_B.b_varargout_2 = CONTROL_SYSTEM_V3_P.Constant2_Value_j;
   } else {
-    Integrator_CSTATE = CONTROL_SYSTEM_V3_P.Constant3_Value_b5;
+    CONTROL_SYSTEM_V3_B.b_varargout_2 = CONTROL_SYSTEM_V3_P.Constant3_Value_f;
   }
 
-  /* Switch: '<S5>/Switch3' incorporates:
-   *  Constant: '<S5>/Constant4'
-   *  Logic: '<S5>/OR'
-   *  Switch: '<S5>/Switch'
-   *  Switch: '<S5>/Switch2'
+  /* Switch: '<S4>/Switch3' incorporates:
+   *  Constant: '<S4>/Constant4'
+   *  Logic: '<S4>/OR'
+   *  Switch: '<S4>/Switch'
+   *  Switch: '<S4>/Switch2'
    */
-  if ((!(rtb_Sum1 != 0.0)) || (!(Integrator_CSTATE != 0.0))) {
-    rtb_Sum1 = CONTROL_SYSTEM_V3_B.PulseGenerator_p;
+  if ((!(rtb_FP_maxVal != 0.0)) || (!(CONTROL_SYSTEM_V3_B.b_varargout_2 != 0.0)))
+  {
+    rtb_FP_maxVal = CONTROL_SYSTEM_V3_B.PulseGenerator_m;
   } else {
-    rtb_Sum1 = CONTROL_SYSTEM_V3_P.Constant4_Value;
+    rtb_FP_maxVal = CONTROL_SYSTEM_V3_P.Constant4_Value;
   }
 
-  /* MATLABSystem: '<S5>/Digital Output4' incorporates:
-   *  Switch: '<S5>/Switch3'
+  /* MATLABSystem: '<S4>/Digital Output4' incorporates:
+   *  Switch: '<S4>/Switch3'
    */
-  rtb_Sum1 = rt_roundd_snf(rtb_Sum1);
-  if (rtb_Sum1 < 256.0) {
-    if (rtb_Sum1 >= 0.0) {
-      tmp = (uint8_T)rtb_Sum1;
+  rtb_FP_maxVal = rt_roundd_snf(rtb_FP_maxVal);
+  if (rtb_FP_maxVal < 256.0) {
+    if (rtb_FP_maxVal >= 0.0) {
+      tmp = (uint8_T)rtb_FP_maxVal;
     } else {
       tmp = 0U;
     }
@@ -1387,16 +1227,15 @@ void CONTROL_SYSTEM_V3_step(void)
 
   writeDigitalPin(32, tmp);
 
-  /* End of MATLABSystem: '<S5>/Digital Output4' */
+  /* End of MATLABSystem: '<S4>/Digital Output4' */
   if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V3_M)) {
-    /* Constant: '<S8>/Enable Pin' */
-    CONTROL_SYSTEM_V3_B.EnablePin = CONTROL_SYSTEM_V3_P.EN_Pin;
-
-    /* MATLABSystem: '<S8>/Digital Output' */
-    rtb_Sum1 = rt_roundd_snf(CONTROL_SYSTEM_V3_B.EnablePin);
-    if (rtb_Sum1 < 256.0) {
-      if (rtb_Sum1 >= 0.0) {
-        tmp = (uint8_T)rtb_Sum1;
+    /* MATLABSystem: '<S7>/Digital Output' incorporates:
+     *  Constant: '<S7>/Enable Pin'
+     */
+    rtb_FP_maxVal = rt_roundd_snf(CONTROL_SYSTEM_V3_P.EN_Pin);
+    if (rtb_FP_maxVal < 256.0) {
+      if (rtb_FP_maxVal >= 0.0) {
+        tmp = (uint8_T)rtb_FP_maxVal;
       } else {
         tmp = 0U;
       }
@@ -1406,15 +1245,15 @@ void CONTROL_SYSTEM_V3_step(void)
 
     writeDigitalPin(0, tmp);
 
-    /* End of MATLABSystem: '<S8>/Digital Output' */
-    /* Constant: '<S8>/Direction Pin' */
-    CONTROL_SYSTEM_V3_B.DirectionPin = CONTROL_SYSTEM_V3_P.Direction_Pin;
+    /* End of MATLABSystem: '<S7>/Digital Output' */
 
-    /* MATLABSystem: '<S8>/Digital Output1' */
-    rtb_Sum1 = rt_roundd_snf(CONTROL_SYSTEM_V3_B.DirectionPin);
-    if (rtb_Sum1 < 256.0) {
-      if (rtb_Sum1 >= 0.0) {
-        tmp = (uint8_T)rtb_Sum1;
+    /* MATLABSystem: '<S7>/Digital Output1' incorporates:
+     *  Constant: '<S7>/Direction Pin'
+     */
+    rtb_FP_maxVal = rt_roundd_snf(CONTROL_SYSTEM_V3_P.Direction_Pin);
+    if (rtb_FP_maxVal < 256.0) {
+      if (rtb_FP_maxVal >= 0.0) {
+        tmp = (uint8_T)rtb_FP_maxVal;
       } else {
         tmp = 0U;
       }
@@ -1424,89 +1263,56 @@ void CONTROL_SYSTEM_V3_step(void)
 
     writeDigitalPin(16, tmp);
 
-    /* End of MATLABSystem: '<S8>/Digital Output1' */
+    /* End of MATLABSystem: '<S7>/Digital Output1' */
   }
 
   if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V3_M)) {
     if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V3_M)) {
-      /* Update for Memory: '<S52>/Memory' */
+      /* Update for Memory: '<S49>/Memory' */
       CONTROL_SYSTEM_V3_DW.Memory_PreviousInput = CONTROL_SYSTEM_V3_B.Logic[0];
 
-      /* Update for Memory: '<S54>/Memory' */
-      CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_b = CONTROL_SYSTEM_V3_B.Logic_e
+      /* Update for Memory: '<S51>/Memory' */
+      CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_o = CONTROL_SYSTEM_V3_B.Logic_e
         [0];
 
-      /* Update for Memory: '<S55>/Memory' */
-      CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_h = CONTROL_SYSTEM_V3_B.Logic_f
+      /* Update for Memory: '<S52>/Memory' */
+      CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_c = CONTROL_SYSTEM_V3_B.Logic_d
         [0];
 
-      /* Update for Memory: '<S53>/Memory' */
-      CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_d = CONTROL_SYSTEM_V3_B.Logic_d
+      /* Update for Memory: '<S50>/Memory' */
+      CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_m = CONTROL_SYSTEM_V3_B.Logic_l
         [0];
     }
 
-    /* Update for If: '<S1>/If Condition1' */
-    if (CONTROL_SYSTEM_V3_DW.IfCondition1_ActiveSubsystem == 1) {
-      /* Update for IfAction SubSystem: '<S1>/PID Control1' incorporates:
-       *  ActionPort: '<S11>/Action Port'
-       */
-      if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V3_M)) {
-        /* Update for DiscreteIntegrator: '<S91>/Integrator' */
-        CONTROL_SYSTEM_V3_DW.Integrator_DSTATE +=
-          CONTROL_SYSTEM_V3_P.Integrator_gainval *
-          CONTROL_SYSTEM_V3_B.IntegralGain;
-
-        /* Update for DiscreteIntegrator: '<S86>/Filter' */
-        CONTROL_SYSTEM_V3_DW.Filter_DSTATE += CONTROL_SYSTEM_V3_P.Filter_gainval
-          * CONTROL_SYSTEM_V3_B.FilterCoefficient;
-      }
-
-      /* End of Update for SubSystem: '<S1>/PID Control1' */
-    }
-
-    /* End of Update for If: '<S1>/If Condition1' */
-
-    /* Update for Enabled SubSystem: '<S33>/ON Delay' incorporates:
-     *  EnablePort: '<S35>/Enable'
+    /* Update for Enabled SubSystem: '<S30>/ON Delay' incorporates:
+     *  EnablePort: '<S32>/Enable'
      */
     if (CONTROL_SYSTEM_V3_DW.ONDelay_MODE && rtmIsMajorTimeStep
         (CONTROL_SYSTEM_V3_M)) {
-      /* Update for Memory: '<S46>/Memory' */
-      CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_n = CONTROL_SYSTEM_V3_B.Logic_d
+      /* Update for Memory: '<S43>/Memory' */
+      CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_p = CONTROL_SYSTEM_V3_B.Logic_l
         [0];
 
-      /* Update for Memory: '<S51>/IC=ic' */
+      /* Update for Memory: '<S48>/IC=ic' */
       CONTROL_SYSTEM_V3_DW.ICic_PreviousInput = CONTROL_SYSTEM_V3_B.Switch;
     }
 
-    /* End of Update for SubSystem: '<S33>/ON Delay' */
+    /* End of Update for SubSystem: '<S30>/ON Delay' */
 
-    /* Update for Enabled SubSystem: '<S33>/OFF Delay' incorporates:
-     *  EnablePort: '<S34>/Enable'
+    /* Update for Enabled SubSystem: '<S30>/OFF Delay' incorporates:
+     *  EnablePort: '<S31>/Enable'
      */
     if (CONTROL_SYSTEM_V3_DW.OFFDelay_MODE && rtmIsMajorTimeStep
         (CONTROL_SYSTEM_V3_M)) {
-      /* Update for Memory: '<S38>/Memory' */
-      CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_dj =
-        CONTROL_SYSTEM_V3_B.Logic_d[0];
+      /* Update for Memory: '<S35>/Memory' */
+      CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_k = CONTROL_SYSTEM_V3_B.Logic_l
+        [0];
 
-      /* Update for Memory: '<S43>/IC=ic' */
-      CONTROL_SYSTEM_V3_DW.ICic_PreviousInput_b = CONTROL_SYSTEM_V3_B.Switch_i;
+      /* Update for Memory: '<S40>/IC=ic' */
+      CONTROL_SYSTEM_V3_DW.ICic_PreviousInput_h = CONTROL_SYSTEM_V3_B.Switch_d;
     }
 
-    /* End of Update for SubSystem: '<S33>/OFF Delay' */
-    if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V3_M)) {/* Sample time: [0.01s, 0.0s] */
-      extmodeErrorCode_T errorCode = EXTMODE_SUCCESS;
-      extmodeSimulationTime_T currentTime = (extmodeSimulationTime_T)
-        ((CONTROL_SYSTEM_V3_M->Timing.clockTick1) * 0.01);
-
-      /* Trigger External Mode event */
-      errorCode = extmodeEvent(1,currentTime);
-      if (errorCode != EXTMODE_SUCCESS) {
-        /* Code to handle External Mode event errors
-           may be added here */
-      }
-    }
+    /* End of Update for SubSystem: '<S30>/OFF Delay' */
   }                                    /* end MajorTimeStep */
 
   if (rtmIsMajorTimeStep(CONTROL_SYSTEM_V3_M)) {
@@ -1540,7 +1346,17 @@ void CONTROL_SYSTEM_V3_derivatives(void)
   XDot_CONTROL_SYSTEM_V3_T *_rtXdot;
   _rtXdot = ((XDot_CONTROL_SYSTEM_V3_T *) CONTROL_SYSTEM_V3_M->derivs);
 
-  /* Derivatives for If: '<S1>/If Condition1' */
+  /* Derivatives for If: '<Root>/If Condition' */
+  {
+    real_T *dx;
+    int_T i1;
+    dx = &(((XDot_CONTROL_SYSTEM_V3_T *) CONTROL_SYSTEM_V3_M->derivs)
+           ->Integrator_CSTATE_b);
+    for (i1=0; i1 < 2; i1++) {
+      dx[i1] = 0.0;
+    }
+  }
+
   {
     real_T *dx;
     int_T i1;
@@ -1551,19 +1367,37 @@ void CONTROL_SYSTEM_V3_derivatives(void)
     }
   }
 
-  if (CONTROL_SYSTEM_V3_DW.IfCondition1_ActiveSubsystem == 2) {
-    /* Derivatives for IfAction SubSystem: '<S1>/ADRC Control1' incorporates:
-     *  ActionPort: '<S2>/Action Port'
+  switch (CONTROL_SYSTEM_V3_DW.IfCondition_ActiveSubsystem) {
+   case 0:
+    break;
+
+   case 1:
+    /* Derivatives for IfAction SubSystem: '<Root>/PID Control' incorporates:
+     *  ActionPort: '<S10>/Action Port'
      */
-    /* Derivatives for Integrator: '<S28>/Integrator' */
+    /* Derivatives for Integrator: '<S88>/Integrator' */
+    _rtXdot->Integrator_CSTATE_b = CONTROL_SYSTEM_V3_B.IntegralGain;
+
+    /* Derivatives for Integrator: '<S83>/Filter' */
+    _rtXdot->Filter_CSTATE = CONTROL_SYSTEM_V3_B.FilterCoefficient;
+
+    /* End of Derivatives for SubSystem: '<Root>/PID Control' */
+    break;
+
+   case 2:
+    /* Derivatives for IfAction SubSystem: '<Root>/ADRC Control' incorporates:
+     *  ActionPort: '<S1>/Action Port'
+     */
+    /* Derivatives for Integrator: '<S25>/Integrator' */
     _rtXdot->Integrator_CSTATE[0] = CONTROL_SYSTEM_V3_B.dxe[0];
     _rtXdot->Integrator_CSTATE[1] = CONTROL_SYSTEM_V3_B.dxe[1];
     _rtXdot->Integrator_CSTATE[2] = CONTROL_SYSTEM_V3_B.dxe[2];
 
-    /* End of Derivatives for SubSystem: '<S1>/ADRC Control1' */
+    /* End of Derivatives for SubSystem: '<Root>/ADRC Control' */
+    break;
   }
 
-  /* End of Derivatives for If: '<S1>/If Condition1' */
+  /* End of Derivatives for If: '<Root>/If Condition' */
 }
 
 /* Model initialize function */
@@ -1612,219 +1446,135 @@ void CONTROL_SYSTEM_V3_initialize(void)
                     &CONTROL_SYSTEM_V3_M->intgData);
   rtsiSetSolverName(&CONTROL_SYSTEM_V3_M->solverInfo,"ode3");
   rtmSetTPtr(CONTROL_SYSTEM_V3_M, &CONTROL_SYSTEM_V3_M->Timing.tArray[0]);
-  rtmSetTFinal(CONTROL_SYSTEM_V3_M, -1);
   CONTROL_SYSTEM_V3_M->Timing.stepSize0 = 0.01;
 
-  /* External mode info */
-  CONTROL_SYSTEM_V3_M->Sizes.checksums[0] = (2919133234U);
-  CONTROL_SYSTEM_V3_M->Sizes.checksums[1] = (3045350839U);
-  CONTROL_SYSTEM_V3_M->Sizes.checksums[2] = (63489670U);
-  CONTROL_SYSTEM_V3_M->Sizes.checksums[3] = (3936668173U);
-
-  {
-    static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
-    static RTWExtModeInfo rt_ExtModeInfo;
-    static const sysRanDType *systemRan[37];
-    CONTROL_SYSTEM_V3_M->extModeInfo = (&rt_ExtModeInfo);
-    rteiSetSubSystemActiveVectorAddresses(&rt_ExtModeInfo, systemRan);
-    systemRan[0] = &rtAlwaysEnabled;
-    systemRan[1] = (sysRanDType *)&CONTROL_SYSTEM_V3_DW.ADRCControl1_SubsysRanBC;
-    systemRan[2] = (sysRanDType *)&CONTROL_SYSTEM_V3_DW.ADRCControl1_SubsysRanBC;
-    systemRan[3] = &rtAlwaysEnabled;
-    systemRan[4] = &rtAlwaysEnabled;
-    systemRan[5] = &rtAlwaysEnabled;
-    systemRan[6] = &rtAlwaysEnabled;
-    systemRan[7] = &rtAlwaysEnabled;
-    systemRan[8] = &rtAlwaysEnabled;
-    systemRan[9] = &rtAlwaysEnabled;
-    systemRan[10] = &rtAlwaysEnabled;
-    systemRan[11] = &rtAlwaysEnabled;
-    systemRan[12] = (sysRanDType *)
-      &CONTROL_SYSTEM_V3_DW.TriggeredSubsystem_SubsysRanB_j;
-    systemRan[13] = (sysRanDType *)
-      &CONTROL_SYSTEM_V3_DW.NEGATIVEEdge.NEGATIVEEdge_SubsysRanBC;
-    systemRan[14] = (sysRanDType *)
-      &CONTROL_SYSTEM_V3_DW.POSITIVEEdge.POSITIVEEdge_SubsysRanBC;
-    systemRan[15] = (sysRanDType *)&CONTROL_SYSTEM_V3_DW.OFFDelay_SubsysRanBC;
-    systemRan[16] = (sysRanDType *)&CONTROL_SYSTEM_V3_DW.OFFDelay_SubsysRanBC;
-    systemRan[17] = (sysRanDType *)&CONTROL_SYSTEM_V3_DW.OFFDelay_SubsysRanBC;
-    systemRan[18] = (sysRanDType *)&CONTROL_SYSTEM_V3_DW.OFFDelay_SubsysRanBC;
-    systemRan[19] = (sysRanDType *)
-      &CONTROL_SYSTEM_V3_DW.TriggeredSubsystem_SubsysRanBC;
-    systemRan[20] = (sysRanDType *)
-      &CONTROL_SYSTEM_V3_DW.NEGATIVEEdge_m.NEGATIVEEdge_SubsysRanBC;
-    systemRan[21] = (sysRanDType *)
-      &CONTROL_SYSTEM_V3_DW.POSITIVEEdge_b.POSITIVEEdge_SubsysRanBC;
-    systemRan[22] = (sysRanDType *)&CONTROL_SYSTEM_V3_DW.ONDelay_SubsysRanBC;
-    systemRan[23] = (sysRanDType *)&CONTROL_SYSTEM_V3_DW.ONDelay_SubsysRanBC;
-    systemRan[24] = (sysRanDType *)&CONTROL_SYSTEM_V3_DW.ONDelay_SubsysRanBC;
-    systemRan[25] = (sysRanDType *)&CONTROL_SYSTEM_V3_DW.ONDelay_SubsysRanBC;
-    systemRan[26] = &rtAlwaysEnabled;
-    systemRan[27] = &rtAlwaysEnabled;
-    systemRan[28] = &rtAlwaysEnabled;
-    systemRan[29] = &rtAlwaysEnabled;
-    systemRan[30] = &rtAlwaysEnabled;
-    systemRan[31] = &rtAlwaysEnabled;
-    systemRan[32] = &rtAlwaysEnabled;
-    systemRan[33] = (sysRanDType *)&CONTROL_SYSTEM_V3_DW.PIDControl1_SubsysRanBC;
-    systemRan[34] = (sysRanDType *)&CONTROL_SYSTEM_V3_DW.PIDControl1_SubsysRanBC;
-    systemRan[35] = (sysRanDType *)
-      &CONTROL_SYSTEM_V3_DW.Propotional1_SubsysRanBC;
-    systemRan[36] = &rtAlwaysEnabled;
-    rteiSetModelMappingInfoPtr(CONTROL_SYSTEM_V3_M->extModeInfo,
-      &CONTROL_SYSTEM_V3_M->SpecialInfo.mappingInfo);
-    rteiSetChecksumsPtr(CONTROL_SYSTEM_V3_M->extModeInfo,
-                        CONTROL_SYSTEM_V3_M->Sizes.checksums);
-    rteiSetTPtr(CONTROL_SYSTEM_V3_M->extModeInfo, rtmGetTPtr(CONTROL_SYSTEM_V3_M));
-  }
-
-  /* Start for FromWorkspace: '<S13>/fromWS_Signal 1' */
-  {
-    static real_T pTimeValues0[] = { 0.0, 1.0, 3.0, 3.0, 5.0, 5.0, 7.0, 7.0, 9.0,
-      9.0, 10.0 } ;
-
-    static real_T pDataValues0[] = { 0.0, 0.0, 0.0, 50.0, 50.0, 25.0, 25.0,
-      100.0, 100.0, 0.0, 0.0 } ;
-
-    CONTROL_SYSTEM_V3_DW.fromWS_Signal1_PWORK.TimePtr = (void *) pTimeValues0;
-    CONTROL_SYSTEM_V3_DW.fromWS_Signal1_PWORK.DataPtr = (void *) pDataValues0;
-    CONTROL_SYSTEM_V3_DW.fromWS_Signal1_IWORK.PrevIndex = 0;
-  }
-
-  /* Start for If: '<S1>/If Condition1' */
+  /* Start for If: '<Root>/If Condition' */
+  (void) memset(&(CONTROL_SYSTEM_V3_XDis.Integrator_CSTATE_b), 1,
+                2*sizeof(boolean_T));
   (void) memset(&(CONTROL_SYSTEM_V3_XDis.Integrator_CSTATE), 1,
                 3*sizeof(boolean_T));
-  CONTROL_SYSTEM_V3_DW.IfCondition1_ActiveSubsystem = -1;
-
-  /* Start for FromWorkspace: '<S14>/From Workspace' */
-  {
-    static real_T pTimeValues0[] = { 0.0, 2.0, 2.0, 10.0, 10.0 } ;
-
-    static real_T pDataValues0[] = { 0.0, 0.0, 1.0, 1.0, 0.0 } ;
-
-    CONTROL_SYSTEM_V3_DW.FromWorkspace_PWORK.TimePtr = (void *) pTimeValues0;
-    CONTROL_SYSTEM_V3_DW.FromWorkspace_PWORK.DataPtr = (void *) pDataValues0;
-    CONTROL_SYSTEM_V3_DW.FromWorkspace_IWORK.PrevIndex = 0;
-  }
-
-  CONTROL_SYSTEM_V3_PrevZCX.TriggeredSubsystem_Trig_ZCE_i = POS_ZCSIG;
+  CONTROL_SYSTEM_V3_DW.IfCondition_ActiveSubsystem = -1;
+  CONTROL_SYSTEM_V3_PrevZCX.TriggeredSubsystem_Trig_ZCE_f = POS_ZCSIG;
   CONTROL_SYSTEM_V3_PrevZCX.TriggeredSubsystem_Trig_ZCE = POS_ZCSIG;
 
-  /* InitializeConditions for Memory: '<S52>/Memory' */
+  /* InitializeConditions for Memory: '<S49>/Memory' */
   CONTROL_SYSTEM_V3_DW.Memory_PreviousInput =
     CONTROL_SYSTEM_V3_P.SRFlipFlop3_initial_condition;
 
-  /* InitializeConditions for Memory: '<S54>/Memory' */
-  CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_b =
+  /* InitializeConditions for Memory: '<S51>/Memory' */
+  CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_o =
     CONTROL_SYSTEM_V3_P.SRFlipFlop5_initial_condition;
 
-  /* InitializeConditions for Memory: '<S55>/Memory' */
-  CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_h =
+  /* InitializeConditions for Memory: '<S52>/Memory' */
+  CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_c =
     CONTROL_SYSTEM_V3_P.SRFlipFlop6_initial_condition;
 
-  /* InitializeConditions for Memory: '<S53>/Memory' */
-  CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_d =
+  /* InitializeConditions for Memory: '<S50>/Memory' */
+  CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_m =
     CONTROL_SYSTEM_V3_P.SRFlipFlop4_initial_condition;
 
-  /* SystemInitialize for MATLAB Function: '<S1>/Foot Pedal Calibration1' */
+  /* SystemInitialize for MATLAB Function: '<Root>/Foot Pedal Calibration' */
   CONTROL_SYSTEM_V3_DW.maxSet = -1.0;
   CONTROL_SYSTEM_V3_DW.minSet = 5.0;
 
-  /* SystemInitialize for MATLAB Function: '<S1>/Throttle Body Callibration1' */
+  /* SystemInitialize for MATLAB Function: '<Root>/Throttle Body Callibration' */
   CONTROL_SYSTEM_V3_DW.TB_maxSet = -1.0;
   CONTROL_SYSTEM_V3_DW.TB_minSet = 5.0;
 
-  /* SystemInitialize for IfAction SubSystem: '<S1>/Propotional1' */
-  /* SystemInitialize for SignalConversion generated from: '<S12>/Error' incorporates:
-   *  Outport: '<S12>/Propotional'
+  /* SystemInitialize for IfAction SubSystem: '<Root>/Propotional' */
+  /* SystemInitialize for SignalConversion generated from: '<S11>/Error' incorporates:
+   *  Outport: '<S11>/Propotional'
    */
-  CONTROL_SYSTEM_V3_B.Error_j = CONTROL_SYSTEM_V3_P.Propotional_Y0;
+  CONTROL_SYSTEM_V3_B.Error = CONTROL_SYSTEM_V3_P.Propotional_Y0;
 
-  /* End of SystemInitialize for SubSystem: '<S1>/Propotional1' */
-  /* InitializeConditions for DiscreteIntegrator: '<S91>/Integrator' */
-  CONTROL_SYSTEM_V3_DW.Integrator_DSTATE =
-    CONTROL_SYSTEM_V3_P.PIDController1_InitialConditi_o;
+  /* End of SystemInitialize for SubSystem: '<Root>/Propotional' */
 
-  /* InitializeConditions for DiscreteIntegrator: '<S86>/Filter' */
-  CONTROL_SYSTEM_V3_DW.Filter_DSTATE =
+  /* SystemInitialize for IfAction SubSystem: '<Root>/PID Control' */
+  /* InitializeConditions for Integrator: '<S88>/Integrator' */
+  CONTROL_SYSTEM_V3_X.Integrator_CSTATE_b =
+    CONTROL_SYSTEM_V3_P.PIDController1_InitialConditi_g;
+
+  /* InitializeConditions for Integrator: '<S83>/Filter' */
+  CONTROL_SYSTEM_V3_X.Filter_CSTATE =
     CONTROL_SYSTEM_V3_P.PIDController1_InitialCondition;
 
-  /* SystemInitialize for Switch: '<S57>/Switch2' incorporates:
-   *  Outport: '<S11>/PID Output'
+  /* SystemInitialize for Sum: '<S97>/Sum' incorporates:
+   *  Outport: '<S10>/PID Output'
+   *  Switch: '<S54>/Switch2'
    */
-  CONTROL_SYSTEM_V3_B.Switch2_e = CONTROL_SYSTEM_V3_P.PIDOutput_Y0;
+  CONTROL_SYSTEM_V3_B.Switch2_j = CONTROL_SYSTEM_V3_P.PIDOutput_Y0;
 
-  /* End of SystemInitialize for SubSystem: '<S1>/PID Control1' */
+  /* End of SystemInitialize for SubSystem: '<Root>/PID Control' */
 
-  /* SystemInitialize for IfAction SubSystem: '<S1>/ADRC Control1' */
-  /* InitializeConditions for Integrator: '<S28>/Integrator' */
+  /* SystemInitialize for IfAction SubSystem: '<Root>/ADRC Control' */
+  /* InitializeConditions for Integrator: '<S25>/Integrator' */
   CONTROL_SYSTEM_V3_X.Integrator_CSTATE[0] = CONTROL_SYSTEM_V3_P.Observer_x0;
   CONTROL_SYSTEM_V3_X.Integrator_CSTATE[1] = CONTROL_SYSTEM_V3_P.Observer_x0;
   CONTROL_SYSTEM_V3_X.Integrator_CSTATE[2] = CONTROL_SYSTEM_V3_P.Observer_x0;
 
-  /* SystemInitialize for Gain: '<S26>/Gain1' incorporates:
-   *  Outport: '<S2>/ADRC Output'
-   *  Switch: '<S19>/Switch2'
+  /* SystemInitialize for Gain: '<S23>/Gain1' incorporates:
+   *  Outport: '<S1>/ADRC Output'
+   *  Switch: '<S16>/Switch2'
    */
   CONTROL_SYSTEM_V3_B.Switch2 = CONTROL_SYSTEM_V3_P.ADRCOutput_Y0;
 
-  /* End of SystemInitialize for SubSystem: '<S1>/ADRC Control1' */
+  /* End of SystemInitialize for SubSystem: '<Root>/ADRC Control' */
 
-  /* SystemInitialize for Enabled SubSystem: '<S33>/ON Delay' */
-  /* InitializeConditions for Memory: '<S46>/Memory' */
-  CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_n = CONTROL_SYSTEM_V3_P.OnDelay_ic;
+  /* SystemInitialize for Enabled SubSystem: '<S30>/ON Delay' */
+  /* InitializeConditions for Memory: '<S43>/Memory' */
+  CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_p = CONTROL_SYSTEM_V3_P.OnDelay_ic;
 
-  /* InitializeConditions for Memory: '<S51>/IC=ic' */
+  /* InitializeConditions for Memory: '<S48>/IC=ic' */
   CONTROL_SYSTEM_V3_DW.ICic_PreviousInput =
-    CONTROL_SYSTEM_V3_P.SampleandHold_ic_k;
+    CONTROL_SYSTEM_V3_P.SampleandHold_ic_g;
 
-  /* SystemInitialize for Enabled SubSystem: '<S46>/POSITIVE Edge' */
-  CONTROL_SYSTE_POSITIVEEdge_Init(&CONTROL_SYSTEM_V3_B.RelationalOperator1_i,
-    &CONTROL_SYSTEM_V3_P.POSITIVEEdge_b);
+  /* SystemInitialize for Enabled SubSystem: '<S43>/POSITIVE Edge' */
+  CONTROL_SYSTE_POSITIVEEdge_Init(&CONTROL_SYSTEM_V3_B.RelationalOperator1_p,
+    &CONTROL_SYSTEM_V3_P.POSITIVEEdge_j);
 
-  /* End of SystemInitialize for SubSystem: '<S46>/POSITIVE Edge' */
+  /* End of SystemInitialize for SubSystem: '<S43>/POSITIVE Edge' */
 
-  /* SystemInitialize for Enabled SubSystem: '<S46>/NEGATIVE Edge' */
-  CONTROL_SYSTE_NEGATIVEEdge_Init(&CONTROL_SYSTEM_V3_B.RelationalOperator1_g,
-    &CONTROL_SYSTEM_V3_P.NEGATIVEEdge_m);
+  /* SystemInitialize for Enabled SubSystem: '<S43>/NEGATIVE Edge' */
+  CONTROL_SYSTE_NEGATIVEEdge_Init(&CONTROL_SYSTEM_V3_B.RelationalOperator1_h,
+    &CONTROL_SYSTEM_V3_P.NEGATIVEEdge_d);
 
-  /* End of SystemInitialize for SubSystem: '<S46>/NEGATIVE Edge' */
+  /* End of SystemInitialize for SubSystem: '<S43>/NEGATIVE Edge' */
 
-  /* SystemInitialize for Logic: '<S35>/Logical Operator2' incorporates:
-   *  Outport: '<S35>/OUT'
+  /* SystemInitialize for Logic: '<S32>/Logical Operator2' incorporates:
+   *  Outport: '<S32>/OUT'
    */
-  CONTROL_SYSTEM_V3_B.LogicalOperator2_g = CONTROL_SYSTEM_V3_P.OUT_Y0_o;
+  CONTROL_SYSTEM_V3_B.LogicalOperator2_f = CONTROL_SYSTEM_V3_P.OUT_Y0_a;
 
-  /* End of SystemInitialize for SubSystem: '<S33>/ON Delay' */
+  /* End of SystemInitialize for SubSystem: '<S30>/ON Delay' */
 
-  /* SystemInitialize for Enabled SubSystem: '<S33>/OFF Delay' */
-  /* InitializeConditions for Memory: '<S38>/Memory' */
-  CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_dj = CONTROL_SYSTEM_V3_P.OnDelay_ic;
+  /* SystemInitialize for Enabled SubSystem: '<S30>/OFF Delay' */
+  /* InitializeConditions for Memory: '<S35>/Memory' */
+  CONTROL_SYSTEM_V3_DW.Memory_PreviousInput_k = CONTROL_SYSTEM_V3_P.OnDelay_ic;
 
-  /* InitializeConditions for Memory: '<S43>/IC=ic' */
-  CONTROL_SYSTEM_V3_DW.ICic_PreviousInput_b =
+  /* InitializeConditions for Memory: '<S40>/IC=ic' */
+  CONTROL_SYSTEM_V3_DW.ICic_PreviousInput_h =
     CONTROL_SYSTEM_V3_P.SampleandHold_ic;
 
-  /* SystemInitialize for Enabled SubSystem: '<S38>/POSITIVE Edge' */
-  CONTROL_SYSTE_POSITIVEEdge_Init(&CONTROL_SYSTEM_V3_B.RelationalOperator1_e,
+  /* SystemInitialize for Enabled SubSystem: '<S35>/POSITIVE Edge' */
+  CONTROL_SYSTE_POSITIVEEdge_Init(&CONTROL_SYSTEM_V3_B.RelationalOperator1_i,
     &CONTROL_SYSTEM_V3_P.POSITIVEEdge);
 
-  /* End of SystemInitialize for SubSystem: '<S38>/POSITIVE Edge' */
+  /* End of SystemInitialize for SubSystem: '<S35>/POSITIVE Edge' */
 
-  /* SystemInitialize for Enabled SubSystem: '<S38>/NEGATIVE Edge' */
-  CONTROL_SYSTE_NEGATIVEEdge_Init(&CONTROL_SYSTEM_V3_B.RelationalOperator1_f,
+  /* SystemInitialize for Enabled SubSystem: '<S35>/NEGATIVE Edge' */
+  CONTROL_SYSTE_NEGATIVEEdge_Init(&CONTROL_SYSTEM_V3_B.RelationalOperator1_d,
     &CONTROL_SYSTEM_V3_P.NEGATIVEEdge);
 
-  /* End of SystemInitialize for SubSystem: '<S38>/NEGATIVE Edge' */
+  /* End of SystemInitialize for SubSystem: '<S35>/NEGATIVE Edge' */
 
-  /* SystemInitialize for Logic: '<S34>/Logical Operator2' incorporates:
-   *  Outport: '<S34>/OUT'
+  /* SystemInitialize for Logic: '<S31>/Logical Operator2' incorporates:
+   *  Outport: '<S31>/OUT'
    */
-  CONTROL_SYSTEM_V3_B.LogicalOperator2_c = CONTROL_SYSTEM_V3_P.OUT_Y0;
+  CONTROL_SYSTEM_V3_B.LogicalOperator2_l = CONTROL_SYSTEM_V3_P.OUT_Y0;
 
-  /* End of SystemInitialize for SubSystem: '<S33>/OFF Delay' */
+  /* End of SystemInitialize for SubSystem: '<S30>/OFF Delay' */
 
-  /* Start for MATLABSystem: '<S9>/Digital Input' */
+  /* Start for MATLABSystem: '<S8>/Digital Input' */
   CONTROL_SYSTEM_V3_DW.obj_c.matlabCodegenIsDeleted = false;
   CONTROL_SYSTEM_V3_DW.obj_c.SampleTime =
     CONTROL_SYSTEM_V3_P.DigitalInput_SampleTime;
@@ -1832,37 +1582,37 @@ void CONTROL_SYSTEM_V3_initialize(void)
   digitalIOSetup(36, 0);
   CONTROL_SYSTEM_V3_DW.obj_c.isSetupComplete = true;
 
-  /* Start for MATLABSystem: '<S9>/Digital Input3' */
-  CONTROL_SYSTEM_V3_DW.obj_n.matlabCodegenIsDeleted = false;
-  CONTROL_SYSTEM_V3_DW.obj_n.SampleTime =
+  /* Start for MATLABSystem: '<S8>/Digital Input3' */
+  CONTROL_SYSTEM_V3_DW.obj_f.matlabCodegenIsDeleted = false;
+  CONTROL_SYSTEM_V3_DW.obj_f.SampleTime =
     CONTROL_SYSTEM_V3_P.DigitalInput3_SampleTime;
-  CONTROL_SYSTEM_V3_DW.obj_n.isInitialized = 1;
+  CONTROL_SYSTEM_V3_DW.obj_f.isInitialized = 1;
   digitalIOSetup(35, 0);
-  CONTROL_SYSTEM_V3_DW.obj_n.isSetupComplete = true;
+  CONTROL_SYSTEM_V3_DW.obj_f.isSetupComplete = true;
 
-  /* Start for MATLABSystem: '<S9>/Digital Input1' */
-  CONTROL_SYSTEM_V3_DW.obj_m.matlabCodegenIsDeleted = false;
-  CONTROL_SYSTEM_V3_DW.obj_m.SampleTime =
+  /* Start for MATLABSystem: '<S8>/Digital Input1' */
+  CONTROL_SYSTEM_V3_DW.obj_hd.matlabCodegenIsDeleted = false;
+  CONTROL_SYSTEM_V3_DW.obj_hd.SampleTime =
     CONTROL_SYSTEM_V3_P.DigitalInput1_SampleTime;
-  CONTROL_SYSTEM_V3_DW.obj_m.isInitialized = 1;
+  CONTROL_SYSTEM_V3_DW.obj_hd.isInitialized = 1;
   digitalIOSetup(39, 0);
-  CONTROL_SYSTEM_V3_DW.obj_m.isSetupComplete = true;
+  CONTROL_SYSTEM_V3_DW.obj_hd.isSetupComplete = true;
 
-  /* Start for MATLABSystem: '<S9>/Digital Input2' */
-  CONTROL_SYSTEM_V3_DW.obj_l.matlabCodegenIsDeleted = false;
-  CONTROL_SYSTEM_V3_DW.obj_l.SampleTime =
+  /* Start for MATLABSystem: '<S8>/Digital Input2' */
+  CONTROL_SYSTEM_V3_DW.obj_h.matlabCodegenIsDeleted = false;
+  CONTROL_SYSTEM_V3_DW.obj_h.SampleTime =
     CONTROL_SYSTEM_V3_P.DigitalInput2_SampleTime;
-  CONTROL_SYSTEM_V3_DW.obj_l.isInitialized = 1;
+  CONTROL_SYSTEM_V3_DW.obj_h.isInitialized = 1;
   digitalIOSetup(34, 0);
-  CONTROL_SYSTEM_V3_DW.obj_l.isSetupComplete = true;
+  CONTROL_SYSTEM_V3_DW.obj_h.isSetupComplete = true;
 
-  /* Start for MATLABSystem: '<S4>/Digital Output' */
-  CONTROL_SYSTEM_V3_DW.obj_dn.matlabCodegenIsDeleted = false;
-  CONTROL_SYSTEM_V3_DW.obj_dn.isInitialized = 1;
+  /* Start for MATLABSystem: '<S3>/Digital Output' */
+  CONTROL_SYSTEM_V3_DW.obj_j.matlabCodegenIsDeleted = false;
+  CONTROL_SYSTEM_V3_DW.obj_j.isInitialized = 1;
   digitalIOSetup(27, 1);
-  CONTROL_SYSTEM_V3_DW.obj_dn.isSetupComplete = true;
+  CONTROL_SYSTEM_V3_DW.obj_j.isSetupComplete = true;
 
-  /* Start for MATLABSystem: '<S3>/MATLAB System' */
+  /* Start for MATLABSystem: '<S2>/MATLAB System' */
   /*  Constructor */
   CONTROL_SYSTEM_V3_DW.obj.matlabCodegenIsDeleted = false;
   CONTROL_SYSTEM_V3_DW.obj.SampleTime =
@@ -1874,139 +1624,144 @@ void CONTROL_SYSTEM_V3_initialize(void)
   setupFunctionADS1115_Vread(16, 1.0);
   CONTROL_SYSTEM_V3_DW.obj.isSetupComplete = true;
 
-  /* Start for MATLABSystem: '<S4>/Digital Output2' */
-  CONTROL_SYSTEM_V3_DW.obj_j.matlabCodegenIsDeleted = false;
-  CONTROL_SYSTEM_V3_DW.obj_j.isInitialized = 1;
+  /* Start for MATLABSystem: '<S3>/Digital Output2' */
+  CONTROL_SYSTEM_V3_DW.obj_pz.matlabCodegenIsDeleted = false;
+  CONTROL_SYSTEM_V3_DW.obj_pz.isInitialized = 1;
   digitalIOSetup(25, 1);
-  CONTROL_SYSTEM_V3_DW.obj_j.isSetupComplete = true;
+  CONTROL_SYSTEM_V3_DW.obj_pz.isSetupComplete = true;
 
-  /* Start for MATLABSystem: '<S4>/Digital Output1' */
+  /* Start for MATLABSystem: '<S3>/Digital Output1' */
+  CONTROL_SYSTEM_V3_DW.obj_f2.matlabCodegenIsDeleted = false;
+  CONTROL_SYSTEM_V3_DW.obj_f2.isInitialized = 1;
+  digitalIOSetup(26, 1);
+  CONTROL_SYSTEM_V3_DW.obj_f2.isSetupComplete = true;
+
+  /* Start for MATLABSystem: '<S7>/PWM' */
   CONTROL_SYSTEM_V3_DW.obj_e.matlabCodegenIsDeleted = false;
   CONTROL_SYSTEM_V3_DW.obj_e.isInitialized = 1;
-  digitalIOSetup(26, 1);
+  CONTROL_SYSTEM_V3_DW.obj_e.PWMDriverObj.MW_PWM_HANDLE = MW_PWM_Open(4U,
+    19000.0, 255.0);
   CONTROL_SYSTEM_V3_DW.obj_e.isSetupComplete = true;
 
-  /* Start for MATLABSystem: '<S8>/PWM' */
-  CONTROL_SYSTEM_V3_DW.obj_g.matlabCodegenIsDeleted = false;
-  CONTROL_SYSTEM_V3_DW.obj_g.isInitialized = 1;
-  CONTROL_SYSTEM_V3_DW.obj_g.PWMDriverObj.MW_PWM_HANDLE = MW_PWM_Open(4U,
-    19000.0, 255.0);
-  CONTROL_SYSTEM_V3_DW.obj_g.isSetupComplete = true;
-
-  /* Start for MATLABSystem: '<S4>/Digital Output3' */
-  CONTROL_SYSTEM_V3_DW.obj_i.matlabCodegenIsDeleted = false;
-  CONTROL_SYSTEM_V3_DW.obj_i.isInitialized = 1;
+  /* Start for MATLABSystem: '<S3>/Digital Output3' */
+  CONTROL_SYSTEM_V3_DW.obj_m.matlabCodegenIsDeleted = false;
+  CONTROL_SYSTEM_V3_DW.obj_m.isInitialized = 1;
   digitalIOSetup(33, 1);
-  CONTROL_SYSTEM_V3_DW.obj_i.isSetupComplete = true;
+  CONTROL_SYSTEM_V3_DW.obj_m.isSetupComplete = true;
 
-  /* Start for MATLABSystem: '<S5>/Digital Output4' */
-  CONTROL_SYSTEM_V3_DW.obj_n5.matlabCodegenIsDeleted = false;
-  CONTROL_SYSTEM_V3_DW.obj_n5.isInitialized = 1;
+  /* Start for MATLABSystem: '<S4>/Digital Output4' */
+  CONTROL_SYSTEM_V3_DW.obj_p.matlabCodegenIsDeleted = false;
+  CONTROL_SYSTEM_V3_DW.obj_p.isInitialized = 1;
   digitalIOSetup(32, 1);
-  CONTROL_SYSTEM_V3_DW.obj_n5.isSetupComplete = true;
+  CONTROL_SYSTEM_V3_DW.obj_p.isSetupComplete = true;
 
-  /* Start for MATLABSystem: '<S8>/Digital Output' */
-  CONTROL_SYSTEM_V3_DW.obj_d.matlabCodegenIsDeleted = false;
-  CONTROL_SYSTEM_V3_DW.obj_d.isInitialized = 1;
+  /* Start for MATLABSystem: '<S7>/Digital Output' */
+  CONTROL_SYSTEM_V3_DW.obj_b.matlabCodegenIsDeleted = false;
+  CONTROL_SYSTEM_V3_DW.obj_b.isInitialized = 1;
   digitalIOSetup(0, 1);
-  CONTROL_SYSTEM_V3_DW.obj_d.isSetupComplete = true;
+  CONTROL_SYSTEM_V3_DW.obj_b.isSetupComplete = true;
 
-  /* Start for MATLABSystem: '<S8>/Digital Output1' */
-  CONTROL_SYSTEM_V3_DW.obj_my.matlabCodegenIsDeleted = false;
-  CONTROL_SYSTEM_V3_DW.obj_my.isInitialized = 1;
+  /* Start for MATLABSystem: '<S7>/Digital Output1' */
+  CONTROL_SYSTEM_V3_DW.obj_l.matlabCodegenIsDeleted = false;
+  CONTROL_SYSTEM_V3_DW.obj_l.isInitialized = 1;
   digitalIOSetup(16, 1);
-  CONTROL_SYSTEM_V3_DW.obj_my.isSetupComplete = true;
+  CONTROL_SYSTEM_V3_DW.obj_l.isSetupComplete = true;
 }
 
 /* Model terminate function */
 void CONTROL_SYSTEM_V3_terminate(void)
 {
-  /* Terminate for MATLABSystem: '<S9>/Digital Input' */
+  /* Terminate for MATLABSystem: '<S8>/Digital Input' */
   if (!CONTROL_SYSTEM_V3_DW.obj_c.matlabCodegenIsDeleted) {
     CONTROL_SYSTEM_V3_DW.obj_c.matlabCodegenIsDeleted = true;
   }
 
-  /* End of Terminate for MATLABSystem: '<S9>/Digital Input' */
+  /* End of Terminate for MATLABSystem: '<S8>/Digital Input' */
 
-  /* Terminate for MATLABSystem: '<S9>/Digital Input3' */
-  if (!CONTROL_SYSTEM_V3_DW.obj_n.matlabCodegenIsDeleted) {
-    CONTROL_SYSTEM_V3_DW.obj_n.matlabCodegenIsDeleted = true;
+  /* Terminate for MATLABSystem: '<S8>/Digital Input3' */
+  if (!CONTROL_SYSTEM_V3_DW.obj_f.matlabCodegenIsDeleted) {
+    CONTROL_SYSTEM_V3_DW.obj_f.matlabCodegenIsDeleted = true;
   }
 
-  /* End of Terminate for MATLABSystem: '<S9>/Digital Input3' */
+  /* End of Terminate for MATLABSystem: '<S8>/Digital Input3' */
 
-  /* Terminate for MATLABSystem: '<S9>/Digital Input1' */
-  if (!CONTROL_SYSTEM_V3_DW.obj_m.matlabCodegenIsDeleted) {
-    CONTROL_SYSTEM_V3_DW.obj_m.matlabCodegenIsDeleted = true;
+  /* Terminate for MATLABSystem: '<S8>/Digital Input1' */
+  if (!CONTROL_SYSTEM_V3_DW.obj_hd.matlabCodegenIsDeleted) {
+    CONTROL_SYSTEM_V3_DW.obj_hd.matlabCodegenIsDeleted = true;
   }
 
-  /* End of Terminate for MATLABSystem: '<S9>/Digital Input1' */
+  /* End of Terminate for MATLABSystem: '<S8>/Digital Input1' */
 
-  /* Terminate for MATLABSystem: '<S9>/Digital Input2' */
-  if (!CONTROL_SYSTEM_V3_DW.obj_l.matlabCodegenIsDeleted) {
-    CONTROL_SYSTEM_V3_DW.obj_l.matlabCodegenIsDeleted = true;
+  /* Terminate for MATLABSystem: '<S8>/Digital Input2' */
+  if (!CONTROL_SYSTEM_V3_DW.obj_h.matlabCodegenIsDeleted) {
+    CONTROL_SYSTEM_V3_DW.obj_h.matlabCodegenIsDeleted = true;
   }
 
-  /* End of Terminate for MATLABSystem: '<S9>/Digital Input2' */
+  /* End of Terminate for MATLABSystem: '<S8>/Digital Input2' */
 
-  /* Terminate for MATLABSystem: '<S4>/Digital Output' */
-  if (!CONTROL_SYSTEM_V3_DW.obj_dn.matlabCodegenIsDeleted) {
-    CONTROL_SYSTEM_V3_DW.obj_dn.matlabCodegenIsDeleted = true;
-  }
-
-  /* End of Terminate for MATLABSystem: '<S4>/Digital Output' */
-
-  /* Terminate for MATLABSystem: '<S3>/MATLAB System' */
-  if (!CONTROL_SYSTEM_V3_DW.obj.matlabCodegenIsDeleted) {
-    CONTROL_SYSTEM_V3_DW.obj.matlabCodegenIsDeleted = true;
-  }
-
-  /* End of Terminate for MATLABSystem: '<S3>/MATLAB System' */
-  /* Terminate for MATLABSystem: '<S4>/Digital Output2' */
+  /* Terminate for MATLABSystem: '<S3>/Digital Output' */
   if (!CONTROL_SYSTEM_V3_DW.obj_j.matlabCodegenIsDeleted) {
     CONTROL_SYSTEM_V3_DW.obj_j.matlabCodegenIsDeleted = true;
   }
 
-  /* End of Terminate for MATLABSystem: '<S4>/Digital Output2' */
+  /* End of Terminate for MATLABSystem: '<S3>/Digital Output' */
 
-  /* Terminate for MATLABSystem: '<S4>/Digital Output1' */
+  /* Terminate for MATLABSystem: '<S2>/MATLAB System' */
+  if (!CONTROL_SYSTEM_V3_DW.obj.matlabCodegenIsDeleted) {
+    CONTROL_SYSTEM_V3_DW.obj.matlabCodegenIsDeleted = true;
+  }
+
+  /* End of Terminate for MATLABSystem: '<S2>/MATLAB System' */
+
+  /* Terminate for MATLABSystem: '<S3>/Digital Output2' */
+  if (!CONTROL_SYSTEM_V3_DW.obj_pz.matlabCodegenIsDeleted) {
+    CONTROL_SYSTEM_V3_DW.obj_pz.matlabCodegenIsDeleted = true;
+  }
+
+  /* End of Terminate for MATLABSystem: '<S3>/Digital Output2' */
+
+  /* Terminate for MATLABSystem: '<S3>/Digital Output1' */
+  if (!CONTROL_SYSTEM_V3_DW.obj_f2.matlabCodegenIsDeleted) {
+    CONTROL_SYSTEM_V3_DW.obj_f2.matlabCodegenIsDeleted = true;
+  }
+
+  /* End of Terminate for MATLABSystem: '<S3>/Digital Output1' */
+
+  /* Terminate for MATLABSystem: '<S7>/PWM' */
   if (!CONTROL_SYSTEM_V3_DW.obj_e.matlabCodegenIsDeleted) {
     CONTROL_SYSTEM_V3_DW.obj_e.matlabCodegenIsDeleted = true;
+    CONTROL_SYST_SystemCore_release(&CONTROL_SYSTEM_V3_DW.obj_e);
   }
 
-  /* End of Terminate for MATLABSystem: '<S4>/Digital Output1' */
+  /* End of Terminate for MATLABSystem: '<S7>/PWM' */
 
-  /* Terminate for MATLABSystem: '<S8>/PWM' */
-  if (!CONTROL_SYSTEM_V3_DW.obj_g.matlabCodegenIsDeleted) {
-    CONTROL_SYSTEM_V3_DW.obj_g.matlabCodegenIsDeleted = true;
-    CONTROL_SYST_SystemCore_release(&CONTROL_SYSTEM_V3_DW.obj_g);
+  /* Terminate for MATLABSystem: '<S3>/Digital Output3' */
+  if (!CONTROL_SYSTEM_V3_DW.obj_m.matlabCodegenIsDeleted) {
+    CONTROL_SYSTEM_V3_DW.obj_m.matlabCodegenIsDeleted = true;
   }
 
-  /* End of Terminate for MATLABSystem: '<S8>/PWM' */
-  /* Terminate for MATLABSystem: '<S4>/Digital Output3' */
-  if (!CONTROL_SYSTEM_V3_DW.obj_i.matlabCodegenIsDeleted) {
-    CONTROL_SYSTEM_V3_DW.obj_i.matlabCodegenIsDeleted = true;
+  /* End of Terminate for MATLABSystem: '<S3>/Digital Output3' */
+
+  /* Terminate for MATLABSystem: '<S4>/Digital Output4' */
+  if (!CONTROL_SYSTEM_V3_DW.obj_p.matlabCodegenIsDeleted) {
+    CONTROL_SYSTEM_V3_DW.obj_p.matlabCodegenIsDeleted = true;
   }
 
-  /* End of Terminate for MATLABSystem: '<S4>/Digital Output3' */
-  /* Terminate for MATLABSystem: '<S5>/Digital Output4' */
-  if (!CONTROL_SYSTEM_V3_DW.obj_n5.matlabCodegenIsDeleted) {
-    CONTROL_SYSTEM_V3_DW.obj_n5.matlabCodegenIsDeleted = true;
+  /* End of Terminate for MATLABSystem: '<S4>/Digital Output4' */
+
+  /* Terminate for MATLABSystem: '<S7>/Digital Output' */
+  if (!CONTROL_SYSTEM_V3_DW.obj_b.matlabCodegenIsDeleted) {
+    CONTROL_SYSTEM_V3_DW.obj_b.matlabCodegenIsDeleted = true;
   }
 
-  /* End of Terminate for MATLABSystem: '<S5>/Digital Output4' */
-  /* Terminate for MATLABSystem: '<S8>/Digital Output' */
-  if (!CONTROL_SYSTEM_V3_DW.obj_d.matlabCodegenIsDeleted) {
-    CONTROL_SYSTEM_V3_DW.obj_d.matlabCodegenIsDeleted = true;
+  /* End of Terminate for MATLABSystem: '<S7>/Digital Output' */
+
+  /* Terminate for MATLABSystem: '<S7>/Digital Output1' */
+  if (!CONTROL_SYSTEM_V3_DW.obj_l.matlabCodegenIsDeleted) {
+    CONTROL_SYSTEM_V3_DW.obj_l.matlabCodegenIsDeleted = true;
   }
 
-  /* End of Terminate for MATLABSystem: '<S8>/Digital Output' */
-  /* Terminate for MATLABSystem: '<S8>/Digital Output1' */
-  if (!CONTROL_SYSTEM_V3_DW.obj_my.matlabCodegenIsDeleted) {
-    CONTROL_SYSTEM_V3_DW.obj_my.matlabCodegenIsDeleted = true;
-  }
-
-  /* End of Terminate for MATLABSystem: '<S8>/Digital Output1' */
+  /* End of Terminate for MATLABSystem: '<S7>/Digital Output1' */
 }
 
 /*

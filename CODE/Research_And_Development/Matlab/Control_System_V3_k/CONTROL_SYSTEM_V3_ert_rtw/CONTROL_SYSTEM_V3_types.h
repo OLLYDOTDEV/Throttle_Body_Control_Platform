@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'CONTROL_SYSTEM_V3'.
  *
- * Model version                  : 1.5
+ * Model version                  : 1.6
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Thu Oct 24 14:44:44 2024
+ * C/C++ source code generated on : Thu Nov  7 23:08:43 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -79,7 +79,7 @@ typedef struct tag_qrLkTWTW64zZK0sqwALTyG codertarget_arduinobase_block_T;
 
 #endif                             /* typedef_codertarget_arduinobase_block_T */
 
-/* Custom Type definition for MATLABSystem: '<S8>/PWM' */
+/* Custom Type definition for MATLABSystem: '<S7>/PWM' */
 #include "MW_SVD.h"
 #ifndef struct_tag_g1WX34VPn8QzVKQriB4HN
 #define struct_tag_g1WX34VPn8QzVKQriB4HN
@@ -156,10 +156,10 @@ typedef struct tag_mPMPiw8t0JZKYO8orfnwRG codertarget_arduinobase_blo_c_T;
 
 #endif                             /* typedef_codertarget_arduinobase_blo_c_T */
 
-/* Parameters for system: '<S38>/NEGATIVE Edge' */
+/* Parameters for system: '<S35>/NEGATIVE Edge' */
 typedef struct P_NEGATIVEEdge_CONTROL_SYSTEM_T_ P_NEGATIVEEdge_CONTROL_SYSTEM_T;
 
-/* Parameters for system: '<S38>/POSITIVE Edge' */
+/* Parameters for system: '<S35>/POSITIVE Edge' */
 typedef struct P_POSITIVEEdge_CONTROL_SYSTEM_T_ P_POSITIVEEdge_CONTROL_SYSTEM_T;
 
 /* Parameters (default storage) */

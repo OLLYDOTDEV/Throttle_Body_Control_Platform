@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'CONTROL_SYSTEM_V3'.
  *
- * Model version                  : 1.5
+ * Model version                  : 1.6
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Thu Oct 24 14:44:44 2024
+ * C/C++ source code generated on : Thu Nov  7 23:08:43 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -21,7 +21,6 @@
 #ifndef CONTROL_SYSTEM_V3_private_h_
 #define CONTROL_SYSTEM_V3_private_h_
 #include "rtwtypes.h"
-#include "multiword_types.h"
 #include "zero_crossing_types.h"
 #include "CONTROL_SYSTEM_V3.h"
 #include "CONTROL_SYSTEM_V3_types.h"
@@ -37,21 +36,8 @@
 #define rtmIsMinorTimeStep(rtm)        (((rtm)->Timing.simTimeStep) == MINOR_TIME_STEP)
 #endif
 
-#ifndef rtmSetTFinal
-#define rtmSetTFinal(rtm, val)         ((rtm)->Timing.tFinal = (val))
-#endif
-
 #ifndef rtmSetTPtr
 #define rtmSetTPtr(rtm, val)           ((rtm)->Timing.t = (val))
-#endif
-
-/* Used by FromWorkspace Block: '<S13>/fromWS_Signal 1' */
-#ifndef rtInterpolate
-# define rtInterpolate(v1,v2,f1,f2)    (((v1)==(v2))?((double)(v1)): (((f1)*((double)(v1)))+((f2)*((double)(v2)))))
-#endif
-
-#ifndef rtRound
-# define rtRound(v)                    ( ((v) >= 0) ? floor((v) + 0.5) : ceil((v) - 0.5) )
 #endif
 
 #ifndef UCHAR_MAX
