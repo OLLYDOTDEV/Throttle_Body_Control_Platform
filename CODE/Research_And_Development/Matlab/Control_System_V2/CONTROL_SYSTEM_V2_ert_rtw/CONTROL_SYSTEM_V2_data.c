@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'CONTROL_SYSTEM_V2'.
  *
- * Model version                  : 1.19
+ * Model version                  : 1.20
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Thu Sep 12 15:27:52 2024
+ * C/C++ source code generated on : Mon Sep 23 19:23:35 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -244,6 +244,11 @@ P_CONTROL_SYSTEM_V2_T CONTROL_SYSTEM_V2_P = {
    */
   0.0,
 
+  /* Expression: 100
+   * Referenced by: '<S11>/Gain'
+   */
+  100.0,
+
   /* Expression: 1
    * Referenced by: '<S3>/Constant'
    */
@@ -333,20 +338,20 @@ P_CONTROL_SYSTEM_V2_T CONTROL_SYSTEM_V2_P = {
   { false, true, false, false, true, true, false, false, true, false, true, true,
     false, false, false, false },
 
-  /* Computed Parameter: Gain_Gain
+  /* Computed Parameter: Gain_Gain_j
    * Referenced by: '<S6>/Gain'
    */
   200U,
-
-  /* Computed Parameter: Multiply2_Gain
-   * Referenced by: '<S9>/Multiply2'
-   */
-  192U,
 
   /* Computed Parameter: Multiply1_Gain
    * Referenced by: '<S9>/Multiply1'
    */
   128U,
+
+  /* Computed Parameter: Multiply2_Gain
+   * Referenced by: '<S9>/Multiply2'
+   */
+  192U,
 
   /* Computed Parameter: Multiply_Gain
    * Referenced by: '<S9>/Multiply'

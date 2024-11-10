@@ -8,9 +8,9 @@
  *
  * Code generated for Simulink model 'CONTROL_SYSTEM_V2'.
  *
- * Model version                  : 1.19
+ * Model version                  : 1.20
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Thu Sep 12 15:27:52 2024
+ * C/C++ source code generated on : Mon Sep 23 19:23:35 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
