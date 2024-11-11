@@ -1,4 +1,0 @@
-Fixed errors with 0VDC traces
-Relocated H Bridge to provide room for heat sink to allow cooling
-Incressed Mounting hole size 
-Added missing disable trace. (airwire didnt connect due to spelling error)
